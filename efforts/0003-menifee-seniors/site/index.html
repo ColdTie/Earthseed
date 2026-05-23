@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Senior Resources in Menifee, CA</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --slate:    #3d5a80;
+      --slate-lt: #5e7fa8;
+      --amber:    #b5830a;
+      --red:      #b5190a;
+      --gray-1:   #f4f4f2;
+      --gray-2:   #e0e0db;
+      --gray-4:   #888880;
+      --gray-7:   #333330;
+      --white:    #ffffff;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--gray-7);
+      background: var(--gray-1);
+    }
+
+    a { color: var(--slate); }
+    a:hover { color: var(--slate-lt); }
+
+    /* ── Header ── */
+    header {
+      background: var(--slate);
+      color: var(--white);
+      padding: 1.25rem 1rem 1rem;
+    }
+    header h1 { font-size: 1.35rem; font-weight: 700; line-height: 1.25; }
+    header p  { margin-top: .3rem; font-size: .9rem; opacity: .85; }
+
+    /* ── Status bar ── */
+    .status-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-2);
+      padding: .5rem 1rem;
+      font-size: .8rem;
+      color: var(--gray-4);
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    #day-notice {
+      font-weight: 600;
+      color: var(--gray-7);
+    }
+
+    /* ── Main layout ── */
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    /* ── Section heading ── */
+    .section-heading {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--gray-4);
+      margin: 1.5rem 0 .75rem;
+    }
+
+    /* ── Card ── */
+    .card {
+      background: var(--white);
+      border-radius: 8px;
+      border: 1px solid var(--gray-2);
+      margin-bottom: .75rem;
+      overflow: hidden;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: .9rem 1rem .6rem;
+      cursor: pointer;
+      gap: .5rem;
+    }
+    .card-header h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      flex: 1;
+    }
+    .card-header h2 .tag {
+      display: inline-block;
+      font-size: .7rem;
+      font-weight: 600;
+      background: #e7f4ff;
+      color: #0055a5;
+      border-radius: 3px;
+      padding: 1px 5px;
+      margin-left: .35rem;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+    .card-header h2 .tag-phone {
+      background: #d8f3dc;
+      color: #1a5c30;
+    }
+
+    /* open/closed badge */
+    .badge {
+      font-size: .72rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 12px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .badge-open   { background: #d8f3dc; color: #1a5c30; }
+    .badge-closed { background: #ffe5e5; color: var(--red); }
+
+    .card-body {
+      padding: 0 1rem .9rem;
+      display: none;
+    }
+    .card.open .card-body { display: block; }
+
+    .expand-hint {
+      display: inline;
+      font-size: .75rem;
+      font-weight: 400;
+      color: var(--gray-4);
+    }
+    .card.open .expand-hint { display: none; }
+
+    /* detail rows */
+    dl.details { display: grid; grid-template-columns: auto 1fr; row-gap: .45rem; column-gap: .75rem; margin-top: .5rem; }
+    dl.details dt { font-size: .78rem; font-weight: 700; color: var(--gray-4); padding-top: .1rem; white-space: nowrap; }
+    dl.details dd { font-size: .88rem; }
+
+    .hours-table { width: 100%; border-collapse: collapse; margin: .25rem 0; }
+    .hours-table td { padding: 1px 0; font-size: .87rem; }
+    .hours-table td:first-child { width: 7rem; color: var(--gray-4); font-weight: 600; }
+    .hours-table tr.today td { color: var(--slate); font-weight: 700; }
+
+    .checklist { list-style: none; }
+    .checklist li::before { content: "✓ "; color: var(--slate); font-weight: 700; }
+
+    .program-list { list-style: none; padding-left: 0; }
+    .program-list li { font-size: .87rem; padding: .15rem 0; }
+    .program-list li::before { content: "· "; color: var(--gray-4); }
+
+    .note {
+      font-size: .82rem;
+      color: var(--gray-4);
+      margin-top: .5rem;
+      line-height: 1.5;
+    }
+    .note.warn { color: var(--amber); }
+    .note.flag { color: var(--red); }
+    .note.highlight { color: var(--slate); font-weight: 600; }
+
+    .cta-phone {
+      display: inline-block;
+      margin-top: .7rem;
+      background: var(--slate);
+      color: var(--white);
+      text-decoration: none;
+      padding: .45rem .9rem;
+      border-radius: 6px;
+      font-size: .88rem;
+      font-weight: 600;
+      margin-right: .5rem;
+    }
+    .cta-phone:hover { background: var(--slate-lt); color: var(--white); }
+    .cta-phone.secondary {
+      background: var(--white);
+      color: var(--slate);
+      border: 1px solid var(--slate);
+    }
+    .cta-phone.secondary:hover { background: var(--slate); color: var(--white); }
+
+    /* ── Report bar ── */
+    .report-bar {
+      margin-top: 2rem;
+      background: var(--white);
+      border: 1px solid var(--gray-2);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+      font-size: .88rem;
+    }
+    .report-bar p { margin-bottom: .5rem; }
+    .report-bar a {
+      display: inline-block;
+      border: 1px solid var(--slate);
+      border-radius: 6px;
+      padding: .4rem .9rem;
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--slate);
+      text-decoration: none;
+    }
+    .report-bar a:hover { background: var(--slate); color: var(--white); }
+
+    /* ── Utility grid ── */
+    .utility-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .5rem;
+      margin-top: .5rem;
+    }
+    .util-item {
+      background: var(--gray-1);
+      border-radius: 6px;
+      padding: .5rem .65rem;
+    }
+    .util-item .util-name { font-size: .82rem; font-weight: 700; }
+    .util-item .util-desc { font-size: .78rem; color: var(--gray-4); margin-top: .1rem; }
+    .util-item .util-phone { font-size: .8rem; color: var(--slate); margin-top: .25rem; font-weight: 600; }
+
+    /* ── Footer ── */
+    footer {
+      max-width: 680px;
+      margin: 1rem auto 2rem;
+      padding: 0 1rem;
+      font-size: .78rem;
+      color: var(--gray-4);
+    }
+    footer a { color: var(--gray-4); }
+    footer a:hover { color: var(--slate); }
+
+    /* ── Responsive ── */
+    @media (max-width: 460px) {
+      header h1 { font-size: 1.15rem; }
+      dl.details { grid-template-columns: 1fr; }
+      dl.details dt { margin-top: .5rem; }
+      .utility-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Senior Resources in Menifee, CA</h1>
+  <p>Meals, transportation, utility help, wellness checks, and more — what is available and how to reach it.</p>
+</header>
+
+<div class="status-bar">
+  <span id="day-notice">Loading&hellip;</span>
+  <span>Data last reviewed: May 23, 2026</span>
+</div>
+
+<main>
+
+  <!-- ══════════════════════════════
+       IN MENIFEE
+  ══════════════════════════════ -->
+  <p class="section-heading">In Menifee</p>
+
+  <!-- Kay Ceniceros Senior Center -->
+  <div class="card" id="card-kc">
+    <div class="card-header" onclick="toggle('card-kc')">
+      <h2>Kay Ceniceros Senior Center <span class="expand-hint">&mdash; tap for details</span></h2>
+      <span class="badge" id="badge-kc">…</span>
+    </div>
+    <div class="card-body">
+      <p style="font-size:.9rem;margin-bottom:.75rem;">The City of Menifee's public senior center, located in the Sun City neighborhood. Open to all adults 60 and older. Includes a daily congregate lunch program, fitness classes, social activities, and educational workshops.</p>
+      <dl class="details">
+        <dt>Address</dt>
+        <dd>29995 Evans Road, Menifee 92586 (Sun City neighborhood)</dd>
+
+        <dt>Center hours</dt>
+        <dd>
+          <table class="hours-table" id="hours-kc">
+            <tr data-day="1"><td>Monday</td><td>8 AM – 5 PM</td></tr>
+            <tr data-day="2"><td>Tuesday</td><td>8 AM – 5 PM</td></tr>
+            <tr data-day="3"><td>Wednesday</td><td>8 AM – 5 PM</td></tr>
+            <tr data-day="4"><td>Thursday</td><td>8 AM – 5 PM</td></tr>
+            <tr data-day="5"><td>Friday</td><td>8 AM – 5 PM</td></tr>
+            <tr data-day="6"><td>Saturday</td><td>Closed</td></tr>
+            <tr data-day="0"><td>Sunday</td><td>Closed</td></tr>
+          </table>
+        </dd>
+
+        <dt>Daily lunch</dt>
+        <dd>Monday through Friday, 11:30 AM – 12:30 PM. Reservation required by the previous day. Suggested donation of $3. No one is turned away for inability to pay.</dd>
+
+        <dt>Who can use it</dt>
+        <dd>Adults age 60 or older and their spouses. Free to all qualifying adults.</dd>
+
+        <dt>How to reserve lunch</dt>
+        <dd>Call by the previous day by noon. Ask for the lunch reservation line when you call.</dd>
+
+        <dt>Programs and activities</dt>
+        <dd>
+          <ul class="program-list">
+            <li>Fitness: Tai Chi, Taiko Fitness, Uchikomi Fitness, Chair Volleyball</li>
+            <li>Games: Bridge, Chess, Dominos, Scrabble, Pinochle, Bidwhist, Blackjack, Texas Hold 'em, Ping Pong, Bingo</li>
+            <li>Arts: Quilting, Yarn Crew, Arts and Crafts</li>
+            <li>Dance: Heart and Soul Line Dancing, Samba</li>
+            <li>Technology: Computers 101, Technology Workshops</li>
+            <li>Workshops: Medical Workshops, Educational Workshops, Movie Screenings</li>
+          </ul>
+        </dd>
+      </dl>
+      <p class="note warn">Two phone numbers appear in different sources. Try (951) 679-0119 for the lunch reservation line and (951) 672-9673 for general center inquiries. Confirm which is current when you call.</p>
+      <a class="cta-phone" href="tel:9516790119">(951) 679-0119</a>
+      <a class="cta-phone secondary" href="https://www.cityofmenifee.us/464/Kay-Ceniceros-Senior-Center" target="_blank" rel="noopener">City website</a>
+    </div>
+  </div>
+
+  <!-- YANA Welfare Check -->
+  <div class="card" id="card-yana">
+    <div class="card-header" onclick="toggle('card-yana')">
+      <h2>YANA Wellness Check Program <span class="tag">Menifee PD</span> <span class="expand-hint">&mdash; tap for details</span></h2>
+    </div>
+    <div class="card-body">
+      <p style="font-size:.9rem;margin-bottom:.75rem;">YANA (You Are Not Alone) is a free program run by Menifee Police Department volunteers. Participants are called at regular times to make sure they are okay. If someone does not answer, volunteers contact emergency contacts and can make a home visit. A family member or neighbor can refer someone even without the senior's immediate involvement.</p>
+      <dl class="details">
+        <dt>Who can enroll</dt>
+        <dd>Must live in the City of Menifee, be able to answer a phone, and have one emergency contact person to list.</dd>
+
+        <dt>Cost</dt>
+        <dd>Free.</dd>
+
+        <dt>How to enroll</dt>
+        <dd>Email DG_PD_Volunteers@menifeepolice.org to request an enrollment form, or mail a completed form to:<br>Menifee Police Department, ATTN: YANA<br>29714 Haun Rd, Unit A, Menifee CA 92586</dd>
+
+        <dt>One-time welfare check</dt>
+        <dd>If you are concerned about a specific person right now, call the Menifee PD non-emergency line: (951) 677-4964. For an immediate life-threatening situation, call 911.</dd>
+      </dl>
+      <p class="note highlight">Family members and neighbors can submit a referral on behalf of a senior. You do not have to wait for the person to enroll themselves.</p>
+      <a class="cta-phone" href="tel:9516774964">(951) 677-4964</a>
+      <a class="cta-phone secondary" href="https://menifeepolice.org/youarenotalone/" target="_blank" rel="noopener">YANA program page</a>
+    </div>
+  </div>
+
+  <!-- Vial of Life -->
+  <div class="card" id="card-vial">
+    <div class="card-header" onclick="toggle('card-vial')">
+      <h2>Vial of Life <span class="tag">Riverside County Fire</span> <span class="expand-hint">&mdash; tap for details</span></h2>
+    </div>
+    <div class="card-body">
+      <p style="font-size:.9rem;margin-bottom:.75rem;">A small kit that keeps your critical medical information — diagnoses, medications, emergency contacts, DNR status — in a clear container on your refrigerator. When first responders enter your home, they know to check the fridge door for it.</p>
+      <dl class="details">
+        <dt>How to get a kit</dt>
+        <dd>Free. Pick one up at any Menifee fire station during business hours, or at Menifee City Hall. A printable version is also available via QR code at the fire department.</dd>
+
+        <dt>Fire station locations</dt>
+        <dd>See cityofmenifee.us/567/Fire-Stations for all Menifee station addresses.</dd>
+
+        <dt>Cost</dt>
+        <dd>Free.</dd>
+      </dl>
+      <p class="note">Once filled out, place the container on the inside of the refrigerator door and put the Vial of Life sticker on the outside of your front door so first responders know to look for it.</p>
+      <a class="cta-phone secondary" href="https://www.cityofmenifee.us/567/Fire-Stations" target="_blank" rel="noopener">Find a fire station</a>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+       AT HOME (county-wide programs)
+  ══════════════════════════════ -->
+  <p class="section-heading">At home — county-wide programs serving Menifee</p>
+
+  <!-- Home Delivered Meals -->
+  <div class="card" id="card-hdm">
+    <div class="card-header" onclick="toggle('card-hdm')">
+      <h2>Riverside County Home Delivered Meals <span class="tag">Homebound seniors</span> <span class="expand-hint">&mdash; tap for details</span></h2>
+      <span class="badge" id="badge-hdm">…</span>
+    </div>
+    <div class="card-body">
+      <p style="font-size:.9rem;margin-bottom:.75rem;">If you or someone you know cannot get to a food pantry or the senior center because of age or disability, this program delivers meals to your door. Enrollment starts with a phone call — no office visit required.</p>
+      <dl class="details">
+        <dt>Who qualifies</dt>
+        <dd>Adults age 60 or older, or adults with a disability, who are homebound and have difficulty preparing their own meals. Serves all of Riverside County including Menifee. No income requirement.</dd>
+
+        <dt>What they provide</dt>
+        <dd>Hot or frozen meals delivered to your home. Emergency two-week pantry supply also available.</dd>
+
+        <dt>Call hours</dt>
+        <dd>
+          <table class="hours-table" id="hours-hdm">
+            <tr data-day="1"><td>Monday</td><td>9 AM – 4 PM</td></tr>
+            <tr data-day="2"><td>Tuesday</td><td>9 AM – 4 PM</td></tr>
+            <tr data-day="3"><td>Wednesday</td><td>9 AM – 4 PM</td></tr>
+            <tr data-day="4"><td>Thursday</td><td>9 AM – 4 PM</td></tr>
+            <tr data-day="5"><td>Friday</td><td>9 AM – 4 PM</td></tr>
+          </table>
+        </dd>
+
+        <dt>How to start</dt>
+        <dd>Call Senior HelpLink at 1-800-510-2020 or (877) 932-4100. Ask about the Home Delivered Meals Program. An intake worker will determine eligibility.</dd>
+      </dl>
+      <p class="note highlight">This program exists but is not widely known. If someone cannot leave home to get food, this is the right call to make first.</p>
+      <a class="cta-phone" href="tel:18005102020">1-800-510-2020</a>
+    </div>
+  </div>
+
+  <!-- TRIP Transportation -->
+  <div class="card" id="card-trip">
+    <div class="card-header" onclick="toggle('card-trip')">
+      <h2>TRIP Volunteer Driver Program <span class="tag">Transportation</span> <span class="expand-hint">&mdash; tap for details</span></h2>
+    </div>
+    <div class="card-body">
+      <p style="font-size:.9rem;margin-bottom:.75rem;">TRIP (Transportation Reimbursement and Information Project) connects seniors and people with disabilities who can no longer drive with volunteer drivers. The county reimburses riders 45 cents per mile so they can pay their driver. For medical appointments, pharmacy runs, grocery shopping.</p>
+      <dl class="details">
+        <dt>Who qualifies</dt>
+        <dd>Seniors and adults with disabilities who need rides but cannot drive. Serves all of Riverside County including Menifee.</dd>
+
+        <dt>Cost</dt>
+        <dd>No out-of-pocket cost to the rider. The county sends a mileage reimbursement check each month to pay the driver.</dd>
+
+        <dt>How to enroll</dt>
+        <dd>Call Independent Living Partnership at (951) 653-0740. Enrollment takes about a month, so call as soon as you think you will need rides.</dd>
+
+        <dt>For volunteer drivers</dt>
+        <dd>No training required. Call the same number to sign up as a driver. See the <a href="../../0002-menifee-volunteers/site/index.html">volunteer page</a> for more detail.</dd>
+      </dl>
+      <a class="cta-phone" href="tel:9516530740">(951) 653-0740</a>
+    </div>
+  </div>
+
+  <!-- MSSP -->
+  <div class="card" id="card-mssp">
+    <div class="card-header" onclick="toggle('card-mssp')">
+      <h2>Multipurpose Senior Services Program <span class="tag">Medi-Cal required</span> <span class="expand-hint">&mdash; tap for details</span></h2>
+    </div>
+    <div class="card-body">
+      <p style="font-size:.9rem;margin-bottom:.75rem;">MSSP is for frail seniors who are on Medi-Cal and at risk of moving to a nursing home. A care manager coordinates in-home services, medical appointments, and community support to help them stay at home.</p>
+      <dl class="details">
+        <dt>Who qualifies</dt>
+        <dd>Adults age 65 or older who are on Medi-Cal and have care needs that would otherwise require nursing home care.</dd>
+
+        <dt>What they provide</dt>
+        <dd>In-home assessment, care management, help coordinating home health, personal care, transportation, and other services.</dd>
+
+        <dt>How to apply</dt>
+        <dd>Call (877) 932-4100 and ask about the Multipurpose Senior Services Program.</dd>
+      </dl>
+      <a class="cta-phone" href="tel:8779324100">(877) 932-4100</a>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+       HEALTH AND COVERAGE
+  ══════════════════════════════ -->
+  <p class="section-heading">Health coverage and caregiver support</p>
+
+  <!-- HICAP -->
+  <div class="card" id="card-hicap">
+    <div class="card-header" onclick="toggle('card-hicap')">
+      <h2>HICAP — Free Medicare Counseling <span class="tag tag-phone">Call or visit</span> <span class="expand-hint">&mdash; tap for details</span></h2>
+    </div>
+    <div class="card-body">
+      <p style="font-size:.9rem;margin-bottom:.75rem;">HICAP (Health Insurance Counseling and Advocacy Program) provides free, unbiased Medicare counseling from trained volunteers. No sales pitch. No conflict of interest. They help you understand your coverage, choose a plan, resolve billing problems, and navigate appeals.</p>
+      <dl class="details">
+        <dt>Who can use it</dt>
+        <dd>Anyone on Medicare or approaching Medicare enrollment age. Family members can call on behalf of a senior.</dd>
+
+        <dt>Cost</dt>
+        <dd>Free.</dd>
+
+        <dt>How to reach them</dt>
+        <dd>Call 1-800-434-0222 (statewide line) or 1-800-510-2020 (Riverside County HelpLink). When you call, ask specifically about HICAP counseling and whether any appointments are available in or near Menifee.</dd>
+
+        <dt>Nearest confirmed site</dt>
+        <dd>Mary Phillips Senior Center, 41845 Sixth Street, Temecula, CA 92590. Appointments available there.</dd>
+      </dl>
+      <p class="note">HICAP counseling may be available at the Kay Ceniceros Senior Center in Menifee. Call 1-800-510-2020 to ask specifically about Menifee-area appointments before driving to Temecula.</p>
+      <a class="cta-phone" href="tel:18004340222">1-800-434-0222</a>
+    </div>
+  </div>
+
+  <!-- Family Caregiver Support -->
+  <div class="card" id="card-caregiver">
+    <div class="card-header" onclick="toggle('card-caregiver')">
+      <h2>Family Caregiver Support Program <span class="tag">RC Office on Aging</span> <span class="expand-hint">&mdash; tap for details</span></h2>
+    </div>
+    <div class="card-body">
+      <p style="font-size:.9rem;margin-bottom:.75rem;">For family members, friends, or neighbors who are caring for an older adult or a person with dementia. Caregiving is exhausting. This program offers free education, support groups, and professional guidance — no income requirement.</p>
+      <dl class="details">
+        <dt>Who can use it</dt>
+        <dd>Anyone acting as an unpaid caregiver for an adult age 60 or older, or for a person of any age with Alzheimer's or dementia. Grandparents raising grandchildren (age 55+) also qualify.</dd>
+
+        <dt>What they provide</dt>
+        <dd>
+          <ul class="checklist">
+            <li>11-week educational workshop series (dementia, burnout, legal issues, communication)</li>
+            <li>Monthly support groups, county-wide</li>
+            <li>In-home social worker assessment for care planning</li>
+            <li>Respite care referrals for enrolled families</li>
+          </ul>
+        </dd>
+
+        <dt>Cost</dt>
+        <dd>Free. No income requirement.</dd>
+
+        <dt>How to enroll</dt>
+        <dd>Call (877) 932-4100 or 1-800-510-2020 and ask about the Family Caregiver Support Program.</dd>
+      </dl>
+      <a class="cta-phone" href="tel:8779324100">(877) 932-4100</a>
+      <a class="cta-phone secondary" href="https://rcaging.org/family-caregiver-support" target="_blank" rel="noopener">rcaging.org</a>
+    </div>
+  </div>
+
+  <!-- Adult Protective Services -->
+  <div class="card" id="card-aps">
+    <div class="card-header" onclick="toggle('card-aps')">
+      <h2>Adult Protective Services <span class="tag">Elder abuse and neglect</span> <span class="expand-hint">&mdash; tap for details</span></h2>
+    </div>
+    <div class="card-body">
+      <p style="font-size:.9rem;margin-bottom:.75rem;">If you suspect that an older adult is being abused, neglected, or is neglecting themselves, APS is the right call. Reports can be made anonymously. APS investigators are separate from police and approach the situation as social workers, not law enforcement.</p>
+      <dl class="details">
+        <dt>Who to call</dt>
+        <dd>Anyone who suspects elder abuse, financial exploitation, physical abuse, neglect, or self-neglect of an older adult or dependent adult in Riverside County.</dd>
+
+        <dt>Hotline</dt>
+        <dd>(800) 491-7123 — available 24 hours a day, 7 days a week.</dd>
+
+        <dt>Nearest DPSS office</dt>
+        <dd>43264 Business Park Drive, Suite 102, Temecula CA 92590 — (951) 600-6500</dd>
+      </dl>
+      <p class="note">Reports can be made anonymously. You do not need proof — if something feels wrong, call and let the investigators assess.</p>
+      <a class="cta-phone" href="tel:8004917123">(800) 491-7123</a>
+    </div>
+  </div>
+
+  <!-- Legal Aid -->
+  <div class="card" id="card-legal">
+    <div class="card-header" onclick="toggle('card-legal')">
+      <h2>Free Legal Help for Seniors <span class="tag">ICLS</span> <span class="expand-hint">&mdash; tap for details</span></h2>
+    </div>
+    <div class="card-body">
+      <p style="font-size:.9rem;margin-bottom:.75rem;">Inland Counties Legal Services (ICLS) gives free legal help to seniors in Riverside County who cannot afford a lawyer. They serve Menifee ZIP codes and do outreach for seniors who cannot travel to their Riverside office.</p>
+      <dl class="details">
+        <dt>Who can use it</dt>
+        <dd>Seniors in Riverside County, particularly those in greatest economic or social need. Income limits apply for some services.</dd>
+
+        <dt>What they help with</dt>
+        <dd>Wills, Powers of Attorney, small estate probate, nursing home issues, housing law, mobile home law, elder abuse cases, grandparent visitation, health care law, public benefits, consumer issues, small claims.</dd>
+
+        <dt>Phone</dt>
+        <dd>(888) 245-4257 — Monday through Friday, 8:30 AM to 4:45 PM</dd>
+
+        <dt>Office</dt>
+        <dd>1040 Iowa Ave, Unit 109, Riverside CA 92507 (outreach available for those who cannot travel)</dd>
+      </dl>
+      <a class="cta-phone" href="tel:8882454257">(888) 245-4257</a>
+      <a class="cta-phone secondary" href="https://www.inlandlegal.org/get-help/" target="_blank" rel="noopener">inlandlegal.org</a>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+       UTILITY HELP
+  ══════════════════════════════ -->
+  <p class="section-heading">Utility bill help</p>
+
+  <div class="card" id="card-utility">
+    <div class="card-header" onclick="toggle('card-utility')">
+      <h2>Utility Assistance Programs <span class="expand-hint">&mdash; tap for details</span></h2>
+    </div>
+    <div class="card-body">
+      <p style="font-size:.9rem;margin-bottom:.75rem;">Several programs lower or cover utility bills for income-qualified households in Menifee. Many seniors qualify for more than one. The programs below do not all require applying at the same place.</p>
+
+      <p style="font-size:.8rem;font-weight:700;color:var(--gray-4);margin-top:.75rem;margin-bottom:.4rem;">ELECTRICITY &amp; GAS — INCOME BASED</p>
+      <div class="utility-grid">
+        <div class="util-item">
+          <div class="util-name">LIHEAP</div>
+          <div class="util-desc">One-time payment on your electric or gas bill. Federal program, local application.</div>
+          <div class="util-phone">CAP Riverside: (951) 955-4900</div>
+        </div>
+        <div class="util-item">
+          <div class="util-name">SCE CARE</div>
+          <div class="util-desc">30–35% off your SCE electric bill. Auto-qualify if on Medi-Cal, CalFresh, or SSI.</div>
+          <div class="util-phone">(800) 798-5723 · sce.com</div>
+        </div>
+        <div class="util-item">
+          <div class="util-name">SCE FERA</div>
+          <div class="util-desc">18% off electric bill for households of 3+ people just above CARE income limits.</div>
+          <div class="util-phone">(800) 798-5723 · sce.com</div>
+        </div>
+        <div class="util-item">
+          <div class="util-name">SoCalGas CARE</div>
+          <div class="util-desc">20% off your monthly gas bill. Same income qualifications as SCE CARE.</div>
+          <div class="util-phone">socalgas.com or (800) 427-2200</div>
+        </div>
+      </div>
+
+      <p style="font-size:.8rem;font-weight:700;color:var(--gray-4);margin-top:.85rem;margin-bottom:.4rem;">ELECTRICITY — MEDICAL NEED (NO INCOME REQUIREMENT)</p>
+      <div class="utility-grid">
+        <div class="util-item">
+          <div class="util-name">SCE Medical Baseline</div>
+          <div class="util-desc">Extra electricity at the lowest rate for life-support equipment, temperature-sensitive conditions, or life-threatening illness. No income limit.</div>
+          <div class="util-phone">(800) 447-6620</div>
+        </div>
+      </div>
+
+      <p style="font-size:.8rem;font-weight:700;color:var(--gray-4);margin-top:.85rem;margin-bottom:.4rem;">GAS — ONE-TIME EMERGENCY HELP</p>
+      <div class="utility-grid">
+        <div class="util-item">
+          <div class="util-name">SoCalGas Gas Assistance Fund</div>
+          <div class="util-desc">One-time grant up to $100; up to $200 if any household member is 55 or older. Applied through local nonprofit partners. Limited funds — apply early in the program year.</div>
+          <div class="util-phone">(800) 331-7593 to find a local agency</div>
+        </div>
+      </div>
+
+      <p class="note" style="margin-top:.75rem;">To apply for LIHEAP, call CAP Riverside at (951) 955-4900 — a phone pre-screen is required before scheduling an appointment. For SCE programs, apply at sce.com or call (800) 798-5723. For SoCalGas programs, apply at socalgas.com.</p>
+      <a class="cta-phone" href="tel:9519554900">(951) 955-4900 — LIHEAP</a>
+      <a class="cta-phone secondary" href="tel:8007985723">(800) 798-5723 — SCE</a>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+       GETTING STARTED
+  ══════════════════════════════ -->
+  <p class="section-heading">Not sure where to start?</p>
+
+  <div class="card" id="card-helplink">
+    <div class="card-header" onclick="toggle('card-helplink')">
+      <h2>Senior HelpLink — One call for most county programs <span class="expand-hint">&mdash; tap for details</span></h2>
+      <span class="badge" id="badge-helplink">…</span>
+    </div>
+    <div class="card-body">
+      <p style="font-size:.9rem;margin-bottom:.75rem;">The Riverside County Office on Aging runs a free information and referral line staffed by people who know the full range of county senior programs. If you are not sure which program fits your situation, start here. Bilingual staff available.</p>
+      <dl class="details">
+        <dt>Phone</dt>
+        <dd>1-800-510-2020 (free, including from cell phones)</dd>
+
+        <dt>Also at</dt>
+        <dd>(877) 932-4100</dd>
+
+        <dt>Call hours</dt>
+        <dd>
+          <table class="hours-table" id="hours-helplink">
+            <tr data-day="1"><td>Monday</td><td>9 AM – 4 PM</td></tr>
+            <tr data-day="2"><td>Tuesday</td><td>9 AM – 4 PM</td></tr>
+            <tr data-day="3"><td>Wednesday</td><td>9 AM – 4 PM</td></tr>
+            <tr data-day="4"><td>Thursday</td><td>9 AM – 4 PM</td></tr>
+            <tr data-day="5"><td>Friday</td><td>9 AM – 4 PM</td></tr>
+          </table>
+        </dd>
+
+        <dt>What they can connect you to</dt>
+        <dd>Home-delivered meals, congregate meals, transportation (TRIP), family caregiver support, HICAP Medicare counseling, RSVP volunteer placement, in-home care management (MSSP), and more.</dd>
+      </dl>
+      <a class="cta-phone" href="tel:18005102020">1-800-510-2020</a>
+    </div>
+  </div>
+
+  <!-- Report bar -->
+  <div class="report-bar">
+    <p>Programs change. If something on this page is wrong, out of date, or if you know of a resource that should be here, please say so.</p>
+    <a href="mailto:pennersteven@gmail.com?subject=Menifee%20senior%20resource%20correction&body=What%20is%20wrong%20or%20missing%3A%0A%0AThe%20resource%20affected%3A%0A%0ASource%20for%20the%20correct%20information%3A" target="_blank">Report a problem or suggest a resource</a>
+  </div>
+
+</main>
+
+<footer>
+  <p>Data gathered from organization websites, rcaging.org, menifeepolice.org, cityofmenifee.us, capriverside.org, sce.com, socalgas.com, inlandlegal.org, and findhelp.org. Last full review: May 23, 2026. This page is not affiliated with any of the organizations listed. Programs change — always call to confirm before making decisions.</p>
+  <p style="margin-top:.4rem"><a href="../../../index.html">← All Menifee resources</a> &nbsp;·&nbsp; <a href="https://github.com/ColdTie/Earthseed" target="_blank" rel="noopener">Source on GitHub</a></p>
+</footer>
+
+<script>
+  // ── Toggle card open/closed ──
+  function toggle(id) {
+    document.getElementById(id).classList.toggle('open');
+  }
+
+  const DAY_NAMES = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+  function isOpenNow(open, close) {
+    const now = new Date();
+    const cur = now.getHours() * 60 + now.getMinutes();
+    const [oh, om] = open.split(':').map(Number);
+    const [ch, cm] = close.split(':').map(Number);
+    return cur >= (oh * 60 + om) && cur < (ch * 60 + cm);
+  }
+
+  function statusForSchedule(schedules) {
+    const today = new Date().getDay();
+    for (const s of schedules) {
+      if (s.day === today) {
+        return isOpenNow(s.open, s.close) ? 'open' : 'closed-today';
+      }
+    }
+    return 'closed';
+  }
+
+  function statusLabel(status, schedList) {
+    const today = new Date().getDay();
+    if (status === 'open') return 'Open now';
+    for (let i = 1; i <= 7; i++) {
+      const d = (today + i) % 7;
+      if (schedList.some(s => s.day === d)) {
+        return i === 1 ? 'Opens tomorrow' : 'Opens ' + DAY_NAMES[d];
+      }
+    }
+    return 'Closed today';
+  }
+
+  function setBadge(id, status, label) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = label;
+    el.className = 'badge ' + (status === 'open' ? 'badge-open' : 'badge-closed');
+  }
+
+  function highlightToday(tableId) {
+    const today = new Date().getDay();
+    const t = document.getElementById(tableId);
+    if (!t) return;
+    t.querySelectorAll('tr[data-day]').forEach(tr => {
+      if (parseInt(tr.dataset.day) === today) tr.classList.add('today');
+    });
+  }
+
+  const schedules = {
+    kc: [
+      {day:1,open:'08:00',close:'17:00'},
+      {day:2,open:'08:00',close:'17:00'},
+      {day:3,open:'08:00',close:'17:00'},
+      {day:4,open:'08:00',close:'17:00'},
+      {day:5,open:'08:00',close:'17:00'}
+    ],
+    hdm: [
+      {day:1,open:'09:00',close:'16:00'},
+      {day:2,open:'09:00',close:'16:00'},
+      {day:3,open:'09:00',close:'16:00'},
+      {day:4,open:'09:00',close:'16:00'},
+      {day:5,open:'09:00',close:'16:00'}
+    ],
+    helplink: [
+      {day:1,open:'09:00',close:'16:00'},
+      {day:2,open:'09:00',close:'16:00'},
+      {day:3,open:'09:00',close:'16:00'},
+      {day:4,open:'09:00',close:'16:00'},
+      {day:5,open:'09:00',close:'16:00'}
+    ]
+  };
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const today = new Date().getDay();
+
+    for (const [key, sched] of Object.entries(schedules)) {
+      const status = statusForSchedule(sched);
+      const label  = statusLabel(status, sched);
+      setBadge('badge-' + key, status === 'open' ? 'open' : 'closed', label);
+      highlightToday('hours-' + key);
+    }
+
+    // Day notice in status bar
+    const notice = document.getElementById('day-notice');
+    if (notice) {
+      const dayName = DAY_NAMES[today];
+      const kcStatus = statusForSchedule(schedules.kc);
+      if (kcStatus === 'open') {
+        notice.textContent = dayName + ': Kay Ceniceros Senior Center is open today (8 AM – 5 PM)';
+      } else {
+        notice.textContent = dayName + ': Senior center is closed today';
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

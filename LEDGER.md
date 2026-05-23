@@ -4,6 +4,43 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-05-23 — Third pass: GitHub Pages setup and effort #0003 senior resource page built
+
+**What was done:**
+
+Set up the repository for GitHub Pages hosting. Created `index.html` at the repo root as a landing hub page linking to all three effort sites. Added `.nojekyll` to prevent Jekyll from interfering with the static files. Added back-to-home footer navigation in the food and volunteer pages. Fixed the placeholder URL in the volunteer page's status bar (it pointed to `menifee-food.example.com`; now points to the correct relative path).
+
+Built effort #0003 (Menifee Senior Resource Guide) as a full static page at `efforts/0003-menifee-seniors/site/index.html`. The page was built after researching each of the five open questions from the #0003 charter. Findings:
+
+1. **Senior center in Menifee confirmed.** Kay Ceniceros Senior Center, 29995 Evans Road, Menifee 92586. City-operated, Mon–Fri 8 AM–5 PM. Has a Title III-C congregate lunch program Mon–Fri 11:30 AM–12:30 PM, $3 suggested donation, 24-hour advance reservation required. Open to adults 60+. Two phone numbers appear: (951) 679-0119 (lunch reservations) and (951) 672-9673 (general). Both are included on the page with a flag to verify which is current.
+
+2. **No Riverside County OOA office in Menifee.** Nearest satellite is Temecula. All county programs are accessed via Senior HelpLink: 1-800-510-2020 or (877) 932-4100.
+
+3. **Congregate meals confirmed at Kay Ceniceros.** Operated in partnership with Family Service Association (FSA) under Riverside County OOA Title III-C grant.
+
+4. **Utility assistance programs documented.** LIHEAP through CAP Riverside (951) 955-4900; SCE CARE (30–35% off), FERA (18% off for households of 3+), Medical Baseline (no income requirement, medical conditions); SoCalGas CARE (20% off), Gas Assistance Fund (one-time up to $200, extra $100 if any household member is 55+). Did not list "REACH" — could not confirm it still exists under that name.
+
+5. **Welfare check program confirmed.** Menifee PD runs the YANA (You Are Not Alone) program — proactive wellness call check-in for enrolled seniors. Free. Family members can refer a senior. Contact: DG_PD_Volunteers@menifeepolice.org or mail to Menifee PD ATTN: YANA, 29714 Haun Rd Unit A, Menifee CA 92586. One-time welfare check: non-emergency line (951) 677-4964.
+
+6. **Vial of Life confirmed.** Riverside County Fire program. Kits at Menifee fire stations and City Hall. No cost.
+
+Also added to the page: HICAP free Medicare counseling (1-800-434-0222; confirmed at Temecula, may be at Kay Ceniceros — flagged to call ahead), Family Caregiver Support Program (RC OOA, (877) 932-4100), ICLS free legal aid for seniors (serves Menifee ZIPs, (888) 245-4257), Adult Protective Services 24/7 hotline ((800) 491-7123), MSSP in-home care management (for Medi-Cal-eligible frail seniors).
+
+Updated the root landing page: removed the "coming soon" state for senior resources and linked the live page.
+
+**To enable GitHub Pages:** Go to repo Settings > Pages. Set Source to the branch this PR merges to, folder: / (root). The site will be at `https://coldtie.github.io/Earthseed/`. Three pages are live once this is published: food resources, volunteer board, senior resources.
+
+**What is flagged for follow-up:**
+
+- Kay Ceniceros Senior Center has two phone numbers in different sources: (951) 679-0119 and (951) 672-9673. Call to confirm which does what before the page has wide circulation.
+- HICAP counseling at Kay Ceniceros is unconfirmed. Call 1-800-510-2020 to ask before telling Menifee seniors to go there for that service.
+- SoCalGas "REACH" program: could not confirm it currently exists under that name. Did not list it.
+- Meals on Wheels Riverside: could not confirm they serve Menifee ZIP codes. Did not list them. Call riversidemow.org if this becomes relevant.
+- Sun City Civic Association: listed address discrepancy (26850 vs. 28650 Sun City Blvd). Not included on the page since it is a members-only HOA, not a public senior center.
+- Both the #0001 and #0002 pages still need a public URL distributed (local Facebook groups, school district pages, city resources page) to get meaningful traffic. The #0003 page is now in the same position.
+
+---
+
 ## 2026-05-23 — Second pass: volunteer board, senior charter, business model, food page expanded
 
 **What was done:**
