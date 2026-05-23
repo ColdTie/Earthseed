@@ -333,6 +333,39 @@
     </div>
   </div>
 
+  <!-- RC Aging Home Delivered Meals -->
+  <div class="card" id="card-rcaging">
+    <div class="card-header" onclick="toggle('card-rcaging')">
+      <h2>Riverside County Home Delivered Meals <span class="audience-tag">Seniors &amp; disabled</span> <span class="expand-hint">&mdash; tap for details</span></h2>
+      <span class="badge" id="badge-rcaging">…</span>
+    </div>
+    <div class="card-body">
+      <dl class="details">
+        <dt>How it works</dt>
+        <dd>Meals are delivered to your home. Call to start the intake process. No office visit required to enroll.</dd>
+
+        <dt>Hours to call</dt>
+        <dd>
+          <table class="hours-table" id="hours-rcaging">
+            <tr data-day="1"><td>Monday</td><td>9 AM – 4 PM</td></tr>
+            <tr data-day="2"><td>Tuesday</td><td>9 AM – 4 PM</td></tr>
+            <tr data-day="3"><td>Wednesday</td><td>9 AM – 4 PM</td></tr>
+            <tr data-day="4"><td>Thursday</td><td>9 AM – 4 PM</td></tr>
+            <tr data-day="5"><td>Friday</td><td>9 AM – 4 PM</td></tr>
+          </table>
+        </dd>
+
+        <dt>Who can use it</dt>
+        <dd>Adults age 60 or older, or adults with a disability, who are homebound and have difficulty preparing their own meals. Serves all of Riverside County including Menifee. No income requirement.</dd>
+
+        <dt>What they provide</dt>
+        <dd>Hot or frozen meals delivered to your door. Emergency two-week pantry supply also available.</dd>
+      </dl>
+      <p class="note">This program exists but is not widely known. If you or someone you know cannot get to a food pantry, this is the right call to make first.</p>
+      <a class="cta-phone" href="tel:8779324100">(877) 932-4100</a>
+    </div>
+  </div>
+
   <!-- MSJC -->
   <div class="card" id="card-msjc">
     <div class="card-header" onclick="toggle('card-msjc')">
@@ -535,6 +568,13 @@
     ],
     milvet: [
       {day:2,open:'13:00',close:'17:00'}
+    ],
+    rcaging: [
+      {day:1,open:'09:00',close:'16:00'},
+      {day:2,open:'09:00',close:'16:00'},
+      {day:3,open:'09:00',close:'16:00'},
+      {day:4,open:'09:00',close:'16:00'},
+      {day:5,open:'09:00',close:'16:00'}
     ]
   };
 
