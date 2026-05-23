@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Earthseed — Menifee Community Resources</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333028;
+      background: #f4f4f2;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #1a3a2a;
+      color: #fff;
+      padding: 2rem 1rem 1.5rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -.01em;
+    }
+    header p {
+      margin-top: .4rem;
+      font-size: .95rem;
+      opacity: .8;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    main {
+      max-width: 640px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .intro {
+      font-size: .95rem;
+      color: #555;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    h2 {
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #888880;
+      margin-bottom: 1rem;
+    }
+
+    .resource-cards {
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+    }
+
+    .resource-card {
+      background: #fff;
+      border-radius: 10px;
+      border: 1px solid #e0e0db;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      padding: 1.1rem 1.2rem;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .resource-card:hover {
+      border-color: #aaa;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    }
+
+    .resource-card-inner {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .card-icon {
+      font-size: 1.6rem;
+      flex-shrink: 0;
+      margin-top: .1rem;
+    }
+
+    .card-text h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #222;
+    }
+    .card-text p {
+      font-size: .88rem;
+      color: #666;
+      margin-top: .2rem;
+      line-height: 1.5;
+    }
+
+    .card-arrow {
+      margin-left: auto;
+      font-size: 1.2rem;
+      color: #bbb;
+      padding-left: .5rem;
+      flex-shrink: 0;
+      align-self: center;
+    }
+
+    .about {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e0e0db;
+      font-size: .84rem;
+      color: #777;
+      line-height: 1.7;
+    }
+    .about p { margin-bottom: .6rem; }
+    .about a { color: #2d6a4f; }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem 2.5rem;
+      font-size: .78rem;
+      color: #aaa;
+    }
+    footer a { color: #aaa; }
+
+    @media (max-width: 400px) {
+      header h1 { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Menifee Community Resources</h1>
+  <p>Free directories of local food, volunteer opportunities, and senior services — addresses, hours, and exactly how to get help.</p>
+</header>
+
+<main>
+
+  <h2>Directories</h2>
+
+  <div class="resource-cards">
+
+    <a class="resource-card" href="efforts/0001-menifee-food/site/">
+      <div class="resource-card-inner">
+        <div class="card-icon">🥦</div>
+        <div class="card-text">
+          <h3>Food Resources</h3>
+          <p>Food pantries, home-delivered meals, and distribution events in Menifee — addresses, hours, who can go, and what to bring.</p>
+        </div>
+        <div class="card-arrow">›</div>
+      </div>
+    </a>
+
+    <a class="resource-card" href="efforts/0002-menifee-volunteers/site/">
+      <div class="resource-card-inner">
+        <div class="card-icon">🤝</div>
+        <div class="card-text">
+          <h3>Volunteer Opportunities</h3>
+          <p>Real ways to help in Menifee — what the work is, when, and exactly how to sign up. The TRIP driver program is listed first.</p>
+        </div>
+        <div class="card-arrow">›</div>
+      </div>
+    </a>
+
+    <a class="resource-card" href="efforts/0003-menifee-seniors/site/">
+      <div class="resource-card-inner">
+        <div class="card-icon">🏡</div>
+        <div class="card-text">
+          <h3>Senior Resources</h3>
+          <p>Meals at home, rides to appointments, wellness check-ins, in-home care, utility help, and caregiver support — for seniors in Menifee and those who care for them.</p>
+        </div>
+        <div class="card-arrow">›</div>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="about">
+    <p>These pages are maintained by a person and an AI agent working together. The goal is simple: make it easy to find help, or to give it. The data comes from organization websites and public directories. Every page has a "report a problem" link at the bottom — use it if something is wrong.</p>
+    <p>None of these pages are affiliated with the organizations listed. Always call ahead before visiting a location.</p>
+    <p><a href="https://github.com/ColdTie/Earthseed" target="_blank" rel="noopener">Source on GitHub</a></p>
+  </div>
+
+</main>
+
+<footer>
+  <p>Earthseed &mdash; Menifee, CA &mdash; Data reviewed May 2026</p>
+</footer>
+
+</body>
+</html>
