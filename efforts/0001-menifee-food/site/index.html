@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Resources in Menifee, CA</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:    #2d6a4f;
+      --green-lt: #52b788;
+      --amber:    #b5830a;
+      --red:      #b5190a;
+      --gray-1:   #f4f4f2;
+      --gray-2:   #e0e0db;
+      --gray-4:   #888880;
+      --gray-7:   #333330;
+      --white:    #ffffff;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--gray-7);
+      background: var(--gray-1);
+    }
+
+    a { color: var(--green); }
+    a:hover { color: var(--green-lt); }
+
+    /* ── Header ── */
+    header {
+      background: var(--green);
+      color: var(--white);
+      padding: 1.25rem 1rem 1rem;
+    }
+    header h1 { font-size: 1.35rem; font-weight: 700; line-height: 1.25; }
+    header p  { margin-top: .3rem; font-size: .9rem; opacity: .85; }
+
+    /* ── Status bar ── */
+    .status-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-2);
+      padding: .5rem 1rem;
+      font-size: .8rem;
+      color: var(--gray-4);
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    #day-notice {
+      font-weight: 600;
+      color: var(--gray-7);
+    }
+
+    /* ── Main layout ── */
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    /* ── Section heading ── */
+    .section-heading {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--gray-4);
+      margin: 1.5rem 0 .75rem;
+    }
+
+    /* ── Card ── */
+    .card {
+      background: var(--white);
+      border-radius: 8px;
+      border: 1px solid var(--gray-2);
+      margin-bottom: .75rem;
+      overflow: hidden;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: .9rem 1rem .6rem;
+      cursor: pointer;
+      gap: .5rem;
+    }
+    .card-header h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      flex: 1;
+    }
+    .card-header h2 .audience-tag {
+      display: inline-block;
+      font-size: .7rem;
+      font-weight: 600;
+      background: #fff3cd;
+      color: #856404;
+      border-radius: 3px;
+      padding: 1px 5px;
+      margin-left: .35rem;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    /* open/closed badge */
+    .badge {
+      font-size: .72rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 12px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .badge-open   { background: #d8f3dc; color: var(--green); }
+    .badge-closed { background: #ffe5e5; color: var(--red); }
+    .badge-periodic { background: #e7f4ff; color: #0055a5; }
+
+    .card-body {
+      padding: 0 1rem .9rem;
+      display: none;
+    }
+    .card.open .card-body { display: block; }
+
+    .card-body .expand-hint { display: none; }
+    .card:not(.open) .card-header .expand-hint {
+      display: inline;
+      font-size: .75rem;
+      font-weight: 400;
+      color: var(--gray-4);
+    }
+
+    /* detail rows */
+    dl.details { display: grid; grid-template-columns: auto 1fr; row-gap: .45rem; column-gap: .75rem; margin-top: .5rem; }
+    dl.details dt { font-size: .78rem; font-weight: 700; color: var(--gray-4); padding-top: .1rem; white-space: nowrap; }
+    dl.details dd { font-size: .88rem; }
+
+    .hours-table { width: 100%; border-collapse: collapse; margin: .25rem 0; }
+    .hours-table td { padding: 1px 0; font-size: .87rem; }
+    .hours-table td:first-child { width: 7rem; color: var(--gray-4); font-weight: 600; }
+    .hours-table tr.today td { color: var(--green); font-weight: 700; }
+
+    .what-to-bring { list-style: none; }
+    .what-to-bring li::before { content: "✓ "; color: var(--green); font-weight: 700; }
+
+    .note {
+      font-size: .82rem;
+      color: var(--gray-4);
+      margin-top: .5rem;
+      line-height: 1.5;
+    }
+    .note.warn { color: var(--amber); }
+    .note.flag { color: var(--red); }
+
+    .cta-phone {
+      display: inline-block;
+      margin-top: .7rem;
+      background: var(--green);
+      color: var(--white);
+      text-decoration: none;
+      padding: .45rem .9rem;
+      border-radius: 6px;
+      font-size: .88rem;
+      font-weight: 600;
+    }
+    .cta-phone:hover { background: var(--green-lt); color: var(--white); }
+
+    /* ── Report bar ── */
+    .report-bar {
+      margin-top: 2rem;
+      background: var(--white);
+      border: 1px solid var(--gray-2);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+      font-size: .88rem;
+    }
+    .report-bar p { margin-bottom: .5rem; }
+    .report-bar a {
+      display: inline-block;
+      border: 1px solid var(--green);
+      border-radius: 6px;
+      padding: .4rem .9rem;
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--green);
+      text-decoration: none;
+    }
+    .report-bar a:hover { background: var(--green); color: var(--white); }
+
+    /* ── Footer ── */
+    footer {
+      max-width: 680px;
+      margin: 1rem auto 2rem;
+      padding: 0 1rem;
+      font-size: .78rem;
+      color: var(--gray-4);
+    }
+    footer a { color: var(--gray-4); }
+
+    /* ── Responsive ── */
+    @media (max-width: 400px) {
+      header h1 { font-size: 1.15rem; }
+      dl.details { grid-template-columns: 1fr; }
+      dl.details dt { margin-top: .5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Food Resources in Menifee, CA</h1>
+  <p>Free food assistance — addresses, hours, and what to bring.</p>
+</header>
+
+<div class="status-bar">
+  <span id="day-notice">Loading hours&hellip;</span>
+  <span>Data last reviewed: May 23, 2026</span>
+</div>
+
+<main>
+  <p class="section-heading">In Menifee</p>
+
+  <!-- MVCC -->
+  <div class="card" id="card-mvcc">
+    <div class="card-header" onclick="toggle('card-mvcc')">
+      <h2>Menifee Valley Community Cupboard <span class="expand-hint">&mdash; tap for details</span></h2>
+      <span class="badge" id="badge-mvcc">…</span>
+    </div>
+    <div class="card-body">
+      <dl class="details">
+        <dt>Address</dt>
+        <dd>26808 Cherry Hills Blvd, Sun City (Menifee) 92586</dd>
+
+        <dt>Hours</dt>
+        <dd>
+          <table class="hours-table" id="hours-mvcc">
+            <tr data-day="1"><td>Monday</td><td>10 AM – 2 PM</td></tr>
+            <tr data-day="2"><td>Tuesday</td><td>10 AM – 2 PM</td></tr>
+            <tr data-day="3"><td>Wednesday</td><td>10 AM – 2 PM</td></tr>
+            <tr data-day="4"><td>Thursday</td><td>10 AM – 2 PM</td></tr>
+            <tr data-day="5"><td>Friday</td><td>10 AM – 2 PM</td></tr>
+            <tr data-day="6"><td>Saturday</td><td>Closed</td></tr>
+            <tr data-day="0"><td>Sunday</td><td>Closed</td></tr>
+          </table>
+        </dd>
+
+        <dt>Who can go</dt>
+        <dd>Residents of ZIP codes 92584, 92585, 92586, and portions of 92587. Low-income households. Call if your ZIP is not listed — they will point you to the nearest resource.</dd>
+
+        <dt>What to bring</dt>
+        <dd>
+          <ul class="what-to-bring">
+            <li>Photo ID</li>
+            <li>Social Security card for each household member</li>
+            <li>Proof of residency (utility bill or lease)</li>
+          </ul>
+        </dd>
+
+        <dt>How often</dt>
+        <dd>Up to 10 visits per year. Requalify annually.</dd>
+
+        <dt>No transportation</dt>
+        <dd>Home delivery is available. Call to arrange.</dd>
+      </dl>
+      <p class="note">Closed on major holidays. Call ahead around holiday periods.</p>
+      <a class="cta-phone" href="tel:9513014414">(951) 301-4414</a>
+    </div>
+  </div>
+
+  <!-- GHH -->
+  <div class="card" id="card-ghh">
+    <div class="card-header" onclick="toggle('card-ghh')">
+      <h2>God's Helping Hand Food Banks <span class="expand-hint">&mdash; tap for details</span></h2>
+      <span class="badge" id="badge-ghh">…</span>
+    </div>
+    <div class="card-body">
+      <dl class="details">
+        <dt>Address</dt>
+        <dd>28125 Bradley Rd, Suite 130A, Menifee 92586</dd>
+
+        <dt>Hours</dt>
+        <dd>
+          <table class="hours-table" id="hours-ghh">
+            <tr data-day="3"><td>Wednesday</td><td>10 AM – 12 PM</td></tr>
+          </table>
+        </dd>
+
+        <dt>Who can go</dt>
+        <dd>Community members in need. No ZIP restriction found. Call to confirm.</dd>
+
+        <dt>What to bring</dt>
+        <dd>Not confirmed. Call ahead to ask.</dd>
+
+        <dt>Serves</dt>
+        <dd>About 150 families per week. Operating since 1985.</dd>
+      </dl>
+      <p class="note warn">Two phone numbers appear in different directories. Try (951) 973-3582 first; if that does not connect, try (951) 679-4667.</p>
+      <a class="cta-phone" href="tel:9519733582">(951) 973-3582</a>
+    </div>
+  </div>
+
+  <!-- City Food Box -->
+  <div class="card" id="card-city">
+    <div class="card-header" onclick="toggle('card-city')">
+      <h2>City of Menifee Food Box Distribution <span class="expand-hint">&mdash; tap for details</span></h2>
+      <span class="badge badge-periodic" id="badge-city">Periodic events</span>
+    </div>
+    <div class="card-body">
+      <dl class="details">
+        <dt>Location</dt>
+        <dd>La Ladera Park, 29629 La Ladera Rd, Menifee 92584</dd>
+
+        <dt>Schedule</dt>
+        <dd>Periodic events, not weekly. Past 2025 events: March 27 and December 18. Check cityofmenifee.us for the current schedule.</dd>
+
+        <dt>Hours on event days</dt>
+        <dd>10 AM – 1 PM</dd>
+
+        <dt>Who can go</dt>
+        <dd>Menifee residents. Onsite registration; bring ID.</dd>
+
+        <dt>Contact</dt>
+        <dd>(951) 672-9673 or cityofmenifee.us</dd>
+      </dl>
+      <p class="note">Location may vary by event. Always confirm the location before driving.</p>
+      <a class="cta-phone" href="tel:9516729673">(951) 672-9673</a>
+    </div>
+  </div>
+
+  <!-- MSJC -->
+  <div class="card" id="card-msjc">
+    <div class="card-header" onclick="toggle('card-msjc')">
+      <h2>MSJC Food 4 Thought Pantry <span class="audience-tag">Students only</span> <span class="expand-hint">&mdash; tap for details</span></h2>
+      <span class="badge" id="badge-msjc">…</span>
+    </div>
+    <div class="card-body">
+      <dl class="details">
+        <dt>Address</dt>
+        <dd>Menifee Valley Campus, Room 2106 — 28237 La Piedra Rd, Menifee 92584</dd>
+
+        <dt>Hours</dt>
+        <dd>
+          <table class="hours-table" id="hours-msjc">
+            <tr data-day="1"><td>Monday</td><td>9 AM – 2 PM</td></tr>
+            <tr data-day="2"><td>Tuesday</td><td>9 AM – 2 PM</td></tr>
+          </table>
+        </dd>
+
+        <dt>Who can go</dt>
+        <dd>Currently enrolled MSJC students only.</dd>
+
+        <dt>What to bring</dt>
+        <dd>
+          <ul class="what-to-bring">
+            <li>Student ID or proof of current enrollment</li>
+          </ul>
+        </dd>
+      </dl>
+      <p class="note">Closed the 4th Wednesday of each month for restocking. Drive-thru format. Hours effective November 2025 — confirm before visiting.</p>
+      <a class="cta-phone" href="tel:9515421011">(951) 542-1011</a>
+    </div>
+  </div>
+
+  <p class="section-heading">Nearby (serves Menifee residents)</p>
+
+  <!-- Salvation Army -->
+  <div class="card" id="card-sa">
+    <div class="card-header" onclick="toggle('card-sa')">
+      <h2>Salvation Army Murrieta Corps <span class="expand-hint">&mdash; tap for details</span></h2>
+      <span class="badge" id="badge-sa">…</span>
+    </div>
+    <div class="card-body">
+      <dl class="details">
+        <dt>Address</dt>
+        <dd>40270 Los Alamos Rd, Murrieta 92562 — about 7 miles from central Menifee</dd>
+
+        <dt>Hours</dt>
+        <dd>
+          <table class="hours-table" id="hours-sa">
+            <tr data-day="1"><td>Monday</td><td>8:30 – 11:30 AM</td></tr>
+            <tr data-day="2"><td>Tuesday</td><td>8:30 – 11:30 AM</td></tr>
+            <tr data-day="3"><td>Wednesday</td><td>8:30 – 11:30 AM</td></tr>
+            <tr data-day="4"><td>Thursday</td><td>8:30 – 11:30 AM</td></tr>
+            <tr data-day="5"><td>Friday</td><td>8:30 – 11:30 AM</td></tr>
+          </table>
+        </dd>
+
+        <dt>Appointment</dt>
+        <dd><strong>Call first.</strong> Appointments required. Call (951) 677-1324 ext. 2 to schedule.</dd>
+
+        <dt>Who can go</dt>
+        <dd>Residents of Menifee, Murrieta, Temecula, Lake Elsinore, Wildomar.</dd>
+
+        <dt>How often</dt>
+        <dd>One food box per household per month.</dd>
+
+        <dt>What to bring</dt>
+        <dd>Confirm when you call for your appointment.</dd>
+      </dl>
+      <a class="cta-phone" href="tel:9516771324">(951) 677-1324</a>
+    </div>
+  </div>
+
+  <!-- MilVet -->
+  <div class="card" id="card-milvet">
+    <div class="card-header" onclick="toggle('card-milvet')">
+      <h2>MilVet Food Pantry <span class="audience-tag">Veterans &amp; military</span> <span class="expand-hint">&mdash; tap for details</span></h2>
+      <span class="badge" id="badge-milvet">…</span>
+    </div>
+    <div class="card-body">
+      <dl class="details">
+        <dt>Address</dt>
+        <dd>33040 Antelope Rd, Suite 114, Murrieta 92563</dd>
+
+        <dt>Hours</dt>
+        <dd>
+          <table class="hours-table" id="hours-milvet">
+            <tr data-day="2"><td>Tuesday</td><td>1 – 5 PM</td></tr>
+          </table>
+        </dd>
+
+        <dt>Who can go</dt>
+        <dd>Veterans, active military, and their families in the area. Serves Menifee and surrounding cities.</dd>
+
+        <dt>What to bring</dt>
+        <dd>
+          <ul class="what-to-bring">
+            <li>Proof of service: DD-214, military ID, VA card, or similar</li>
+          </ul>
+        </dd>
+
+        <dt>How often</dt>
+        <dd>Up to 2 bags per week. Walk-in, no appointment needed.</dd>
+      </dl>
+      <p class="note">For more information visit <a href="https://milvet.org/foodandassistance" target="_blank" rel="noopener">milvet.org</a></p>
+    </div>
+  </div>
+
+  <!-- Report bar -->
+  <div class="report-bar">
+    <p>Hours change. Organizations move. If something on this page is wrong or out of date, please say so — every report helps fix it for the next person.</p>
+    <a href="mailto:pennersteven@gmail.com?subject=Menifee%20food%20resource%20correction&body=What%20is%20wrong%3A%0A%0AThe%20resource%20affected%3A%0A%0AWhere%20you%20got%20the%20correct%20information%3A" target="_blank">Report a problem</a>
+  </div>
+
+</main>
+
+<footer>
+  <p>Data gathered from organization websites, findhelp.org, and public directories. Last full review: May 23, 2026. This page is not affiliated with any of the organizations listed. Always call ahead before visiting.</p>
+  <p style="margin-top:.4rem"><a href="https://github.com/ColdTie/Earthseed" target="_blank" rel="noopener">Source on GitHub</a></p>
+</footer>
+
+<script>
+  // ── Toggle card open/closed ──
+  function toggle(id) {
+    const card = document.getElementById(id);
+    card.classList.toggle('open');
+  }
+
+  // ── Status helpers ──
+  const DAY_NAMES = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+  // Returns true if the given day (0=Sun) and current hour falls inside open/close (24h)
+  function isOpenNow(openTime, closeTime) {
+    const now   = new Date();
+    const today = now.getDay();
+    const h     = now.getHours();
+    const m     = now.getMinutes();
+    const cur   = h * 60 + m;
+
+    const [oh, om] = openTime.split(':').map(Number);
+    const [ch, cm] = closeTime.split(':').map(Number);
+    return cur >= (oh * 60 + om) && cur < (ch * 60 + cm);
+  }
+
+  // schedules: array of {day: 0-6, open: "HH:MM", close: "HH:MM"}
+  function statusForSchedule(schedules) {
+    const today = new Date().getDay();
+    for (const s of schedules) {
+      if (s.day === today) {
+        if (isOpenNow(s.open, s.close)) return 'open';
+        return 'closed-today';  // has hours today but not right now
+      }
+    }
+    return 'closed';  // no hours at all today
+  }
+
+  function setBadge(id, status, label) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent  = label;
+    el.className    = 'badge';
+    if (status === 'open')         el.classList.add('badge-open');
+    else if (status === 'periodic') el.classList.add('badge-periodic');
+    else                            el.classList.add('badge-closed');
+  }
+
+  // Highlight today in a hours table
+  function highlightToday(tableId) {
+    const today = new Date().getDay();
+    const table = document.getElementById(tableId);
+    if (!table) return;
+    table.querySelectorAll('tr[data-day]').forEach(tr => {
+      if (parseInt(tr.dataset.day) === today) tr.classList.add('today');
+    });
+  }
+
+  // ── Apply statuses ──
+  const schedules = {
+    mvcc: [
+      {day:1,open:'10:00',close:'14:00'},
+      {day:2,open:'10:00',close:'14:00'},
+      {day:3,open:'10:00',close:'14:00'},
+      {day:4,open:'10:00',close:'14:00'},
+      {day:5,open:'10:00',close:'14:00'}
+    ],
+    ghh: [
+      {day:3,open:'10:00',close:'12:00'}
+    ],
+    msjc: [
+      {day:1,open:'09:00',close:'14:00'},
+      {day:2,open:'09:00',close:'14:00'}
+    ],
+    sa: [
+      {day:1,open:'08:30',close:'11:30'},
+      {day:2,open:'08:30',close:'11:30'},
+      {day:3,open:'08:30',close:'11:30'},
+      {day:4,open:'08:30',close:'11:30'},
+      {day:5,open:'08:30',close:'11:30'}
+    ],
+    milvet: [
+      {day:2,open:'13:00',close:'17:00'}
+    ]
+  };
+
+  function statusLabel(status, schedList) {
+    const today = new Date().getDay();
+    if (status === 'open') return 'Open now';
+    // find next open day
+    for (let i = 1; i <= 7; i++) {
+      const d = (today + i) % 7;
+      if (schedList.some(s => s.day === d)) {
+        return i === 1 ? 'Opens tomorrow' : 'Opens ' + DAY_NAMES[d];
+      }
+    }
+    return 'Closed today';
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const today = new Date().getDay();
+
+    for (const [key, sched] of Object.entries(schedules)) {
+      const status = statusForSchedule(sched);
+      const label  = statusLabel(status, sched);
+      setBadge('badge-' + key, status === 'open' ? 'open' : 'closed', label);
+      highlightToday('hours-' + key);
+    }
+
+    // City food box is always periodic
+    // badge-city is pre-set in HTML
+
+    // Day notice in status bar
+    const notice = document.getElementById('day-notice');
+    if (notice) {
+      const dayName = DAY_NAMES[today];
+      // Count how many places are open today
+      const openCount = Object.entries(schedules).filter(([, s]) =>
+        statusForSchedule(s) === 'open'
+      ).length;
+      if (openCount > 0) {
+        notice.textContent = dayName + ': ' + openCount + ' location' + (openCount > 1 ? 's' : '') + ' open today';
+      } else {
+        // find next day with an open resource
+        let nextDays = [];
+        for (let i = 1; i <= 7; i++) {
+          const d = (today + i) % 7;
+          const hasOpen = Object.values(schedules).some(s => s.some(e => e.day === d));
+          if (hasOpen) { nextDays.push(DAY_NAMES[d]); break; }
+        }
+        notice.textContent = dayName + ': no locations open. Next open day: ' + (nextDays[0] || 'check schedules');
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

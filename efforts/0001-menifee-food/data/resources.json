@@ -1,0 +1,223 @@
+{
+  "metadata": {
+    "area": "Menifee, California",
+    "last_full_review": "2026-05-23",
+    "notes": "All entries verified against organization websites and directory listings as of last_full_review date. Hours and eligibility rules change. Call ahead when possible. Each entry shows last_verified; treat anything over 90 days old as potentially stale."
+  },
+  "resources": [
+    {
+      "id": "mvcc",
+      "name": "Menifee Valley Community Cupboard",
+      "short_name": "MVCC",
+      "type": "food_pantry",
+      "address": {
+        "street": "26808 Cherry Hills Blvd",
+        "city": "Sun City",
+        "state": "CA",
+        "zip": "92586",
+        "notes": "Sun City is the neighborhood name; this is within the City of Menifee boundaries."
+      },
+      "phone": "(951) 301-4414",
+      "website": "https://www.mvcupboard.org",
+      "hours": [
+        { "day": "Monday",    "open": "10:00", "close": "14:00" },
+        { "day": "Tuesday",   "open": "10:00", "close": "14:00" },
+        { "day": "Wednesday", "open": "10:00", "close": "14:00" },
+        { "day": "Thursday",  "open": "10:00", "close": "14:00" },
+        { "day": "Friday",    "open": "10:00", "close": "14:00" }
+      ],
+      "hours_notes": "Closed Saturday and Sunday. Closed on major holidays; call to confirm around holiday periods.",
+      "eligibility": {
+        "service_area_zips": ["92584", "92585", "92586", "92587"],
+        "zip_notes": "Primarily serves 92584, 92585, 92586, and the Quail Valley/Cottonwood Canyon portions of 92587. If your ZIP is not listed, call — they will help you find the nearest resource.",
+        "income_requirement": "Low-income households.",
+        "frequency": "Up to 10 visits per year.",
+        "annual_requalification": true
+      },
+      "what_to_bring": [
+        "Photo ID",
+        "Social Security card for each household member",
+        "Proof of residency (utility bill, lease, etc.)"
+      ],
+      "services": [
+        "Food box",
+        "Home delivery available for those without transportation (call to arrange)"
+      ],
+      "serves_approx": "900+ families in the community",
+      "last_verified": "2026-05-23",
+      "verification_source": "mvcupboard.org, findhelp.org listing",
+      "flag_for_reverification": false
+    },
+    {
+      "id": "ghh",
+      "name": "God's Helping Hand Food Banks",
+      "short_name": "GHH",
+      "type": "food_pantry",
+      "address": {
+        "street": "28125 Bradley Rd, Suite 130A",
+        "city": "Menifee",
+        "state": "CA",
+        "zip": "92586"
+      },
+      "phone": "(951) 973-3582",
+      "phone_alt": "(951) 679-4667",
+      "website": "http://www.hislightonthehill.com/foodbanks",
+      "hours": [
+        { "day": "Wednesday", "open": "10:00", "close": "12:00" }
+      ],
+      "hours_notes": "Wednesdays only, 10 AM to noon. Call ahead to confirm, especially around holidays.",
+      "eligibility": {
+        "service_area_zips": [],
+        "zip_notes": "No ZIP restriction found; serves community members in need.",
+        "income_requirement": "Need-based.",
+        "frequency": "Not specified; call to ask."
+      },
+      "what_to_bring": [],
+      "what_to_bring_notes": "Requirements not confirmed. Call ahead.",
+      "services": ["Food distribution"],
+      "serves_approx": "~150 families per week",
+      "established": 1985,
+      "last_verified": "2026-05-23",
+      "verification_source": "food-banks.org directory, californiafoodpantry.org",
+      "flag_for_reverification": true,
+      "reverification_reason": "Two different phone numbers in different sources. Confirm which is current."
+    },
+    {
+      "id": "salvation-army-murrieta",
+      "name": "Salvation Army Murrieta Corps",
+      "short_name": "Salvation Army",
+      "type": "food_pantry",
+      "address": {
+        "street": "40270 Los Alamos Rd",
+        "city": "Murrieta",
+        "state": "CA",
+        "zip": "92562",
+        "notes": "Located in Murrieta, approximately 7 miles from central Menifee."
+      },
+      "phone": "(951) 677-1324",
+      "website": "https://murrieta.salvationarmy.org",
+      "hours": [
+        { "day": "Monday",    "open": "08:30", "close": "11:30" },
+        { "day": "Tuesday",   "open": "08:30", "close": "11:30" },
+        { "day": "Wednesday", "open": "08:30", "close": "11:30" },
+        { "day": "Thursday",  "open": "08:30", "close": "11:30" },
+        { "day": "Friday",    "open": "08:30", "close": "11:30" }
+      ],
+      "hours_notes": "Appointment required. Call ext. 2 to schedule. Do not arrive without an appointment.",
+      "eligibility": {
+        "service_area": "Murrieta, Menifee, Temecula, Lake Elsinore, Wildomar",
+        "service_area_zips": [],
+        "income_requirement": "Need-based.",
+        "frequency": "One food box per household per month."
+      },
+      "what_to_bring": [],
+      "what_to_bring_notes": "Requirements not confirmed. Confirm when you call for your appointment.",
+      "services": ["Monthly food box (shelf-stable items)"],
+      "appointment_required": true,
+      "last_verified": "2026-05-23",
+      "verification_source": "salvationarmyusa.org, findhelp.org",
+      "flag_for_reverification": false
+    },
+    {
+      "id": "milvet",
+      "name": "MilVet Food & Household Pantry",
+      "short_name": "MilVet",
+      "type": "food_pantry",
+      "audience": "veterans_military_families",
+      "address": {
+        "street": "33040 Antelope Rd, Suite 114",
+        "city": "Murrieta",
+        "state": "CA",
+        "zip": "92563",
+        "notes": "Located in Murrieta. Serves veterans and military families in Menifee and surrounding cities."
+      },
+      "phone": null,
+      "phone_notes": "Contact through milvet.org",
+      "website": "https://milvet.org/foodandassistance",
+      "hours": [
+        { "day": "Tuesday", "open": "13:00", "close": "17:00" }
+      ],
+      "hours_notes": "Tuesdays 1 PM to 5 PM, walk-in. No appointment needed.",
+      "eligibility": {
+        "service_area": "Temecula, Murrieta, Menifee, Lake Elsinore, Riverside, Hemet, Wildomar, Nuevo, Winchester",
+        "income_requirement": "Veterans, active military, and their families.",
+        "frequency": "Up to 2 bags per week."
+      },
+      "what_to_bring": [
+        "Proof of military service (DD-214, military ID, VA card, or similar)"
+      ],
+      "services": ["Food pantry", "Household items", "Other assistance resources"],
+      "appointment_required": false,
+      "last_verified": "2026-05-23",
+      "verification_source": "milvet.org, findhelp.org",
+      "flag_for_reverification": false
+    },
+    {
+      "id": "msjc-food4thought",
+      "name": "MSJC Food 4 Thought Pantry — Menifee Valley Campus",
+      "short_name": "MSJC Pantry",
+      "type": "food_pantry",
+      "audience": "enrolled_students_only",
+      "address": {
+        "street": "28237 La Piedra Rd, Room 2106",
+        "city": "Menifee",
+        "state": "CA",
+        "zip": "92584",
+        "notes": "Room 2106 at the Menifee Valley Campus of Mt. San Jacinto College."
+      },
+      "phone": "(951) 542-1011",
+      "email": "EaglesLanding@msjc.edu",
+      "website": "https://msjc.edu/foodinsecurity/index.html",
+      "hours": [
+        { "day": "Monday",  "open": "09:00", "close": "14:00" },
+        { "day": "Tuesday", "open": "09:00", "close": "14:00" }
+      ],
+      "hours_notes": "Closed the 4th Wednesday of each month for delivery and restocking. Hours effective November 2025; confirm current hours before visiting.",
+      "eligibility": {
+        "requirement": "Currently enrolled MSJC students only.",
+        "income_requirement": "None beyond enrollment.",
+        "frequency": "Not specified."
+      },
+      "what_to_bring": [
+        "Student ID or proof of enrollment"
+      ],
+      "services": ["Drive-thru style food distribution"],
+      "appointment_required": false,
+      "last_verified": "2026-05-23",
+      "verification_source": "msjc.edu, findhelp.org",
+      "flag_for_reverification": false
+    },
+    {
+      "id": "menifee-city-food-box",
+      "name": "City of Menifee Food Box Distribution",
+      "short_name": "City Food Box",
+      "type": "periodic_distribution",
+      "address": {
+        "street": "29629 La Ladera Rd",
+        "city": "Menifee",
+        "state": "CA",
+        "zip": "92584",
+        "notes": "La Ladera Park. Location may vary by event; confirm each time."
+      },
+      "phone": "(951) 672-9673",
+      "website": "https://www.cityofmenifee.us",
+      "hours": [
+        { "event_hours": "10:00 AM to 1:00 PM on event days" }
+      ],
+      "hours_notes": "This is a periodic event, not a weekly service. Dates in 2025 included March 27 and December 18. Check cityofmenifee.us for the current schedule. Onsite registration required.",
+      "eligibility": {
+        "requirement": "Residents of Menifee.",
+        "income_requirement": "Not specified. Open to community members.",
+        "frequency": "Per event."
+      },
+      "what_to_bring": [],
+      "what_to_bring_notes": "Onsite registration; bring ID to confirm Menifee residency.",
+      "services": ["Food box distribution"],
+      "appointment_required": false,
+      "periodic": true,
+      "last_verified": "2026-05-23",
+      "verification_source": "cityofmenifee.us calendar",
+      "flag_for_reverification": false
+    }
+  ]
+}
