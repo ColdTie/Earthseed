@@ -47,9 +47,18 @@ If and when this is set up, it lives in its own effort folder with its own rules
 ## Where things stand
 
 Repo: ColdTie/Earthseed, private.
-Seed files: EARTHSEED.md, this file, LEDGER.md, README.md, and the first effort.
 
-Active effort: #0001, a food resource aggregator for Menifee, California. The charter is written. The next real work is assembling a true list of local food sites with correct hours, because the tool only helps if the underlying information is right. Then build a simple version, get it approved, put it live, and start measuring wrong door reports. Stay scoped to Menifee until freshness and accuracy hold.
+Three efforts are built. All three pages plus a landing page are in the docs/ folder, structured for GitHub Pages deployment. Deployment requires Steve to enable GitHub Pages in the repo settings and point it at the docs/ folder on the main branch.
+
+Effort #0001 (food resources): v1 complete. Data in efforts/0001-menifee-food/data/resources.json. God's Helping Hand phone number still needs phone verification before the page is fully trustworthy.
+
+Effort #0002 (volunteer board): v1 complete. TRIP program is featured. Cross-links to food and senior pages are in place.
+
+Effort #0003 (senior resources): v1 complete. Built from public directory research. Key resources: Kay Ceniceros Senior Center (29995 Evans Rd, Menifee), YANA welfare check program (Menifee PD), Riverside County home delivered meals, TRIP transportation, Family Caregiver Support, and LIHEAP utility assistance. Friday meal hours at KCSC are flagged as unconfirmed.
+
+The landing page is at docs/index.html and links to all three pages.
+
+The next human action is: enable GitHub Pages in repo settings (Source: Deploy from a branch, Branch: main, Folder: /docs). After that, the pages are live and measurement can begin.
 
 ## How to pick up the work
 

@@ -4,6 +4,46 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-05-23 — Third pass: senior resource page built, GitHub Pages deployment structure created
+
+**What was done:**
+
+Researched senior resources in Menifee to answer the five open questions from the #0003 charter.
+
+Research findings:
+
+1. **Senior center in Menifee:** Yes. Kay Ceniceros Senior Center is at 29995 Evans Road, Menifee CA 92586. Open Mon–Fri 8 AM–5 PM. Phone (951) 672-9673. Congregate meals Mon–Thu 11:30 AM–12:30 PM, $3 suggested donation for 60+, reservation required 24 hours in advance at (951) 679-0119. Run jointly by the City of Menifee and Family Service Association / Community Action Partnership. CAP is available on-site for utility assistance appointments.
+
+2. **County OOA outreach in Menifee:** No dedicated county OOA outreach point found specifically in Menifee. The Kay Ceniceros Senior Center appears to be the functional hub through the CAP partnership. All county senior services reach through the (877) 932-4100 HelpLink line.
+
+3. **Congregate meal sites:** Kay Ceniceros Senior Center is the confirmed site for Menifee. One source says meals are Mon–Thu only; another says Mon–Fri. Friday hours flagged as unconfirmed.
+
+4. **Utility assistance:** Community Action Partnership of Riverside County runs LIHEAP in Riverside County. Call (951) 955-4900. Appointment and phone pre-screen required. Seniors 60+ receive priority. SHARE program also available through CAP. On-site appointments are available at Kay Ceniceros Senior Center.
+
+5. **Welfare check program:** The Menifee Police Department runs a free program called YANA (You Are Not Alone). Volunteer callers from the PD call seniors and disabled adults at prearranged times. If no answer, emergency contacts are notified; if needed, a home visit happens. Free. The only requirement is being able to answer the phone and providing one emergency contact. Enroll by emailing DG_PD_Volunteers@menifeepolice.org or mailing to Menifee PD ATTN: YANA, 29714 Haun Rd Unit A, Menifee CA 92586. Family and friends can also make referrals.
+
+Built effort #0003 senior resource page at efforts/0003-menifee-seniors/site/index.html covering: Kay Ceniceros Senior Center (featured), YANA welfare check program, Riverside County Home Delivered Meals, TRIP transportation, Riverside County Family Caregiver Support Program, and LIHEAP utility assistance.
+
+Created the GitHub Pages deployment structure at docs/:
+- docs/index.html — landing page linking to all three efforts
+- docs/food/index.html — food resource page (copied from efforts/0001, cross-links added)
+- docs/volunteers/index.html — volunteer page (placeholder URL fixed, cross-links added)
+- docs/seniors/index.html — new senior resource page
+
+Fixed the placeholder link in the volunteer page (was https://menifee-food.example.com, now relative links to other pages in the docs/ structure).
+
+Updated README.md with deployment instructions: Settings → Pages → Source: main branch, /docs folder.
+Updated CLAUDE.md to reflect current state (three pages built, one human action needed to go live).
+
+**What is flagged for follow-up:**
+
+- God's Helping Hand: still needs a phone call to determine which of two phone numbers is current. Cannot responsibly go live without resolving this.
+- Kay Ceniceros Friday lunch hours: one source says Mon–Thu, another Mon–Fri. Flagged with a warning on the senior page. A phone call to (951) 679-0119 would resolve this.
+- GitHub Pages requires the repo to be public OR the account to have a paid GitHub plan that supports Pages on private repos. If neither is true, Netlify (free tier, deploy from main branch) is the alternative.
+- After the pages are live: get the URLs in front of people who need them. Suggested paths: Menifee city Facebook group, school district resource pages, local library bulletin board, contact cityofmenifee.us about linking from the Older Adult Resources page.
+
+---
+
 ## 2026-05-23 — Second pass: volunteer board, senior charter, business model, food page expanded
 
 **What was done:**

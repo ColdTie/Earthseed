@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volunteer in Menifee, CA</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal:    #1a6b72;
+      --teal-lt: #3aada8;
+      --amber:   #b5830a;
+      --gray-1:  #f4f4f2;
+      --gray-2:  #e0e0db;
+      --gray-4:  #888880;
+      --gray-7:  #333330;
+      --white:   #ffffff;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--gray-7);
+      background: var(--gray-1);
+    }
+
+    a { color: var(--teal); }
+    a:hover { color: var(--teal-lt); }
+
+    /* ── Header ── */
+    header {
+      background: var(--teal);
+      color: var(--white);
+      padding: 1.25rem 1rem 1rem;
+    }
+    header h1 { font-size: 1.35rem; font-weight: 700; line-height: 1.25; }
+    header p  { margin-top: .3rem; font-size: .9rem; opacity: .85; }
+
+    /* ── Status bar ── */
+    .status-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-2);
+      padding: .5rem 1rem;
+      font-size: .8rem;
+      color: var(--gray-4);
+    }
+
+    /* ── Main ── */
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    /* ── Featured card (TRIP) ── */
+    .card-featured {
+      background: var(--white);
+      border: 2px solid var(--teal);
+      border-radius: 8px;
+      margin-bottom: .75rem;
+      overflow: hidden;
+    }
+    .card-featured .featured-label {
+      background: var(--teal);
+      color: var(--white);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .2rem .75rem;
+    }
+
+    /* ── Section heading ── */
+    .section-heading {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--gray-4);
+      margin: 1.5rem 0 .75rem;
+    }
+
+    /* ── Card ── */
+    .card {
+      background: var(--white);
+      border-radius: 8px;
+      border: 1px solid var(--gray-2);
+      margin-bottom: .75rem;
+      overflow: hidden;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: .9rem 1rem .6rem;
+      cursor: pointer;
+      gap: .5rem;
+    }
+    .card-header h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      flex: 1;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: .7rem;
+      font-weight: 600;
+      border-radius: 3px;
+      padding: 1px 5px;
+      margin-left: .35rem;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+    .tag-ongoing  { background: #d8f3dc; color: #1a5c30; }
+    .tag-events   { background: #e7f4ff; color: #0055a5; }
+    .tag-flexible { background: #fff3cd; color: #856404; }
+
+    .card-body {
+      padding: 0 1rem .9rem;
+      display: none;
+    }
+    .card.open .card-body,
+    .card-featured.open .card-body { display: block; }
+
+    .expand-hint {
+      display: inline;
+      font-size: .75rem;
+      font-weight: 400;
+      color: var(--gray-4);
+    }
+    .card.open .expand-hint,
+    .card-featured.open .expand-hint { display: none; }
+
+    /* detail rows */
+    dl.details { display: grid; grid-template-columns: auto 1fr; row-gap: .45rem; column-gap: .75rem; margin-top: .5rem; }
+    dl.details dt { font-size: .78rem; font-weight: 700; color: var(--gray-4); padding-top: .1rem; white-space: nowrap; }
+    dl.details dd { font-size: .88rem; }
+
+    .checklist { list-style: none; }
+    .checklist li::before { content: "✓ "; color: var(--teal); font-weight: 700; }
+
+    .note {
+      font-size: .82rem;
+      color: var(--gray-4);
+      margin-top: .5rem;
+      line-height: 1.5;
+    }
+    .note.highlight {
+      color: var(--teal);
+      font-weight: 600;
+    }
+
+    .cta {
+      display: inline-block;
+      margin-top: .7rem;
+      background: var(--teal);
+      color: var(--white);
+      text-decoration: none;
+      padding: .45rem .9rem;
+      border-radius: 6px;
+      font-size: .88rem;
+      font-weight: 600;
+      margin-right: .5rem;
+    }
+    .cta:hover { background: var(--teal-lt); color: var(--white); }
+    .cta.secondary {
+      background: var(--white);
+      color: var(--teal);
+      border: 1px solid var(--teal);
+    }
+    .cta.secondary:hover { background: var(--teal); color: var(--white); }
+
+    /* ── Report bar ── */
+    .report-bar {
+      margin-top: 2rem;
+      background: var(--white);
+      border: 1px solid var(--gray-2);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+      font-size: .88rem;
+    }
+    .report-bar p { margin-bottom: .5rem; }
+    .report-bar a {
+      display: inline-block;
+      border: 1px solid var(--teal);
+      border-radius: 6px;
+      padding: .4rem .9rem;
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--teal);
+      text-decoration: none;
+    }
+    .report-bar a:hover { background: var(--teal); color: var(--white); }
+
+    /* ── Footer ── */
+    footer {
+      max-width: 680px;
+      margin: 1rem auto 2rem;
+      padding: 0 1rem;
+      font-size: .78rem;
+      color: var(--gray-4);
+    }
+    footer a { color: var(--gray-4); }
+
+    @media (max-width: 400px) {
+      header h1 { font-size: 1.15rem; }
+      dl.details { grid-template-columns: 1fr; }
+      dl.details dt { margin-top: .5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Volunteer in Menifee, CA</h1>
+  <p>Real opportunities with real organizations — what the work is, when, and exactly how to sign up.</p>
+</header>
+
+<div class="status-bar">
+  Data last reviewed: May 23, 2026 &nbsp;&middot;&nbsp;
+  <a href="../food/" style="color:var(--gray-4)">Food resources</a> &nbsp;&middot;&nbsp;
+  <a href="../seniors/" style="color:var(--gray-4)">Senior resources</a>
+</div>
+
+<main>
+
+  <!-- ══ TRIP — FEATURED ══ -->
+  <p class="section-heading">Closest to Meals on Wheels</p>
+
+  <div class="card-featured" id="card-trip">
+    <div class="featured-label">Best match if you want to help seniors directly</div>
+    <div class="card-header" onclick="toggle('card-trip')">
+      <h2>TRIP Volunteer Driver Program <span class="tag tag-ongoing">Ongoing</span> <span class="expand-hint">&mdash; tap for details</span></h2>
+    </div>
+    <div class="card-body">
+      <p style="font-size:.9rem; margin-bottom:.75rem;">TRIP (Transportation Reimbursement and Information Project) connects volunteer drivers with seniors and people with disabilities who can no longer drive. You drive them to doctor appointments, pharmacies, grocery stores, and other errands. The county reimburses them 45 cents per mile, and they pay you back. No training required. You drive on your own schedule.</p>
+
+      <dl class="details">
+        <dt>What you do</dt>
+        <dd>Drive a senior or disabled neighbor to appointments and everyday errands. You set your own availability. There is no minimum hours requirement.</dd>
+
+        <dt>Schedule</dt>
+        <dd>Flexible. You commit only to drives you agree to take. Ongoing program, not event-based.</dd>
+
+        <dt>Mileage</dt>
+        <dd>You get reimbursed. The rider receives a monthly check from the county to pay you back at 45¢/mile. This is not a paid job, but it is not out of pocket either.</dd>
+
+        <dt>Requirements</dt>
+        <dd>
+          <ul class="checklist">
+            <li>Valid California driver's license</li>
+            <li>Current vehicle registration and insurance</li>
+            <li>No special training or certification needed</li>
+          </ul>
+        </dd>
+
+        <dt>Service area</dt>
+        <dd>All of Riverside County, including Menifee.</dd>
+
+        <dt>How to sign up</dt>
+        <dd>Call Independent Living Partnership at (951) 653-0740. You are named as the rider's volunteer driver when they enroll. Enrollment for riders takes about a month, so start the conversation early.</dd>
+      </dl>
+
+      <p class="note highlight">This is the program to call if you want to do something like Meals on Wheels. The work is real and the need in Menifee is real.</p>
+
+      <a class="cta" href="tel:9516530740">(951) 653-0740</a>
+      <a class="cta secondary" href="https://www.ilpconnect.org/trip-riverside" target="_blank" rel="noopener">Learn more</a>
+    </div>
+  </div>
+
+  <!-- ══ IN MENIFEE ══ -->
+  <p class="section-heading">In Menifee</p>
+
+  <!-- MVCC -->
+  <div class="card" id="card-mvcc-vol">
+    <div class="card-header" onclick="toggle('card-mvcc-vol')">
+      <h2>Menifee Valley Community Cupboard <span class="tag tag-ongoing">Ongoing</span> <span class="expand-hint">&mdash; tap for details</span></h2>
+    </div>
+    <div class="card-body">
+      <p style="font-size:.9rem; margin-bottom:.75rem;">The Cupboard feeds 900+ Menifee families and runs a thrift store to fund that work. They are actively looking for volunteers and posted a call for help as recently as April 2025.</p>
+
+      <dl class="details">
+        <dt>What you do</dt>
+        <dd>Two tracks: (1) Food pantry — collect and sort donated food items, help with distribution. (2) Thrift store — cashiering, sorting, shelving, merchandising clothing and goods.</dd>
+
+        <dt>Schedule</dt>
+        <dd>Mon–Fri during operating hours (10 AM–2 PM). Flexible scheduling; ongoing commitment preferred but not required.</dd>
+
+        <dt>Requirements</dt>
+        <dd>18+ to volunteer independently. Under 18 must be accompanied by an adult. High school and college students welcome — service hours available.</dd>
+
+        <dt>Address</dt>
+        <dd>26808 Cherry Hills Blvd, Menifee 92586</dd>
+
+        <dt>How to sign up</dt>
+        <dd>Visit mvcupboard.org/volunteer or call (951) 301-4414 to ask about current needs.</dd>
+      </dl>
+
+      <a class="cta" href="tel:9513014414">(951) 301-4414</a>
+      <a class="cta secondary" href="https://www.mvcupboard.org/volunteer" target="_blank" rel="noopener">Sign up online</a>
+    </div>
+  </div>
+
+  <!-- Project TOUCH -->
+  <div class="card" id="card-touch">
+    <div class="card-header" onclick="toggle('card-touch')">
+      <h2>Project T.O.U.C.H. <span class="tag tag-flexible">Flexible</span> <span class="expand-hint">&mdash; tap for details</span></h2>
+    </div>
+    <div class="card-body">
+      <p style="font-size:.9rem; margin-bottom:.75rem;">Project T.O.U.C.H. provides shared housing and wraparound support for 275+ people facing homelessness in Southwest Riverside County — seniors, veterans, single parents, and people with disabilities. Over 400 volunteers keep this running.</p>
+
+      <dl class="details">
+        <dt>What you do</dt>
+        <dd>Mentoring residents, helping at fundraising events, facility clean-up and organization days. The organization is also building a new Life Restoration Center in Wildomar, so construction-adjacent help may be available.</dd>
+
+        <dt>Schedule</dt>
+        <dd>Mix of ongoing mentoring and one-time events. Flexible to your availability.</dd>
+
+        <dt>Requirements</dt>
+        <dd>Varies by role. Call or check their website for current openings.</dd>
+
+        <dt>Address</dt>
+        <dd>30141 Antelope Rd, Suite D-103, Menifee 92584</dd>
+
+        <dt>How to sign up</dt>
+        <dd>Visit projecttouchonline.com/volunteer</dd>
+      </dl>
+
+      <a class="cta secondary" href="https://projecttouchonline.com/volunteer" target="_blank" rel="noopener">Sign up at projecttouchonline.com</a>
+    </div>
+  </div>
+
+  <!-- THINK Together -->
+  <div class="card" id="card-think">
+    <div class="card-header" onclick="toggle('card-think')">
+      <h2>THINK Together — After-School Tutoring <span class="tag tag-ongoing">Ongoing</span> <span class="expand-hint">&mdash; tap for details</span></h2>
+    </div>
+    <div class="card-body">
+      <p style="font-size:.9rem; margin-bottom:.75rem;">THINK Together runs after-school programs in Menifee and Perris schools, helping students who need extra support. Volunteers help with tutoring, mentoring, and program activities.</p>
+
+      <dl class="details">
+        <dt>What you do</dt>
+        <dd>Work with students in after-school programs at Menifee and Perris schools. Tutoring, reading support, mentoring.</dd>
+
+        <dt>Schedule</dt>
+        <dd>After school hours, typically 2–6 PM on school days. Ongoing during the school year.</dd>
+
+        <dt>Requirements</dt>
+        <dd>Adult volunteers coming to campus regularly must complete an application. Background check required for work with minors.</dd>
+
+        <dt>How to sign up</dt>
+        <dd>Visit thinktogether.org/school-volunteer or the JustServe listing for Menifee/Perris schools.</dd>
+      </dl>
+
+      <a class="cta secondary" href="https://thinktogether.org/school-volunteer" target="_blank" rel="noopener">Sign up at thinktogether.org</a>
+    </div>
+  </div>
+
+  <!-- Menifee Better Together -->
+  <div class="card" id="card-mbt">
+    <div class="card-header" onclick="toggle('card-mbt')">
+      <h2>Menifee Better Together <span class="tag tag-events">City events</span> <span class="expand-hint">&mdash; tap for details</span></h2>
+    </div>
+    <div class="card-body">
+      <p style="font-size:.9rem; margin-bottom:.75rem;">The city of Menifee's community volunteer program. Events throughout the year — park cleanups, beautification projects, community outreach. Good for one-time participation if you want to try volunteering without a recurring commitment.</p>
+
+      <dl class="details">
+        <dt>What you do</dt>
+        <dd>Beautification projects, community event setup, outreach support. Varies by event.</dd>
+
+        <dt>Schedule</dt>
+        <dd>Periodic events; not a weekly commitment. Check cityofmenifee.us for upcoming events.</dd>
+
+        <dt>Requirements</dt>
+        <dd>Open to all ages. Some events may require parental permission for minors.</dd>
+
+        <dt>How to sign up</dt>
+        <dd>Check cityofmenifee.us or call (951) 672-6777 for the Parks & Community Services department.</dd>
+      </dl>
+
+      <a class="cta secondary" href="https://www.cityofmenifee.us/1051/Menifee-Better-Together" target="_blank" rel="noopener">See upcoming events</a>
+    </div>
+  </div>
+
+  <!-- ══ COUNTY-WIDE ══ -->
+  <p class="section-heading">County-wide (serves Menifee)</p>
+
+  <!-- RSVP / AmeriCorps Seniors -->
+  <div class="card" id="card-rsvp">
+    <div class="card-header" onclick="toggle('card-rsvp')">
+      <h2>Riverside County RSVP / AmeriCorps Seniors <span class="tag tag-ongoing">Ongoing</span> <span class="expand-hint">&mdash; tap for details</span></h2>
+    </div>
+    <div class="card-body">
+      <p style="font-size:.9rem; margin-bottom:.75rem;">The Retired and Senior Volunteer Program (RSVP), run through the Riverside County Office on Aging, places volunteers age 55+ in meaningful community roles. This is a federal AmeriCorps Seniors program — it is well-organized and matches volunteers to placements that fit their interests and skills.</p>
+
+      <dl class="details">
+        <dt>Who it is for</dt>
+        <dd>Adults 55 and older. No upper age limit.</dd>
+
+        <dt>What you do</dt>
+        <dd>Matched to a volunteer role based on your interests — could include senior services, community outreach, nutrition programs, and more. Special events also available.</dd>
+
+        <dt>Schedule</dt>
+        <dd>Flexible, matched to your availability. Ongoing.</dd>
+
+        <dt>Requirements</dt>
+        <dd>Age 55+. No specific qualifications required for most roles.</dd>
+
+        <dt>How to sign up</dt>
+        <dd>Call the Riverside County Office on Aging HelpLink at (877) 932-4100 and ask about RSVP volunteer placements.</dd>
+      </dl>
+
+      <a class="cta" href="tel:8779324100">(877) 932-4100</a>
+      <a class="cta secondary" href="https://rcaging.org" target="_blank" rel="noopener">rcaging.org</a>
+    </div>
+  </div>
+
+  <!-- MilVet -->
+  <div class="card" id="card-milvet-vol">
+    <div class="card-header" onclick="toggle('card-milvet-vol')">
+      <h2>MilVet <span class="tag tag-flexible">Flexible</span> <span class="expand-hint">&mdash; tap for details</span></h2>
+    </div>
+    <div class="card-body">
+      <p style="font-size:.9rem; margin-bottom:.75rem;">MilVet supports veterans, military families, and seniors across Southwest Riverside County with food, utility help, and other resources. Volunteers help run the food pantry and community programs.</p>
+
+      <dl class="details">
+        <dt>Who it is for</dt>
+        <dd>Anyone who wants to help. Military connection is not required to volunteer.</dd>
+
+        <dt>What you do</dt>
+        <dd>Food pantry operations on Tuesdays, community outreach events, resource coordination.</dd>
+
+        <dt>Schedule</dt>
+        <dd>Pantry is Tuesdays 1–5 PM in Murrieta. Other opportunities vary.</dd>
+
+        <dt>Address</dt>
+        <dd>33040 Antelope Rd, Suite 114, Murrieta 92563</dd>
+
+        <dt>How to sign up</dt>
+        <dd>Contact through milvet.org</dd>
+      </dl>
+
+      <a class="cta secondary" href="https://milvet.org" target="_blank" rel="noopener">milvet.org</a>
+    </div>
+  </div>
+
+  <!-- Report / suggest -->
+  <div class="report-bar">
+    <p>Know of a volunteer opportunity that should be on this list? Something on this page is wrong or out of date?</p>
+    <a href="mailto:pennersteven@gmail.com?subject=Menifee%20volunteer%20page%20feedback&body=Organization%20or%20issue%3A%0A%0ADetails%3A%0A%0AContact%20info%20if%20available%3A">Suggest an organization or report a problem</a>
+  </div>
+
+</main>
+
+<footer>
+  <p>Data gathered from organization websites, justserve.org, rcaging.org, ilpconnect.org, and public directories. Last full review: May 23, 2026. This page is not affiliated with any organization listed.</p>
+  <p style="margin-top:.4rem"><a href="https://github.com/ColdTie/Earthseed" target="_blank" rel="noopener">Source on GitHub</a></p>
+</footer>
+
+<script>
+  function toggle(id) {
+    document.getElementById(id).classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
