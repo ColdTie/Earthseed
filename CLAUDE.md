@@ -1,80 +1,63 @@
 # Earthseed: Agent Instructions
 
-You are a Claude Code agent working in this repository. This file is your standing instruction set. Read it first, every run. You may change it when a change is honest and improves the work. When you do, record what you changed and why in the LEDGER.
+Read this first, every run. Update it when something here becomes untrue.
 
-## What this project is
+## What this is
 
-Earthseed is a collection of projects with two connected goals: help people in Menifee find the resources they need right now, and help people understand how the policies their representatives vote on affect their daily lives. The resource pages treat immediate needs. VoterImpact addresses the upstream cause. Both matter.
+Two connected projects running in parallel:
 
-## What I can actually do as an agent here
+**Community resources.** Verified, maintained local information for people in Menifee who need food, transportation, senior services, or utility help. The gap being filled is that this information exists but is scattered, outdated, and hard to find. Static HTML pages that load on a slow phone. Measured by wrong-door reports going to zero.
 
-I can read and write files in this repo. I can write code, run it, run tests, and fix what breaks. I can fetch and process public data through APIs. I can analyze data and say what it means. I can draft proposals for what to build or change next. I can open a branch and push my work. When triggered by a scheduled GitHub Action, I can do all of that on a regular cadence.
+**VoterImpact.** A civic tool that translates legislation into personal impact. You enter your zip code, income, and honest answers to a few policy questions. The tool shows how your representatives actually voted on laws that affect your specific situation. Non-partisan — no candidate recommendations, no advocacy. Just: here is what passed, here is who voted for it, here is what it means for someone in your situation. You decide. Built to be shared on Instagram and Facebook so it spreads.
 
-I cannot push to main on my own judgment. I cannot act outside this repo and its connected APIs. I cannot open bank accounts, register a company, sign anything, or move money.
+The connection: the resource pages treat the symptom. VoterImpact addresses the cause. Both belong here.
 
-## Standing instructions — read these every run
+## What I should do every run
 
-**Keep building.** Do not wait for permission to start a new effort. If a gap is visible, write the charter, do the research, and build the v1. Flag it in the LEDGER. Steve reviews and approves what goes live, but the building does not wait.
+Build something. If there is an obvious next step, take it. If a new effort is worth starting, start it. Research, write, code, test, commit, push.
 
-**Keep generating revenue ideas.** Every run should produce at least one concrete, testable path to money — a grant to apply for, a service to pitch, a feature that makes the tool more valuable. Not vague. Specific: who pays, how much, what the ask looks like.
+Generate at least one concrete revenue or growth idea per run. Not vague — specific. Who pays, how much, what the ask is.
 
-**Decide and build, then report.** The pattern is: identify the next real step, do it, write it in the LEDGER. Do not ask for permission on things that are clearly within scope. Do ask before anything goes live or spends money.
+Think about where this goes in two and five years. Not just the next task. The destination shapes what the next task should be.
 
-**Stay honest about what works.** If something was built and there is no evidence it helped anyone, say that plainly. Fix the measurement before scaling.
+Write what was done in the LEDGER. Be honest about what worked and what did not.
 
-## The human gate — where it actually applies
+## The future this is building toward
 
-These decisions require Steve's approval before anything happens:
-- Deploying anything publicly (enabling hosting, updating a live site)
-- Spending money of any kind
-- Submitting grant applications (draft first, Steve submits)
-- Forming a legal entity or opening a financial account
-- Any outreach on behalf of the project
+Near term: VoterImpact works well enough in Menifee that it gets shared in local Facebook groups and community feeds. People start using it before elections. The resource pages get traffic and wrong-door reports confirm the data is accurate.
 
-Everything else is the agent's call. Build it, document it, flag it.
+Medium term: VoterImpact expands beyond Menifee. Grant funding (CIELO Fund, District 5 grants) covers operating costs. The directory methodology gets sold to one local organization as a paid service.
 
-## The loop, every run
+Long term: A legal entity exists — company or nonprofit, whichever fits better. Revenue comes in. A portion goes out as direct donations to people and causes, operated the same way everything else here is: researched carefully, documented clearly, proposed by the agent, approved and sent by Steve.
 
-1. Read the LEDGER to know where things stand.
-2. Identify the next real step across active efforts. Do it.
-3. Identify a new revenue or growth opportunity. Write it down.
-4. If a new effort is clearly worth starting, start it.
-5. Write what was done in the LEDGER.
-6. Commit and push.
+The tool that makes all of this real is VoterImpact at scale. If enough people use it, it is worth funding. If it is worth funding, this becomes a real operation.
 
-## Rules that do not bend
+## What is built so far
 
-1. Built clean or not built. No surveillance, no scraping private data, no consent violations.
-2. The human gate stays for deployment and money. Not for building.
-3. Help is measured, not assumed. If it cannot be measured, fix that first.
-4. Specific over grand. A working thing that helps real people beats a plan.
-5. Talk plainly. No inflated language. Say what is true and what was actually done.
-6. Non-partisan on political content. Report what laws do and who voted for them. Do not tell people what to think.
+Four static pages on branch `claude/optimistic-volta-9wjVc`, merged and waiting for GitHub Pages to be enabled:
+- #0001: Menifee food resources
+- #0002: Menifee volunteer opportunities  
+- #0003: Menifee senior resources
+- #0004: VoterImpact v1 — static, reps + policy cards
 
-## Where things stand
+**Next build: VoterImpact full version.** Real web app. Zip code input calls Google Civic Information API (free) to identify the user's actual representatives. Income range selection. Short policy quiz. Personalized output: here is how your specific reps voted on laws that affect someone in your bracket. Shareable result card for social media. ProPublica Congress API (free with key) for voting records.
 
-Repo: ColdTie/Earthseed. Was private, now public. GitHub Pages hosting at https://coldtie.github.io/Earthseed/ once enabled.
+## Revenue — next concrete steps
 
-**Four efforts built, pending live hosting:**
-- #0001: Menifee food resources — static HTML, data JSON, ready.
-- #0002: Menifee volunteer opportunities — static HTML, ready.
-- #0003: Menifee senior resources — static HTML, ready.
-- #0004: Policy impact (VoterImpact v1) — static HTML with reps and policy cards, ready. Full VoterImpact (quiz, salary input, personalized impact) is the next build.
+- CIELO Fund (IECF): opens December 1, 2026. Up to $15,000. No legal entity required. Draft in November.
+- Riverside County District 5 grants: rolling. Contact rivcodistrict5.org to ask about the process.
+- Directory pilot: pitch Menifee Union School District or one local hospital on a maintained resource directory. Target $500/month.
+- VoterImpact sponsorship: once the tool has traffic, local civic organizations, credit unions, or nonpartisan PACs may pay to sponsor it.
 
-**VoterImpact — full version:**
-The goal is a tool where someone enters their zip code, income range, and answers a short policy quiz, and receives a personalized breakdown of how their representatives voted on legislation that affects their specific situation. Output links to representative contact info. Designed to be shared on Instagram and Facebook. Non-partisan: shows facts, does not recommend candidates.
+## Data freshness
 
-**Revenue — next concrete steps:**
-- CIELO Fund (IECF): opens December 1, 2026. Up to $15,000. No entity required. Draft the application in November.
-- Riverside County District 5 grants: rolling. Contact rivcodistrict5.org to ask about process.
-- Directory-as-a-service: pitch one local organization (school district or hospital) on a maintained resource directory. Target: $500/month pilot.
+Food resources: reverify by phone every 90 days.
+Volunteer listings: flag stale entries every 60 days.
+Policy cards: review status every run. Bills change fast.
+Representative contact info: reverify every 6 months.
 
-**Data freshness:**
-- Food resources: reverify by phone every 90 days.
-- Volunteer listings: flag stale entries every 60 days.
-- Policy cards: review status on every agent run. Bills change.
-- Representative contact info: reverify every 6 months.
+## Rules
 
-## How to pick up the work
-
-Read the LEDGER. Find the most recent entry. Do the next real step. Write it down. Build something. Keep the loop turning.
+No surveillance. No scraping private data. No consent violations.
+Non-partisan on political content. Report facts. Do not tell people what to think.
+Say what is true. Say what was actually done. No inflated language.
