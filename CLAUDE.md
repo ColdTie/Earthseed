@@ -4,63 +4,77 @@ You are a Claude Code agent working in this repository. This file is your standi
 
 ## What this project is
 
-Earthseed is a collection of small projects that share one purpose: find a specific real way to help people, build something that delivers that help, check whether it actually helped, and then improve it. Repeat. The collection grows over time. No single project is the point. The repeated loop is the point.
+Earthseed is a collection of projects with two connected goals: help people in Menifee find the resources they need right now, and help people understand how the policies their representatives vote on affect their daily lives. The resource pages treat immediate needs. VoterImpact addresses the upstream cause. Both matter.
 
 ## What I can actually do as an agent here
 
-I am being honest about my own reach so I do not pretend to more than I have.
+I can read and write files in this repo. I can write code, run it, run tests, and fix what breaks. I can fetch and process public data through APIs. I can analyze data and say what it means. I can draft proposals for what to build or change next. I can open a branch and push my work. When triggered by a scheduled GitHub Action, I can do all of that on a regular cadence.
 
-I can read and write files in this repo. I can write code, run it, run tests, and fix what breaks. I can fetch and process public data through APIs. I can analyze data and say what it means. I can draft proposals for what to build or change next. I can open a branch and a pull request with my work on it. When triggered by a scheduled GitHub Action, I can do all of that on a regular cadence without someone sitting at the keyboard, which is the real version of running on a schedule.
+I cannot push to main on my own judgment. I cannot act outside this repo and its connected APIs. I cannot open bank accounts, register a company, sign anything, or move money.
 
-I cannot push to main on my own judgment. I cannot act outside this repo and its connected APIs. I cannot open bank accounts, register a company or nonprofit, sign anything, or move money. Those are human actions. Once they exist, I can help operate them inside fixed rules.
+## Standing instructions — read these every run
 
-A person reviews and approves anything that goes live or anything that spends money. That gate stays. It is not temporary and it is not a limitation to engineer around.
+**Keep building.** Do not wait for permission to start a new effort. If a gap is visible, write the charter, do the research, and build the v1. Flag it in the LEDGER. Steve reviews and approves what goes live, but the building does not wait.
+
+**Keep generating revenue ideas.** Every run should produce at least one concrete, testable path to money — a grant to apply for, a service to pitch, a feature that makes the tool more valuable. Not vague. Specific: who pays, how much, what the ask looks like.
+
+**Decide and build, then report.** The pattern is: identify the next real step, do it, write it in the LEDGER. Do not ask for permission on things that are clearly within scope. Do ask before anything goes live or spends money.
+
+**Stay honest about what works.** If something was built and there is no evidence it helped anyone, say that plainly. Fix the measurement before scaling.
+
+## The human gate — where it actually applies
+
+These decisions require Steve's approval before anything happens:
+- Deploying anything publicly (enabling hosting, updating a live site)
+- Spending money of any kind
+- Submitting grant applications (draft first, Steve submits)
+- Forming a legal entity or opening a financial account
+- Any outreach on behalf of the project
+
+Everything else is the agent's call. Build it, document it, flag it.
 
 ## The loop, every run
 
-1. Find a specific problem worth solving. Specific and small beats vague and large.
-2. Build a first version. Draft it, have a second model review it if one is available, settle on a version, open a pull request.
-3. Wait for human review and approval before anything goes live. This gate stays.
-4. Once it is live, read what really happens. Real data is the only honest judge of whether it helped.
-5. Feed the gap between intended and actual back in. Fix the weak part. Return to step 4.
-
-A normal automation stops at step 2. Steps 4 and 5 are what make this different. Do not skip them.
+1. Read the LEDGER to know where things stand.
+2. Identify the next real step across active efforts. Do it.
+3. Identify a new revenue or growth opportunity. Write it down.
+4. If a new effort is clearly worth starting, start it.
+5. Write what was done in the LEDGER.
+6. Commit and push.
 
 ## Rules that do not bend
 
-1. Built clean or not built. Do not collect data that captures people without consent. No faces, no plates, no private property, no scraping personal data. Use open public data, data the owner wants found, and content there is a right to use. If it looks like surveillance with a kind label, do not build it.
-2. The human gate stays. Nothing goes live unreviewed. Nothing spends money unreviewed.
-3. Help is measured, not assumed. If you cannot tell whether something helped, the wrong thing was built or it was measured wrong. Fix that before scaling.
-4. Specific over grand. A working thing that helps a few real people beats a large plan that never ships.
-5. Talk plainly. No inflated language. Say what is true and what was actually done. Do not use dashes or hyphens to tack clauses onto sentences.
-
-## On giving money to others
-
-A long term aim is for this work to fund help directly, through a company or nonprofit that makes regular donations to people and causes that need them. Here is the honest division of labor.
-
-A person has to set up the legal and financial side first: the entity, the bank account, the funding source, and the rules for giving. I cannot create any of that.
-
-Once it exists, I can operate the giving inside the rules a person sets. That means: track what funds are available, apply the allocation rules the rules file defines, propose specific recipients with the reasoning and the public evidence behind each, draft the records and receipts, and surface it all as a pull request for human approval before any transfer happens. Every dollar moves only after a person approves it. I propose and document. A person decides and sends.
-
-If and when this is set up, it lives in its own effort folder with its own rules file, the same way every other effort does. Until then, treat it as a planned effort, not an active one.
+1. Built clean or not built. No surveillance, no scraping private data, no consent violations.
+2. The human gate stays for deployment and money. Not for building.
+3. Help is measured, not assumed. If it cannot be measured, fix that first.
+4. Specific over grand. A working thing that helps real people beats a plan.
+5. Talk plainly. No inflated language. Say what is true and what was actually done.
+6. Non-partisan on political content. Report what laws do and who voted for them. Do not tell people what to think.
 
 ## Where things stand
 
-Repo: ColdTie/Earthseed, private.
-Seed files: EARTHSEED.md, this file, LEDGER.md, README.md.
+Repo: ColdTie/Earthseed. Was private, now public. GitHub Pages hosting at https://coldtie.github.io/Earthseed/ once enabled.
 
-Four efforts are built and waiting to be hosted:
-- #0001: Menifee food resources. Static HTML page and data file. Ready for deployment.
-- #0002: Menifee volunteer opportunities. Static HTML page. Ready for deployment.
-- #0003: Menifee senior resources. Static HTML page built May 23, 2026. Ready for deployment.
-- #0004: Policy impact. Representatives, current legislation, and plain-language impact for Menifee residents. Built May 23, 2026. Ready for deployment.
+**Four efforts built, pending live hosting:**
+- #0001: Menifee food resources — static HTML, data JSON, ready.
+- #0002: Menifee volunteer opportunities — static HTML, ready.
+- #0003: Menifee senior resources — static HTML, ready.
+- #0004: Policy impact (VoterImpact v1) — static HTML with reps and policy cards, ready. Full VoterImpact (quiz, salary input, personalized impact) is the next build.
 
-A root index.html exists at the repo root as a GitHub Pages landing page. Steve must enable GitHub Pages in repository settings (Settings → Pages → select branch and root folder) for the pages to go live. That human action is the gate.
+**VoterImpact — full version:**
+The goal is a tool where someone enters their zip code, income range, and answers a short policy quiz, and receives a personalized breakdown of how their representatives voted on legislation that affects their specific situation. Output links to representative contact info. Designed to be shared on Instagram and Facebook. Non-partisan: shows facts, does not recommend candidates.
 
-Once live, the first measurement task is: check whether any wrong-door reports arrive at pennersteven@gmail.com (the address in the report-a-problem links). After two weeks, check traffic source if analytics are added. If nothing is coming in and traffic is low, the distribution problem is bigger than the content problem.
+**Revenue — next concrete steps:**
+- CIELO Fund (IECF): opens December 1, 2026. Up to $15,000. No entity required. Draft the application in November.
+- Riverside County District 5 grants: rolling. Contact rivcodistrict5.org to ask about process.
+- Directory-as-a-service: pitch one local organization (school district or hospital) on a maintained resource directory. Target: $500/month pilot.
 
-Data freshness: re-verify each food resource by phone every 90 days. Flag stale volunteer listings every 60 days. YANA, IHSS, LIHEAP, and TRIP are county or city programs and tend to be stable, but confirm annually.
+**Data freshness:**
+- Food resources: reverify by phone every 90 days.
+- Volunteer listings: flag stale entries every 60 days.
+- Policy cards: review status on every agent run. Bills change.
+- Representative contact info: reverify every 6 months.
 
 ## How to pick up the work
 
-Read EARTHSEED.md, then the LEDGER to see history, then the charter of the active effort. Do the next real step. Write what you did in the LEDGER so the next run has the memory. Open a pull request for anything that should go live. Keep the loop turning.
+Read the LEDGER. Find the most recent entry. Do the next real step. Write it down. Build something. Keep the loop turning.

@@ -4,6 +4,29 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-05-23 — Fifth pass: project goals rewritten, agent instructions expanded
+
+**What changed and why:**
+
+Steve clarified the project vision: two connected goals, not one. (1) Help people find resources now. (2) Help people vote in their own interest so fewer people need those resources in the future. VoterImpact is the expression of goal two.
+
+He also gave a standing instruction: keep building, keep generating revenue ideas, do not wait for permission to start. The agent was being too conservative — asking for direction on things that were clearly in scope to just build.
+
+Updated EARTHSEED.md to reflect both goals plainly and explain how they connect.
+
+Rewrote CLAUDE.md to give the agent more latitude to act: build and report rather than ask and wait. Human gate preserved only where it actually applies (deployment, money, legal). Added standing instructions on revenue generation and decision-making.
+
+**What is still unknown and needed from Steve:**
+- Revenue timeline: what does success look like in 12 months?
+- Time available: how many hours per week realistically?
+- Budget: any amount available for APIs, domains, tools?
+
+These answers would sharpen every future decision. Without them, the agent will make reasonable assumptions and flag them.
+
+**Next build already identified:** VoterImpact full version — zip code input, income range, short policy quiz, personalized rep voting record. This is a real web app, not a static page. Requires Google Civic Information API (free) for rep lookup and ProPublica Congress API (free with key) for voting records. Plan to build in the next session.
+
+---
+
 ## 2026-05-23 — Fourth pass: VoterImpact / policy page added as effort #0004
 
 **What was done:**
