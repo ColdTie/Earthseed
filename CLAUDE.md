@@ -49,10 +49,11 @@ If and when this is set up, it lives in its own effort folder with its own rules
 Repo: ColdTie/Earthseed, private.
 Seed files: EARTHSEED.md, this file, LEDGER.md, README.md.
 
-Three efforts are built and waiting to be hosted:
+Four efforts are built and waiting to be hosted:
 - #0001: Menifee food resources. Static HTML page and data file. Ready for deployment.
 - #0002: Menifee volunteer opportunities. Static HTML page. Ready for deployment.
 - #0003: Menifee senior resources. Static HTML page built May 23, 2026. Ready for deployment.
+- #0004: Policy impact. Representatives, current legislation, and plain-language impact for Menifee residents. Built May 23, 2026. Ready for deployment.
 
 A root index.html exists at the repo root as a GitHub Pages landing page. Steve must enable GitHub Pages in repository settings (Settings → Pages → select branch and root folder) for the pages to go live. That human action is the gate.
 
