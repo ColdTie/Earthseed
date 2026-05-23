@@ -47,9 +47,19 @@ If and when this is set up, it lives in its own effort folder with its own rules
 ## Where things stand
 
 Repo: ColdTie/Earthseed, private.
-Seed files: EARTHSEED.md, this file, LEDGER.md, README.md, and the first effort.
+Seed files: EARTHSEED.md, this file, LEDGER.md, README.md, BUSINESS.md.
 
-Active effort: #0001, a food resource aggregator for Menifee, California. The charter is written. The next real work is assembling a true list of local food sites with correct hours, because the tool only helps if the underlying information is right. Then build a simple version, get it approved, put it live, and start measuring wrong door reports. Stay scoped to Menifee until freshness and accuracy hold.
+Three efforts are built and ready for deployment:
+
+- #0001: Menifee Food Resources. v1 at docs/food/index.html. Awaiting GitHub Pages deploy. Two open flags: verify God's Helping Hand phone number, confirm MSJC hours are still current from November 2025.
+- #0002: Menifee Volunteer Opportunities Board. v1 at docs/volunteers/index.html. Awaiting GitHub Pages deploy.
+- #0003: Menifee Senior Resource Guide. v1 at docs/seniors/index.html. Awaiting GitHub Pages deploy. Two open flags: verify YANA program email/address is current, call Kay Ceniceros to confirm lunch reservation process.
+
+All three pages go live at once when GitHub Pages is enabled in repo settings (source: main branch, /docs folder). That is a human action.
+
+A scheduled GitHub Actions workflow exists at .github/workflows/weekly-agent.yml. It runs every Monday at 9 AM Pacific. It requires the ANTHROPIC_API_KEY repo secret to be set before it will work.
+
+Once the pages are live the next priority is measuring real use. Check wrong-door reports after two weeks. If none arrive and traffic is low, the problem is distribution: get the URLs in front of people who need them (local Facebook groups, MSJC, city services page, school district resource pages, community organizations).
 
 ## How to pick up the work
 

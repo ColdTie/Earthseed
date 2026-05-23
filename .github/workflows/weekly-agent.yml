@@ -1,0 +1,101 @@
+# Weekly Earthseed Agent Run
+#
+# This workflow runs the Claude Code agent on a schedule so the loop
+# keeps turning without someone sitting at the keyboard.
+#
+# SETUP REQUIRED BEFORE ENABLING:
+# 1. Go to repo Settings → Secrets and variables → Actions
+# 2. Add a secret named ANTHROPIC_API_KEY with your Anthropic API key
+# 3. Make sure "Allow GitHub Actions to create and approve pull requests"
+#    is enabled in Settings → Actions → General → Workflow permissions
+#
+# The agent will read CLAUDE.md, check what needs doing, do the next real
+# step, write what it did to LEDGER.md, and open a pull request for
+# anything that should go live. A person still reviews and approves
+# before anything merges. The gate stays.
+
+name: Weekly agent run
+
+on:
+  schedule:
+    # Every Monday at 9 AM Pacific time (17:00 UTC)
+    - cron: '0 17 * * 1'
+  workflow_dispatch:
+    # Also allow manual trigger from the Actions tab
+
+jobs:
+  agent-run:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Configure git identity
+        run: |
+          git config --global user.name "Earthseed Agent"
+          git config --global user.email "agent@earthseed.local"
+
+      - name: Create agent working branch
+        run: |
+          BRANCH="agent/run-$(date +%Y-%m-%d)"
+          git checkout -b "$BRANCH"
+          echo "AGENT_BRANCH=$BRANCH" >> "$GITHUB_ENV"
+
+      - name: Run agent
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          claude --print \
+            "You are the Earthseed agent running on a scheduled GitHub Action. Read CLAUDE.md, EARTHSEED.md, and LEDGER.md in that order. Then do the next real step in the active effort. Use web search to verify any data that is approaching its 90-day freshness limit. Write what you did to LEDGER.md. Commit any changes with a clear commit message. Do not push or open a pull request — the workflow will handle that." \
+            --allowedTools "Bash,Read,Write,Edit,WebSearch,WebFetch"
+
+      - name: Check for changes
+        id: check-changes
+        run: |
+          if git diff --quiet HEAD; then
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit changes
+        if: steps.check-changes.outputs.has_changes == 'true'
+        run: |
+          git add -A
+          git commit -m "Agent run $(date +%Y-%m-%d): scheduled update
+
+Automated run triggered by weekly GitHub Actions workflow.
+See LEDGER.md for details of what was done this run."
+
+      - name: Push branch
+        if: steps.check-changes.outputs.has_changes == 'true'
+        run: git push -u origin "$AGENT_BRANCH"
+
+      - name: Open pull request
+        if: steps.check-changes.outputs.has_changes == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr create \
+            --title "Agent run $(date +%Y-%m-%d)" \
+            --body "Scheduled weekly agent run. See LEDGER.md in this PR for what was done.
+
+A person must review and approve before this merges. The gate stays." \
+            --base main \
+            --head "$AGENT_BRANCH"

@@ -4,6 +4,42 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-05-23 — Third pass: senior resource page, GitHub Pages structure, scheduled workflow
+
+**What was done:**
+
+Researched senior resources in Menifee to answer the open questions in the #0003 charter. Key findings:
+
+The most important discovery: there IS a senior center physically in Menifee. The Kay Ceniceros Senior Center (29995 Evans Rd, Menifee 92586, (951) 672-9673) is run by the city and the Riverside County Office on Aging. It is open Monday through Friday 8 AM to 5 PM. Hot congregate lunches are served Monday through Friday at 11:30 AM (reserve 24 hours ahead, donation encouraged). Programs include fitness classes, Tai Chi, line dancing, cards and games, and social activities.
+
+The Menifee Police Department runs a free program called YANA (You Are Not Alone) for older adults living alone. Trained volunteers call participants at a prearranged time. If there is no answer, emergency contacts are reached. Enrollment is by email (DG_PD_Volunteers@menifeepolice.org) or mail to 29714 Haun Rd Unit A, Menifee 92586. Non-emergency line: (951) 677-4964. This addresses the isolation problem directly and is not well known.
+
+Confirmed additional resources covering Menifee: RTA Dial-A-Ride for seniors 65+ (call (951) 565-5002 to confirm eligibility); In-Home Supportive Services (IHSS) through Riverside County DPSS for low-income elderly and disabled residents, free, call (888) 960-4477 or apply at riversideihss.org; Riverside County Family Caregiver Support Program (free workshops, support groups, respite, social worker visit, call (877) 932-4100); Inland Caregiver Resource Center for caregiver counseling and dementia-specific support, call (800) 675-6694; LIHEAP energy assistance through CAP Riverside County, (951) 955-4900, priority for seniors 60+.
+
+Built effort #0003 at efforts/0003-menifee-seniors/site/index.html. The page has five sections: in-person Menifee resources (Kay Ceniceros, YANA), home-based support (cross-references to the food page for home delivered meals and the volunteer page for TRIP, plus IHSS and RTA Dial-A-Ride), family caregiver resources (county program and ICRC), and utility assistance (LIHEAP/SHARE through CAP).
+
+Created the GitHub Pages deployment structure under docs/:
+- docs/index.html: landing page linking to all three tools
+- docs/food/index.html: food resource page with cross-links to volunteer and senior pages
+- docs/volunteers/index.html: volunteer page with cross-links to food and senior pages
+- docs/seniors/index.html: senior resource page with cross-links to the other two
+
+To go live, a person must: (1) go to repo Settings, scroll to Pages, set Source to "Deploy from a branch", branch to "main", folder to "/docs", and save. The site will be at https://coldtie.github.io/Earthseed/. That is the only human action required to deploy all three pages at once.
+
+Created .github/workflows/weekly-agent.yml: a scheduled GitHub Actions workflow that runs the agent every Monday at 9 AM Pacific. The workflow checks out the repo, installs Claude Code, runs the agent with a prompt to read CLAUDE.md and do the next real step, commits any changes, and opens a pull request for human review. Requires ANTHROPIC_API_KEY to be added as a repo secret before it can run.
+
+**What is flagged for follow-up:**
+
+- God's Helping Hand (food page): two phone numbers still unverified. Needs a phone call.
+- MSJC Pantry hours were listed as "effective November 2025" — confirm they are still current.
+- GitHub Pages: enable in repo Settings. One toggle, immediately live.
+- GitHub Actions scheduled workflow: add ANTHROPIC_API_KEY to repo Secrets before it will run. Enable "Allow GitHub Actions to create and approve pull requests" in Settings → Actions → General.
+- Senior page: the YANA program address and email were pulled from menifeepolice.org search results; verify the email and mailing address are still current before promoting the page widely.
+- Senior page: call (951) 672-9673 to confirm Kay Ceniceros lunch reservation process before telling seniors to show up.
+- Effort #0003 is now built and in the docs/ structure. Status: awaiting deployment alongside #0001 and #0002.
+
+---
+
 ## 2026-05-23 — Second pass: volunteer board, senior charter, business model, food page expanded
 
 **What was done:**
