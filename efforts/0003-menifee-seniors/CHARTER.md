@@ -1,6 +1,6 @@
 # Effort #0003: Menifee Senior Resource Guide
 
-## Status: Planned — next after #0002 is live
+## Status: Built — awaiting hosting and human review
 
 ## The problem
 

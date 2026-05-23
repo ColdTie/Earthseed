@@ -4,6 +4,43 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-05-23 — Third pass: senior resource guide built (#0003 v1)
+
+**What was done:**
+
+Researched the five open questions from the #0003 CHARTER:
+
+1. Senior centers in Menifee: Two exist. The primary public resource is the **Kay Ceniceros Senior Center** at 29995 Evans Rd, run by the City. Open Mon–Fri 8 AM–5 PM. Congregate lunches served daily at 11:30 AM for seniors 60+, call (951) 342-3057 the day before to reserve. The **Sun City Civic Association** (28650 Sun City Blvd, (951) 679-2311) is a 55+ community center; it is not a public senior center but hosts an annual Senior Expo open to all.
+
+2. County Office on Aging presence near Menifee: No dedicated county outreach office in Menifee. The Kay Ceniceros Center is the in-person anchor. The countywide HelpLink line (877) 932-4100 covers Menifee residents for all OOA programs.
+
+3. Congregate meal sites: Kay Ceniceros Senior Center is the only confirmed congregate meal site in Menifee. Meals Mon–Fri at 11:30 AM. OOA nutrition office at the center: (951) 342-3057.
+
+4. Utility assistance for seniors: LIHEAP through Community Action Partnership of Riverside County — apply at caliheapapply.com or call (951) 955-4900. CARE Program: 20–35% ongoing discount on utility bills. Property Tax Postponement: state program for homeowners 62+ with income ≤ $55,181 and ≥40% equity; apply Oct 1 through Feb 10 via sco.ca.gov.
+
+5. Welfare check process: Menifee PD has two distinct options. **YANA (You Are Not Alone)** is an ongoing free check-in program for isolated seniors — police volunteers call and visit regularly; email DG_PD_Volunteers@menifeepolice.org to enroll. For a one-time welfare check, call the non-emergency line at (951) 677-4964.
+
+Built the v1 page at `efforts/0003-menifee-seniors/site/index.html`. Color: navy blue, distinct from green (#0001) and teal (#0002). Page sections:
+- Two urgent callout cards at top: home-delivered meals and YANA enrollment
+- In-Menifee: Kay Ceniceros Senior Center, Sun City Civic Association
+- County-wide: IHSS, Family Caregiver Support Program, TRIP transportation
+- Financial: LIHEAP, Property Tax Postponement
+- Safety: YANA program detail card with welfare check instructions
+
+Updated CHARTER for #0003 status from "Planned" to "Built — awaiting hosting and human review."
+
+All three efforts (food, volunteers, seniors) are now built as static HTML and ready to host. None are live yet. Hosting requires human review.
+
+**What is flagged for follow-up:**
+
+- Kay Ceniceros Senior Center: meal hours from different sources were slightly inconsistent. One source said Wednesday only; later search confirmed Mon–Fri 11:30 AM. Before the page goes live, a call to (951) 342-3057 should confirm current schedule.
+- The CARE Program discount is applied by the utility company (SCE/SoCalGas). A card for that specific enrollment process could be added to the page. Left out of v1 since it is mentioned in the LIHEAP card as a pointer.
+- No data found on whether there is a Menifee-specific property tax exemption beyond the state programs. Riverside County assessor's office (rivcoacr.org) is the right source to check.
+- All three pages point to future hosted URLs that do not exist yet. The internal cross-links are placeholder paths; they will need real URLs before launch.
+- GitHub Pages remains the simplest hosting path. Three pages, one repo, no backend required. Human decision.
+
+---
+
 ## 2026-05-23 — Second pass: volunteer board, senior charter, business model, food page expanded
 
 **What was done:**

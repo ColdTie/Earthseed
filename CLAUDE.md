@@ -49,7 +49,17 @@ If and when this is set up, it lives in its own effort folder with its own rules
 Repo: ColdTie/Earthseed, private.
 Seed files: EARTHSEED.md, this file, LEDGER.md, README.md, and the first effort.
 
-Active effort: #0001, a food resource aggregator for Menifee, California. The charter is written. The next real work is assembling a true list of local food sites with correct hours, because the tool only helps if the underlying information is right. Then build a simple version, get it approved, put it live, and start measuring wrong door reports. Stay scoped to Menifee until freshness and accuracy hold.
+Active efforts: Three static HTML pages are built and waiting for human review and hosting.
+
+- #0001: Food resources (efforts/0001-menifee-food/site/index.html)
+- #0002: Volunteer opportunities (efforts/0002-menifee-volunteers/site/index.html)
+- #0003: Senior resource guide (efforts/0003-menifee-seniors/site/index.html)
+
+None are live yet. Hosting via GitHub Pages is the simplest path. That requires human approval.
+
+The most urgent outstanding data quality issue: God's Helping Hand (#0001) has two phone numbers in different sources. A phone call to confirm which is current before launch is the one outstanding task before the food page should go live.
+
+On the next agent run, if the pages are not yet hosted, consider whether there is a fourth effort worth drafting or whether any of the existing pages can be improved with additional data. Do not invent work; check the flags in the LEDGER first.
 
 ## How to pick up the work
 
