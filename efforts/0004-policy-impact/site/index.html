@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Policy Impact — Menifee, CA</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:    #1f3f6e;
+      --blue-lt: #3a6bc4;
+      --gray-1:  #f5f7fb;
+      --gray-2:  #dde3ef;
+      --gray-4:  #7a839a;
+      --gray-7:  #2a2d38;
+      --white:   #ffffff;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--gray-7);
+      background: var(--gray-1);
+    }
+
+    a { color: var(--blue-lt); }
+    a:hover { color: var(--blue); }
+
+    /* Header */
+    header {
+      background: var(--blue);
+      color: var(--white);
+      padding: 1.25rem 1rem 1rem;
+    }
+    header h1 { font-size: 1.35rem; font-weight: 700; line-height: 1.25; }
+    header p  { margin-top: .3rem; font-size: .9rem; opacity: .85; }
+
+    /* Status bar */
+    .status-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-2);
+      padding: .5rem 1rem;
+      font-size: .8rem;
+      color: var(--gray-4);
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    /* Main */
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    /* Section heading */
+    .section-heading {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--gray-4);
+      margin: 1.5rem 0 .75rem;
+    }
+
+    /* Rep row (compact, not expandable) */
+    .rep-card {
+      background: var(--white);
+      border: 1px solid var(--gray-2);
+      border-radius: 8px;
+      padding: .85rem 1rem;
+      margin-bottom: .5rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: .3rem .75rem;
+      align-items: start;
+    }
+    .rep-name {
+      font-size: .95rem;
+      font-weight: 700;
+    }
+    .rep-meta {
+      font-size: .78rem;
+      color: var(--gray-4);
+      margin-top: .1rem;
+    }
+    .rep-contact {
+      text-align: right;
+      font-size: .82rem;
+    }
+    .rep-contact a {
+      display: block;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--blue-lt);
+    }
+    .rep-contact a:hover { text-decoration: underline; }
+    .party-r { color: #b33000; font-weight: 700; }
+    .party-d { color: #005bb5; font-weight: 700; }
+
+    /* Policy card */
+    .card {
+      background: var(--white);
+      border-radius: 8px;
+      border: 1px solid var(--gray-2);
+      margin-bottom: .75rem;
+      overflow: hidden;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: .9rem 1rem .6rem;
+      cursor: pointer;
+      gap: .5rem;
+    }
+    .card-header h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      flex: 1;
+    }
+
+    .status-badge {
+      font-size: .68rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .badge-enacted { background: #ffe5e5; color: #8b0000; }
+    .badge-ballot  { background: #e7f4ff; color: #0055a5; }
+    .badge-watch   { background: #fff3cd; color: #856404; }
+
+    .card-body {
+      padding: 0 1rem .9rem;
+      display: none;
+    }
+    .card.open .card-body { display: block; }
+
+    .expand-hint {
+      display: inline;
+      font-size: .75rem;
+      font-weight: 400;
+      color: var(--gray-4);
+    }
+    .card.open .expand-hint { display: none; }
+
+    /* detail rows */
+    dl.details { display: grid; grid-template-columns: auto 1fr; row-gap: .45rem; column-gap: .75rem; margin-top: .5rem; }
+    dl.details dt { font-size: .78rem; font-weight: 700; color: var(--gray-4); padding-top: .1rem; white-space: nowrap; }
+    dl.details dd { font-size: .88rem; }
+
+    .note {
+      font-size: .82rem;
+      color: var(--gray-4);
+      margin-top: .5rem;
+      line-height: 1.5;
+    }
+    .note.warn  { color: #8b6000; }
+    .note.flag  { color: #8b0000; }
+
+    .impact-box {
+      background: var(--gray-1);
+      border-left: 3px solid var(--blue-lt);
+      border-radius: 0 4px 4px 0;
+      padding: .6rem .75rem;
+      margin: .75rem 0 .5rem;
+      font-size: .88rem;
+    }
+    .impact-box strong { display: block; font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gray-4); margin-bottom: .2rem; }
+
+    .vote-row {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+      margin-top: .6rem;
+    }
+    .vote-chip {
+      font-size: .75rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 10px;
+      white-space: nowrap;
+    }
+    .vote-yes  { background: #ffe5e5; color: #8b0000; }
+    .vote-no   { background: #d8f3dc; color: #1a5c30; }
+    .vote-abs  { background: #f0f0f0; color: #666; }
+    .vote-na   { background: #f0f0f0; color: #888; }
+
+    .source-line {
+      font-size: .75rem;
+      color: var(--gray-4);
+      margin-top: .6rem;
+    }
+    .source-line a { color: var(--gray-4); }
+
+    .cta-call {
+      display: inline-block;
+      margin-top: .7rem;
+      background: var(--blue);
+      color: var(--white);
+      text-decoration: none;
+      padding: .4rem .85rem;
+      border-radius: 6px;
+      font-size: .85rem;
+      font-weight: 600;
+      margin-right: .4rem;
+    }
+    .cta-call:hover { background: var(--blue-lt); color: var(--white); }
+
+    .cta-link {
+      display: inline-block;
+      margin-top: .7rem;
+      background: var(--white);
+      color: var(--blue);
+      border: 1px solid var(--blue);
+      text-decoration: none;
+      padding: .38rem .85rem;
+      border-radius: 6px;
+      font-size: .82rem;
+      font-weight: 600;
+    }
+    .cta-link:hover { background: var(--blue); color: var(--white); }
+
+    /* Report bar */
+    .report-bar {
+      margin-top: 2rem;
+      background: var(--white);
+      border: 1px solid var(--gray-2);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+      font-size: .88rem;
+    }
+    .report-bar p { margin-bottom: .5rem; }
+    .report-bar a {
+      display: inline-block;
+      border: 1px solid var(--blue);
+      border-radius: 6px;
+      padding: .4rem .9rem;
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--blue);
+      text-decoration: none;
+    }
+    .report-bar a:hover { background: var(--blue); color: var(--white); }
+
+    /* Footer */
+    footer {
+      max-width: 680px;
+      margin: 1rem auto 2rem;
+      padding: 0 1rem;
+      font-size: .78rem;
+      color: var(--gray-4);
+    }
+    footer a { color: var(--gray-4); }
+
+    @media (max-width: 420px) {
+      header h1 { font-size: 1.15rem; }
+      dl.details { grid-template-columns: 1fr; }
+      dl.details dt { margin-top: .5rem; }
+      .rep-card { grid-template-columns: 1fr; }
+      .rep-contact { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Policy Impact — Menifee, CA</h1>
+  <p>What your elected officials are working on, and what it means for life in Menifee.</p>
+</header>
+
+<div class="status-bar">
+  <span>Data reviewed: May 23, 2026</span>
+  <span>
+    <a href="../../0001-menifee-food/site/">Food resources</a>
+    &nbsp;&middot;&nbsp;
+    <a href="../../0002-menifee-volunteers/site/">Volunteer</a>
+    &nbsp;&middot;&nbsp;
+    <a href="../../0003-menifee-seniors/site/">Senior resources</a>
+  </span>
+</div>
+
+<main>
+
+  <!-- ══ YOUR REPRESENTATIVES ══ -->
+  <p class="section-heading">Your representatives</p>
+  <p style="font-size:.85rem; color:var(--gray-4); margin-bottom:.85rem;">These are the elected officials who represent Menifee residents. They have district offices and phone lines. Calls and letters do get logged.</p>
+
+  <!-- Federal House -->
+  <div class="rep-card">
+    <div>
+      <div class="rep-name">Ken Calvert &nbsp;<span class="party-r">R</span></div>
+      <div class="rep-meta">U.S. House · California's 41st Congressional District · Menifee</div>
+    </div>
+    <div class="rep-contact">
+      <a href="tel:9517840831">(951) 784-0831</a>
+      <a href="https://calvert.house.gov" target="_blank" rel="noopener">calvert.house.gov</a>
+    </div>
+  </div>
+
+  <!-- Federal Senate - Padilla -->
+  <div class="rep-card">
+    <div>
+      <div class="rep-name">Alex Padilla &nbsp;<span class="party-d">D</span></div>
+      <div class="rep-meta">U.S. Senate · California · Senior Senator</div>
+    </div>
+    <div class="rep-contact">
+      <a href="tel:3102318535">(310) 231-8535</a>
+      <a href="https://www.padilla.senate.gov" target="_blank" rel="noopener">padilla.senate.gov</a>
+    </div>
+  </div>
+
+  <!-- Federal Senate - Schiff -->
+  <div class="rep-card">
+    <div>
+      <div class="rep-name">Adam Schiff &nbsp;<span class="party-d">D</span></div>
+      <div class="rep-meta">U.S. Senate · California · Junior Senator</div>
+    </div>
+    <div class="rep-contact">
+      <a href="tel:3102289581">(310) 228-9581</a>
+      <a href="https://www.schiff.senate.gov" target="_blank" rel="noopener">schiff.senate.gov</a>
+    </div>
+  </div>
+
+  <!-- CA Assembly -->
+  <div class="rep-card">
+    <div>
+      <div class="rep-name">Bill Essayli &nbsp;<span class="party-r">R</span></div>
+      <div class="rep-meta">California State Assembly · District 63 · Menifee</div>
+    </div>
+    <div class="rep-contact">
+      <a href="tel:9515804610">(951) 580-4610</a>
+      <a href="https://ad63.asmrc.org" target="_blank" rel="noopener">ad63.asmrc.org</a>
+    </div>
+  </div>
+
+  <!-- CA Senate -->
+  <div class="rep-card">
+    <div>
+      <div class="rep-name">Kelly Seyarto &nbsp;<span class="party-r">R</span></div>
+      <div class="rep-meta">California State Senate · District 32 · Menifee</div>
+    </div>
+    <div class="rep-contact">
+      <a href="tel:9519266164">(951) 926-6164</a>
+      <a href="https://sd32.senate.ca.gov" target="_blank" rel="noopener">sd32.senate.ca.gov</a>
+    </div>
+  </div>
+
+  <!-- ══ ACTIVE POLICIES ══ -->
+  <p class="section-heading">Policies affecting Menifee residents now</p>
+  <p style="font-size:.85rem; color:var(--gray-4); margin-bottom:.85rem;">Only policies that are enacted, on the ballot, or directly changing a program Menifee residents use. No speculation. Sources linked for every fact.</p>
+
+  <!-- OBBBA - Medi-Cal Work Requirements -->
+  <div class="card" id="card-medicaid">
+    <div class="card-header" onclick="toggle('card-medicaid')">
+      <h2>Medi-Cal Work Requirements &nbsp;<span class="expand-hint">&mdash; tap for details</span></h2>
+      <span class="status-badge badge-enacted">Enacted · Takes effect Dec 2026</span>
+    </div>
+    <div class="card-body">
+      <dl class="details">
+        <dt>The law</dt>
+        <dd>One Big Beautiful Bill Act (P.L. 119-21), signed July 4, 2025. Cuts approximately $1 trillion from federal Medicaid spending over 10 years.</dd>
+
+        <dt>What changed</dt>
+        <dd>Starting December 31, 2026: Medi-Cal enrollees ages 19–65 who are on the ACA Medicaid expansion must document at least 80 hours per month of qualifying activity — employment, job training, education, or volunteer work — or lose their coverage. There are exemptions for people who are medically fragile, pregnant, caregivers of young children, or already have a serious disability. Paperwork must be filed to claim an exemption.</dd>
+
+        <dt>Who it affects in Menifee</dt>
+        <dd>Medi-Cal covers 14.8 million Californians as of mid-2025. The work requirement applies to the Medicaid expansion population — adults without dependent children who gained coverage under the ACA. People already receiving IHSS (in-home care) may face additional paperwork to prove an exemption.</dd>
+      </dl>
+
+      <div class="impact-box">
+        <strong>What this means practically</strong>
+        If you are on Medi-Cal and between ages 19–65, you will need to document qualifying activities or an exemption by the December 2026 deadline. The most immediate risk is for people who qualify for an exemption but do not know they need to file paperwork to claim it. The same (877) 932-4100 HelpLink line that handles senior services can help connect you with a benefits counselor.
+      </div>
+
+      <div class="vote-row">
+        <span class="vote-chip vote-yes">Calvert (R-41): Voted YES</span>
+        <span class="vote-chip vote-na">Padilla (D-CA): Voted NO</span>
+        <span class="vote-chip vote-na">Schiff (D-CA): Not yet in Senate at time of vote</span>
+      </div>
+
+      <p class="source-line">
+        Sources:
+        <a href="https://www.kff.org/medicaid/tracking-the-medicaid-provisions-in-the-2025-budget-bill/" target="_blank" rel="noopener">KFF tracking</a> ·
+        <a href="https://ccf.georgetown.edu/2025/07/22/medicaid-chip-and-affordable-care-act-marketplace-cuts-and-other-health-provisions-in-the-budget-reconciliation-law-explained/" target="_blank" rel="noopener">Georgetown CCF analysis</a> ·
+        <a href="https://congress.gov/bill/119th-congress/house-bill/1" target="_blank" rel="noopener">Full bill text</a>
+      </p>
+
+      <a class="cta-call" href="tel:9517840831">Call Calvert's office</a>
+      <a class="cta-call" href="tel:3102318535">Call Padilla's office</a>
+      <a class="cta-link" href="../../0003-menifee-seniors/site/">IHSS info on the senior page</a>
+    </div>
+  </div>
+
+  <!-- OBBBA - SNAP -->
+  <div class="card" id="card-snap">
+    <div class="card-header" onclick="toggle('card-snap')">
+      <h2>SNAP Food Benefits — Benefit Calculation Change &nbsp;<span class="expand-hint">&mdash; tap for details</span></h2>
+      <span class="status-badge badge-enacted">Enacted · Now in effect</span>
+    </div>
+    <div class="card-body">
+      <dl class="details">
+        <dt>The law</dt>
+        <dd>One Big Beautiful Bill Act (P.L. 119-21), signed July 4, 2025. The SNAP provisions are projected to reduce total SNAP spending by 36% by 2034 compared to prior projections.</dd>
+
+        <dt>What changed</dt>
+        <dd>Under prior law, households receiving LIHEAP (utility assistance) received a higher SNAP benefit because energy assistance was counted as part of their household expenses. The new law changes how energy costs are counted in the SNAP benefit formula, which lowers the monthly benefit for some households. SNAP also added new work requirements that mirror the Medicaid requirements.</dd>
+
+        <dt>Who it affects in Menifee</dt>
+        <dd>SNAP recipients who also receive LIHEAP utility assistance will see their monthly SNAP benefit reduced. The size of the reduction depends on household size and benefit level. Separately, adults 18–54 without dependents who were previously exempt from work requirements now have tighter requirements to maintain.</dd>
+      </dl>
+
+      <div class="impact-box">
+        <strong>What this means practically</strong>
+        If your household uses both SNAP and LIHEAP utility assistance, your SNAP benefit may be lower than it was before July 2025. If you have not already, call (951) 955-4900 (CAP Riverside) to confirm your current LIHEAP enrollment and ask how the SNAP change affects your specific household. The two programs still both exist — the interaction between them changed.
+      </div>
+
+      <div class="vote-row">
+        <span class="vote-chip vote-yes">Calvert (R-41): Voted YES</span>
+        <span class="vote-chip vote-na">Padilla (D-CA): Voted NO</span>
+        <span class="vote-chip vote-na">Schiff (D-CA): Not yet in Senate at time of vote</span>
+      </div>
+
+      <p class="source-line">
+        Sources:
+        <a href="https://www.congress.gov/crs-product/R48552" target="_blank" rel="noopener">Congressional Research Service summary</a> ·
+        <a href="https://www.fns.usda.gov/snap/admin/energy-assistance-payments" target="_blank" rel="noopener">USDA implementation guidance</a>
+      </p>
+
+      <a class="cta-call" href="tel:9517840831">Call Calvert's office</a>
+      <a class="cta-link" href="../../0001-menifee-food/site/">Food resources in Menifee</a>
+    </div>
+  </div>
+
+  <!-- LIHEAP threat -->
+  <div class="card" id="card-liheap">
+    <div class="card-header" onclick="toggle('card-liheap')">
+      <h2>LIHEAP Utility Assistance — Funding at Risk &nbsp;<span class="expand-hint">&mdash; tap for details</span></h2>
+      <span class="status-badge badge-watch">Watch — Not yet cut</span>
+    </div>
+    <div class="card-body">
+      <dl class="details">
+        <dt>What LIHEAP is</dt>
+        <dd>The Low Income Home Energy Assistance Program (LIHEAP) helps low-income households pay electric and gas bills. In Riverside County, it is administered by Community Action Partnership at (951) 955-4900. Seniors 60 and older are a priority group.</dd>
+
+        <dt>Current status</dt>
+        <dd>LIHEAP was not eliminated by the One Big Beautiful Bill Act. However, the Trump administration has proposed eliminating LIHEAP entirely in its budget request, and has already laid off the federal office staff that oversees the program. Congress must still pass a budget to formally fund or cut the program. As of May 2026, LIHEAP continues to operate.</dd>
+
+        <dt>What could happen</dt>
+        <dd>If Congress does not appropriate funds for LIHEAP in the next federal budget, the program ends. LIHEAP has historically had bipartisan support, which makes full elimination difficult. But funding levels are uncertain and could be reduced even if the program continues.</dd>
+      </dl>
+
+      <div class="impact-box">
+        <strong>What this means practically</strong>
+        LIHEAP is still accepting applications at (951) 955-4900. If you qualify and need utility assistance, apply now rather than waiting. The program exists today. Whether it continues past the next federal budget cycle is not certain.
+      </div>
+
+      <div class="vote-row">
+        <span class="vote-chip vote-abs">Calvert — position not confirmed</span>
+        <span class="vote-chip vote-abs">Padilla — opposed to elimination</span>
+        <span class="vote-chip vote-abs">Schiff — opposed to elimination</span>
+      </div>
+
+      <p class="source-line">
+        Sources:
+        <a href="https://nefi.com/news-publications/recent-news/liheap-unaffected-by-one-big-beautiful-bill" target="_blank" rel="noopener">NEFI: LIHEAP unaffected by OBBBA</a> ·
+        <a href="https://www.dsireinsight.com/blog/2025/8/22/if-federal-energy-assistance-folds-who-steps-up" target="_blank" rel="noopener">DSIRE analysis</a>
+      </p>
+
+      <a class="cta-call" href="tel:9517840831">Call Calvert's office</a>
+      <a class="cta-call" href="tel:3102318535">Call Padilla's office</a>
+      <a class="cta-call" href="tel:3102289581">Call Schiff's office</a>
+      <a class="cta-link" href="../../0003-menifee-seniors/site/">LIHEAP details on senior page</a>
+    </div>
+  </div>
+
+  <!-- SB 417 Housing Bond -->
+  <div class="card" id="card-housing">
+    <div class="card-header" onclick="toggle('card-housing')">
+      <h2>SB 417 — Affordable Housing Bond &nbsp;<span class="expand-hint">&mdash; tap for details</span></h2>
+      <span class="status-badge badge-ballot">On November 2026 ballot</span>
+    </div>
+    <div class="card-body">
+      <dl class="details">
+        <dt>What it is</dt>
+        <dd>SB 417 (California Affordable Housing Bond Act of 2026) is a $10 billion bond measure that California legislators placed on the November 2026 statewide ballot. Voters will decide whether to approve it.</dd>
+
+        <dt>What the money would fund</dt>
+        <dd>
+          $7 billion to the state's Multifamily Housing Program (builds affordable rental units).<br>
+          $1 billion to the CalHOME program and down payment assistance for first-time buyers.<br>
+          $800 million to preserve existing affordable housing.<br>
+          $500 million to acquire and rehabilitate naturally affordable housing.
+        </dd>
+
+        <dt>Who decides</dt>
+        <dd>California voters in the November 2026 general election. You must be registered to vote in California to have a say.</dd>
+
+        <dt>Connection to Menifee</dt>
+        <dd>Menifee is one of the fastest-growing cities in California and has seen significant housing cost increases. Affordable housing bond funds are distributed statewide through competitive applications by developers and local governments. Menifee would need to apply — the funds do not automatically come here.</dd>
+      </dl>
+
+      <div class="impact-box">
+        <strong>What this means practically</strong>
+        If you rent in Menifee or have been priced out of homeownership, this bond is relevant to whether affordable units get built here. Your state assembly member (Essayli) and state senator (Seyarto) voted on whether to put this measure on the ballot. Call them to ask where they stand on housing funding.
+      </div>
+
+      <div class="vote-row">
+        <span class="vote-chip vote-abs">Essayli (R-A63) — position to be confirmed</span>
+        <span class="vote-chip vote-abs">Seyarto (R-S32) — position to be confirmed</span>
+      </div>
+
+      <p class="source-line">
+        Sources:
+        <a href="https://housingca.org/policy/policy-priorities-2026/" target="_blank" rel="noopener">Housing California</a> ·
+        <a href="https://calmatters.org/politics/2026/01/2026-housing-agenda/" target="_blank" rel="noopener">CalMatters housing preview</a>
+      </p>
+
+      <a class="cta-call" href="tel:9515804610">Call Essayli's office</a>
+      <a class="cta-call" href="tel:9519266164">Call Seyarto's office</a>
+    </div>
+  </div>
+
+  <!-- Report bar -->
+  <div class="report-bar">
+    <p>Policy information changes. If a vote record is wrong, a phone number is bad, or a bill's status has changed, please report it. Factual accuracy is the whole point.</p>
+    <a href="mailto:pennersteven@gmail.com?subject=Menifee%20policy%20page%20correction&body=What%20is%20wrong%3A%0A%0AThe%20policy%20or%20section%20affected%3A%0A%0AThe%20correct%20information%20and%20its%20source%3A" target="_blank">Report a factual error</a>
+  </div>
+
+</main>
+
+<footer>
+  <p>Data sourced from KFF, Georgetown Center for Children and Families, Congressional Research Service, CalMatters, and official legislative records. Vote records from congress.gov. Last reviewed: May 23, 2026. This page is non-partisan — it reports what laws do and who voted for them. It does not advocate for or against any policy.</p>
+  <p style="margin-top:.4rem">
+    <a href="../../0001-menifee-food/site/">Food resources</a>
+    &nbsp;&middot;&nbsp;
+    <a href="../../0002-menifee-volunteers/site/">Volunteer opportunities</a>
+    &nbsp;&middot;&nbsp;
+    <a href="../../0003-menifee-seniors/site/">Senior resources</a>
+    &nbsp;&middot;&nbsp;
+    <a href="https://github.com/ColdTie/Earthseed" target="_blank" rel="noopener">Source on GitHub</a>
+  </p>
+</footer>
+
+<script>
+  function toggle(id) {
+    document.getElementById(id).classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
