@@ -4,6 +4,40 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-05-23 — Third pass: senior resource page built, root landing page, GitHub Pages workflow
+
+**What was done:**
+
+Researched senior resources available to Menifee residents. Found several programs that were not previously documented:
+
+- **Kay Ceniceros Senior Center** at 29995 Evans Rd, Menifee, CA 92586 is the city's active senior center. Open Mon-Fri 8 AM to 5 PM. Serves hot congregate lunches daily at 11:30 AM. Also functions as a cooling center on extreme heat days. GoGo Grandparent registration can be done here in person.
+- **GoGo Grandparent** — The City of Menifee has a specific partnership with GoGo Grandparent for seniors 60+ and adults with disabilities. First four one-way rides are free. Call (951) 556-6625 or register at the senior center.
+- **YANA (You Are Not Alone)** — Menifee PD runs a free volunteer program that calls older adults living alone at a prearranged time. If there is no answer, emergency contacts are called. To join: DG_PD_Volunteers@menifeepolice.org.
+- **IHSS (In-Home Supportive Services)** — Riverside County DPSS pays for in-home caregivers (including family members) to help seniors with daily tasks. Apply at (888) 960-4477.
+- **Family Caregiver Support Program** — RC Office on Aging runs a free 11-week workshop for family caregivers. Respite care may be available. Call (877) 932-4100.
+- **MHRGP (Senior Home Repair Grant)** — City of Menifee grants up to $15,000 (lifetime, not a loan) for accessibility and safety improvements to homes owned by low-income seniors. Contact Celia Olivas at (951) 723-1750.
+- **LIHEAP** — CAP Riverside handles utility bill assistance for Riverside County. Call (951) 955-4900 for a phone pre-screen first.
+- **TRIP** was already documented in the volunteer board; added more complete detail for the senior audience.
+
+Built `efforts/0003-menifee-seniors/site/index.html` — a mobile-first static HTML page with the same card format as the food and volunteer pages. Sections: Getting Around, Meals, Safety and Staying Connected, In-Home Support and Caregiver Help, Financial and Home Help, Not Sure Where to Start. Kay Ceniceros shows live open/closed status including a "Lunch Now" indicator at 11:30 AM.
+
+Built `index.html` at the repo root — a landing page that links to all three resource pages with short descriptions.
+
+Created `.github/workflows/deploy-pages.yml` — a GitHub Actions workflow that publishes the three pages and the root landing page to GitHub Pages. The workflow is manual-trigger only (`workflow_dispatch`) so a human explicitly approves each deployment. No scheduled or auto-deploy runs.
+
+Updated CLAUDE.md to reflect all three efforts as complete and describe what a human needs to do to publish them.
+
+**What is flagged for follow-up:**
+
+- God's Helping Hand phone number still needs a call to confirm which of two numbers is current before the food page goes live. Numbers: (951) 973-3582 and (951) 679-4667.
+- GitHub Pages requires "GitHub Actions" selected as the source in repo Settings → Pages before the workflow will work. This is a one-time setup step a human does in the GitHub UI.
+- After deployment, share the URL in Menifee community Facebook groups, at Kay Ceniceros Senior Center (physical flyer), the MVCC, and the city website if possible.
+- MSJC Food 4 Thought hours say "effective November 2025" — still worth confirming these are current.
+- The YANA program email and GoGo Grandparent phone (951-556-6625) have not been personally verified by phone. They come from city web content as of the search results, which is reasonably reliable, but a quick call would confirm before the page is promoted widely.
+- CIELO Fund application opens December 1, 2026. Draft in November using page traffic data as evidence.
+
+---
+
 ## 2026-05-23 — Second pass: volunteer board, senior charter, business model, food page expanded
 
 **What was done:**

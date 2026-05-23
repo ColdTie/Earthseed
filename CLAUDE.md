@@ -47,10 +47,29 @@ If and when this is set up, it lives in its own effort folder with its own rules
 ## Where things stand
 
 Repo: ColdTie/Earthseed, private.
-Seed files: EARTHSEED.md, this file, LEDGER.md, README.md, and the first effort.
 
-Active effort: #0001, a food resource aggregator for Menifee, California. The charter is written. The next real work is assembling a true list of local food sites with correct hours, because the tool only helps if the underlying information is right. Then build a simple version, get it approved, put it live, and start measuring wrong door reports. Stay scoped to Menifee until freshness and accuracy hold.
+Three efforts are built and awaiting deployment. A GitHub Actions workflow exists at `.github/workflows/deploy-pages.yml` to publish to GitHub Pages. The workflow is manual-trigger only — a human runs it after reviewing. GitHub Pages must be set to "GitHub Actions" source in repo Settings before the first deploy.
+
+**Effort #0001 — Menifee Food Resources**: Built. `efforts/0001-menifee-food/site/index.html`. Seven resources verified. God's Helping Hand phone number still needs reverification — two numbers in different sources. Flagged in the JSON.
+
+**Effort #0002 — Menifee Volunteer Opportunities**: Built. `efforts/0002-menifee-volunteers/site/index.html`. TRIP program featured prominently for seniors/driving.
+
+**Effort #0003 — Menifee Senior Resources**: Built. `efforts/0003-menifee-seniors/site/index.html`. Covers Kay Ceniceros Senior Center (local senior center with daily congregate lunches), GoGo Grandparent rides, TRIP volunteer driver, YANA wellness check program, IHSS, caregiver support, LIHEAP utility assistance, and the city home repair grant.
+
+**Root landing page**: `index.html` at repo root links all three pages.
+
+**Next steps for a human:**
+1. Review the three pages and the landing page.
+2. Set GitHub Pages source to "GitHub Actions" in repo Settings → Pages.
+3. Merge this branch to main.
+4. Run the "Deploy to GitHub Pages" workflow manually (Actions tab).
+5. Share the URL in local channels: Menifee Facebook groups, city resources page, MVCC, Kay Ceniceros center.
+
+**After deployment:**
+Watch for wrong-door reports at pennersteven@gmail.com. After two to four weeks, check whether any emails arrived. If none and traffic is low, the problem is distribution. If errors arrive, fix the data.
+
+**CIELO Fund grant application**: Opens December 1, 2026. Draft it in November — the evidence base is the page traffic and any wrong-door report corrections. Up to $15K, no legal entity required.
 
 ## How to pick up the work
 
-Read EARTHSEED.md, then the LEDGER to see history, then the charter of the active effort. Do the next real step. Write what you did in the LEDGER so the next run has the memory. Open a pull request for anything that should go live. Keep the loop turning.
+Read EARTHSEED.md, then the LEDGER to see history, then the current state above. Do the next real step. Write what you did in the LEDGER so the next run has the memory. Open a pull request for anything that should go live. Keep the loop turning.

@@ -1,0 +1,68 @@
+# Deploy Menifee resource pages to GitHub Pages.
+#
+# Triggered manually (workflow_dispatch) so a human explicitly approves
+# each deployment. This matches the project rule: nothing goes live
+# without human review.
+#
+# To deploy: go to Actions → Deploy to GitHub Pages → Run workflow.
+#
+# GitHub Pages must be configured to use "GitHub Actions" as the source
+# in Settings → Pages before this will work.
+
+name: Deploy to GitHub Pages
+
+on:
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: "Brief reason for this deployment"
+        required: false
+        default: "Routine update"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one deployment at a time.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build artifact
+        # The site is static HTML — no build step needed.
+        # We copy the files we want to publish into a _site/ directory.
+        run: |
+          mkdir -p _site
+          cp index.html _site/
+          mkdir -p _site/efforts/0001-menifee-food/site
+          mkdir -p _site/efforts/0002-menifee-volunteers/site
+          mkdir -p _site/efforts/0003-menifee-seniors/site
+          cp efforts/0001-menifee-food/site/index.html _site/efforts/0001-menifee-food/site/
+          cp efforts/0002-menifee-volunteers/site/index.html _site/efforts/0002-menifee-volunteers/site/
+          cp efforts/0003-menifee-seniors/site/index.html _site/efforts/0003-menifee-seniors/site/
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    name: Deploy to Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
