@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menifee, CA — Community Resources</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --earth:    #4a5240;
+      --earth-lt: #7a8a70;
+      --gray-1:   #f4f4f2;
+      --gray-2:   #e0e0db;
+      --gray-4:   #888880;
+      --gray-7:   #333330;
+      --white:    #ffffff;
+      --green:    #2d6a4f;
+      --teal:     #1a6b72;
+      --slate:    #3d5a80;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--gray-7);
+      background: var(--gray-1);
+    }
+
+    a { color: var(--earth); }
+    a:hover { color: var(--earth-lt); }
+
+    /* ── Header ── */
+    header {
+      background: var(--earth);
+      color: var(--white);
+      padding: 1.5rem 1rem 1.25rem;
+    }
+    header h1 { font-size: 1.4rem; font-weight: 700; line-height: 1.25; }
+    header p  { margin-top: .4rem; font-size: .92rem; opacity: .88; max-width: 560px; }
+
+    /* ── Main ── */
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 1.25rem 1rem 2rem;
+    }
+
+    .intro {
+      font-size: .92rem;
+      color: var(--gray-4);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    /* ── Resource cards ── */
+    .resource-card {
+      background: var(--white);
+      border-radius: 8px;
+      border: 1px solid var(--gray-2);
+      margin-bottom: .85rem;
+      overflow: hidden;
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .resource-card:hover {
+      border-color: var(--earth-lt);
+      box-shadow: 0 2px 8px rgba(0,0,0,.07);
+    }
+
+    .card-inner {
+      display: flex;
+      align-items: flex-start;
+      padding: 1rem;
+      gap: .85rem;
+    }
+
+    .card-icon {
+      font-size: 1.75rem;
+      flex-shrink: 0;
+      line-height: 1;
+      padding-top: .1rem;
+    }
+
+    .card-text { flex: 1; }
+    .card-text h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gray-7);
+    }
+    .card-text .card-sub {
+      font-size: .84rem;
+      color: var(--gray-4);
+      margin-top: .2rem;
+    }
+    .card-text .card-desc {
+      font-size: .88rem;
+      margin-top: .35rem;
+      color: var(--gray-7);
+    }
+
+    .card-arrow {
+      font-size: 1rem;
+      color: var(--gray-4);
+      flex-shrink: 0;
+      padding-top: .25rem;
+    }
+
+    .card-accent-green  { border-left: 4px solid var(--green); }
+    .card-accent-teal   { border-left: 4px solid var(--teal); }
+    .card-accent-slate  { border-left: 4px solid var(--slate); }
+
+    /* ── Coming soon card ── */
+    .resource-card.coming-soon {
+      opacity: .65;
+      cursor: default;
+      pointer-events: none;
+    }
+    .coming-soon .card-text h2::after {
+      content: " — coming soon";
+      font-size: .75rem;
+      font-weight: 400;
+      color: var(--gray-4);
+    }
+
+    /* ── Footer ── */
+    footer {
+      max-width: 680px;
+      margin: 0 auto 2rem;
+      padding: 0 1rem;
+      font-size: .78rem;
+      color: var(--gray-4);
+      line-height: 1.6;
+    }
+    footer a { color: var(--gray-4); }
+    footer a:hover { color: var(--earth); }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--gray-2);
+      margin: 1.5rem 0;
+    }
+
+    @media (max-width: 400px) {
+      header h1 { font-size: 1.2rem; }
+      .card-inner { gap: .6rem; }
+      .card-icon { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Menifee, CA — Community Resources</h1>
+  <p>Verified local information about food, volunteering, and senior services in Menifee. Free. No login.</p>
+</header>
+
+<main>
+
+  <p class="intro">Each page below was researched, verified against organization websites and directories, and built to load on a slow phone connection. If anything is wrong or out of date, there is a way to report it on every page.</p>
+
+  <a class="resource-card card-accent-green" href="efforts/0001-menifee-food/site/index.html">
+    <div class="card-inner">
+      <div class="card-icon">🥫</div>
+      <div class="card-text">
+        <h2>Food Resources</h2>
+        <div class="card-sub">Menifee &amp; nearby — food pantries, home delivery, city events</div>
+        <div class="card-desc">Where to get food assistance in Menifee: addresses, hours, what to bring, and whether each place is open right now. Includes a county home delivery program for seniors and disabled residents who cannot get out.</div>
+      </div>
+      <div class="card-arrow">›</div>
+    </div>
+  </a>
+
+  <a class="resource-card card-accent-teal" href="efforts/0002-menifee-volunteers/site/index.html">
+    <div class="card-inner">
+      <div class="card-icon">🤝</div>
+      <div class="card-text">
+        <h2>Volunteer Opportunities</h2>
+        <div class="card-sub">Menifee &amp; SW Riverside County — ongoing roles and one-time events</div>
+        <div class="card-desc">Real opportunities with real organizations: what the work is, when it happens, and exactly how to sign up. Includes the TRIP volunteer driver program — the closest thing to Meals on Wheels available to Menifee residents.</div>
+      </div>
+      <div class="card-arrow">›</div>
+    </div>
+  </a>
+
+  <div class="resource-card coming-soon card-accent-slate">
+    <div class="card-inner">
+      <div class="card-icon">🏡</div>
+      <div class="card-text">
+        <h2>Senior Resources</h2>
+        <div class="card-sub">In progress — home-delivered meals, transportation, utility help, wellness checks</div>
+        <div class="card-desc">A guide for seniors in Menifee and the family members and neighbors trying to help them. County and local programs that exist but are not widely known.</div>
+      </div>
+      <div class="card-arrow">›</div>
+    </div>
+  </div>
+
+</main>
+
+<hr class="divider">
+
+<footer>
+  <p>Data gathered from organization websites and public directories. Last reviewed: May 23, 2026. These pages are not affiliated with any of the organizations listed. Always call ahead before visiting.</p>
+  <p style="margin-top:.4rem"><a href="https://github.com/ColdTie/Earthseed" target="_blank" rel="noopener">Source on GitHub</a></p>
+</footer>
+
+</body>
+</html>
