@@ -47,9 +47,16 @@ If and when this is set up, it lives in its own effort folder with its own rules
 ## Where things stand
 
 Repo: ColdTie/Earthseed, private.
-Seed files: EARTHSEED.md, this file, LEDGER.md, README.md, and the first effort.
 
-Active effort: #0001, a food resource aggregator for Menifee, California. The charter is written. The next real work is assembling a true list of local food sites with correct hours, because the tool only helps if the underlying information is right. Then build a simple version, get it approved, put it live, and start measuring wrong door reports. Stay scoped to Menifee until freshness and accuracy hold.
+Three resource pages are built and ready for review:
+
+- `efforts/0001-menifee-food/site/index.html` — food pantries and home delivery
+- `efforts/0002-menifee-volunteers/site/index.html` — volunteer opportunities
+- `efforts/0003-menifee-seniors/site/index.html` — senior services
+
+Root landing page is at `index.html`. GitHub Actions workflow is at `.github/workflows/pages.yml`. See `HOSTING.md` for the two-step process to go live on GitHub Pages.
+
+None of the pages are live yet. Getting them live is the next human action required. Once live, the work shifts to measuring use and distributing the URLs so people who need them find them.
 
 ## How to pick up the work
 
