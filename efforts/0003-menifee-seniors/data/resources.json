@@ -1,0 +1,239 @@
+{
+  "metadata": {
+    "area": "Menifee, California",
+    "audience": "Seniors 60+ and their families and neighbors",
+    "last_full_review": "2026-05-23",
+    "notes": "All entries verified against organization websites and directory listings as of last_full_review date. Programs, hours, and eligibility rules change. Call ahead when possible. Each entry shows last_verified; treat anything over 90 days old as potentially stale."
+  },
+  "resources": [
+    {
+      "id": "kay-ceniceros",
+      "name": "Kay Ceniceros Senior Center",
+      "short_name": "Kay Ceniceros",
+      "category": "senior_center",
+      "address": {
+        "street": "29995 Evans Road",
+        "city": "Menifee",
+        "state": "CA",
+        "zip": "92586",
+        "notes": "Located in the Sun City neighborhood, within Menifee city limits."
+      },
+      "phone": "(951) 672-9673",
+      "phone_meals": "(951) 679-0119",
+      "phone_meals_notes": "Call this number to register for congregate lunch. Reservation required 24 hours in advance.",
+      "website": "https://www.cityofmenifee.us/292/Kay-Ceniceros-Senior-Programs",
+      "hours": {
+        "center": "Monday through Friday, 8:00 AM to 5:00 PM",
+        "meals": "Monday through Friday, lunch served at 11:30 AM"
+      },
+      "hours_notes": "Closed Saturday and Sunday. Closed on city holidays.",
+      "programs": [
+        "Congregate lunch (Mon–Fri at 11:30 AM; call to reserve 24 hours ahead)",
+        "Exercise and fitness classes (T'ai Chi Chih, Uchikomi Fitness, Taiko Fitness, line dancing)",
+        "Arts and enrichment (quilting, Spanish class, yarn crew)",
+        "Games and social (bridge, pinochle, dominos, chess, Texas Hold'em, ping pong)",
+        "LIHEAP utility assistance: Community Action Agency rep on-site 2nd Monday of each month, 12:30–3:30 PM",
+        "Cooling center on days forecast to reach 97°F or above — open to anyone in need"
+      ],
+      "eligibility": {
+        "requirement": "Adults age 55 and older for most programs. Congregate meals: age 60+.",
+        "income_requirement": "None for most programs. LIHEAP utility assistance has income limits (see LIHEAP card)."
+      },
+      "last_verified": "2026-05-23",
+      "verification_source": "cityofmenifee.us, aging.networkofcare.org, seniorcenters.com",
+      "flag_for_reverification": false
+    },
+    {
+      "id": "rc-aging-home-meals",
+      "name": "Riverside County Home Delivered Meals Program",
+      "short_name": "Home Delivered Meals",
+      "category": "home_delivery",
+      "audience": "homebound_seniors",
+      "address": {
+        "notes": "County-wide program. Meals delivered to your home in Menifee. No pickup location."
+      },
+      "phone": "(877) 932-4100",
+      "phone_notes": "Senior HelpLink line. Call to start intake and determine eligibility.",
+      "website": "https://rcaging.org/programs-services-overview",
+      "hours": {
+        "intake_calls": "Monday through Friday, 9:00 AM to 4:00 PM"
+      },
+      "eligibility": {
+        "requirement": "Age 60+ or adults with a disability who are homebound and unable to prepare their own meals.",
+        "service_area": "All of Riverside County, including Menifee.",
+        "income_requirement": "No income requirement. Need-based prioritization.",
+        "frequency": "Ongoing once enrolled."
+      },
+      "what_to_expect": [
+        "Phone intake — no office visit required to start",
+        "Hot or frozen meals delivered to your home",
+        "Two-week emergency pantry supply available",
+        "Nutrition education resources"
+      ],
+      "last_verified": "2026-05-23",
+      "verification_source": "rcaging.org, findhelp.org",
+      "flag_for_reverification": false
+    },
+    {
+      "id": "trip-ilp",
+      "name": "TRIP Volunteer Driver Program",
+      "full_name": "Transportation Reimbursement and Information Project",
+      "short_name": "TRIP",
+      "category": "transportation",
+      "operator": "Independent Living Partnership (ILP), in partnership with City of Menifee",
+      "address": {
+        "notes": "Rides arranged directly between rider and volunteer driver. No office visit required to enroll."
+      },
+      "phone": "(951) 653-0740",
+      "website": "https://www.cityofmenifee.us/1079/Transportation-Reimbursement-Information",
+      "how_it_works": {
+        "for_riders": "A senior or disabled resident arranges rides with a volunteer driver — a neighbor, friend, or volunteer matched through the program. The county reimburses the rider 45 cents per mile, which the rider pays the driver. Rides can go to medical appointments, errands, or any essential destination.",
+        "for_drivers": "Volunteer drivers give rides on their own schedule — no set hours, no blocks of time required. Contact (951) 653-0740 to sign up. No special training required."
+      },
+      "eligibility": {
+        "riders": "Older adults and people with disabilities in Menifee and surrounding areas who need help getting to appointments and errands.",
+        "drivers": "Any volunteer driver willing to give rides on a flexible schedule."
+      },
+      "last_verified": "2026-05-23",
+      "verification_source": "cityofmenifee.us, shaperivco.org",
+      "flag_for_reverification": false
+    },
+    {
+      "id": "yana-menifee-pd",
+      "name": "YANA: You Are Not Alone (Menifee PD)",
+      "short_name": "YANA Welfare Check",
+      "category": "welfare_check",
+      "operator": "Menifee Police Department Volunteers",
+      "address": {
+        "mail_to": "Menifee Police Department, ATTN: YANA, 29714 Haun Rd, Unit A, Menifee, CA 92586",
+        "notes": "No office visit required. Enroll by email or mail."
+      },
+      "phone": null,
+      "phone_notes": "No public phone line for YANA. Use email to enroll or refer.",
+      "email": "DG_PD_Volunteers@menifeepolice.org",
+      "website": "https://menifeepolice.org/youarenotalone/",
+      "how_it_works": "Menifee PD volunteers call enrolled participants at a prearranged time. If a participant does not answer, volunteers contact the emergency contacts provided. If those cannot be reached, a welfare visit is made. The program is ongoing; there is no set call schedule imposed — the participant arranges what works for them.",
+      "eligibility": {
+        "requirement": "Must live within the City of Menifee. Must be able to answer a phone. Must provide at least one emergency contact.",
+        "cost": "Free.",
+        "who_can_refer": "Friends, family members, or neighbors can refer someone they are concerned about — the person does not have to self-enroll."
+      },
+      "last_verified": "2026-05-23",
+      "verification_source": "menifeepolice.org",
+      "flag_for_reverification": false
+    },
+    {
+      "id": "icrc-caregiver",
+      "name": "Inland Caregiver Resource Center (ICRC)",
+      "short_name": "Inland Caregivers",
+      "category": "caregiver_support",
+      "address": {
+        "notes": "Services delivered by phone and in-person throughout Riverside and San Bernardino Counties. Covers Menifee."
+      },
+      "phone": "(800) 675-6694",
+      "website": "https://inlandcaregivers.org/",
+      "who_it_serves": "Family caregivers of adults age 60+ who need help with two or more activities of daily living, or caregivers of adults with an acquired brain impairment (stroke, dementia, Parkinson's, traumatic brain injury, etc.).",
+      "services": [
+        "Family consultation and care planning",
+        "Case management",
+        "Support groups for caregivers",
+        "Short-term counseling (up to 6 sessions)",
+        "Respite care — in-home help, adult day care, or overnight placement so caregiver can take a break",
+        "Education on dementia, caregiver burnout, legal issues, and other topics"
+      ],
+      "cost": "Free to low-cost. Call to ask about fees.",
+      "eligibility": {
+        "service_area": "Riverside and San Bernardino Counties, including Menifee.",
+        "requirement": "Must be the primary caregiver for a qualifying adult."
+      },
+      "last_verified": "2026-05-23",
+      "verification_source": "inlandcaregivers.org, findhelp.org, aging.networkofcare.org",
+      "flag_for_reverification": false
+    },
+    {
+      "id": "rc-aging-caregiver-workshops",
+      "name": "Riverside County Family Caregiver Support Program",
+      "short_name": "RC Caregiver Workshops",
+      "category": "caregiver_support",
+      "operator": "Riverside County Office on Aging",
+      "phone": "(877) 932-4100",
+      "website": "https://rcaging.org/family-caregiver-support",
+      "what_it_is": "A free 11-week workshop series for family members caring for a senior (60+). Topics include dementia and Alzheimer's, caregiver burnout, legal issues, communication, and planning. Workshops are offered at locations throughout Riverside County.",
+      "eligibility": {
+        "requirement": "Family members or close friends who are caregivers for a person age 60 or older.",
+        "cost": "Free.",
+        "service_area": "All of Riverside County."
+      },
+      "last_verified": "2026-05-23",
+      "verification_source": "rcaging.org",
+      "flag_for_reverification": false
+    },
+    {
+      "id": "smiles-4-seniors",
+      "name": "Smiles 4 Seniors",
+      "short_name": "Smiles 4 Seniors",
+      "category": "emergency_assistance",
+      "address": {
+        "notes": "Serves Riverside and San Bernardino Counties. Apply by phone."
+      },
+      "phone": "(951) 797-8298",
+      "website": "https://smiles4seniors.org/",
+      "what_it_covers": "One-time emergency funding for medical needs not covered by Medicare, Medi-Cal, or private insurance. Has paid for medications, medical supplies, hearing aids, glasses, dental procedures, and other essential medical items.",
+      "eligibility": {
+        "age": "65 or older.",
+        "income": "Under $15,000 per year if single; under $30,000 combined if married.",
+        "service_area": "Riverside and San Bernardino Counties.",
+        "frequency": "One-time assistance only.",
+        "documentation": "Proof of income required."
+      },
+      "last_verified": "2026-05-23",
+      "verification_source": "smiles4seniors.org, aging.networkofcare.org",
+      "flag_for_reverification": false
+    },
+    {
+      "id": "liheap-utility",
+      "name": "LIHEAP Utility Assistance",
+      "full_name": "Low Income Home Energy Assistance Program",
+      "short_name": "LIHEAP",
+      "category": "financial_assistance",
+      "operator": "Community Action Partnership of Riverside County",
+      "address": {
+        "at_kay_ceniceros": "A Community Action Agency rep is at Kay Ceniceros Senior Center (29995 Evans Rd) on the 2nd Monday of each month, 12:30–3:30 PM.",
+        "hemet_office": "Community Action Agency, Hemet Service Center — call (951) 955-4900 for location and appointment."
+      },
+      "phone": "(951) 955-4900",
+      "phone_notes": "Hemet Service Center. For help at Kay Ceniceros, just come in on the 2nd Monday of the month.",
+      "also_via": "Senior HelpLink at (877) 932-4100 can also connect you with utility assistance.",
+      "what_it_covers": "Help paying electric, gas, and water bills. Also covers heating and cooling equipment repair in some cases.",
+      "eligibility": {
+        "income": "Income limits apply — generally 60% of California median income or below. Call to confirm current limits.",
+        "documentation": "Recent utility bill, proof of income, ID.",
+        "service_area": "Riverside County."
+      },
+      "last_verified": "2026-05-23",
+      "verification_source": "findhelp.org, cityofmenifee.us",
+      "flag_for_reverification": false
+    },
+    {
+      "id": "home-rehab-program",
+      "name": "Senior Minor Home Rehabilitation Grant Program",
+      "short_name": "Home Rehab Grant",
+      "category": "financial_assistance",
+      "operator": "City of Menifee Community Development",
+      "status": "CLOSED — waitlist only",
+      "website": "https://cityofmenifee.us/917/Senior-Minor-Home-Rehabilitation-Program",
+      "phone": "(951) 672-6777",
+      "phone_notes": "City of Menifee Community Development. Ask about the MHRGP program status.",
+      "what_it_covers": "Up to $15,000 lifetime for eligible repairs to the home: accessibility improvements for bathrooms, kitchens, and entrances; safety improvements to roofs, windows, electrical, plumbing; code violation corrections.",
+      "status_note": "As of 2026, the program is temporarily closed to new applicants due to high demand. The waitlist extends approximately 5 years. Check cityofmenifee.us/917 for updates on reopening.",
+      "eligibility": {
+        "requirement": "Owner-occupant of a single-family home or mobile home in Menifee, lived there at least 1 year.",
+        "income": "Annual gross income at or below 50% of Riverside County median income.",
+        "who": "Very low-income seniors or permanently disabled homeowners."
+      },
+      "last_verified": "2026-05-23",
+      "verification_source": "cityofmenifee.us, findhelp.org",
+      "flag_for_reverification": false
+    }
+  ]
+}

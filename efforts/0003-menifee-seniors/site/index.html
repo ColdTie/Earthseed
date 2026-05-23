@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Senior Resources in Menifee, CA</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:    #2a5ea8;
+      --blue-lt: #4a80cc;
+      --amber:   #b5830a;
+      --red:     #b5190a;
+      --gray-1:  #f4f4f2;
+      --gray-2:  #e0e0db;
+      --gray-4:  #888880;
+      --gray-7:  #333330;
+      --white:   #ffffff;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--gray-7);
+      background: var(--gray-1);
+    }
+
+    a { color: var(--blue); }
+    a:hover { color: var(--blue-lt); }
+
+    /* ── Header ── */
+    header {
+      background: var(--blue);
+      color: var(--white);
+      padding: 1.25rem 1rem 1rem;
+    }
+    header h1 { font-size: 1.35rem; font-weight: 700; line-height: 1.25; }
+    header p  { margin-top: .3rem; font-size: .9rem; opacity: .85; }
+
+    /* ── Status bar ── */
+    .status-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-2);
+      padding: .5rem 1rem;
+      font-size: .8rem;
+      color: var(--gray-4);
+    }
+
+    /* ── Main ── */
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    /* ── Featured card ── */
+    .card-featured {
+      background: var(--white);
+      border: 2px solid var(--blue);
+      border-radius: 8px;
+      margin-bottom: .75rem;
+      overflow: hidden;
+    }
+    .card-featured .featured-label {
+      background: var(--blue);
+      color: var(--white);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .2rem .75rem;
+    }
+
+    /* ── Section heading ── */
+    .section-heading {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--gray-4);
+      margin: 1.25rem 0 .5rem;
+      padding-bottom: .25rem;
+      border-bottom: 1px solid var(--gray-2);
+    }
+
+    /* ── Regular card ── */
+    .card {
+      background: var(--white);
+      border: 1px solid var(--gray-2);
+      border-radius: 8px;
+      margin-bottom: .75rem;
+      overflow: hidden;
+    }
+
+    /* ── Card body ── */
+    .card-body {
+      padding: .875rem 1rem;
+    }
+    .card-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+    .card-tagline {
+      font-size: .88rem;
+      color: var(--gray-4);
+      margin-top: .15rem;
+    }
+
+    /* ── Detail rows ── */
+    .detail-grid {
+      margin-top: .75rem;
+      display: grid;
+      gap: .5rem;
+    }
+    .detail-row {
+      display: grid;
+      grid-template-columns: 6.5rem 1fr;
+      gap: .25rem .5rem;
+      font-size: .88rem;
+    }
+    .detail-label {
+      font-weight: 600;
+      color: var(--gray-4);
+      padding-top: .05rem;
+    }
+    .detail-value { }
+
+    /* ── Tag chips ── */
+    .tags {
+      margin-top: .6rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .3rem;
+    }
+    .tag {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 600;
+      padding: .15rem .5rem;
+      border-radius: 100px;
+      background: var(--gray-1);
+      border: 1px solid var(--gray-2);
+      color: var(--gray-4);
+    }
+    .tag-closed {
+      background: #fff0ee;
+      border-color: #f5c0ba;
+      color: var(--red);
+    }
+
+    /* ── Action button ── */
+    .card-action {
+      display: block;
+      background: var(--gray-1);
+      border-top: 1px solid var(--gray-2);
+      padding: .625rem 1rem;
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--blue);
+      text-decoration: none;
+      transition: background .15s;
+    }
+    .card-action:hover {
+      background: var(--gray-2);
+      color: var(--blue);
+    }
+    .card-action-primary {
+      background: var(--blue);
+      color: var(--white);
+      border-top: none;
+    }
+    .card-action-primary:hover {
+      background: var(--blue-lt);
+      color: var(--white);
+    }
+
+    /* ── Note box ── */
+    .note-box {
+      background: #fff9e6;
+      border: 1px solid #f0d080;
+      border-radius: 6px;
+      padding: .625rem .875rem;
+      font-size: .85rem;
+      margin-top: .6rem;
+    }
+    .note-box-closed {
+      background: #fff0ee;
+      border-color: #f5c0ba;
+    }
+    .note-label {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: .72rem;
+      letter-spacing: .05em;
+      margin-bottom: .1rem;
+    }
+
+    /* ── Program list ── */
+    .program-list {
+      margin-top: .4rem;
+      padding-left: 1.1rem;
+      font-size: .88rem;
+    }
+    .program-list li { margin-top: .2rem; }
+
+    /* ── Footer ── */
+    footer {
+      max-width: 680px;
+      margin: 1.5rem auto 2rem;
+      padding: 0 1rem;
+      font-size: .82rem;
+      color: var(--gray-4);
+      border-top: 1px solid var(--gray-2);
+      padding-top: 1rem;
+    }
+    footer a { color: var(--gray-4); }
+
+    @media (max-width: 480px) {
+      .detail-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .detail-label { color: var(--gray-7); }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Senior Resources in Menifee, CA</h1>
+  <p>For adults 60+ and the families and neighbors who help them</p>
+</header>
+
+<div class="status-bar">
+  Last reviewed May 2026 &mdash; Hours and programs change. Call ahead when you can.
+</div>
+
+<main>
+
+  <!-- ══════════════════════════════════════════════════
+       FEATURED: Kay Ceniceros — the hub for everything
+  ══════════════════════════════════════════════════ -->
+  <div class="section-heading">Start here</div>
+
+  <div class="card-featured">
+    <div class="featured-label">★ Community Hub</div>
+    <div class="card-body">
+      <div class="card-name">Kay Ceniceros Senior Center</div>
+      <div class="card-tagline">City of Menifee &mdash; 29995 Evans Road, Menifee, CA 92586</div>
+
+      <div class="detail-grid">
+        <div class="detail-row">
+          <span class="detail-label">Hours</span>
+          <span class="detail-value">Monday &ndash; Friday, 8 AM &ndash; 5 PM<br>Closed Saturday, Sunday, city holidays</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Phone</span>
+          <span class="detail-value"><a href="tel:+19516729673">(951) 672-9673</a></span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Meals line</span>
+          <span class="detail-value"><a href="tel:+19516790119">(951) 679-0119</a> &mdash; reserve lunch 24 hours ahead</span>
+        </div>
+      </div>
+
+      <p style="font-size:.88rem;margin-top:.75rem;">
+        This is Menifee&rsquo;s only city-operated senior center. Most programs in this guide either connect
+        to or are available at Kay Ceniceros. If you&rsquo;re not sure where to start, call the center.
+      </p>
+
+      <ul class="program-list">
+        <li><strong>Congregate lunch</strong> &mdash; Mon&ndash;Fri at 11:30 AM. Call (951) 679-0119 to reserve a spot 24 hours ahead. Ages 60+.</li>
+        <li><strong>Exercise and fitness</strong> &mdash; T&rsquo;ai Chi Chih, Uchikomi Fitness, Taiko Fitness, Heart &amp; Soul Line Dancing and more.</li>
+        <li><strong>Arts, enrichment and games</strong> &mdash; Quilting, Spanish class, bridge, chess, dominos, ping pong, scrabble and more.</li>
+        <li><strong>LIHEAP utility assistance</strong> &mdash; Community Action Agency rep on-site the <strong>2nd Monday of each month, 12:30&ndash;3:30 PM</strong>. Come in person for help with electric, gas, and water bills.</li>
+        <li><strong>Cooling center</strong> &mdash; Open to anyone on days forecast to reach 97&deg;F or above. No registration needed.</li>
+      </ul>
+
+      <div class="tags">
+        <span class="tag">Ages 55+</span>
+        <span class="tag">Meals age 60+</span>
+        <span class="tag">Free and low-cost</span>
+      </div>
+    </div>
+    <a href="https://www.cityofmenifee.us/292/Kay-Ceniceros-Senior-Programs" class="card-action card-action-primary">View programs and schedule &rarr;</a>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════
+       MEALS AT HOME
+  ══════════════════════════════════════════════════ -->
+  <div class="section-heading">Meals at home</div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="card-name">Riverside County Home Delivered Meals</div>
+      <div class="card-tagline">Riverside County Office on Aging &mdash; county-wide, including Menifee</div>
+
+      <div class="detail-grid">
+        <div class="detail-row">
+          <span class="detail-label">Who</span>
+          <span class="detail-value">Adults 60+ or disabled adults who are <strong>homebound</strong> and cannot prepare their own meals</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">What</span>
+          <span class="detail-value">Hot or frozen meals delivered to your home. No pickup location.</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Cost</span>
+          <span class="detail-value">Free. No income requirement.</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">How to start</span>
+          <span class="detail-value">Call Senior HelpLink to begin intake. No office visit required.</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Call hours</span>
+          <span class="detail-value">Mon&ndash;Fri, 9 AM &ndash; 4 PM</span>
+        </div>
+      </div>
+
+      <div class="note-box">
+        <div class="note-label">Note</div>
+        There is no Meals on Wheels affiliate in Menifee. This county program is the equivalent for residents here.
+        Many people who qualify don&rsquo;t know to call. If you know a homebound senior who needs meals, share this number.
+      </div>
+
+      <div class="tags">
+        <span class="tag">Homebound</span>
+        <span class="tag">Ages 60+</span>
+        <span class="tag">Free</span>
+        <span class="tag">County-wide</span>
+      </div>
+    </div>
+    <a href="tel:+18779324100" class="card-action card-action-primary">Call Senior HelpLink: (877) 932-4100 &rarr;</a>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════
+       TRANSPORTATION
+  ══════════════════════════════════════════════════ -->
+  <div class="section-heading">Getting around</div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="card-name">TRIP Volunteer Driver Program</div>
+      <div class="card-tagline">Transportation Reimbursement and Information Project &mdash; Independent Living Partnership</div>
+
+      <div class="detail-grid">
+        <div class="detail-row">
+          <span class="detail-label">How it works</span>
+          <span class="detail-value">A volunteer driver &mdash; a neighbor, friend, or program volunteer &mdash; takes you to appointments and errands. The county reimburses you 45&cent; per mile, which you pay the driver.</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Schedule</span>
+          <span class="detail-value">Any day, any time, arranged directly between rider and driver</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Cost to rider</span>
+          <span class="detail-value">The mileage reimbursement covers the driver. No other cost.</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">To sign up</span>
+          <span class="detail-value">Call (951) 653-0740</span>
+        </div>
+      </div>
+
+      <p style="font-size:.88rem;margin-top:.75rem;color:var(--gray-4);">
+        <strong>Want to volunteer as a driver?</strong> No set schedule or training required. Call the same number to sign up.
+      </p>
+
+      <div class="tags">
+        <span class="tag">Seniors and disabled adults</span>
+        <span class="tag">Flexible</span>
+      </div>
+    </div>
+    <a href="tel:+19516536740" class="card-action">Call to enroll: (951) 653-0740 &rarr;</a>
+    <a href="https://www.cityofmenifee.us/1079/Transportation-Reimbursement-Information" class="card-action">More about TRIP &rarr;</a>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════
+       SAFETY AND WELFARE CHECKS
+  ══════════════════════════════════════════════════ -->
+  <div class="section-heading">Safety and welfare checks</div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="card-name">YANA: You Are Not Alone</div>
+      <div class="card-tagline">Menifee Police Department Volunteer Program</div>
+
+      <div class="detail-grid">
+        <div class="detail-row">
+          <span class="detail-label">What it is</span>
+          <span class="detail-value">Menifee PD volunteers call enrolled seniors at a prearranged time. If the call goes unanswered, they contact your emergency contacts and, if needed, do a home visit.</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Who it&rsquo;s for</span>
+          <span class="detail-value">Older adults and disabled residents living alone in the City of Menifee</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">What you need</span>
+          <span class="detail-value">Must be able to answer a phone. Must provide at least one emergency contact.</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Cost</span>
+          <span class="detail-value">Free</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">To enroll</span>
+          <span class="detail-value">Email <a href="mailto:DG_PD_Volunteers@menifeepolice.org">DG_PD_Volunteers@menifeepolice.org</a> or mail a form to the address below</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Mail to</span>
+          <span class="detail-value">Menifee PD, ATTN: YANA<br>29714 Haun Rd, Unit A, Menifee, CA 92586</span>
+        </div>
+      </div>
+
+      <div class="note-box">
+        <div class="note-label">Referring a neighbor or family member</div>
+        A friend, neighbor, or family member can refer someone who would benefit from this program &mdash; the person does not have to self-enroll.
+      </div>
+
+      <div class="tags">
+        <span class="tag">Living alone</span>
+        <span class="tag">City of Menifee</span>
+        <span class="tag">Free</span>
+      </div>
+    </div>
+    <a href="https://menifeepolice.org/youarenotalone/" class="card-action">YANA program page (form available there) &rarr;</a>
+    <a href="mailto:DG_PD_Volunteers@menifeepolice.org" class="card-action">Email to enroll: DG_PD_Volunteers@menifeepolice.org &rarr;</a>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════
+       CAREGIVER SUPPORT
+  ══════════════════════════════════════════════════ -->
+  <div class="section-heading">Support for family caregivers</div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="card-name">Inland Caregiver Resource Center (ICRC)</div>
+      <div class="card-tagline">Serving Riverside and San Bernardino Counties, including Menifee</div>
+
+      <div class="detail-grid">
+        <div class="detail-row">
+          <span class="detail-label">Who it&rsquo;s for</span>
+          <span class="detail-value">Family caregivers of adults 60+ who need help with two or more daily tasks, or caregivers of adults with dementia, stroke, Parkinson&rsquo;s, or other brain conditions</span>
+        </div>
+      </div>
+
+      <ul class="program-list">
+        <li><strong>Family consultation</strong> &mdash; One-on-one help planning care</li>
+        <li><strong>Case management</strong> &mdash; Ongoing support navigating services</li>
+        <li><strong>Caregiver support groups</strong> &mdash; Connect with others in similar situations</li>
+        <li><strong>Short-term counseling</strong> &mdash; Up to 6 sessions</li>
+        <li><strong>Respite care</strong> &mdash; In-home help, adult day care, or overnight placement so you can take a break</li>
+        <li><strong>Education</strong> &mdash; On dementia, burnout, legal issues, and planning ahead</li>
+      </ul>
+
+      <div class="detail-grid" style="margin-top:.75rem;">
+        <div class="detail-row">
+          <span class="detail-label">Cost</span>
+          <span class="detail-value">Free to low-cost. Call to ask.</span>
+        </div>
+      </div>
+
+      <div class="tags">
+        <span class="tag">Caregivers</span>
+        <span class="tag">Dementia and brain conditions</span>
+        <span class="tag">Riverside County</span>
+      </div>
+    </div>
+    <a href="tel:+18006756694" class="card-action card-action-primary">Call ICRC: (800) 675-6694 &rarr;</a>
+    <a href="https://inlandcaregivers.org/" class="card-action">inlandcaregivers.org &rarr;</a>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="card-name">Family Caregiver Support Program</div>
+      <div class="card-tagline">Riverside County Office on Aging</div>
+
+      <div class="detail-grid">
+        <div class="detail-row">
+          <span class="detail-label">What it is</span>
+          <span class="detail-value">A free 11-week workshop series for family members caring for someone 60 or older. Topics include dementia, Alzheimer&rsquo;s, caregiver burnout, legal issues, communication, and planning.</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Cost</span>
+          <span class="detail-value">Free</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">How to join</span>
+          <span class="detail-value">Call Senior HelpLink and ask about caregiver workshops</span>
+        </div>
+      </div>
+
+      <div class="tags">
+        <span class="tag">Caregivers</span>
+        <span class="tag">Free</span>
+        <span class="tag">County-wide</span>
+      </div>
+    </div>
+    <a href="tel:+18779324100" class="card-action">Call Senior HelpLink: (877) 932-4100 &rarr;</a>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════
+       FINANCIAL AND EMERGENCY ASSISTANCE
+  ══════════════════════════════════════════════════ -->
+  <div class="section-heading">Financial and emergency help</div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="card-name">LIHEAP Utility Assistance</div>
+      <div class="card-tagline">Low Income Home Energy Assistance Program &mdash; Community Action Partnership</div>
+
+      <div class="detail-grid">
+        <div class="detail-row">
+          <span class="detail-label">What it covers</span>
+          <span class="detail-value">Help paying electric, gas, and water bills. Heating and cooling equipment repair in some cases.</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">At Kay Ceniceros</span>
+          <span class="detail-value">A rep is on-site the <strong>2nd Monday of each month, 12:30&ndash;3:30 PM</strong>. Just show up. Bring a recent utility bill, proof of income, and ID.</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">By phone</span>
+          <span class="detail-value"><a href="tel:+19519554900">(951) 955-4900</a> (Hemet Service Center)<br>or <a href="tel:+18779324100">(877) 932-4100</a> (Senior HelpLink)</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Eligibility</span>
+          <span class="detail-value">Income limits apply (generally 60% of California median income or below). Call to confirm.</span>
+        </div>
+      </div>
+
+      <div class="tags">
+        <span class="tag">Utility bills</span>
+        <span class="tag">Income-based</span>
+        <span class="tag">Walk-in available</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="card-name">Smiles 4 Seniors</div>
+      <div class="card-tagline">Emergency medical funding &mdash; Riverside County</div>
+
+      <div class="detail-grid">
+        <div class="detail-row">
+          <span class="detail-label">What it covers</span>
+          <span class="detail-value">One-time emergency funding for medical needs not covered by Medicare or Medi-Cal: medications, medical supplies, hearing aids, glasses, dental care, and other medical necessities.</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Who qualifies</span>
+          <span class="detail-value">Age 65+, income under $15,000/year (single) or $30,000 (combined). Proof of income required.</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Important</span>
+          <span class="detail-value">One-time use only per person.</span>
+        </div>
+      </div>
+
+      <div class="tags">
+        <span class="tag">Ages 65+</span>
+        <span class="tag">Low income</span>
+        <span class="tag">One-time use</span>
+        <span class="tag">Medical costs</span>
+      </div>
+    </div>
+    <a href="tel:+19517978298" class="card-action card-action-primary">Call: (951) 797-8298 &rarr;</a>
+    <a href="https://smiles4seniors.org/" class="card-action">smiles4seniors.org &rarr;</a>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="card-name">Senior Minor Home Rehabilitation Grant</div>
+      <div class="card-tagline">City of Menifee &mdash; Up to $15,000 for home repairs</div>
+
+      <div class="detail-grid">
+        <div class="detail-row">
+          <span class="detail-label">What it covers</span>
+          <span class="detail-value">Accessibility improvements, safety repairs (roof, electrical, plumbing, windows), and code violations for qualifying homeowners.</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Who qualifies</span>
+          <span class="detail-value">Very low-income seniors or disabled homeowners in Menifee who have owned and lived in the home for at least 1 year.</span>
+        </div>
+      </div>
+
+      <div class="note-box note-box-closed">
+        <div class="note-label" style="color:var(--red);">Currently closed</div>
+        As of 2026, this program is not accepting new applications due to high demand. The waitlist extends approximately 5 years.
+        Check <a href="https://cityofmenifee.us/917/Senior-Minor-Home-Rehabilitation-Program">cityofmenifee.us</a> for updates on reopening.
+      </div>
+
+      <div class="tags">
+        <span class="tag tag-closed">Currently closed</span>
+        <span class="tag">Homeowners</span>
+        <span class="tag">Very low income</span>
+      </div>
+    </div>
+    <a href="https://cityofmenifee.us/917/Senior-Minor-Home-Rehabilitation-Program" class="card-action">Check program status at cityofmenifee.us &rarr;</a>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════
+       SENIORHELPLINK
+  ══════════════════════════════════════════════════ -->
+  <div class="section-heading">Not sure what you need?</div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="card-name">Senior HelpLink &mdash; (877) 932-4100</div>
+      <div class="card-tagline">Riverside County Office on Aging &mdash; Mon&ndash;Fri, 9 AM &ndash; 4 PM</div>
+
+      <p style="font-size:.88rem;margin-top:.5rem;">
+        If you&rsquo;re not sure which program to call, start here. HelpLink connects seniors and their families
+        with the right county programs: home-delivered meals, utility assistance, caregiver workshops, in-home support,
+        and more. One number, county-wide.
+      </p>
+
+      <div class="tags">
+        <span class="tag">County-wide</span>
+        <span class="tag">Navigation help</span>
+        <span class="tag">Free</span>
+      </div>
+    </div>
+    <a href="tel:+18779324100" class="card-action card-action-primary">Call HelpLink: (877) 932-4100 &rarr;</a>
+  </div>
+
+</main>
+
+<footer>
+  <p>Something on this page is wrong or out of date? <a href="mailto:pennersteven@gmail.com?subject=Senior%20Resources%20Page%20%E2%80%94%20Correction">Report a problem</a></p>
+  <p style="margin-top:.4rem;">This page has no tracking and collects no data. It is a volunteer project. Information verified May 2026.</p>
+</footer>
+
+</body>
+</html>
