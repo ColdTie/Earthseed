@@ -49,17 +49,20 @@ If and when this is set up, it lives in its own effort folder with its own rules
 Repo: ColdTie/Earthseed, private.
 Seed files: EARTHSEED.md, this file, LEDGER.md, README.md.
 
-Four efforts are built and waiting to be hosted:
+Five efforts are built and waiting to be hosted:
 - #0001: Menifee food resources. Static HTML page and data file. Ready for deployment.
 - #0002: Menifee volunteer opportunities. Static HTML page. Ready for deployment.
 - #0003: Menifee senior resources. Static HTML page built May 23, 2026. Ready for deployment.
 - #0004: Policy impact. Representatives, current legislation, and plain-language impact for Menifee residents. Built May 23, 2026. Ready for deployment.
+- #0005: Crisis and emergency help. 211, emergency cash and utility programs, 988 and Crisis Text Line, Medi-Cal work requirement guidance. Built May 24, 2026. Ready for deployment.
 
 A root index.html exists at the repo root as a GitHub Pages landing page. Steve must enable GitHub Pages in repository settings (Settings → Pages → select branch and root folder) for the pages to go live. That human action is the gate.
 
 Once live, the first measurement task is: check whether any wrong-door reports arrive at pennersteven@gmail.com (the address in the report-a-problem links). After two weeks, check traffic source if analytics are added. If nothing is coming in and traffic is low, the distribution problem is bigger than the content problem.
 
-Data freshness: re-verify each food resource by phone every 90 days. Flag stale volunteer listings every 60 days. YANA, IHSS, LIHEAP, and TRIP are county or city programs and tend to be stable, but confirm annually.
+Before the crisis page goes live: call the Salvation Army Murrieta number listed on that page, (951) 696-3638, to confirm it is correct and that they are still doing emergency rental and utility assistance.
+
+Data freshness: re-verify each food resource by phone every 90 days. Flag stale volunteer listings every 60 days. YANA, IHSS, LIHEAP, and TRIP are county or city programs and tend to be stable, but confirm annually. Crisis page phone numbers (CAP Riverside, Salvation Army) need reverification every 90 days.
 
 ## How to pick up the work
 

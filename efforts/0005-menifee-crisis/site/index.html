@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crisis &amp; Emergency Help — Menifee, CA</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --burg:    #6b1c2a;
+      --burg-lt: #a83040;
+      --gray-1:  #fdf7f8;
+      --gray-2:  #ecd6da;
+      --gray-4:  #9a7880;
+      --gray-7:  #2a1a1e;
+      --white:   #ffffff;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--gray-7);
+      background: var(--gray-1);
+    }
+
+    a { color: var(--burg-lt); }
+    a:hover { color: var(--burg); }
+
+    /* Header */
+    header {
+      background: var(--burg);
+      color: var(--white);
+      padding: 1.25rem 1rem 1rem;
+    }
+    header h1 { font-size: 1.35rem; font-weight: 700; line-height: 1.25; }
+    header p  { margin-top: .3rem; font-size: .9rem; opacity: .85; }
+
+    /* Status bar */
+    .status-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-2);
+      padding: .5rem 1rem;
+      font-size: .8rem;
+      color: var(--gray-4);
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    /* Main */
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    /* Section heading */
+    .section-heading {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--gray-4);
+      margin: 1.5rem 0 .75rem;
+    }
+
+    /* START HERE box */
+    .start-here {
+      background: var(--burg);
+      color: var(--white);
+      border-radius: 10px;
+      padding: 1.1rem 1.2rem;
+      margin-bottom: 1.25rem;
+    }
+    .start-here h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: .4rem;
+    }
+    .start-here p {
+      font-size: .9rem;
+      opacity: .9;
+      margin-bottom: .6rem;
+    }
+    .start-here .big-number {
+      display: inline-block;
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .start-here .big-number:hover { opacity: .8; }
+    .start-here .or-text {
+      font-size: .82rem;
+      opacity: .8;
+      display: block;
+      margin-top: .3rem;
+    }
+
+    /* Resource card */
+    .card {
+      background: var(--white);
+      border-radius: 8px;
+      border: 1px solid var(--gray-2);
+      margin-bottom: .75rem;
+      overflow: hidden;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: .9rem 1rem .6rem;
+      cursor: pointer;
+      gap: .5rem;
+    }
+    .card-header h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      flex: 1;
+    }
+
+    .expand-hint {
+      display: inline;
+      font-size: .75rem;
+      font-weight: 400;
+      color: var(--gray-4);
+    }
+    .card.open .expand-hint { display: none; }
+
+    .card-body {
+      padding: 0 1rem .9rem;
+      display: none;
+    }
+    .card.open .card-body { display: block; }
+
+    /* detail rows */
+    dl.details { display: grid; grid-template-columns: auto 1fr; row-gap: .45rem; column-gap: .75rem; margin-top: .5rem; }
+    dl.details dt { font-size: .78rem; font-weight: 700; color: var(--gray-4); padding-top: .1rem; white-space: nowrap; }
+    dl.details dd { font-size: .88rem; }
+
+    .note {
+      font-size: .82rem;
+      color: var(--gray-4);
+      margin-top: .5rem;
+      line-height: 1.5;
+    }
+    .note.flag { color: #8b0000; }
+
+    /* Inline callout box */
+    .callout-box {
+      background: #fff8e1;
+      border-left: 3px solid #c0860a;
+      border-radius: 0 4px 4px 0;
+      padding: .6rem .75rem;
+      margin: 1rem 0 .5rem;
+      font-size: .88rem;
+    }
+    .callout-box strong {
+      display: block;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: #856404;
+      margin-bottom: .25rem;
+    }
+
+    /* Tags for what a resource covers */
+    .covers {
+      display: flex;
+      gap: .4rem;
+      flex-wrap: wrap;
+      margin-top: .5rem;
+    }
+    .cover-tag {
+      font-size: .72rem;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 10px;
+      background: var(--gray-2);
+      color: var(--gray-7);
+    }
+
+    /* CTA buttons */
+    .cta-call {
+      display: inline-block;
+      margin-top: .7rem;
+      background: var(--burg);
+      color: var(--white);
+      text-decoration: none;
+      padding: .4rem .85rem;
+      border-radius: 6px;
+      font-size: .85rem;
+      font-weight: 600;
+      margin-right: .4rem;
+    }
+    .cta-call:hover { background: var(--burg-lt); color: var(--white); }
+
+    .cta-link {
+      display: inline-block;
+      margin-top: .7rem;
+      background: var(--white);
+      color: var(--burg);
+      border: 1px solid var(--burg);
+      text-decoration: none;
+      padding: .38rem .85rem;
+      border-radius: 6px;
+      font-size: .82rem;
+      font-weight: 600;
+    }
+    .cta-link:hover { background: var(--burg); color: var(--white); }
+
+    /* Crisis line cards — slightly different style, no expand needed */
+    .crisis-card {
+      background: var(--white);
+      border-radius: 8px;
+      border: 1px solid var(--gray-2);
+      padding: .9rem 1rem;
+      margin-bottom: .6rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: .3rem .75rem;
+      align-items: center;
+    }
+    .crisis-name {
+      font-size: .95rem;
+      font-weight: 700;
+    }
+    .crisis-desc {
+      font-size: .82rem;
+      color: var(--gray-4);
+      margin-top: .1rem;
+    }
+    .crisis-contact {
+      text-align: right;
+      font-size: .88rem;
+    }
+    .crisis-contact a {
+      display: block;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--burg-lt);
+      font-size: 1.1rem;
+    }
+    .crisis-contact a:hover { text-decoration: underline; }
+    .crisis-contact span {
+      display: block;
+      font-size: .75rem;
+      color: var(--gray-4);
+      margin-top: .1rem;
+    }
+
+    /* SNAP callout section */
+    .snap-box {
+      background: var(--white);
+      border: 2px solid #c0860a;
+      border-radius: 8px;
+      padding: 1rem 1.1rem;
+      margin-bottom: 1rem;
+    }
+    .snap-box h2 {
+      font-size: .95rem;
+      font-weight: 700;
+      color: #7a5200;
+      margin-bottom: .5rem;
+    }
+    .snap-box p {
+      font-size: .88rem;
+      margin-bottom: .4rem;
+    }
+    .snap-box ul {
+      padding-left: 1.2rem;
+      font-size: .88rem;
+    }
+    .snap-box li { margin-bottom: .3rem; }
+
+    /* Report bar */
+    .report-bar {
+      margin-top: 2rem;
+      background: var(--white);
+      border: 1px solid var(--gray-2);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+      font-size: .88rem;
+    }
+    .report-bar p { margin-bottom: .5rem; }
+    .report-bar a {
+      display: inline-block;
+      border: 1px solid var(--burg);
+      border-radius: 6px;
+      padding: .4rem .9rem;
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--burg);
+      text-decoration: none;
+    }
+    .report-bar a:hover { background: var(--burg); color: var(--white); }
+
+    /* Footer */
+    footer {
+      max-width: 680px;
+      margin: 1rem auto 2rem;
+      padding: 0 1rem;
+      font-size: .78rem;
+      color: var(--gray-4);
+    }
+    footer a { color: var(--gray-4); }
+
+    @media (max-width: 420px) {
+      header h1 { font-size: 1.15rem; }
+      dl.details { grid-template-columns: 1fr; }
+      dl.details dt { margin-top: .5rem; }
+      .crisis-card { grid-template-columns: 1fr; }
+      .crisis-contact { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Crisis &amp; Emergency Help — Menifee, CA</h1>
+  <p>When something goes wrong and you need help today. Phone numbers that work, programs that are open, what to say when you call.</p>
+</header>
+
+<div class="status-bar">
+  <span>Data reviewed: May 24, 2026</span>
+  <span>
+    <a href="../../0001-menifee-food/site/">Food resources</a>
+    &nbsp;&middot;&nbsp;
+    <a href="../../0002-menifee-volunteers/site/">Volunteer</a>
+    &nbsp;&middot;&nbsp;
+    <a href="../../0003-menifee-seniors/site/">Senior resources</a>
+    &nbsp;&middot;&nbsp;
+    <a href="../../0004-policy-impact/site/">Policy</a>
+  </span>
+</div>
+
+<main>
+
+  <!-- ══ START HERE ══ -->
+  <div class="start-here">
+    <h2>Start here if you are not sure where to call</h2>
+    <p>211 connects you to emergency services in Riverside County — rent help, utilities, food, mental health, and more. Free, confidential, available 24 hours a day, 7 days a week. Works from any phone including cell phones without a plan.</p>
+    <a class="big-number" href="tel:211">211</a>
+    <span class="or-text">Or text your zip code to 898-211 &nbsp;·&nbsp; Español disponible</span>
+  </div>
+
+  <!-- ══ SNAP CALLOUT ══ -->
+  <div class="snap-box">
+    <h2>⚠ If your SNAP food benefits just went down</h2>
+    <p>The 2025 federal budget law changed how SNAP calculates benefits for households that also receive LIHEAP utility assistance. If you use both programs, your monthly SNAP amount may be lower than it was before July 2025.</p>
+    <ul>
+      <li>Call <strong>(951) 955-4900</strong> (CAP Riverside) to confirm you are still enrolled in LIHEAP and ask how the change affects your household.</li>
+      <li>Call <strong>211</strong> to ask whether there is emergency food help to bridge the gap while you sort it out.</li>
+      <li>The Menifee Valley Community Cupboard (<a href="../../0001-menifee-food/site/">food resources page</a>) is open Monday through Friday, 10 AM to 2 PM, at 26808 Cherry Hills Blvd.</li>
+    </ul>
+  </div>
+
+  <!-- ══ CASH, RENT & UTILITIES ══ -->
+  <p class="section-heading">Cash, rent &amp; utility help</p>
+
+  <!-- CAP Riverside Emergency Services -->
+  <div class="card" id="card-cap">
+    <div class="card-header" onclick="toggle('card-cap')">
+      <h2>CAP Riverside — Emergency Services &nbsp;<span class="expand-hint">&mdash; tap for details</span></h2>
+    </div>
+    <div class="card-body">
+      <div class="covers">
+        <span class="cover-tag">Utilities</span>
+        <span class="cover-tag">Emergency food</span>
+        <span class="cover-tag">Weatherization</span>
+      </div>
+
+      <dl class="details">
+        <dt>What they do</dt>
+        <dd>Community Action Partnership of Riverside County runs several emergency programs beyond the LIHEAP utility assistance most people know. They can provide emergency utility help for households that do not qualify for LIHEAP or have already used it for the year, emergency food boxes, and weatherization services (insulation, sealing, minor repairs) that reduce ongoing energy costs.</dd>
+
+        <dt>Who qualifies</dt>
+        <dd>Low-income households in Riverside County. Eligibility varies by program. Seniors 60 and older are a priority group for most CAP programs. They will assess your situation over the phone.</dd>
+
+        <dt>How to apply</dt>
+        <dd>Call first. They pre-screen by phone and set an appointment. Do not just show up without calling. Have your most recent utility bill, proof of income, and ID ready when you call.</dd>
+
+        <dt>Phone</dt>
+        <dd><a href="tel:9519554900">(951) 955-4900</a> &nbsp;·&nbsp; Mon–Fri 8 AM–5 PM</dd>
+      </dl>
+
+      <a class="cta-call" href="tel:9519554900">Call CAP Riverside</a>
+    </div>
+  </div>
+
+  <!-- Riverside County DPSS -->
+  <div class="card" id="card-dpss">
+    <div class="card-header" onclick="toggle('card-dpss')">
+      <h2>Riverside County DPSS — CalWORKs &amp; General Relief &nbsp;<span class="expand-hint">&mdash; tap for details</span></h2>
+    </div>
+    <div class="card-body">
+      <div class="covers">
+        <span class="cover-tag">Cash aid</span>
+        <span class="cover-tag">Families with children</span>
+        <span class="cover-tag">Adults without children</span>
+        <span class="cover-tag">Medi-Cal enrollment</span>
+      </div>
+
+      <dl class="details">
+        <dt>CalWORKs</dt>
+        <dd>Cash aid and job services for families with children under 18. Provides monthly cash while helping parents find work. Amount varies by family size and income. Applications through the county Department of Public Social Services.</dd>
+
+        <dt>General Relief</dt>
+        <dd>Cash assistance for adults who do not have dependent children and do not qualify for other programs. Smaller amounts than CalWORKs. Intended for short-term crisis situations. Requires application and eligibility review.</dd>
+
+        <dt>How to apply</dt>
+        <dd>Visit <a href="https://dpss.rivco.org" target="_blank" rel="noopener">dpss.rivco.org</a> to apply online, or call 211 to get routed to the nearest DPSS office. The Hemet DPSS office is the closest to Menifee: 700 N State St, Hemet. You can also apply at any DPSS location in the county.</dd>
+
+        <dt>Medi-Cal</dt>
+        <dd>DPSS also handles Medi-Cal enrollment. If you lost coverage or need to re-enroll, they can help. The Medi-Cal work requirements added by the 2025 federal budget law start December 31, 2026 — DPSS will be the agency processing those requirements.</dd>
+      </dl>
+
+      <p class="note">DPSS offices are walk-in, but wait times can be long. Calling 211 first to confirm which office to visit and what documents to bring will save time.</p>
+
+      <a class="cta-link" href="https://dpss.rivco.org" target="_blank" rel="noopener">dpss.rivco.org</a>
+    </div>
+  </div>
+
+  <!-- Salvation Army Murrieta -->
+  <div class="card" id="card-salvo">
+    <div class="card-header" onclick="toggle('card-salvo')">
+      <h2>Salvation Army Murrieta — Emergency Assistance &nbsp;<span class="expand-hint">&mdash; tap for details</span></h2>
+    </div>
+    <div class="card-body">
+      <div class="covers">
+        <span class="cover-tag">Utility help</span>
+        <span class="cover-tag">Rent help</span>
+        <span class="cover-tag">Emergency food</span>
+      </div>
+
+      <dl class="details">
+        <dt>What they do</dt>
+        <dd>The Salvation Army Murrieta Corps provides emergency assistance to residents in Murrieta and the surrounding area including Menifee. Services can include one-time utility bill assistance, emergency food, and in some cases rental assistance. Availability of funds varies by season and donation levels.</dd>
+
+        <dt>How to apply</dt>
+        <dd>Call first to ask what is currently available and set an appointment. Walk-in assistance is appointment only. Bring ID, proof of address, and the bill you need help with (utility shutoff notice or lease/eviction notice).</dd>
+
+        <dt>Phone</dt>
+        <dd><a href="tel:9516963638">(951) 696-3638</a> &nbsp;·&nbsp; Mon–Fri 8:30 AM–11:30 AM</dd>
+
+        <dt>Address</dt>
+        <dd>26420 Jefferson Ave, Murrieta, CA 92562</dd>
+      </dl>
+
+      <p class="note flag">⚑ This number needs a phone call to confirm before this page goes live. If you reach a wrong number, please <a href="mailto:pennersteven@gmail.com?subject=Salvation%20Army%20number%20wrong&body=The%20number%20listed%20on%20the%20crisis%20page%20for%20Salvation%20Army%20Murrieta%20is%20wrong.%20Correct%20number%3A">report it here</a> so it can be fixed.</p>
+
+      <a class="cta-call" href="tel:9516963638">Call Salvation Army Murrieta</a>
+    </div>
+  </div>
+
+  <!-- ══ MENTAL HEALTH & CRISIS ══ -->
+  <p class="section-heading">Mental health &amp; personal crisis</p>
+
+  <p style="font-size:.85rem; color:var(--gray-4); margin-bottom:.85rem;">If someone is in immediate danger, call 911. If it is a mental health crisis that is not immediately life-threatening, these lines connect you to trained crisis counselors, not emergency dispatch.</p>
+
+  <!-- 988 -->
+  <div class="crisis-card">
+    <div>
+      <div class="crisis-name">988 Suicide &amp; Crisis Lifeline</div>
+      <div class="crisis-desc">Free, confidential, 24/7. Available in English and Spanish. For suicidal thoughts, mental health crises, or emotional distress. Also available via chat at 988lifeline.org.</div>
+    </div>
+    <div class="crisis-contact">
+      <a href="tel:988">988</a>
+      <span>Call or text, 24/7</span>
+    </div>
+  </div>
+
+  <!-- Crisis Text Line -->
+  <div class="crisis-card">
+    <div>
+      <div class="crisis-name">Crisis Text Line</div>
+      <div class="crisis-desc">Free text-based crisis support, 24/7. For people who cannot make a phone call or prefer to communicate by text. Trained counselors, not an automated system.</div>
+    </div>
+    <div class="crisis-contact">
+      <a href="sms:741741&body=HOME">Text HOME to 741741</a>
+      <span>Free text, 24/7</span>
+    </div>
+  </div>
+
+  <!-- Riverside County crisis line -->
+  <div class="crisis-card">
+    <div>
+      <div class="crisis-name">Riverside County Mental Health Crisis Line</div>
+      <div class="crisis-desc">24-hour crisis line for Riverside County residents. Connects to a local mental health clinician. Can also arrange a mobile crisis response — a mental health worker comes to you instead of police.</div>
+    </div>
+    <div class="crisis-contact">
+      <a href="tel:9516860660">(951) 686-0660</a>
+      <span>24 hours, 7 days</span>
+    </div>
+  </div>
+
+  <!-- ══ IF YOU MIGHT LOSE HOUSING ══ -->
+  <p class="section-heading">If you might lose your housing</p>
+
+  <div class="callout-box">
+    <strong>Act before you receive an eviction notice</strong>
+    Emergency rental assistance is much easier to get before a formal eviction notice is filed. Once an unlawful detainer (eviction lawsuit) is filed, your options narrow significantly. Call 211 as soon as you know you will miss rent.
+  </div>
+
+  <div class="card" id="card-housing">
+    <div class="card-header" onclick="toggle('card-housing')">
+      <h2>Emergency Rental Assistance — Where to Start &nbsp;<span class="expand-hint">&mdash; tap for details</span></h2>
+    </div>
+    <div class="card-body">
+      <dl class="details">
+        <dt>211 first</dt>
+        <dd>Call or text 211. They maintain the current list of open rental assistance programs in Riverside County. Funds open and close on short notice — 211 knows which ones are currently accepting applications.</dd>
+
+        <dt>Riverside County</dt>
+        <dd>Riverside County has run emergency rental assistance programs and may have current funding. Ask 211 or check <a href="https://dpss.rivco.org" target="_blank" rel="noopener">dpss.rivco.org</a> for current status.</dd>
+
+        <dt>Project T.O.U.C.H.</dt>
+        <dd>A homeless prevention program operating in the Menifee area. They work specifically on keeping people housed before a crisis becomes homelessness. Contact through 211, which can route you to their current intake.</dd>
+
+        <dt>What to have ready</dt>
+        <dd>Lease or rental agreement. Last month's rent receipt or bank statement showing the payment. Any notice from your landlord. Proof of income. Photo ID. Most programs need all of these to process an application.</dd>
+      </dl>
+
+      <a class="cta-call" href="tel:211">Call 211 for current programs</a>
+    </div>
+  </div>
+
+  <!-- ══ MEDI-CAL WORK REQUIREMENTS PREP ══ -->
+  <p class="section-heading">Medi-Cal work requirements — December 2026</p>
+
+  <div class="callout-box">
+    <strong>Deadline: December 31, 2026</strong>
+    If you are on Medi-Cal and between ages 19–65 on the ACA Medicaid expansion, you will need to document 80 hours per month of qualifying activity, or claim an exemption, by December 31, 2026. The risk is not that you do not qualify for an exemption — it is that you do qualify but miss the paperwork deadline.
+  </div>
+
+  <div class="card" id="card-medicaid">
+    <div class="card-header" onclick="toggle('card-medicaid')">
+      <h2>What the Medi-Cal work requirement means for you &nbsp;<span class="expand-hint">&mdash; tap for details</span></h2>
+    </div>
+    <div class="card-body">
+      <dl class="details">
+        <dt>Who it affects</dt>
+        <dd>Adults ages 19–65 enrolled in Medi-Cal through the ACA Medicaid expansion, who do not have a documented disability or other exemption. If you were already on Medi-Cal before the ACA expansion, different rules may apply.</dd>
+
+        <dt>What qualifies as 80 hours</dt>
+        <dd>Employment, paid or unpaid job training, education toward a degree or certificate, or volunteer work at an approved organization. Hours can be combined — 20 hours of part-time work plus 60 hours of school counts.</dd>
+
+        <dt>Who is exempt (but must file paperwork)</dt>
+        <dd>People who are medically fragile, pregnant, caring for a child under 6 or a disabled family member, enrolled in substance use treatment, or living in a county with high unemployment. Exemptions are not automatic — you must document and file them.</dd>
+
+        <dt>What to do now</dt>
+        <dd>Call (877) 932-4100 (Riverside County HelpLink) and ask about Medi-Cal work requirements and whether you need to file an exemption. Do this before December 2026. Do not wait for a notice — notices often arrive close to the deadline.</dd>
+      </dl>
+
+      <a class="cta-call" href="tel:8779324100">Call HelpLink: (877) 932-4100</a>
+      <a class="cta-link" href="../../0004-policy-impact/site/">More on the policy page</a>
+    </div>
+  </div>
+
+  <!-- Report bar -->
+  <div class="report-bar">
+    <p>A phone number changes. A program closes. A new one opens. This page is only useful if it is accurate. Please report anything that is wrong.</p>
+    <a href="mailto:pennersteven@gmail.com?subject=Menifee%20crisis%20page%20correction&body=What%20is%20wrong%3A%0A%0AThe%20section%20affected%3A%0A%0AThe%20correct%20information%20and%20its%20source%3A" target="_blank">Report a problem</a>
+  </div>
+
+</main>
+
+<footer>
+  <p>Resource information sourced from Riverside County program directories, 211 Inland SoCal, California Department of Health Care Services, and organization websites. Data reviewed May 24, 2026. If something listed here has closed or changed, please report it using the link above.</p>
+  <p style="margin-top:.4rem">
+    <a href="../../0001-menifee-food/site/">Food resources</a>
+    &nbsp;&middot;&nbsp;
+    <a href="../../0002-menifee-volunteers/site/">Volunteer opportunities</a>
+    &nbsp;&middot;&nbsp;
+    <a href="../../0003-menifee-seniors/site/">Senior resources</a>
+    &nbsp;&middot;&nbsp;
+    <a href="../../0004-policy-impact/site/">Policy impact</a>
+    &nbsp;&middot;&nbsp;
+    <a href="https://github.com/ColdTie/Earthseed" target="_blank" rel="noopener">Source on GitHub</a>
+  </p>
+</footer>
+
+<script>
+  function toggle(id) {
+    document.getElementById(id).classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>

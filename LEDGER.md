@@ -4,6 +4,51 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-05-24 — Fifth pass: effort #0005 (crisis help), Schiff vote corrected, cross-links updated
+
+**What was done:**
+
+**Data correction on policy page (#0004):** The Schiff vote chips on both the Medi-Cal work requirements card and the SNAP card said "Not yet in Senate at time of vote." This was wrong. Adam Schiff won California's Senate seat in November 2024 and was seated in January 2025. The One Big Beautiful Bill Act was signed July 4, 2025, six months after he was seated. He voted NO, consistent with his Democratic California colleague Alex Padilla. Both chips updated to "Voted NO." Policy page review date updated to May 24, 2026.
+
+**New effort #0005 — Crisis and Emergency Help:**
+
+The OBBBA reduces SNAP for households using both SNAP and LIHEAP, and adds Medi-Cal work requirements starting December 2026. These changes create new financial pressure on households already using those programs. The existing pages cover ongoing resources (food pantries, senior services) but nothing covers what to do in an acute crisis. That gap is now filled.
+
+The page built at `efforts/0005-menifee-crisis/site/index.html` covers:
+
+1. **Start here** callout: dial 211, available 24/7, free, confidential, from any phone. This is the single most important thing on the page.
+
+2. **SNAP callout box:** prominently placed, tells people whose SNAP went down to call CAP Riverside at (951) 955-4900 and links to the food page for pantry hours.
+
+3. **CAP Riverside emergency services:** expands beyond the LIHEAP context in the senior page to explain they also do emergency utility boxes, emergency food boxes, and weatherization. Same phone number already verified.
+
+4. **Riverside County DPSS:** CalWORKs (cash aid for families), General Relief (adults without children), Medi-Cal enrollment. Directed to dpss.rivco.org and 211 rather than publishing a phone number I could not independently verify for the general line.
+
+5. **Salvation Army Murrieta:** emergency utility and rent assistance at 26420 Jefferson Ave, Murrieta, (951) 696-3638. **This number is flagged for verification before the page goes live.** It is sourced from available directory data and has not been called.
+
+6. **988 Suicide and Crisis Lifeline:** just dial 988. Also available via chat. Listed alongside the Riverside County local crisis line at (951) 686-0660, which can dispatch a mobile mental health response instead of police.
+
+7. **Crisis Text Line:** text HOME to 741741.
+
+8. **Emergency rental assistance:** explains the "act before the eviction notice" principle and routes to 211 for current open programs. Lists Project T.O.U.C.H. for homeless prevention with 211 routing.
+
+9. **Medi-Cal work requirement section:** practical explanation of the December 2026 deadline, who needs to act, what counts as qualifying activity, who qualifies for an exemption but must still file paperwork. Routes to (877) 932-4100 HelpLink.
+
+Color scheme: dark burgundy (#6b1c2a) to differentiate from the other four pages. Same card-expand interaction pattern as all other pages.
+
+**Cross-links updated:** All five pages now link to all four other pages in their status bars. Footer links on the senior and policy pages updated to include the crisis page. Root index.html updated with a fifth card for #0005. Page description in root header updated.
+
+**CLAUDE.md updated:** "Where things stand" section updated to list five efforts and to note the specific pre-launch verification task for the Salvation Army Murrieta number.
+
+**What is flagged for follow-up:**
+
+- **One call before launch:** (951) 696-3638 — Salvation Army Murrieta. Confirm the number is active and that they are still doing emergency rental and utility assistance. If it is wrong, fix it and remove the flag note from the crisis page.
+- **SB 417 ballot certification:** the November 2026 ballot is not yet formally certified. Update the policy page badge when it is.
+- **LIHEAP funding:** update the LIHEAP card on the policy page immediately if Congress appropriates or eliminates funding in the next federal budget cycle.
+- **GitHub Pages:** still the pending human action. Steve must enable it in repository settings (Settings → Pages → branch: this branch, folder: / root) before any of the five pages are publicly accessible.
+
+---
+
 ## 2026-05-23 — Fourth pass: VoterImpact / policy page added as effort #0004
 
 **What was done:**
