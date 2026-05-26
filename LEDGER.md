@@ -4,6 +4,33 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-05-26 — Fifth pass: policy page data corrections
+
+**What was done:**
+
+Verified three data flags from the fourth-pass LEDGER entry and corrected the policy page accordingly.
+
+**Corrections made to `efforts/0004-policy-impact/site/index.html`:**
+
+1. **Adam Schiff vote chips (Medi-Cal and SNAP cards):** The page incorrectly said "Not yet in Senate at time of vote." Schiff won the California Senate seat in November 2024, was sworn in January 2025, and was fully seated when the One Big Beautiful Bill Act passed the Senate on July 1, 2025 (51–50 vote). He voted NO and issued a public statement calling it "Republicans' Big Ugly Bill," noting he offered a motion to protect SNAP benefits for families with children under 12 — which every Republican voted down. Both vote chips on the Medi-Cal and SNAP cards updated to "Schiff (D-CA): Voted NO" with the correct `vote-no` (green) CSS class.
+
+2. **Padilla vote chips:** Were using the `vote-na` (gray) CSS class. Corrected to `vote-no` (green) to match the semantic meaning — he voted NO.
+
+3. **LIHEAP card:** The previous text said the program was still operating "as of May 2026" without noting what actually happened in FY2026 appropriations. Updated with the full picture: Congress overrode the elimination proposal and funded LIHEAP at $4.045 billion for FY2026 (signed Feb 3, 2026). The administration's FY2027 budget request (submitted April 2026) again proposes elimination. Congress will decide FY2027 later this year. The practical guidance updated to be more direct: the program is funded now, apply, do not wait.
+
+4. **SB 417 card:** Added a "Legislative status" row noting the bill passed the California Senate (Jan 27, 2026) and Assembly (Apr 22, 2026), and has been enrolled and sent to the Governor. Previously the card had no legislative history, which made the ballot status feel uncertain.
+
+5. **Data reviewed date:** Updated to May 26, 2026 in the status bar and footer.
+
+**What is flagged for follow-up:**
+
+- SB 417: Confirm Governor Newsom has signed it. Once signed, the measure is officially on the November 2026 ballot.
+- Essayli and Seyarto individual votes on SB 417: Not found in public search results. The vote chips remain "position to be confirmed." If floor vote records become accessible via leginfo.legislature.ca.gov, update these.
+- LIHEAP FY2027: Watch whether Congress approves, reduces, or eliminates LIHEAP in FY2027 appropriations (expected fall 2026). Update the card immediately if the program is cut.
+- Pages are still not hosted. GitHub Pages must be enabled by Steve before any of this is reachable by the people who need it.
+
+---
+
 ## 2026-05-23 — Fourth pass: VoterImpact / policy page added as effort #0004
 
 **What was done:**
