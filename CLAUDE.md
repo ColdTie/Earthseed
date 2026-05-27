@@ -53,13 +53,13 @@ Four efforts are built and waiting to be hosted:
 - #0001: Menifee food resources. Static HTML page and data file. Ready for deployment.
 - #0002: Menifee volunteer opportunities. Static HTML page. Ready for deployment.
 - #0003: Menifee senior resources. Static HTML page built May 23, 2026. Ready for deployment.
-- #0004: Policy impact. Representatives, current legislation, and plain-language impact for Menifee residents. Built May 23, 2026. Ready for deployment.
+- #0004: Policy impact. Representatives, current legislation, and plain-language impact for Menifee residents. Built May 23, 2026. Data corrected May 27, 2026 (Schiff vote records, LIHEAP FY 2026 status, SB 417 pending status). Ready for deployment.
 
 A root index.html exists at the repo root as a GitHub Pages landing page. Steve must enable GitHub Pages in repository settings (Settings → Pages → select branch and root folder) for the pages to go live. That human action is the gate.
 
 Once live, the first measurement task is: check whether any wrong-door reports arrive at pennersteven@gmail.com (the address in the report-a-problem links). After two weeks, check traffic source if analytics are added. If nothing is coming in and traffic is low, the distribution problem is bigger than the content problem.
 
-Data freshness: re-verify each food resource by phone every 90 days. Flag stale volunteer listings every 60 days. YANA, IHSS, LIHEAP, and TRIP are county or city programs and tend to be stable, but confirm annually.
+Data freshness: re-verify each food resource by phone every 90 days. Flag stale volunteer listings every 60 days. YANA, IHSS, LIHEAP, and TRIP are county or city programs and tend to be stable, but confirm annually. For the policy page: check SB 417 status monthly until it either clears the Legislature or dies. Check LIHEAP FY 2027 appropriations when Congress acts (likely fall 2026).
 
 ## How to pick up the work
 

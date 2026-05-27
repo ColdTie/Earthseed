@@ -4,6 +4,33 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-05-27 — Fifth pass: policy page data corrections
+
+**What was done:**
+
+Researched three flagged items from the previous run and corrected the policy page.
+
+**Correction 1: Adam Schiff Senate vote on the OBBBA**
+
+The previous version said "Not yet in Senate at time of vote" for both the Medi-Cal and SNAP cards. This was wrong. Schiff won his Senate seat in November 2024 and was seated in January 2025. The OBBBA passed the Senate on July 1, 2025 in a 51-50 vote with VP Vance casting the tie-breaker. All Senate Democrats voted against it, including Schiff. Both vote chips now correctly show "Voted NO" in green.
+
+**Correction 2: LIHEAP status update**
+
+The previous version said "Not yet cut" with a Watch badge. The FY 2026 picture is now resolved. Congress funded LIHEAP at $4.045 billion for FY 2026, a $20 million increase over the prior year, overriding the Trump administration's elimination proposal. The final tranche of FY 2026 funds was disbursed to states in April 2026. The program is fully operational. However, the FY 2027 budget again proposes elimination, so the fight repeats. The card now says "FY 2026 funded, FY 2027 threatened" and the text distinguishes between the resolved FY 2026 situation and the ongoing FY 2027 threat. Sources updated to the APPA and Utility Dive reporting.
+
+**Correction 3: SB 417 ballot status**
+
+The previous version said "On November 2026 ballot." This was premature. As of May 2026, SB 417 is still moving through the California Legislature. It needs a two-thirds vote in both chambers and the Governor's signature to reach the ballot. It has not been certified yet. The badge is now "Pending — Legislature not yet acted" and the description language is corrected throughout. The impact box now directs readers to call their state reps now, while the bill is still in play.
+
+**What is still flagged for follow-up:**
+
+- SB 417: Update to "On November 2026 ballot" once it clears the Legislature and is signed. Verify Essayli and Seyarto vote records at that time.
+- LIHEAP: Update immediately if FY 2027 appropriations are passed or if the program is cut.
+- Representative phone numbers: All are sourced from official .house.gov and .senate.gov directories. Re-verify annually or after any election that changes district lines.
+- GitHub Pages still needs to be enabled by Steve in repository settings. None of these pages are live yet. The URL once enabled will be https://coldtie.github.io/Earthseed/.
+
+---
+
 ## 2026-05-23 — Fourth pass: VoterImpact / policy page added as effort #0004
 
 **What was done:**
