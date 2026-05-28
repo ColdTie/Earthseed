@@ -4,6 +4,29 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-05-28 — Vote record corrections on policy page (#0004)
+
+**What was done:**
+
+Three factual errors found and corrected on the policy impact page.
+
+**Error 1 — Adam Schiff vote on OBBBA (Medi-Cal and SNAP cards):**
+Both the Medi-Cal work requirements card and the SNAP card said "Schiff (D-CA): Not yet in Senate at time of vote." This was wrong. Schiff won California's open Senate seat in November 2024 and was seated in January 2025. The OBBBA passed the Senate on July 1, 2025, in a 51–50 vote with Vice President Vance breaking the tie. All Senate Democrats voted against it, including Schiff. Both chips updated to "Voted NO" with the correct `vote-no` CSS class.
+
+**Error 2 — Padilla CSS class (Medi-Cal and SNAP cards):**
+Padilla's vote chips already said "Voted NO" but were using the `vote-na` CSS class (gray styling) instead of `vote-no` (green styling). The distinction matters: gray means "position not confirmed," green means a confirmed no vote. Fixed to `vote-no` in both cards.
+
+**Error 3 — SB 417 status:**
+The badge said "On November 2026 ballot" but as of May 2026, SB 417 has passed Senate Housing Committee and is advancing, but has not yet received the required two-thirds vote of the full Legislature or the Governor's signature. Updated badge to "Watch — Advancing to ballot" and updated card text to accurately state the bill is still moving through the legislature. This will need to be updated once the Legislature finalizes the bill.
+
+**What is still flagged:**
+- SB 417: Update the card once the bill passes the Legislature and is signed by the Governor. At that point, change back to "On November 2026 ballot."
+- Essayli and Seyarto positions on SB 417 still unconfirmed. The chips say "position to be confirmed."
+- God's Helping Hand phone number discrepancy still flagged in resources.json. Needs a phone call.
+- GitHub Pages still needs to be enabled by Steve before any of the four pages are live.
+
+---
+
 ## 2026-05-23 — Fourth pass: VoterImpact / policy page added as effort #0004
 
 **What was done:**
