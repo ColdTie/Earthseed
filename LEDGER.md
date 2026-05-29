@@ -4,6 +4,33 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-05-29 — Fifth pass: data corrections on policy page before deployment
+
+**What was done:**
+
+Researched the follow-up items flagged in the last run. Made four corrections to the policy page and one update to the food resource data.
+
+**Correction 1 — Adam Schiff vote on OBBBA (significant factual error):**
+The previous run noted Schiff as "Not yet in Senate at time of vote" on both the Medi-Cal work requirements card and the SNAP card. This was wrong. Schiff was seated in January 2025. The Senate passed the OBBBA on July 1, 2025, in a 51–50 party-line vote with Vice President Vance casting the tie-breaking vote. All Senate Democrats voted NO, including Schiff. Both vote chips corrected from class `vote-na` / "Not yet in Senate" to class `vote-no` / "Voted NO". Padilla's chip was also misclassed (`vote-na` displaying gray when his text said "Voted NO") — fixed to `vote-no` (green) for visual accuracy on both cards.
+
+**Correction 2 — LIHEAP status update:**
+FY 2026 LIHEAP was fully funded at $4.015 billion. The Consolidated Appropriations Act, 2026 (H.R. 7148) was signed February 3, 2026. Final funds ($421 million) were released to states April 17, 2026. Program is currently operational. FY 2027 faces elimination threat again in the Trump administration's budget, but that fight has not yet been resolved. The card description and impact box updated to reflect current reality: program is funded through September 2026, apply now, FY 2027 is uncertain.
+
+**Correction 3 — SB 417 ballot status:**
+The previous run labelled SB 417 as "On November 2026 ballot." As of May 2026, the bill has passed the Senate Housing Committee and been amended by Senate Appropriations to target the November 3, 2026 General Election, but it has not yet passed the full legislature with the required two-thirds vote or been signed by the governor. Status badge changed to "Tracking for November 2026 ballot" and a "Current status" detail row added explaining where the bill stands. Governor Newsom has expressed support.
+
+**Update 4 — God's Helping Hand phone:**
+Multiple 2026 sources (food-banks.org, benefitsexplorer.com, californiafoodpantry.org) consistently list (951) 973-3582. The alternate number (951) 679-4667 has not appeared in recent sources. Data file reverification note updated to reflect this, with flag remaining until confirmed by a phone call.
+
+**What is flagged for follow-up:**
+- SB 417: update card immediately if it passes the full legislature and is officially certified.
+- LIHEAP: update FY 2027 status once Congress acts on the next budget.
+- God's Helping Hand: one phone call to (951) 973-3582 would confirm it is current and allow the flag to be cleared.
+- City Food Box distribution: data shows 2025 event dates. Check cityofmenifee.us for any 2026 events scheduled.
+- Deployment still blocked on Steve enabling GitHub Pages in repository settings. All four efforts are built and ready.
+
+---
+
 ## 2026-05-23 — Fourth pass: VoterImpact / policy page added as effort #0004
 
 **What was done:**

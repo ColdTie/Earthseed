@@ -77,10 +77,10 @@
       "services": ["Food distribution"],
       "serves_approx": "~150 families per week",
       "established": 1985,
-      "last_verified": "2026-05-23",
-      "verification_source": "food-banks.org directory, californiafoodpantry.org",
+      "last_verified": "2026-05-29",
+      "verification_source": "food-banks.org directory, californiafoodpantry.org, benefitsexplorer.com",
       "flag_for_reverification": true,
-      "reverification_reason": "Two different phone numbers in different sources. Confirm which is current."
+      "reverification_reason": "Multiple 2026 sources consistently list (951) 973-3582. The alternate number (951) 679-4667 has not appeared in recent sources and may be outdated. A single phone call would confirm which is current before going live."
     },
     {
       "id": "salvation-army-murrieta",
