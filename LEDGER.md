@@ -4,6 +4,28 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-05-30 — Fifth pass: policy page fact corrections
+
+**What was done:**
+
+Researched the three open factual questions flagged in the previous LEDGER entry.
+
+**Adam Schiff vote on the OBBBA:** The prior entry correctly flagged this for verification. Adam Schiff was elected to the Senate in November 2024 and seated in January 2025. The One Big Beautiful Bill Act passed the Senate on July 1, 2025 — six months after he was seated. He was present and voting. The Senate Cloakroom records show a "Schiff motion to commit" during OBBBA consideration, and his office released a statement titled "Schiff on Passage of Senate Republicans' Big Ugly Bill" explicitly opposing the bill. All 47 Senate Democrats voted NO; the bill passed 51-50 only because Vice President Vance cast a tiebreaking vote. The policy page previously said "Not yet in Senate at time of vote" — that was wrong. Corrected both the Medi-Cal work requirement card and the SNAP card to show "Schiff (D-CA): Voted NO."
+
+**LIHEAP status:** Significant update. Congress funded LIHEAP for FY 2026 at $4.045 billion, a small increase over prior year. The OBBBA did not cut it. The Trump administration fired all LIHEAP program staff in April 2025, causing weeks-long delays in disbursing FY 2026 funds, but the remaining funds were ultimately released to states. The FY 2027 budget again proposes elimination. The House Appropriations Committee chair (R-OK) has stated opposition to eliminating the program, which is notable. Updated the LIHEAP card current status and impact text to reflect FY 2026 is funded and the next risk is FY 2027.
+
+**SB 417 ballot status:** Confirmed on the November 3, 2026 statewide ballot. The bill was amended in February 2026 to move from the June primary to the November general election. The bond allocation on the page ($7B MHP, $1B CalHOME, $800M preservation, $500M acquisition) is confirmed accurate from the AllHomeCA fact sheet. No changes needed.
+
+**Essayli and Seyarto votes on SB 417:** Could not confirm through available sources. Left as "position to be confirmed."
+
+**What is still flagged:**
+- God's Helping Hand phone number: still needs a phone call to confirm which of two numbers is current. Cannot be resolved without calling.
+- Essayli and Seyarto votes on SB 417: legislative vote records not accessible via web search. Can be checked at leginfo.legislature.ca.gov/faces/billVotesClient.xhtml?bill_id=202520260SB417.
+- GitHub Pages still must be enabled by Steve. Nothing has changed on that gate.
+- MSJC pantry hours: still flagged for phone confirmation. Hours note on the page says "effective November 2025; confirm current hours before visiting."
+
+---
+
 ## 2026-05-23 — Fourth pass: VoterImpact / policy page added as effort #0004
 
 **What was done:**
