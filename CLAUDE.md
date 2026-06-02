@@ -53,13 +53,14 @@ Four efforts are built and waiting to be hosted:
 - #0001: Menifee food resources. Static HTML page and data file. Ready for deployment.
 - #0002: Menifee volunteer opportunities. Static HTML page. Ready for deployment.
 - #0003: Menifee senior resources. Static HTML page built May 23, 2026. Ready for deployment.
-- #0004: Policy impact. Representatives, current legislation, and plain-language impact for Menifee residents. Built May 23, 2026. Ready for deployment.
+- #0004: Policy impact. Representatives, current legislation, and plain-language impact for Menifee residents. Built May 23, 2026. Patched June 2, 2026 (Schiff vote correction, SB 417 status update). Ready for deployment.
+- #0005: Free summer meals for kids. Static HTML page built June 2, 2026. Sites in Menifee from Romoland SD, Menifee USD, and Menifee Library. Programs start June 8–9. Time-sensitive — needs to go live before June 8. Ready for deployment.
 
-A root index.html exists at the repo root as a GitHub Pages landing page. Steve must enable GitHub Pages in repository settings (Settings → Pages → select branch and root folder) for the pages to go live. That human action is the gate.
+A root index.html exists at the repo root as a GitHub Pages landing page. Steve must enable GitHub Pages in repository settings (Settings → Pages → select branch and root folder) for the pages to go live. That human action is the gate. The summer meals page (#0005) is time-sensitive: programs start June 8. If GitHub Pages is not enabled yet, that is the most urgent action this week.
 
 Once live, the first measurement task is: check whether any wrong-door reports arrive at pennersteven@gmail.com (the address in the report-a-problem links). After two weeks, check traffic source if analytics are added. If nothing is coming in and traffic is low, the distribution problem is bigger than the content problem.
 
-Data freshness: re-verify each food resource by phone every 90 days. Flag stale volunteer listings every 60 days. YANA, IHSS, LIHEAP, and TRIP are county or city programs and tend to be stable, but confirm annually.
+Data freshness: re-verify each food resource by phone every 90 days. Flag stale volunteer listings every 60 days. YANA, IHSS, LIHEAP, and TRIP are county or city programs and tend to be stable, but confirm annually. The summer meals page (#0005) is seasonal — programs end July 31. Re-verify and update for summer 2027 in May 2027.
 
 ## How to pick up the work
 

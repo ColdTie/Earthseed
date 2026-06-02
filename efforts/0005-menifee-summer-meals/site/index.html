@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Summer Meals for Kids — Menifee, CA</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange:    #b85c0a;
+      --orange-lt: #e07830;
+      --gray-1:    #fdf8f4;
+      --gray-2:    #e8e0d8;
+      --gray-4:    #8a8070;
+      --gray-7:    #332820;
+      --white:     #ffffff;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--gray-7);
+      background: var(--gray-1);
+    }
+
+    a { color: var(--orange); }
+    a:hover { color: var(--orange-lt); }
+
+    header {
+      background: var(--orange);
+      color: var(--white);
+      padding: 1.25rem 1rem 1rem;
+    }
+    header h1 { font-size: 1.35rem; font-weight: 700; line-height: 1.25; }
+    header p  { margin-top: .3rem; font-size: .9rem; opacity: .85; }
+
+    .status-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-2);
+      padding: .5rem 1rem;
+      font-size: .8rem;
+      color: var(--gray-4);
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    #day-notice {
+      font-weight: 600;
+      color: var(--gray-7);
+    }
+
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    .intro {
+      font-size: .9rem;
+      color: var(--gray-4);
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--white);
+      border: 1px solid var(--gray-2);
+      border-radius: 10px;
+      margin-bottom: .75rem;
+      overflow: hidden;
+    }
+
+    .card-header {
+      padding: .9rem 1rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: .75rem;
+      user-select: none;
+    }
+    .card-header:hover { background: var(--gray-1); }
+
+    .card-header h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--gray-7);
+      line-height: 1.35;
+    }
+
+    .expand-hint {
+      font-size: .78rem;
+      font-weight: 400;
+      color: var(--gray-4);
+    }
+
+    .status-badge {
+      font-size: .72rem;
+      font-weight: 700;
+      padding: .2rem .55rem;
+      border-radius: 12px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .badge-open   { background: #d8f3dc; color: #1a5c30; }
+    .badge-closed { background: #ffe5e5; color: #8b0000; }
+    .badge-soon   { background: #fff3cd; color: #7a5c00; }
+    .badge-ended  { background: #f0f0f0; color: #666; }
+
+    .card-body {
+      display: none;
+      padding: 0 1rem 1rem;
+      border-top: 1px solid var(--gray-2);
+    }
+    .card-body.open { display: block; }
+
+    dl.details {
+      margin: .75rem 0;
+    }
+    dl.details dt {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      color: var(--gray-4);
+      margin-top: .75rem;
+    }
+    dl.details dd {
+      font-size: .93rem;
+      margin-top: .15rem;
+    }
+
+    .map-link {
+      display: inline-block;
+      margin-top: .5rem;
+      font-size: .82rem;
+      color: var(--orange);
+      text-decoration: none;
+    }
+    .map-link:hover { text-decoration: underline; }
+
+    .cta-call {
+      display: inline-block;
+      margin-top: .75rem;
+      margin-right: .5rem;
+      padding: .5rem 1rem;
+      background: var(--orange);
+      color: var(--white);
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: .88rem;
+      font-weight: 600;
+    }
+    .cta-call:hover { background: var(--orange-lt); color: var(--white); }
+
+    .cta-link {
+      display: inline-block;
+      margin-top: .75rem;
+      margin-right: .5rem;
+      padding: .5rem 1rem;
+      background: transparent;
+      color: var(--orange);
+      border: 1px solid var(--orange);
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: .88rem;
+      font-weight: 600;
+    }
+    .cta-link:hover { background: var(--gray-1); }
+
+    .note-box {
+      background: #fff8ee;
+      border: 1px solid #f0d080;
+      border-radius: 6px;
+      padding: .65rem .85rem;
+      font-size: .86rem;
+      margin-top: .85rem;
+      line-height: 1.5;
+    }
+
+    .source-line {
+      font-size: .78rem;
+      color: var(--gray-4);
+      margin-top: .75rem;
+    }
+
+    .section-label {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--gray-4);
+      margin: 1.25rem 0 .6rem;
+    }
+
+    .nav-bar {
+      background: var(--white);
+      border-top: 1px solid var(--gray-2);
+      padding: .6rem 1rem;
+      font-size: .8rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .nav-bar a { color: var(--orange); text-decoration: none; }
+    .nav-bar a:hover { text-decoration: underline; }
+
+    footer {
+      text-align: center;
+      padding: 1.25rem 1rem 2rem;
+      font-size: .78rem;
+      color: var(--gray-4);
+    }
+    footer a { color: var(--gray-4); }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Free Summer Meals for Kids — Menifee, CA</h1>
+  <p>Every child 18 and under eats free. No income check, no registration. Just show up.</p>
+</header>
+
+<div class="status-bar">
+  <span id="day-notice">Loading...</span>
+  <span>Summer 2026 · Menifee, CA</span>
+  <span><a href="mailto:pennersteven@gmail.com?subject=Summer%20meals%20correction">Report a problem</a></span>
+</div>
+
+<div class="nav-bar">
+  <a href="../../../">← All Menifee resources</a>
+  <a href="../../0001-menifee-food/site/">Food resources (year-round)</a>
+  <a href="../../0003-menifee-seniors/site/">Senior meals</a>
+</div>
+
+<main>
+
+  <p class="intro">
+    Summer meal programs are funded by the USDA and run by school districts and community sites. Any child 18 and under can walk in — no paperwork, no ID, no income test. The meal is free. In Menifee, three programs are running this summer.
+  </p>
+
+  <p class="section-label">In Menifee — 92585 ZIP code</p>
+
+  <!-- Romoland Elementary -->
+  <div class="card" id="card-romoland-elem">
+    <div class="card-header" onclick="toggle('card-romoland-elem')">
+      <h2>Romoland Elementary <span class="expand-hint">&mdash; tap for details</span></h2>
+      <span class="status-badge" id="badge-romoland-elem">…</span>
+    </div>
+    <div class="card-body" id="body-romoland-elem">
+      <dl class="details">
+        <dt>Address</dt>
+        <dd>25890 Antelope Road, Menifee, CA 92585</dd>
+
+        <dt>Dates</dt>
+        <dd>June 8 – July 31, 2026</dd>
+
+        <dt>Days and hours</dt>
+        <dd>Monday through Friday, 10:30 AM – 12:30 PM</dd>
+
+        <dt>Who can come</dt>
+        <dd>Any child 18 and under. Walk in — no registration, no income verification, no ID required.</dd>
+
+        <dt>What is served</dt>
+        <dd>Lunch. Free.</dd>
+
+        <dt>Sponsor</dt>
+        <dd>Romoland School District</dd>
+      </dl>
+
+      <a class="map-link" href="https://maps.google.com/?q=25890+Antelope+Road+Menifee+CA+92585" target="_blank" rel="noopener">Open in Google Maps ↗</a>
+    </div>
+  </div>
+
+  <!-- Ethan A. Chase Middle -->
+  <div class="card" id="card-chase">
+    <div class="card-header" onclick="toggle('card-chase')">
+      <h2>Ethan A. Chase Middle School <span class="expand-hint">&mdash; tap for details</span></h2>
+      <span class="status-badge" id="badge-chase">…</span>
+    </div>
+    <div class="card-body" id="body-chase">
+      <dl class="details">
+        <dt>Address</dt>
+        <dd>28100 Calm Horizon Drive, Menifee, CA 92585</dd>
+
+        <dt>Dates</dt>
+        <dd>June 8 – July 31, 2026</dd>
+
+        <dt>Days and hours</dt>
+        <dd>Monday through Friday, 10:30 AM – 12:30 PM</dd>
+
+        <dt>Who can come</dt>
+        <dd>Any child 18 and under. Walk in — no registration, no income verification, no ID required.</dd>
+
+        <dt>What is served</dt>
+        <dd>Lunch. Free.</dd>
+
+        <dt>Sponsor</dt>
+        <dd>Romoland School District</dd>
+      </dl>
+
+      <a class="map-link" href="https://maps.google.com/?q=28100+Calm+Horizon+Drive+Menifee+CA+92585" target="_blank" rel="noopener">Open in Google Maps ↗</a>
+    </div>
+  </div>
+
+  <p class="section-label">In Menifee — 92584 / 92586 ZIP codes</p>
+
+  <!-- Menifee Library -->
+  <div class="card" id="card-library">
+    <div class="card-header" onclick="toggle('card-library')">
+      <h2>Menifee Library — Lunch at the Library <span class="expand-hint">&mdash; tap for details</span></h2>
+      <span class="status-badge" id="badge-library">…</span>
+    </div>
+    <div class="card-body" id="body-library">
+      <dl class="details">
+        <dt>Address</dt>
+        <dd>28798 La Piedra Rd., Menifee, CA 92584</dd>
+
+        <dt>Dates</dt>
+        <dd>June 9 – July 16, 2026</dd>
+
+        <dt>Days and hours</dt>
+        <dd>Monday, Tuesday, and Wednesday, 12:00 PM – 1:00 PM</dd>
+
+        <dt>Who can come</dt>
+        <dd>Any child 18 and under. Walk in — no registration, no income verification, no ID required.</dd>
+
+        <dt>What is served</dt>
+        <dd>Lunch. Free.</dd>
+
+        <dt>Sponsor</dt>
+        <dd>Menifee Union School District / USDA Seamless Summer Option</dd>
+      </dl>
+
+      <div class="note-box">
+        The library is a good option if the school site schedules do not match your family's schedule. It runs a shorter season (through July 16) but the location is central and the hours are midday.
+      </div>
+
+      <a class="map-link" href="https://maps.google.com/?q=28798+La+Piedra+Rd+Menifee+CA+92584" target="_blank" rel="noopener">Open in Google Maps ↗</a>
+    </div>
+  </div>
+
+  <!-- Menifee USD school sites -->
+  <div class="card" id="card-musd">
+    <div class="card-header" onclick="toggle('card-musd')">
+      <h2>Menifee USD School Sites — Intersession Weeks <span class="expand-hint">&mdash; tap for details</span></h2>
+      <span class="status-badge" id="badge-musd">…</span>
+    </div>
+    <div class="card-body" id="body-musd">
+      <dl class="details">
+        <dt>Sites</dt>
+        <dd>
+          Chester W. Morrison Elementary — 30250 Bradley Rd., Menifee<br>
+          Freedom Crest Elementary — 29282 Menifee Rd., Menifee<br>
+          Táawila Elementary — 30344 Stage Coach Rd., Menifee<br>
+          Oak Meadows Elementary — 28600 Poinsettia St., Murrieta (near Menifee)
+        </dd>
+
+        <dt>Dates</dt>
+        <dd>June 9–18 and June 23–26, 2026 (school intersession windows — verify at menifeeusd.org)</dd>
+
+        <dt>Hours</dt>
+        <dd>
+          Breakfast: 7:30 – 8:00 AM<br>
+          Lunch: 11:30 AM – 12:15 PM
+        </dd>
+
+        <dt>Who can come</dt>
+        <dd>Any child 18 and under. Walk in — no registration, no income verification, no ID required.</dd>
+
+        <dt>What is served</dt>
+        <dd>Breakfast and lunch. Both free.</dd>
+
+        <dt>Sponsor</dt>
+        <dd>Menifee Union School District / USDA Seamless Summer Option</dd>
+      </dl>
+
+      <div class="note-box">
+        These sites run during Menifee USD intersession periods, not the full summer. Dates above are from June 2026 district announcements. Confirm the current schedule at <a href="https://www.menifeeusd.org" target="_blank" rel="noopener">menifeeusd.org</a> before visiting.
+      </div>
+
+      <p class="source-line">
+        Source: <a href="https://www.menifeeusd.org/District/News/2389-Kids-Eat-Free-This-Summer.html" target="_blank" rel="noopener">Menifee USD news, June 2026</a>
+      </p>
+    </div>
+  </div>
+
+  <p class="section-label">Can't find a nearby site?</p>
+
+  <div class="card" id="card-finder">
+    <div class="card-header" onclick="toggle('card-finder')">
+      <h2>USDA Summer Meals Site Finder <span class="expand-hint">&mdash; tap for details</span></h2>
+      <span class="status-badge badge-open">Tool available</span>
+    </div>
+    <div class="card-body" id="body-finder">
+      <dl class="details">
+        <dt>What it is</dt>
+        <dd>The USDA runs a nationwide database of all summer meal sites. You can search by zip code to find every participating site near you — including sites not listed here.</dd>
+
+        <dt>How to use it</dt>
+        <dd>
+          Text <strong>FOOD</strong> to <strong>877-877</strong> for a text-based site finder (works on any phone).<br><br>
+          Or visit <a href="https://www.fns.usda.gov/sfsp/sitefinder" target="_blank" rel="noopener">fns.usda.gov/sfsp/sitefinder</a> and search by your zip code (92584, 92585, or 92586 for Menifee).
+        </dd>
+
+        <dt>Nearby districts also serving</dt>
+        <dd>
+          Romoland School District — see cards above (in Menifee 92585)<br>
+          Perris Elementary School District — June 17–Aug 10, Mon &amp; Wed 10:30–11:30am at 500 S. A St, Perris and 24050 Theda St, Perris<br>
+          Lake Elsinore USD — Tuesdays 7:30–9am, June 9–July 28 (meal kits distributed)
+        </dd>
+      </dl>
+
+      <div class="note-box">
+        If you find a site missing from this page, please use the "Report a problem" link at the top so it can be added.
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>Free Summer Meals for Kids — Menifee, CA — Data from June 2026. Programs end July 31, 2026.</p>
+  <p style="margin-top:.3rem;">Next year's programs typically announced in May. Check back in May 2027 for updated sites.</p>
+  <p style="margin-top:.5rem;"><a href="mailto:pennersteven@gmail.com?subject=Summer%20meals%20correction">Report a problem with this page</a></p>
+</footer>
+
+<script>
+  function toggle(id) {
+    var body = document.getElementById('body-' + id.replace('card-', ''));
+    if (body) body.classList.toggle('open');
+  }
+
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+  function setSiteStatus(badgeId, startDate, endDate, servingDays, startHour, endHour) {
+    var badge = document.getElementById(badgeId);
+    if (!badge) return;
+
+    var now = new Date();
+    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var start = new Date(startDate);
+    var end = new Date(endDate);
+    end.setHours(23, 59, 59);
+
+    if (today < start) {
+      var diffMs = start - today;
+      var diffDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+      if (diffDays === 1) {
+        badge.textContent = 'Opens tomorrow';
+      } else {
+        badge.textContent = 'Opens in ' + diffDays + ' days';
+      }
+      badge.className = 'status-badge badge-soon';
+      return;
+    }
+
+    if (now > end) {
+      badge.textContent = 'Season ended';
+      badge.className = 'status-badge badge-ended';
+      return;
+    }
+
+    var dow = now.getDay();
+    if (servingDays.indexOf(dow) === -1) {
+      badge.textContent = 'Closed today';
+      badge.className = 'status-badge badge-closed';
+      return;
+    }
+
+    var hour = now.getHours() + now.getMinutes() / 60;
+    if (hour >= startHour && hour < endHour) {
+      badge.textContent = 'Serving now';
+      badge.className = 'status-badge badge-open';
+    } else if (hour < startHour) {
+      badge.textContent = 'Opens today at ' + (startHour < 12 ? startHour + ':00 AM' : (startHour - 12) + ':00 PM');
+      badge.className = 'status-badge badge-soon';
+    } else {
+      badge.textContent = 'Done for today';
+      badge.className = 'status-badge badge-closed';
+    }
+  }
+
+  function setMUSDStatus() {
+    var badge = document.getElementById('badge-musd');
+    if (!badge) return;
+
+    var now = new Date();
+    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+    var windows = [
+      { start: new Date('2026-06-09'), end: new Date('2026-06-18') },
+      { start: new Date('2026-06-23'), end: new Date('2026-06-26') }
+    ];
+
+    var inWindow = windows.some(function(w) {
+      var end = new Date(w.end);
+      end.setHours(23, 59, 59);
+      return today >= w.start && now <= end;
+    });
+
+    var anyFuture = windows.some(function(w) { return today < w.start; });
+
+    if (inWindow) {
+      var dow = now.getDay();
+      if (dow === 0 || dow === 6) {
+        badge.textContent = 'Closed today (weekend)';
+        badge.className = 'status-badge badge-closed';
+      } else {
+        var hour = now.getHours() + now.getMinutes() / 60;
+        if (hour >= 7.5 && hour < 8) {
+          badge.textContent = 'Breakfast now';
+          badge.className = 'status-badge badge-open';
+        } else if (hour >= 11.5 && hour < 12.25) {
+          badge.textContent = 'Lunch now';
+          badge.className = 'status-badge badge-open';
+        } else {
+          badge.textContent = 'Serving weekdays';
+          badge.className = 'status-badge badge-soon';
+        }
+      }
+    } else if (anyFuture) {
+      var nextWindow = windows.find(function(w) { return today < w.start; });
+      var diffMs = nextWindow.start - today;
+      var diffDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+      if (diffDays === 1) {
+        badge.textContent = 'Opens tomorrow';
+      } else {
+        badge.textContent = 'Next window in ' + diffDays + ' days';
+      }
+      badge.className = 'status-badge badge-soon';
+    } else {
+      badge.textContent = 'Intersession ended';
+      badge.className = 'status-badge badge-ended';
+    }
+  }
+
+  function updateDayNotice() {
+    var el = document.getElementById('day-notice');
+    if (!el) return;
+    var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    var now = new Date();
+    el.textContent = days[now.getDay()] + ', ' + months[now.getMonth()] + ' ' + now.getDate();
+  }
+
+  updateDayNotice();
+
+  // Romoland sites: June 8 - July 31, Mon-Fri (1-5), 10:30am-12:30pm
+  setSiteStatus('badge-romoland-elem', '2026-06-08', '2026-07-31', [1,2,3,4,5], 10.5, 12.5);
+  setSiteStatus('badge-chase',         '2026-06-08', '2026-07-31', [1,2,3,4,5], 10.5, 12.5);
+
+  // Library: June 9 - July 16, Mon/Tue/Wed (1,2,3), 12pm-1pm
+  setSiteStatus('badge-library', '2026-06-09', '2026-07-16', [1,2,3], 12, 13);
+
+  // MUSD school sites: intersession windows, custom logic
+  setMUSDStatus();
+</script>
+
+</body>
+</html>

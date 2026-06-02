@@ -4,6 +4,38 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-06-02 — Fifth pass: summer meals page (#0005), policy page data fixes
+
+**What was done:**
+
+Two factual errors on the policy page were found and corrected.
+
+**Schiff vote correction:** Both OBBBA policy cards (Medi-Cal work requirements and SNAP) incorrectly showed "Schiff (D-CA): Not yet in Senate at time of vote." Adam Schiff was elected to the Senate in November 2024, seated January 2025, and was serving when the One Big Beautiful Bill Act passed the Senate 51–50 on July 1, 2025. He voted NO, along with all other Senate Democrats. Both chips now show "Schiff (D-CA): Voted NO." Source: schiff.senate.gov press release, govtrack.us Senate vote #372.
+
+**SB 417 status correction:** The policy page stated SB 417 had been "placed on the November 2026 statewide ballot." As of June 2, 2026, the bill had passed the Senate Housing Committee 8–1 but had not been approved by the full Legislature or signed by the Governor. The badge and description were updated to accurately reflect that it is advancing toward the ballot, not yet on it.
+
+**New effort #0005 — Free Summer Meals for Kids (Menifee):** Researched USDA summer meal programs in Menifee for 2026. Found three real programs with confirmed sites, all starting June 8–9 — six days from today.
+
+Sites found:
+- **Romoland Elementary** (25890 Antelope Rd, Menifee 92585): June 8–July 31, Mon–Fri, 10:30am–12:30pm. Romoland School District.
+- **Ethan A. Chase Middle School** (28100 Calm Horizon Dr, Menifee 92585): June 8–July 31, Mon–Fri, 10:30am–12:30pm. Romoland School District.
+- **Menifee Library — Lunch at the Library** (28798 La Piedra Rd, Menifee 92584): June 9–July 16, Mon/Tue/Wed, 12pm–1pm. Menifee USD / USDA SSO.
+- **Menifee USD school sites** (Chester W. Morrison, Freedom Crest, Táawila, Oak Meadows): June 9–18 and June 23–26, Mon–Fri. Breakfast 7:30–8am, Lunch 11:30am–12:15pm. Operate during school intersession windows only.
+
+Also documented: Perris Elementary SD and Lake Elsinore USD sites for families near those areas, and the text FOOD to 877-877 USDA site finder.
+
+Built `efforts/0005-menifee-summer-meals/CHARTER.md` and `efforts/0005-menifee-summer-meals/site/index.html`. Warm orange color scheme. Real-time open/closed badges using JavaScript. Added the summer meals card to the root index.html.
+
+**What is flagged for follow-up:**
+
+- The summer meals page is time-sensitive. Programs start June 8. GitHub Pages needs to be enabled before then, or people won't find this. If GitHub Pages is not live by June 7, the distribution problem is real and immediate.
+- Distribution: post the summer meals URL in Menifee-area Facebook groups, NextDoor, and the Menifee Union School District parent communication channels before June 9. The page is useless if no one sees it.
+- Menifee USD school site dates (June 9–18, 23–26) are based on intersession calendar and should be reverified with menifeeusd.org — the modified traditional calendar means different tracks may have different dates.
+- SB 417: if it passes the full Legislature and is signed by the Governor, update the policy page badge to "On November 2026 ballot" and update the description.
+- LIHEAP: update if Congress appropriates or eliminates funding in the next budget cycle.
+
+---
+
 ## 2026-05-23 — Fourth pass: VoterImpact / policy page added as effort #0004
 
 **What was done:**
