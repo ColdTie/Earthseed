@@ -4,6 +4,29 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-06-03 — Vote record correction on policy page
+
+**What was done:**
+
+Fixed a factual error on the #0004 policy page. Two policy cards (Medi-Cal work requirements and SNAP benefit changes) showed Adam Schiff's vote chip as "Not yet in Senate at time of vote." This was wrong. Schiff won his California Senate seat in November 2024 and was seated January 2025. The One Big Beautiful Bill Act passed the Senate on July 1, 2025, in a 51-50 vote with all Democrats voting NO. Vice President Vance broke the tie. Schiff voted NO along with every other Senate Democrat, including Padilla.
+
+Also fixed a styling inconsistency: Padilla's chip was using the `vote-na` CSS class even though the text said "Voted NO." Both Schiff and Padilla now correctly use the `vote-no` class (green chip) on both OBBBA cards.
+
+Updated "Data reviewed" dates from May 23, 2026 to June 3, 2026.
+
+**Source for the correction:**
+
+Senate roll call, July 1, 2025. All Senate Democrats voted NO. Three Republicans (Rand Paul, Thom Tillis, Susan Collins) also voted NO. Final tally 51-50 with VP Vance casting the tie-breaking YES vote. Reported by Roll Call, CBS News, CNN, PBS.
+
+**What remains flagged:**
+
+- SB 417 ballot certification: confirm once officially certified for November 2026 ballot.
+- LIHEAP: update the card if Congress appropriates or eliminates funding in the next budget cycle.
+- God's Helping Hand phone number: still needs one call to verify which number is correct before pages go live.
+- GitHub Pages: still waiting on Steve to enable in repository settings (Settings → Pages → select branch and root folder). That is the human gate for all four pages going live.
+
+---
+
 ## 2026-05-23 — Fourth pass: VoterImpact / policy page added as effort #0004
 
 **What was done:**
