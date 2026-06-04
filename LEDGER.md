@@ -4,6 +4,30 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-06-04 — Fifth pass: policy page accuracy corrections
+
+**What was done:**
+
+Investigated three accuracy flags left open from the 2026-05-23 run.
+
+**Adam Schiff vote on OBBBA (One Big Beautiful Bill Act):**
+The 2026-05-23 run noted that Schiff was "not yet in Senate at time of vote" and flagged this for verification. That was wrong. Schiff won the California Senate seat in November 2024 and was sworn in January 2025. The OBBBA passed the Senate on July 1, 2025, in a 51-50 vote. All Senate Democrats voted NO, including Schiff and Padilla. Updated both the Medi-Cal work requirements card and the SNAP card to show "Voted NO" for Schiff with correct green styling. Also fixed Padilla's vote chip styling, which said "Voted NO" in text but used the gray (not-applicable) CSS class instead of the green (voted-no) class. Added call buttons for Schiff on both OBBBA policy cards.
+
+**SB 417 ballot status:**
+The 2026-05-23 run marked SB 417 as "On November 2026 ballot." That was premature. As of April 2026, the bill had cleared Assembly Housing Committee (10-2 vote) and was re-referred to Assembly Appropriations. It still requires passage by two-thirds of both chambers and the Governor's signature to qualify for the November 3, 2026 ballot. Changed the status badge from "On November 2026 ballot" to "Advancing — not yet on ballot" and updated the description to accurately reflect that the ballot qualification is still pending.
+
+**God's Helping Hand phone number:**
+Still unresolved. Two phone numbers remain in the data: (951) 973-3582 and (951) 679-4667. A phone call is the only way to confirm which is current. Flagged in the data file already. No change made.
+
+**What is flagged for follow-up:**
+- God's Helping Hand phone number still needs a live verification call.
+- SB 417: update the status card as soon as it passes the full legislature and is signed. The ballot qualification deadline for November 2026 is approximately June 26, 2026. If it clears, change badge to "On November 2026 ballot."
+- Essayli and Seyarto positions on SB 417: once the bill is on the ballot, confirm their stated positions.
+- MSJC Food 4 Thought hours were flagged as "effective November 2025 — confirm current hours." Still unconfirmed.
+- LIHEAP: continue monitoring federal budget action. Update card immediately if the program is funded or eliminated.
+
+---
+
 ## 2026-05-23 — Fourth pass: VoterImpact / policy page added as effort #0004
 
 **What was done:**
