@@ -4,6 +4,38 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-06-05 — Fifth pass: policy page data corrections
+
+**What was done:**
+
+Reviewed all four pages against current data. No changes to the food, volunteer, or senior pages (data is still within freshness windows). Corrected five errors and one stale item on the policy page (#0004):
+
+**Corrections made:**
+
+1. **Adam Schiff vote on OBBBA — corrected.** The page previously said "Not yet in Senate at time of vote." This was wrong. Schiff won his Senate seat in November 2024, was sworn in January 2025, and was in the Senate when the OBBBA passed 51-50 on July 1, 2025 (VP Vance cast the tie-breaking vote). All Senate Democrats voted no. Corrected vote chip on both OBBBA-related cards (Medi-Cal work requirements and SNAP) to "Voted NO."
+
+2. **Padilla vote chip CSS class — corrected.** Both Padilla vote chips said "Voted NO" but used the `vote-na` class (gray background). Corrected to `vote-no` class (green background, matching "voted against") on both OBBBA cards.
+
+3. **Medi-Cal work requirement date — clarified.** The OBBBA sets December 31, 2026 as the implementation deadline for states; CMS issued the interim final rule on June 1, 2026, with January 1, 2027 as the enforcement start date. Updated the "What changed" text to say January 1, 2027 and note that CMS issued the implementing rule in June 2026, confirming the timeline is moving forward.
+
+4. **LIHEAP status — updated.** The previous text said LIHEAP was "not yet cut" as of May 2026. In fact, LIHEAP was fully funded for FY2026: HHS released 90% to states in November 2025 and released the remaining $421.5 million on April 17, 2026. California received approximately $242 million. The actual risk is FY2027, where the administration has again proposed elimination. Updated the card heading, badge text, current status description, and practical advice box to reflect this.
+
+5. **SB 417 ballot certification status — corrected.** The page said "On November 2026 ballot" which was premature. As of June 2026 the bill passed the California Senate 30-9 (January 27, 2026) and cleared the Assembly Housing Committee 10-2 (April 22, 2026), but still needs a full Assembly floor vote (two-thirds required) and the Governor's signature before it is officially placed on the ballot. Updated the badge to "Advancing — Assembly vote pending," rewrote the "What it is" description with the actual legislative status, and updated the practical advice to note that Essayli's Assembly vote is the one that matters now.
+
+6. **LIHEAP source links — updated.** Replaced the two original source links with fresher citations covering the April 2026 fund release and current status.
+
+**Data reviewed date updated:** May 23, 2026 → June 5, 2026.
+
+**What is flagged for follow-up:**
+
+- SB 417: once the full Assembly votes, check the roll call at leginfo.legislature.ca.gov to update Essayli's and Seyarto's individual vote chips. If the Governor signs it, update the badge to "On November 2026 ballot."
+- Medi-Cal work requirements: the California DHCS is assessing implementation. Watch for any court injunctions that might block or delay enforcement.
+- LIHEAP FY2027: update the card when the FY2027 budget situation resolves — either funded or cut.
+- Food and senior resources: 90-day reverification window is not yet reached (last verified May 23, 2026). Flag for re-verification in mid-August 2026.
+- Volunteer page: 60-day staleness window comes up late July 2026.
+
+---
+
 ## 2026-05-23 — Fourth pass: VoterImpact / policy page added as effort #0004
 
 **What was done:**
