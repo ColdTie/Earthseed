@@ -4,6 +4,29 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-06-06 — Policy page corrections: Schiff vote, LIHEAP FY2026 status, SB 417 badge
+
+**What was done:**
+
+Reviewed the three flagged follow-up items from the May 23 policy page build and corrected all three.
+
+**Adam Schiff vote on OBBBA:** The previous page said "Not yet in Senate at time of vote" on both the Medi-Cal and SNAP cards. This was wrong. Schiff was seated in the Senate in January 2025; the OBBBA passed the Senate 50–50 on July 1, 2025, with VP Vance casting the tie-breaking vote. All Senate Democrats voted NO, and Schiff issued a statement on the bill's passage calling it "Republicans' Big Ugly Bill." Both vote chips corrected to "Voted NO." Added a source link to his press release.
+
+**LIHEAP FY2026 status:** The previous card said LIHEAP "continues to operate" but did not reflect the completed appropriations. FY2026 LIHEAP was funded at approximately $4.05 billion (slight increase from FY2025), signed by the president on February 3, 2026. All FY2026 funds were released to states as of April 2026. The card now reflects this. The ongoing threat is FY2027: the administration has again proposed eliminating LIHEAP in its FY2027 budget request. House Appropriations Chair Cole has said he opposes elimination. The "Watch" badge is still correct.
+
+**SB 417 ballot status:** The previous badge said "On November 2026 ballot." This was premature. As of June 2026, the bill has cleared the Senate Housing Committee but has not completed the full legislative process — it must pass both chambers by a two-thirds vote and be signed by the Governor to qualify. Badge changed to "Pending — Not yet on ballot." Description updated to accurately describe the current stage and what still needs to happen.
+
+**Date updated:** Status bar and footer "last reviewed" changed from May 23 to June 6, 2026.
+
+**What is flagged for follow-up:**
+
+- SB 417: update the badge to "On November 2026 ballot" if/when the bill passes both chambers and is signed. The deadline to place measures on the November ballot via the Legislature is typically late June or early July.
+- LIHEAP FY2027: update immediately if Congress passes an appropriations bill that funds or eliminates LIHEAP.
+- God's Helping Hand phone numbers: still unresolved. Needs a phone call. Flag this before the food page is promoted publicly.
+- GitHub Pages: still requires Steve to enable in repository settings before any of these pages are publicly accessible.
+
+---
+
 ## 2026-05-23 — Fourth pass: VoterImpact / policy page added as effort #0004
 
 **What was done:**
