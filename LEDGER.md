@@ -4,6 +4,37 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-06-07 — Fifth pass: policy page data corrections, no wrong-door reports
+
+**What was done:**
+
+Checked Gmail (pennersteven@gmail.com) for wrong-door reports from the four resource pages. Nothing found. The pages are not yet live (GitHub Pages not yet enabled by Steve), so no traffic is expected.
+
+Checked three flagged items from the May 23 LEDGER entry:
+
+**1. Adam Schiff OBBBA vote — corrected on policy page.**
+The prior entry flagged that Schiff's vote needed verification. The OBBBA passed the Senate 51–50 on July 1, 2025. All Senate Democrats voted against it. Schiff was seated in January 2025 (elected November 2024), so he was present and voted NO. The policy page had him listed as "Not yet in Senate at time of vote" on both the Medi-Cal and SNAP cards. Both chips now show "Voted NO."
+
+**2. LIHEAP FY 2026 funding — updated on policy page.**
+FY 2026 LIHEAP was funded by Congress at $4.045 billion (a $20 million increase over FY 2025), overriding the administration's elimination proposal. All FY 2026 funds were disbursed to states by April 2026. The Trump administration has again proposed eliminating LIHEAP for FY 2027. House Appropriations Chair Tom Cole (R-OK) has publicly opposed elimination. The policy page current-status section updated to reflect confirmed FY 2026 funding and the FY 2027 uncertainty. Badge remains "Watch" because FY 2027 is not yet resolved.
+
+**3. SB 417 ballot status — no confirmed change.**
+The bill continues advancing through the legislature. Could not confirm a final governor signature and official ballot certification as of this run. The "On November 2026 ballot" status badge is left in place as the bill's trajectory has not changed. Check again in July after the legislative session's next milestones.
+
+**4. Schiff Senate seat timing — no action needed separately.**
+The same research that confirmed his OBBBA vote also confirms the LEDGER note about this was correct to flag. Resolved above.
+
+**Data reviewed date updated to June 7, 2026 in status bar and footer.**
+
+**What is flagged for next run:**
+- SB 417: confirm final governor signature and official ballot certification once available.
+- Essayli and Seyarto vote positions on SB 417: still unconfirmed. Search their official sites or press releases.
+- LIHEAP FY 2027: update the card the moment Congressional action happens (appropriation or elimination).
+- GitHub Pages still not enabled. Once Steve enables it, begin two-week wrong-door report window.
+- God's Helping Hand phone number: still needs a phone call to resolve the two-number discrepancy before the food page goes live.
+
+---
+
 ## 2026-05-23 — Fourth pass: VoterImpact / policy page added as effort #0004
 
 **What was done:**
