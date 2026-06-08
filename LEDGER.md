@@ -4,6 +4,31 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-06-08 — Fifth pass: policy page data corrections
+
+**What was done:**
+
+Researched three outstanding flags from the previous run and corrected the policy page.
+
+**Schiff vote records corrected (two cards):** The Medi-Cal and SNAP cards both said "Schiff (D-CA): Not yet in Senate at time of vote." This was wrong. Adam Schiff was sworn in as California's junior senator in April 2024. The Senate passed the One Big Beautiful Bill Act on July 1, 2025 (51–50, with VP Vance casting the tie-breaking vote). All Senate Democrats voted against it. Changed both chips to "Schiff (D-CA): Voted NO" with correct green styling. Also corrected Padilla's chips on both cards, which said "Voted NO" but used grey (`vote-na`) styling instead of green (`vote-no`).
+
+**LIHEAP card updated:** Previous text said "As of May 2026, LIHEAP continues to operate" and described the threat as pending. Updated to reflect what actually happened: Congress funded LIHEAP at approximately $4.05 billion for FY2026 (a small increase), and the remaining funds were fully released to states in April 2026. The FY2027 budget again proposes elimination, but the House Appropriations Committee chair has stated opposition to cutting the program. Federal staff remain laid off, so states run the program without HHS guidance. The "Watch" badge stays — the threat is real for FY2027, just the FY2026 chapter is resolved.
+
+**SB 417 status:** No confirmed final passage by the legislature as of June 8, 2026. Left the card as-is. The bill was still in the legislative process. Monitor for final passage and gubernatorial signature.
+
+**Dates updated:** Data reviewed date on the policy page and the root index.html updated to June 2026.
+
+**What is flagged for follow-up:**
+
+- SB 417: confirm when the legislature passes the final bill and the governor signs. If it fails to pass, the card needs to be revised.
+- God's Helping Hand phone number: still flagged in the data file with `flag_for_reverification: true`. One phone call would resolve it.
+- MSJC Food 4 Thought Pantry: hours noted as "effective November 2025." Confirm these are still current.
+- LIHEAP: check again in October 2026 when FY2027 appropriations resolve.
+- Representative phone numbers: reverify annually. Next check due May 2027.
+- GitHub Pages still needs to be enabled by Steve in repository settings.
+
+---
+
 ## 2026-05-23 — Fourth pass: VoterImpact / policy page added as effort #0004
 
 **What was done:**
