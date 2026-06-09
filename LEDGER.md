@@ -4,6 +4,30 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-06-09 — Fifth pass: policy page vote corrections and LIHEAP status update
+
+**What was done:**
+
+Fixed three factual errors on the policy impact page (effort #0004).
+
+**Adam Schiff vote correction (both OBBBA cards):**
+The prior version said "Schiff (D-CA): Not yet in Senate at time of vote." This was wrong. Schiff won his Senate seat in November 2024 and was seated January 2025. The Senate voted on the One Big Beautiful Bill Act on July 1, 2025 — a 50-50 tie broken by VP Vance. Every Senate Democrat voted NO. Schiff issued a statement calling it "one of the most shameful and selfish pieces of legislation I have ever seen" and offered an amendment to protect SNAP benefits for families with children, which all Senate Republicans blocked. His vote on both the Medi-Cal work requirements card and the SNAP card is now correctly shown as "Voted NO."
+
+**Padilla chip style correction (both OBBBA cards):**
+Padilla's chips had the correct text ("Voted NO") but used the `.vote-na` CSS class (gray) instead of `.vote-no` (green). Fixed to show green on both cards.
+
+**LIHEAP status update:**
+The prior text said LIHEAP had not been cut and that Congress still needed to pass a budget. That was accurate as of May 2026 but stale by June 2026. The full picture: Congress funded LIHEAP for FY2026 at $4.045 billion in a bipartisan bill signed February 3, 2026. All FY2026 funds have been released to states. The program is running. The Trump administration still proposes eliminating LIHEAP in its FY2027 budget, and the federal staff fired in April 2025 have not been rehired. The card now correctly separates what is true now (FY2026 funded, stable) from what is uncertain next (FY2027 elimination proposed, Congress will decide).
+
+**What remains open:**
+- GitHub Pages must be enabled by Steve before any of the four pages are publicly accessible. That is the human gate.
+- SB 417 housing bond: still flagged as "ballot status to be confirmed once officially certified." No update found as of this run.
+- Essayli and Seyarto positions on SB 417: still listed as "to be confirmed." Worth a phone call or a check of their official statements.
+- God's Helping Hand phone number: still flagged in resources.json. Needs a phone call to resolve before the food page is the authoritative source.
+- First measurement after pages go live: check wrong-door reports and any traffic data after two weeks live.
+
+---
+
 ## 2026-05-23 — Fourth pass: VoterImpact / policy page added as effort #0004
 
 **What was done:**
