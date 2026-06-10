@@ -4,6 +4,27 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-06-10 — Fifth pass: policy page fact corrections
+
+**What was done:**
+
+Reviewed the open verification flags from the previous LEDGER entry. Two corrections needed:
+
+**Adam Schiff vote on OBBBA:** The previous page said "Not yet in Senate at time of vote" for both OBBBA policy cards. This was wrong. Schiff won his Senate seat in November 2024 and was sworn in January 2025. The One Big Beautiful Bill Act passed the Senate 51-50 on July 1, 2025, with Vice President Vance casting the tiebreaking vote. Every Senate Democrat voted against it, including Schiff. Confirmed via his official press release on schiff.senate.gov. Corrected both vote chips to "Voted NO" with the green `vote-no` styling. Also corrected Padilla's chips from `vote-na` to `vote-no` class to reflect the correct color coding.
+
+**SB 417 ballot status:** The previous page labeled this "On November 2026 ballot" as if it were finalized. Research shows as of June 2026 the bill has cleared the Senate Housing Committee but still needs a two-thirds vote of the full Legislature and the Governor's signature. The Legislature has until September 2026 to act and Governor Newsom has expressed support, but it is not yet formally on the ballot. Updated the status badge to "Pending — Targeted for Nov 2026 ballot" and corrected the body text to accurately describe what still needs to happen.
+
+Updated the "Data reviewed" date to June 10, 2026 in both the status bar and the footer.
+
+**What is still flagged for follow-up:**
+- SB 417: update this card once the Legislature votes and the Governor acts (expected by September 2026).
+- LIHEAP: update immediately if Congress appropriates or eliminates funding in the next budget cycle.
+- Essayli and Seyarto positions on SB 417: their votes in the full Legislature are not yet on record since the bill hasn't come to a full floor vote. Update when they vote.
+- God's Helping Hand phone number: still has two numbers in the data file. Needs a phone call before the food page goes live.
+- GitHub Pages hosting: all four pages remain ready but require Steve to enable Pages in repository settings (Settings → Pages → select branch and root folder). That human action is still the gate.
+
+---
+
 ## 2026-05-23 — Fourth pass: VoterImpact / policy page added as effort #0004
 
 **What was done:**
