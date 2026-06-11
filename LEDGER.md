@@ -4,6 +4,27 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-06-11 — Fifth pass: policy page fact corrections
+
+**What was done:**
+
+Reviewed the policy page (effort #0004) against three open flags from the last run. Found and corrected two factual errors; updated one item with new information.
+
+**Corrections made:**
+
+1. **Adam Schiff's vote on the OBBBA** — Previous version said "Not yet in Senate at time of vote." This was wrong. Schiff won his Senate seat in November 2024 and was sworn in January 6, 2025. The One Big Beautiful Bill Act passed the Senate on July 1, 2025 (51-50, all Democrats voted no) and was signed July 4, 2025. Schiff released a public statement calling the bill "one of the most shameful and selfish pieces of legislation." Vote chip updated to "Voted NO" on both the Medi-Cal work requirements card and the SNAP card. Also fixed Alex Padilla's chip class (text already said "Voted NO" but had the wrong CSS class `vote-na` instead of `vote-no`, so the chip was displaying in the neutral gray color instead of green).
+
+2. **LIHEAP status** — Previous version said "Watch — Not yet cut" and described Congress as needing to still act on FY 2026. That was accurate in May but is now outdated. In February 2026, Congress approved approximately $4.05 billion for LIHEAP (a $20 million increase) as part of the Consolidated Appropriations Act, 2026, which President Trump signed on February 3, 2026. The program is funded through September 2026. However, the FY 2027 budget again proposes eliminating LIHEAP. Updated the badge to "Watch — FY 2027 at risk," updated the current status text, updated the impact box to tell people the program is actively funded now, and replaced the DSIRE source link with a more current APPA source.
+
+**What remains open:**
+
+- **SB 417 / housing bond**: The bill passed the Assembly (AB 736, 65-11) in 2025 and cleared the Senate Housing Committee (8-1) in January 2026. As of the latest available information it appears on track for the November ballot but has not yet been confirmed signed by the governor. Card status unchanged ("On November 2026 ballot") since that is the stated target; watch for confirmation of final passage and governor's signature.
+- **Essayli and Seyarto votes on SB 417**: Not yet confirmed. Seyarto declined a press interview and expressed concerns about the state debt in committee, suggesting likely opposition. Essayli vote not found.
+- **God's Helping Hand phone number**: still needs a phone call to verify which number is current before the food page is circulated widely.
+- **GitHub Pages**: Steve must still enable GitHub Pages (Settings → Pages → branch + root folder) for any of these pages to be publicly accessible. That human action remains the gate.
+
+---
+
 ## 2026-05-23 — Fourth pass: VoterImpact / policy page added as effort #0004
 
 **What was done:**
