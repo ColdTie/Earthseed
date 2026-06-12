@@ -4,6 +4,29 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-06-12 — Policy page data corrections: Schiff vote, LIHEAP status, SB 417 status
+
+**What was done:**
+
+Three factual errors in the policy page were identified and fixed using web research.
+
+**Error 1 — Adam Schiff's vote on the OBBBA:**
+The page said "Not yet in Senate at time of vote" for both OBBBA cards. This was wrong. Schiff won his Senate seat in November 2024 and was seated January 2025, several months before the OBBBA passed July 1, 2025. He voted NO, along with all other Senate Democrats. The Senate vote was 51–50 with VP Vance casting the tie-breaking YES. Both vote chips updated from gray "N/A" styling to green "Voted NO."
+
+**Error 2 — LIHEAP funding status:**
+The page described LIHEAP as "Watch — Not yet cut" and was ambiguous about whether FY 2026 was funded. Congress fully funded LIHEAP for FY 2026 at $4.05 billion in the Consolidated Appropriations Act signed February 3, 2026 — a $20 million increase. All FY 2026 funds were released to states as of April 2026. The accurate watch status is now FY 2027: the Trump administration has again proposed eliminating LIHEAP in the FY 2027 budget. Card title, badge text, and body text updated to reflect this. Source link updated to APPA's current reporting.
+
+**Error 3 — SB 417 ballot status:**
+The page said "On November 2026 ballot" and described the bond as already having been "placed on" the ballot. As of June 12, 2026, SB 417 has not been certified for the ballot. It cleared the Senate Housing Committee 8-1 and is advancing through the legislature, but still needs a two-thirds vote in both chambers and the Governor's signature before it is officially on the ballot. Badge changed from blue "On November 2026 ballot" to amber "Advancing — Not yet on ballot." Description updated to accurately state the bill still needs to clear the full legislature.
+
+**What is still flagged for follow-up:**
+- SB 417: update to "On November ballot" once the Legislature passes it (expected September 2026 session close) and the Governor signs.
+- LIHEAP: update immediately if Congress appropriates or eliminates for FY 2027.
+- Essayli and Seyarto votes on SB 417 remain unconfirmed — their positions could not be found in public records as of this run.
+- All four pages are still waiting on Steve to enable GitHub Pages in repository settings before they are publicly accessible.
+
+---
+
 ## 2026-05-23 — Fourth pass: VoterImpact / policy page added as effort #0004
 
 **What was done:**
