@@ -4,6 +4,31 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-06-13 — Scheduled run: policy page fact corrections
+
+**What was done:**
+
+Reviewed the policy page (#0004) against current data. Found and fixed four issues.
+
+**Schiff vote (factual error):** The page said "Not yet in Senate at time of vote" for Adam Schiff on both the Medi-Cal work requirements card and the SNAP card. This was wrong. Schiff won the California Senate seat in November 2024 and was seated January 2025. The OBBBA passed the Senate on July 1, 2025 by a 51-50 vote with VP Vance casting the tie-breaker. Every Senate Democrat voted NO, including Schiff. Both cards updated to "Voted NO" with the correct `vote-no` CSS class (green chip).
+
+**Padilla vote styling (class mismatch):** Both OBBBA cards said "Padilla (D-CA): Voted NO" but used the `vote-na` CSS class (gray chip) instead of `vote-no` (green chip). Fixed on both cards.
+
+**LIHEAP update:** Congress funded LIHEAP for FY 2026 at $4.045 billion, a $20 million increase over the prior year. Final disbursement was released April 17, 2026. The prior text said "Congress must still pass a budget to formally fund or cut the program," which was no longer accurate. Updated the LIHEAP card to reflect FY 2026 is funded and available. The watch flag now specifically points to the FY 2027 appropriation, where the Trump administration's elimination proposal is still the risk. The House Appropriations Committee has proposed a $10 million increase for FY 2027, which is the current direction.
+
+**SB 417 badge and body:** The page said the bill was "On November 2026 ballot." As of June 2026, SB 417 is still moving through the California Legislature and has not been signed by the Governor. Changed the badge to "Targeting Nov 2026 ballot · Not yet certified" and updated the body text to accurately describe the bill's status. The deadline to qualify for the November 2026 ballot is approaching but has not passed.
+
+**Data reviewed date** updated from May 23, 2026 to June 13, 2026 in both the status bar and the footer.
+
+**What is still flagged for follow-up:**
+
+- SB 417: Check again after July 2026 to confirm whether it was signed and certified for the November ballot.
+- LIHEAP FY 2027: Update the card when Congress passes the FY 2027 appropriation or eliminates the program. Expected October 2026.
+- Essayli and Seyarto vote positions on SB 417: still marked "position to be confirmed." If the bill passes the legislature, their votes will be on record and can be confirmed.
+- GitHub Pages must still be enabled by Steve before any of these pages are publicly accessible.
+
+---
+
 ## 2026-05-23 — Fourth pass: VoterImpact / policy page added as effort #0004
 
 **What was done:**
