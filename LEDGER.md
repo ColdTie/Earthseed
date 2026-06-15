@@ -4,6 +4,43 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-06-15 — Data freshness check and new resource added
+
+**What was checked:**
+
+Gmail searched for wrong-door reports to pennersteven@gmail.com in the last 30 days. None found. The pages are not yet live (GitHub Pages not enabled), so this is expected — no one has used them yet.
+
+GitHub repo confirmed all four effort pages are on main and the root index.html exists. The human action still required is: Settings → Pages → select main branch / root folder to enable GitHub Pages.
+
+Web search was run on the three highest-risk data points:
+
+1. **God's Helping Hand phone number** — The primary number (951) 973-3582 is confirmed on ghhministries.com, which is the organization's own website. The alternate number (951) 679-4667 still appears in third-party directories. The current note on the food page ("try 973-3582 first") is accurate. No change needed.
+
+2. **MSJC Food 4 Thought** — The program was confirmed open through May 19, 2026, and follows the MSJC academic calendar. It is likely on summer break as of June 15. The old note referenced "hours effective November 2025" which was confusing. Updated to say the pantry follows the academic calendar and may be closed during summer and winter breaks.
+
+3. **City of Menifee Food Box (La Ladera Park)** — Data previously referenced only 2025 dates. A February 2026 event was confirmed from the city calendar. Updated the schedule description to reference the confirmed 2026 event.
+
+**New resource found and added:**
+
+**Kay Ceniceros Senior Food Box** — The city-run senior center offers a free monthly food box for Menifee residents 60 and older. Approximately 40 lbs of canned goods, rice, juice, and cereal per box. Events run 10:30 AM to 1 PM. Call (951) 672-9673 for the next event date. This program appears on cityofmenifee.us, findhelp.org, and was reported in Canyon Lake Insider. It was not in the food page or the senior page.
+
+**Files changed:**
+
+- `efforts/0001-menifee-food/data/resources.json` — Added `kcsc-senior-food-box` entry; updated MSJC and city food box notes; updated `last_full_review` to 2026-06-15.
+- `efforts/0001-menifee-food/site/index.html` — Added Kay Ceniceros Senior Food Box card (in "In Menifee" section, between the City Food Box and the RC Home Delivered Meals cards); updated MSJC note; updated City food box schedule text; updated "Data last reviewed" date.
+- `efforts/0003-menifee-seniors/site/index.html` — Added monthly food box note to the Kay Ceniceros card.
+- `LEDGER.md` — this entry.
+
+**What is still flagged:**
+
+- GitHub Pages still needs to be enabled by Steve. No measurement is possible until the pages are live.
+- GHH phone number: both numbers still appear in different sources. This will not resolve without a phone call to (951) 973-3582 to confirm. Currently noted as a warning on the food page — sufficient for launch.
+- MSJC summer hours: the page now warns about academic calendar breaks, but actual summer 2026 hours are unconfirmed. Visiting students should call (951) 542-1011 or email EaglesLanding@msjc.edu before going.
+- Kay Ceniceros food box dates: monthly, but specific dates are not published far in advance. Calling ahead is required. The page reflects this.
+- Next 90-day phone verification window: August 23, 2026 (90 days from original May 23 build).
+
+---
+
 ## 2026-05-23 — Fourth pass: VoterImpact / policy page added as effort #0004
 
 **What was done:**

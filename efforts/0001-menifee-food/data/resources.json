@@ -1,7 +1,7 @@
 {
   "metadata": {
     "area": "Menifee, California",
-    "last_full_review": "2026-05-23",
+    "last_full_review": "2026-06-15",
     "notes": "All entries verified against organization websites and directory listings as of last_full_review date. Hours and eligibility rules change. Call ahead when possible. Each entry shows last_verified; treat anything over 90 days old as potentially stale."
   },
   "resources": [
@@ -172,7 +172,7 @@
         { "day": "Monday",  "open": "09:00", "close": "14:00" },
         { "day": "Tuesday", "open": "09:00", "close": "14:00" }
       ],
-      "hours_notes": "Closed the 4th Wednesday of each month for delivery and restocking. Hours effective November 2025; confirm current hours before visiting.",
+      "hours_notes": "Closed the 4th Wednesday of each month for delivery and restocking. Follows the MSJC academic calendar — may be closed or have reduced hours during summer and winter breaks. Confirm current hours before visiting.",
       "eligibility": {
         "requirement": "Currently enrolled MSJC students only.",
         "income_requirement": "None beyond enrollment.",
@@ -226,6 +226,39 @@
       "flag_for_reverification": false
     },
     {
+      "id": "kcsc-senior-food-box",
+      "name": "Kay Ceniceros Senior Center — Monthly Food Box",
+      "short_name": "KCSC Food Box",
+      "type": "periodic_distribution",
+      "audience": "seniors_60_plus",
+      "address": {
+        "street": "29995 Evans Rd",
+        "city": "Menifee",
+        "state": "CA",
+        "zip": "92586",
+        "notes": "Inside the Kay Ceniceros Senior Center."
+      },
+      "phone": "(951) 672-9673",
+      "website": "https://www.cityofmenifee.us/292/Kay-Ceniceros-Senior-Programs",
+      "hours": [
+        { "event_hours": "10:30 AM to 1:00 PM on event days" }
+      ],
+      "hours_notes": "Monthly events. Call (951) 672-9673 for the current date. Dates are not fixed to a set week each month.",
+      "eligibility": {
+        "requirement": "Menifee residents age 60 and older.",
+        "income_requirement": "Not specified.",
+        "frequency": "Per event."
+      },
+      "what_to_bring": [],
+      "what_to_bring_notes": "Call ahead to confirm any ID or registration requirements.",
+      "services": ["Food box approximately 40 lbs — canned fruit, vegetables, rice, juice, cereal, and more"],
+      "appointment_required": false,
+      "periodic": true,
+      "last_verified": "2026-06-15",
+      "verification_source": "cityofmenifee.us Older Adult Resources page, canyonlakeinsider.com article, findhelp.org",
+      "flag_for_reverification": false
+    },
+    {
       "id": "menifee-city-food-box",
       "name": "City of Menifee Food Box Distribution",
       "short_name": "City Food Box",
@@ -242,7 +275,7 @@
       "hours": [
         { "event_hours": "10:00 AM to 1:00 PM on event days" }
       ],
-      "hours_notes": "This is a periodic event, not a weekly service. Dates in 2025 included March 27 and December 18. Check cityofmenifee.us for the current schedule. Onsite registration required.",
+      "hours_notes": "This is a periodic event, not a weekly service. A February 2026 event was confirmed at La Ladera Park. Check cityofmenifee.us for upcoming dates. Onsite registration required.",
       "eligibility": {
         "requirement": "Residents of Menifee.",
         "income_requirement": "Not specified. Open to community members.",
