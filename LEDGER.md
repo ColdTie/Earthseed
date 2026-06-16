@@ -4,6 +4,48 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-06-16 — Scheduled check: SB 417 status confirmed, June 14 corrections applied to working branch
+
+**What was done:**
+
+Picked up the open PR #2 (Schiff vote fix, LIHEAP update, SB 417 badge correction) and cherry-picked it onto the active working branch `claude/cool-lovelace-h9m3m6`. The PR had been open since June 14 with no human review. Both branches now carry the same corrections.
+
+Checked SB 417 current status: as of June 16, 2026, the bill is still advancing through the Legislature and has not been signed by the Governor. The "Pending — Targeted for Nov 2026 ballot" badge remains accurate. No page update needed today.
+
+No food, volunteer, or senior data has hit a freshness threshold (last verified May 23, 2026; next 60-day check due approximately July 22; next 90-day check approximately August 21).
+
+**What is flagged for follow-up:**
+
+- SB 417: Still needs to pass the Legislature by two-thirds vote and be signed by the Governor to qualify for the November 3 ballot. Check again in late June / early July.
+- LIHEAP FY 2027 appropriations: Still unresolved. Federal fiscal year begins October 1, 2026. Update the card once Congress acts.
+- PR #2 (`claude/cool-lovelace-2ir0sv` → `claude/optimistic-volta-sgxeY`) is still open and unreviewed. Human action needed to merge or close it.
+- GitHub Pages: still needs Steve to enable it in repository settings before any page is publicly visible.
+- Food resource data: God's Helping Hand phone number still needs a direct call to verify which number is current. Flagged since first run.
+
+---
+
+## 2026-06-14 — Scheduled check: policy page factual corrections
+
+**What was done:**
+
+Research pass on three items flagged in the previous run.
+
+**Adam Schiff OBBBA vote — corrected.** The policy page said "Not yet in Senate at time of vote" for both the Medi-Cal and SNAP cards. This was wrong. Schiff was sworn into the Senate in January 2025. The Senate passed the One Big Beautiful Bill Act on July 1, 2025 by a 51–50 vote with Vice President Vance casting the tie-breaker. All 47 Democratic caucus members voted No, including Schiff. The page now shows "Voted NO" (green chip) for both cards.
+
+**LIHEAP — updated.** The page now reflects that all FY 2026 LIHEAP funds (approximately $4.05 billion) were fully released to states by April 2026. The program is operating normally. The FY 2027 threat is current: the administration again proposed eliminating LIHEAP in its FY 2027 budget, but the House Appropriations Committee approved a funding bill that keeps LIHEAP at $4.055 billion. Final FY 2027 appropriations have not passed. The "Watch" badge remains appropriate. Updated language and data date from May 23 to June 14, 2026.
+
+**SB 417 — status clarified.** As of June 14, 2026, SB 417 was still advancing through Assembly committees and had not been signed by the Governor or officially certified for the November ballot. The badge changed from "On November 2026 ballot" to "Pending — Targeted for Nov 2026 ballot" and the card text now notes that final legislative approval was still pending as of June 2026. Update again once it is signed or if it stalls.
+
+**What is flagged for follow-up:**
+
+- SB 417: Check whether it passed the Assembly and was signed by the Governor (deadline is late June 2026 for November ballot certification). Update the badge if it clears.
+- LIHEAP FY 2027: Congress is still working on appropriations. Update the card once FY 2027 is resolved.
+- Essayli and Seyarto SB 417 votes: Confirm and add vote chips once the bill reaches a floor vote in chambers they voted in.
+- Medi-Cal work requirement: Takes effect December 31, 2026. Monitor for any legal challenges or implementation changes in the fall.
+- Pages still need GitHub Pages to be enabled by Steve before any of this is publicly visible.
+
+---
+
 ## 2026-05-23 — Fourth pass: VoterImpact / policy page added as effort #0004
 
 **What was done:**
