@@ -4,6 +4,26 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-06-16 — Scheduled check: SB 417 status confirmed, June 14 corrections applied to working branch
+
+**What was done:**
+
+Picked up the open PR #2 (Schiff vote fix, LIHEAP update, SB 417 badge correction) and cherry-picked it onto the active working branch `claude/cool-lovelace-h9m3m6`. The PR had been open since June 14 with no human review. Both branches now carry the same corrections.
+
+Checked SB 417 current status: as of June 16, 2026, the bill is still advancing through the Legislature and has not been signed by the Governor. The "Pending — Targeted for Nov 2026 ballot" badge remains accurate. No page update needed today.
+
+No food, volunteer, or senior data has hit a freshness threshold (last verified May 23, 2026; next 60-day check due approximately July 22; next 90-day check approximately August 21).
+
+**What is flagged for follow-up:**
+
+- SB 417: Still needs to pass the Legislature by two-thirds vote and be signed by the Governor to qualify for the November 3 ballot. Check again in late June / early July.
+- LIHEAP FY 2027 appropriations: Still unresolved. Federal fiscal year begins October 1, 2026. Update the card once Congress acts.
+- PR #2 (`claude/cool-lovelace-2ir0sv` → `claude/optimistic-volta-sgxeY`) is still open and unreviewed. Human action needed to merge or close it.
+- GitHub Pages: still needs Steve to enable it in repository settings before any page is publicly visible.
+- Food resource data: God's Helping Hand phone number still needs a direct call to verify which number is current. Flagged since first run.
+
+---
+
 ## 2026-06-14 — Scheduled check: policy page factual corrections
 
 **What was done:**
