@@ -4,6 +4,40 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-06-17 — SNAP card updated with real-world impact data; SB 417 still pending
+
+**What was done:**
+
+Checked Gmail for wrong-door reports. None received (pages are not yet live; GitHub Pages still needs to be enabled by Steve). Found an actionable ProPublica article published today (June 17, 2026): "More than 770,000 children are no longer receiving SNAP benefits after Trump changes federal food program."
+
+Key facts from the investigation:
+- At least 776,134 children have been dropped from SNAP nationally since the OBBBA took effect (July 4, 2025)
+- This figure comes from 12 states that track SNAP enrollment by age; the national total is likely higher
+- The CBO and independent analysts attribute the losses primarily to new paperwork and work requirements, not to families rising above the income threshold
+- Children represent nearly half of all people removed from the program in the reporting states
+- SNAP work requirements for adults without dependents (ages 18–54) took effect November 1, 2025
+
+Updated the policy page SNAP card (`efforts/0004-policy-impact/site/index.html`) to:
+- Add the November 1, 2025 work requirement effective date to "What changed"
+- Add the 776,000+ figure and attribution to "Who it affects in Menifee"
+- Update the impact box to note that requirements are now in effect and reapplication is possible
+- Add the ProPublica article as a source link
+- Update the data reviewed date and footer sources to June 17, 2026
+
+Checked SB 417 status: still pending. No confirmation of a Legislature vote or Governor's signature as of June 17, 2026. A Ballotpedia article from May 28 indicated the California Legislature was expected to vote on the housing bond in June. No news of that vote has appeared. The "Pending — Targeted for Nov 2026 ballot" badge remains accurate.
+
+Checked LIHEAP: No change. FY 2026 funds operating normally. FY 2027 still unresolved; House Appropriations Committee has approved $4.055 billion but full appropriations have not passed.
+
+**What is flagged for follow-up:**
+
+- SB 417: The Legislature was expected to vote in June 2026. Check again in the next week for confirmation that it passed (or stalled). If passed and signed, change the badge to "On November 2026 ballot" and add Essayli and Seyarto vote chips once available.
+- LIHEAP: Still watch — update when FY 2027 appropriations are resolved (October 1 deadline).
+- Medi-Cal work requirements take effect December 31, 2026. Monitor for legal challenges.
+- GitHub Pages: Still needs Steve to enable it before any page is publicly visible.
+- Food resource data: 90-day check due approximately August 21. Volunteer data: 60-day check due approximately July 22.
+
+---
+
 ## 2026-06-16 — Scheduled check: SB 417 status confirmed, June 14 corrections applied to working branch
 
 **What was done:**
