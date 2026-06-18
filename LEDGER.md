@@ -4,6 +4,29 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-06-18 — Scheduled check: SB 417 deadline approaching, all other statuses unchanged
+
+**What was done:**
+
+Research pass on the flagged items from the June 16 run.
+
+**SB 417 — still pending, deadline is June 25.** No news of a Governor signature or final legislative floor vote as of June 18. The bill passed the Senate Housing Committee (8-1) and is moving through the Assembly, with Governor Newsom expressing support. The California Secretary of State deadline to qualify a measure for the November 3, 2026 ballot is June 25, 2026, seven days from today. If the Legislature does not pass the bill and the Governor does not sign it by June 25, it misses the November 2026 ballot entirely and would need to wait for a future cycle. The page badge ("Pending — Targeted for Nov 2026 ballot") and card text remain accurate today. The next run must check whether it passed or failed to clear the deadline.
+
+**LIHEAP FY 2027 — no change.** House Appropriations Committee approved $4.055 billion (a $10 million increase over current funding, counter to the administration's proposal to eliminate the program). Full congressional appropriations have not passed. No update to the page needed. "Watch" badge remains correct.
+
+**Data freshness — no thresholds hit.** Next 60-day check due approximately July 22; next 90-day check approximately August 21.
+
+**PR #2 — still open and unreviewed.** The changes in PR #2 have been applied to the working branch via cherry-pick and merged via PR #3 (June 16). PR #2 targets an older base branch (`claude/optimistic-volta-sgxeY`). Its changes are already reflected in the current pages. It can be closed by Steve as superseded.
+
+**What is flagged for follow-up:**
+
+- **URGENT: SB 417 deadline June 25.** The next scheduled run must check whether SB 417 was signed and certified for the November ballot, or whether it failed. If it passed: update the badge to "On November 2026 ballot" and confirm the text. If it failed: update the badge to "Did not qualify for November 2026 ballot" and revise the card to explain. Either outcome needs a page update within days of June 25.
+- LIHEAP FY 2027: Congress still working on appropriations. Federal fiscal year begins October 1. Update once resolved.
+- GitHub Pages: still needs Steve to enable it in repository settings before any page is publicly visible.
+- PR #2: Steve can close it as superseded by PR #3.
+
+---
+
 ## 2026-06-16 — Scheduled check: SB 417 status confirmed, June 14 corrections applied to working branch
 
 **What was done:**
