@@ -4,6 +4,29 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-06-19 — Scheduled check: SB 417 deadline alert, policy page updated
+
+**What was done:**
+
+Checked the status of all flagged items.
+
+**SB 417 — critical deadline approaching.** As of June 19, 2026, SB 417 has not been signed by the Governor and has not cleared both chambers of the Legislature. The deadline to refer measures to the November 3, 2026 ballot is June 25, 2026 — six days from today. If the bill does not pass both chambers and receive the Governor's signature by that date, it will not appear on the November ballot. No news coverage found of a floor vote or signing. The bill was last confirmed advancing through Assembly committees. Updated the policy page card text to note the June 25 deadline explicitly. Badge remains "Pending — Targeted for Nov 2026 ballot." Updated "Data reviewed" date from June 14 to June 19.
+
+**LIHEAP FY 2027 — no change.** House Appropriations Committee's bill keeping LIHEAP at $4.055 billion has passed committee but full appropriations have not passed. "Watch" badge remains accurate. No update needed.
+
+**Food, volunteer, senior data — no freshness thresholds hit.** Last verified May 23, 2026. 60-day check due approximately July 22; 90-day check due approximately August 21.
+
+**PR #2 — still open.** The June 14 corrections (Schiff vote, LIHEAP, SB 417 badge) are already on the current working branch from the June 16 cherry-pick. PR #2 itself is open against an older base branch. Its changes are already in the main working branch. Human action needed to close or merge it.
+
+**What is flagged for follow-up:**
+
+- SB 417: Check again no later than June 26, 2026. If it passed and was signed by June 25, update badge to "On November 2026 ballot" and confirm vote records for Essayli and Seyarto if available. If it did not pass by June 25, update badge to "Did not qualify for November 2026 ballot" and update card text accordingly.
+- LIHEAP FY 2027: Congress still working toward October 1 deadline. Update once resolved.
+- GitHub Pages: still needs Steve to enable it before any page is publicly visible.
+- God's Helping Hand food bank phone number: still unverified. Two numbers appear in different directories. Needs a phone call before the food page is promoted.
+
+---
+
 ## 2026-06-16 — Scheduled check: SB 417 status confirmed, June 14 corrections applied to working branch
 
 **What was done:**
