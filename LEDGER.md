@@ -4,6 +4,32 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-06-20 — Scheduled check: SB 417 approaching ballot deadline, LIHEAP committee action confirmed
+
+**What was done:**
+
+Research pass on the two flagged items from the June 16 check.
+
+**SB 417 — still pending, ballot deadline imminent.** As of June 20, 2026, no confirmation found that SB 417 passed both chambers and was signed by the Governor. Searched legislative databases, CalMatters, Housing California, Ballotpedia, and California Council for Affordable Housing. The most recent confirmed action is the Senate Housing Committee approval (8-1) in January 2026, followed by Assembly committee movement. The deadline to certify a measure for the November 3 statewide ballot is approximately June 25, 2026 — five days from now. The bill has not been confirmed as certified. Updated the SB 417 card text to note June 20 specifically and flag the approaching deadline. Badge remains "Pending — Targeted for Nov 2026 ballot."
+
+**Essayli and Seyarto votes on SB 417** — no floor vote recorded yet. The votes these two representatives will cast can only be confirmed once the bill reaches a floor vote in their respective chambers. Nothing to report.
+
+**LIHEAP FY 2027** — no change from June 14 update. The House Appropriations Committee approval ($4.055 billion, +$10M increase, action taken June 11, 2026) is already reflected in the page. Final FY 2027 appropriations are still unresolved. "Watch" badge remains correct.
+
+Updated "Last reviewed" date in policy page footer from June 14 to June 20.
+
+**PR #2 status note:** PR #2 (from branch `claude/cool-lovelace-2ir0sv` targeting `claude/optimistic-volta-sgxeY`) is still open and unreviewed. The changes in that PR were already cherry-picked onto the current working branch (`claude/cool-lovelace-cdk18a`) on June 16. The PR is now effectively superseded on the working branch. A human decision is needed: either close PR #2 as superseded or merge it independently.
+
+**What is flagged for follow-up:**
+
+- SB 417: Check next run (approximately June 25-27) whether it was signed before the ballot deadline. If signed, update the badge from "Pending — Targeted for Nov 2026 ballot" to "On November 2026 ballot" and confirm Essayli and Seyarto vote chips.
+- If SB 417 misses the November 2026 ballot: update the card accordingly. The bill could still be held for the June 2028 primary.
+- LIHEAP FY 2027: Final appropriations decision expected before October 1. Update the card when resolved.
+- PR #2: Still open. Steve should merge or close it.
+- GitHub Pages: still not enabled. No pages are publicly visible yet.
+
+---
+
 ## 2026-06-16 — Scheduled check: SB 417 status confirmed, June 14 corrections applied to working branch
 
 **What was done:**
