@@ -4,6 +4,32 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-06-21 — Scheduled check: SB 417 still pending, city food box 2026 date added
+
+**What was done:**
+
+Ran the standard check pass against all open flags.
+
+**SB 417 status**: Searched for whether the bill cleared the Legislature and was signed by Newsom before the late-June November ballot deadline. Could not confirm it has been signed. The bill was tracked as "on track" by housing advocates as of early April 2026. Multiple sources describe it as still moving through Assembly committees. Badge remains "Pending — Targeted for Nov 2026 ballot." Check again after July 1, at which point the November ballot certification deadline will have passed and the outcome will be clear either way.
+
+**LIHEAP FY 2027**: House Appropriations Committee approved $4.055 billion on June 11, 2026, with bipartisan support. This matches the page. "Watch" badge stays accurate — final appropriations have not passed. No change needed.
+
+**City of Menifee food box distribution**: Found a confirmed 2026 event: February 26, 2026, at La Ladera Park, 10 AM to 1 PM. Updated the food page HTML and resources.json to reflect that 2026 events have occurred. The page previously only referenced 2025 dates. No future 2026 events found in searches — the city calendar would have current dates.
+
+**GHH phone number**: Search results continue to show (951) 973-3582 as the primary number and (951) 679-4667 as an alternate. The official ghhministries.com website returned 403 during this run and could not be accessed. Both numbers remain in the data file; the flag for reverification stays on. A direct phone call is the only way to resolve this.
+
+**No freshness threshold hit yet**: 90-day re-verify window for food data does not open until approximately August 21. 60-day volunteer check due approximately July 22.
+
+**What is flagged for follow-up:**
+
+- SB 417: Check status after July 1 — by then it either made the November ballot or did not. Update the badge and card text once confirmed.
+- LIHEAP FY 2027: Congress working on appropriations with October 1 federal fiscal year start. Update once resolved.
+- Essayli (AD-63) and Seyarto (SD-32) votes on SB 417: Only confirmable once the bill reaches an Assembly and Senate floor vote. Both show "position to be confirmed" on the policy page.
+- GHH phone number: Needs a direct call to resolve.
+- GitHub Pages: Still needs Steve to enable it in repository settings before any page is publicly accessible.
+
+---
+
 ## 2026-06-16 — Scheduled check: SB 417 status confirmed, June 14 corrections applied to working branch
 
 **What was done:**

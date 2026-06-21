@@ -242,7 +242,7 @@
       "hours": [
         { "event_hours": "10:00 AM to 1:00 PM on event days" }
       ],
-      "hours_notes": "This is a periodic event, not a weekly service. Dates in 2025 included March 27 and December 18. Check cityofmenifee.us for the current schedule. Onsite registration required.",
+      "hours_notes": "This is a periodic event, not a weekly service. Dates in 2025 included March 27 and December 18; 2026 dates have included February 26. Check cityofmenifee.us for the current schedule. Onsite registration required.",
       "eligibility": {
         "requirement": "Residents of Menifee.",
         "income_requirement": "Not specified. Open to community members.",
@@ -253,8 +253,8 @@
       "services": ["Food box distribution"],
       "appointment_required": false,
       "periodic": true,
-      "last_verified": "2026-05-23",
-      "verification_source": "cityofmenifee.us calendar",
+      "last_verified": "2026-06-21",
+      "verification_source": "cityofmenifee.us calendar (EID 3608 confirms Feb 26, 2026 event)",
       "flag_for_reverification": false
     }
   ]
