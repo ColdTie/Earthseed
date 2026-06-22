@@ -4,6 +4,32 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-06-22 — Scheduled check: SB 417 deadline imminent, no data freshness issues yet
+
+**What was done:**
+
+SB 417 status check, June 22, 2026.
+
+The California constitutional deadline for a legislatively referred measure to appear on the November 3, 2026 ballot is 131 days before the election, which works out to approximately June 25, 2026. Today is June 22. Three days remain.
+
+Web searches did not return a confirmed signing or chaptering of SB 417. As of the last verifiable information (June 14), the bill was still advancing through Assembly committees. The "Pending — Targeted for Nov 2026 ballot" badge on the policy page remains accurate with current available information and was not changed.
+
+LIHEAP FY 2027: House Appropriations Committee approved the Labor-HHS-Education bill at $4.055 billion (up $10M from FY 2026). Full House floor vote and Senate action are still pending. No final appropriation has passed. The "Watch" badge stays correct.
+
+No data freshness thresholds have been crossed. The 60-day volunteer listing check is due approximately July 22. The 90-day food resource phone verification is due approximately August 21.
+
+PR #2 (open since June 14): This PR merges branch `claude/cool-lovelace-2ir0sv` into `claude/optimistic-volta-sgxeY`. Its changes were already cherry-picked onto `claude/cool-lovelace-29t4jv` and merged into the repo as PR #3. PR #2 is redundant. It can be closed with a note that the changes are already in the main line.
+
+**What is flagged for follow-up:**
+
+- **SB 417 — time-sensitive, action needed by June 25:** Steve should check the bill's status at leginfo.legislature.ca.gov before June 25. If it was signed by the Governor, update the badge on the policy page from "Pending — Targeted for Nov 2026 ballot" to "On November 2026 Ballot" and revise the card text to reflect confirmed status. If it was not signed by June 25, update the card to note it missed the window (and watch for any special session or revised ballot path).
+- **GitHub Pages:** Still needs Steve to enable it in repository settings before any page is publicly visible.
+- **PR #2:** Can be closed as redundant. Changes are already in the main commit history.
+- **God's Helping Hand phone number:** Still unverified. Two numbers appear in different directories. One phone call resolves it.
+- **LIHEAP FY 2027:** Update the card when Congress resolves final FY 2027 appropriations (October 1 deadline).
+
+---
+
 ## 2026-06-16 — Scheduled check: SB 417 status confirmed, June 14 corrections applied to working branch
 
 **What was done:**
