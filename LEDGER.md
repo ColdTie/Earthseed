@@ -4,6 +4,27 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-06-23 — Scheduled check: SB 417 agreement announced, bond grows to $11.25B
+
+**What was done:**
+
+Research pass on the two items flagged for late June follow-up.
+
+**SB 417 — major update.** On June 22, 2026, Governor Newsom and legislative leaders announced a three-party agreement on the bond. Two changes from the prior version: (1) the bill was renamed "Veterans and Affordable Housing Bond Act of 2026," and (2) the total grew from $10 billion to $11.25 billion by adding a $1.25 billion self-supporting revenue bond component for the CalVet Home Loan Program (repaid through veterans' mortgage payments, not general taxes). The Legislature has not yet taken a formal floor vote; signing is expected within days. Updated the policy page: new title, badge changed from "Pending — Targeted for Nov 2026 ballot" to "Pending signature — Nov 2026 ballot," bond amount updated to $11.25B, fund breakdown updated to include the CalVet component, description updated to note the three-party agreement, sources updated to include the Governor's June 22 press release. Essayli and Seyarto vote chips updated from "position to be confirmed" to "vote not yet taken" since the floor vote has not happened.
+
+**LIHEAP FY 2027 — no change.** House Appropriations Committee approved $4.055 billion (+$10M). No further congressional floor action. "Watch" badge remains accurate.
+
+**What is flagged for follow-up:**
+
+- SB 417: Governor is expected to sign within days. Once signed and the Legislature has voted, update the badge to "On November 2026 ballot" and fill in Essayli and Seyarto's vote records.
+- LIHEAP FY 2027: Congress must resolve appropriations before October 1, 2026 (start of federal fiscal year). Update when resolved.
+- Medi-Cal work requirement takes effect December 31, 2026. Watch for legal challenges in the fall.
+- PR #2 (claude/cool-lovelace-2ir0sv → claude/optimistic-volta-sgxeY) is still open and unreviewed. These corrections are already on the main working branch via cherry-pick. The PR can be closed as stale if Steve prefers.
+- GitHub Pages: still needs Steve to enable it in repository settings before any page is publicly visible.
+- God's Helping Hand phone number still needs a direct call to verify.
+
+---
+
 ## 2026-06-16 — Scheduled check: SB 417 status confirmed, June 14 corrections applied to working branch
 
 **What was done:**
