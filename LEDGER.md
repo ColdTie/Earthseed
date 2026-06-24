@@ -4,6 +4,33 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-06-24 — Scheduled check: SB 417 agreement announced, policy page updated
+
+**What was done:**
+
+SB 417 has a material status change. On June 22, 2026, Governor Newsom and Legislature leaders announced a three-party agreement on the bond. Two changes from the prior version: the bill is now named the "Veterans and Affordable Housing Bond Act of 2026" (adding veteran homeownership), and the total amount increased from $10 billion to $11.25 billion ($10B in general obligation bonds for affordable housing programs plus $1.25B in self-supporting revenue bonds for the CalVet Home Loan Program for veterans). The bill is expected to pass the Legislature and be signed by the Governor in the coming days. It has not yet been chaptered as of this run.
+
+Updated the policy page at `efforts/0004-policy-impact/site/index.html`:
+- Corrected the bill title to "Veterans and Affordable Housing Bond"
+- Updated the badge from "Pending — Targeted for Nov 2026 ballot" to "Advancing — Expected on Nov 2026 ballot"
+- Updated "What it is" to reflect the June 22 announcement, $11.25B total, and that chaptering is still pending
+- Updated "What the money would fund" to reflect the new $10B plus $1.25B CalVet structure
+- Added Governor's June 22 press release as a source
+- Updated footer review date from June 14 to June 24, 2026
+
+LIHEAP and Medi-Cal/SNAP cards were not touched — no new developments found.
+
+**What is flagged for follow-up:**
+
+- SB 417: Check whether the Governor has signed it (expected within days of June 22). Once signed, update the badge to "On November 2026 ballot — confirmed" and note the chapter number.
+- Essayli and Seyarto votes on SB 417: Still "position to be confirmed." Once the Legislature votes, floor vote records will be available. Update the chips at that point.
+- LIHEAP FY 2027: Still unresolved. Federal fiscal year begins October 1, 2026. Check again in late September.
+- PR #2 (`claude/cool-lovelace-2ir0sv` → `claude/optimistic-volta-sgxeY`) is still open and unreviewed. Its content is already on the working branch and has been superseded by today's updates.
+- GitHub Pages: still not enabled. Steve needs to enable it in repository settings before any page is publicly visible.
+- Food resource: God's Helping Hand phone number still needs a direct call to verify which number is current.
+
+---
+
 ## 2026-06-16 — Scheduled check: SB 417 status confirmed, June 14 corrections applied to working branch
 
 **What was done:**
