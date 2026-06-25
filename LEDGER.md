@@ -4,6 +4,35 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-06-25 — Scheduled check: SB 417 agreement announced, page updated
+
+**What was done:**
+
+Research pass on the two items flagged for late June follow-up.
+
+**SB 417 — significant update, page updated.** On June 22, 2026, Governor Newsom and the leaders of both the Senate and Assembly announced a three-party agreement on a revised housing bond. Key changes from what the page previously showed:
+
+- New official name: Veterans and Affordable Housing Bond Act of 2026 (was Affordable Housing Bond Act of 2026)
+- New total amount: $11.25 billion (was $10 billion). The increase comes from adding $1.25 billion in CalVet Home Loan Program revenue bonds, which are self-supporting (repaid by mortgage payments, not taxpayer funds). The $10 billion in general obligation bonds for affordable housing remains.
+- Status: The three-party agreement was announced June 22. Final legislative vote and gubernatorial signature were expected "in the coming days." As of June 25 I could not confirm the final vote had occurred, but the agreement makes ballot placement highly likely.
+
+The policy page was updated to reflect the new name, new amount, the June 22 announcement, and the new funding structure. Badge changed from "Pending — Targeted for Nov 2026 ballot" to "Agreement announced — Nov 2026 ballot." Sources updated to include the Governor's office press release and Fox40 coverage. "Last reviewed" updated to June 25, 2026.
+
+Essayli and Seyarto vote records still say "position to be confirmed" — no floor vote records found yet. Update once the bill's final legislative record is available.
+
+**LIHEAP FY 2027 — no change.** The House Appropriations Committee approved a funding bill keeping LIHEAP at $4.055 billion. Final FY 2027 appropriations have not passed. The "Watch" badge and existing card text remain accurate. No page update needed.
+
+**PR #2 — still open.** The pull request (`claude/cool-lovelace-2ir0sv` → `claude/optimistic-volta-sgxeY`) opened June 14 remains unreviewed. Its content was cherry-picked onto the working branch in the June 16 run and is already reflected in the current page. Human action needed to close or merge.
+
+**What is flagged for follow-up:**
+
+- SB 417: Confirm final legislative passage and gubernatorial signature. Once signed, update the badge to "On November 2026 ballot" (confirmed). Also check whether Essayli and Seyarto voted for or against — the bill needed a two-thirds vote, and Republican votes were needed; their positions matter for Menifee residents.
+- LIHEAP FY 2027: Update card when Congress resolves appropriations (federal fiscal year begins October 1, 2026).
+- GitHub Pages: still needs Steve to enable in repository settings before any page is publicly visible.
+- Food resource data: God's Helping Hand phone number still needs a direct call to verify which number is current. This flag has been open since the first run.
+
+---
+
 ## 2026-06-16 — Scheduled check: SB 417 status confirmed, June 14 corrections applied to working branch
 
 **What was done:**
