@@ -4,6 +4,34 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-06-26 — SB 417 signed: update policy page with confirmed ballot status
+
+**What was done:**
+
+Governor Newsom signed SB 417 on June 25, 2026 — yesterday — placing the measure on the November 2026 ballot. The bill also changed during its Assembly passage: it is now called the Veterans and Affordable Housing Bond Act of 2026 and grew from $10 billion to $11.25 billion total.
+
+Updated `efforts/0004-policy-impact/site/index.html`:
+- Card title: "SB 417 — Affordable Housing Bond" → "SB 417 — Veterans and Affordable Housing Bond"
+- Status badge: "Pending — Targeted for Nov 2026 ballot" → "On November 2026 Ballot" (confirmed)
+- Description updated: name, amount ($11.25B = $10B GO bonds + $1.25B CalVet revenue bonds), signed date, specific programs named
+- Sources updated to official Governor's signing announcement and leginfo bill page
+- Data reviewed date: June 14 → June 26, 2026
+
+Individual votes for Essayli (A-63) and Seyarto (S-32) could not be confirmed from available sources. Chips remain "individual vote not yet confirmed." The bill passed the Legislature with a two-thirds vote; roll call records are on leginfo but the site blocked access during this run.
+
+Open PR #2 (Schiff fix, LIHEAP, prior SB 417 badge) is still open and unreviewed. That PR targeted the old working branch. Today's changes are on `claude/cool-lovelace-ipzphq`.
+
+**What is flagged for follow-up:**
+
+- Essayli and Seyarto individual votes on SB 417: check leginfo.legislature.ca.gov/faces/billVotesClient.xhtml?bill_id=202520260SB417 once accessible. Update chips once confirmed.
+- LIHEAP FY 2027: still unresolved. Federal fiscal year begins October 1. Update once Congress acts.
+- PR #2: still open, still unreviewed. Human action needed to merge or close.
+- GitHub Pages: still needs Steve to enable it in repository settings before anything is publicly visible.
+- Food resource data: next 60-day volunteer check due approximately July 22; next 90-day food data check approximately August 21.
+- God's Helping Hand phone number: still flagged for verification since first run.
+
+---
+
 ## 2026-06-16 — Scheduled check: SB 417 status confirmed, June 14 corrections applied to working branch
 
 **What was done:**
