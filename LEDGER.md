@@ -4,6 +4,35 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-06-27 — Scheduled check: SB 417 signed, bond is now on November ballot
+
+**What was done:**
+
+SB 417 was signed by Governor Newsom on June 25, 2026, two days before this run. The bill cleared both legislative chambers and is now officially on the November 3, 2026 statewide ballot for voters to decide.
+
+Key facts updated on the policy page:
+
+- **Official name corrected**: The bill's final name is the "Veterans and Affordable Housing Bond Act of 2026."
+- **Total amount corrected**: $11.25 billion total — $10 billion in general obligation bonds for affordable housing programs, plus $1.25 billion in self-supporting CalVet Home Loan revenue bonds for veteran homeownership. The old page said $10 billion; that was the pre-final version.
+- **Badge updated**: Changed from "Pending — Targeted for Nov 2026 ballot" to "On November 2026 ballot." The uncertainty is resolved.
+- **Body text updated**: "What it is" and "What this means practically" sections rewritten to reflect the signed, official status and the CalVet component.
+- **Sources updated**: Now link to the Governor's signing press release and the CalMatters Digital Democracy bill page.
+- **Essayli and Seyarto vote chips**: Still show "vote record to be confirmed." Individual floor vote records were not retrievable from search results. The bill passed the Assembly 65-11, so at least one of them likely voted no, but the specific record is not confirmed. Leave as-is until it can be verified from the official roll call.
+
+**LIHEAP FY 2027 status (no change needed):** The House Appropriations Committee approved $4.055 billion on June 11, 2026 (a $10 million increase over FY 2026). No full Congress action yet. "Watch" badge remains correct.
+
+**Data reviewed date updated** to June 27, 2026.
+
+**What is flagged for follow-up:**
+
+- Essayli and Seyarto SB 417 votes: Retrieve the official roll call from leginfo.legislature.ca.gov once full vote records are posted. Update the chips once confirmed.
+- LIHEAP FY 2027: Check again in late September before the October 1 fiscal year start. If Congress has not acted, update the card to reflect imminent funding uncertainty.
+- Medi-Cal work requirements take effect December 31, 2026. Check for legal challenges or implementation guidance in the fall.
+- GitHub Pages: still needs Steve to enable it in repository settings. Nothing is publicly visible until that happens.
+- PR #2 (from June 14) is still open on the base branch `claude/optimistic-volta-sgxeY`. That PR target is now obsolete — the June 14 corrections are already merged into the main working branch via PR #3. PR #2 can be closed.
+
+---
+
 ## 2026-06-16 — Scheduled check: SB 417 status confirmed, June 14 corrections applied to working branch
 
 **What was done:**
