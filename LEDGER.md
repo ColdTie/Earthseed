@@ -4,6 +4,33 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-06-28 — Scheduled check: SB 417 signed, Essayli replaced, policy page updated
+
+**What was done:**
+
+Checked the three items flagged for late June follow-up.
+
+**SB 417 — confirmed on November ballot.** Governor Newsom signed SB 417 on June 25, 2026, the last day to meet the ballot deadline. The bill passed the Assembly 54-7 and the Senate 29-2. The policy page badge changed from "Pending — Targeted for Nov 2026 ballot" to "On November 2026 Ballot." The total amount is $11.25 billion: $10 billion in general obligation bonds for affordable housing plus $1.25 billion in CalVet revenue bonds for veteran homeownership. The description and source links were updated to reflect the signed version and the Governor's announcement.
+
+**Assembly District 63 representative changed.** Bill Essayli left the California Assembly in spring 2025 when he was appointed interim US Attorney for the Central District of California. A special election was held August 26, 2025, and Natasha Johnson (R) won, taking office September 8, 2025. The rep card on the policy page was updated: Essayli removed, Johnson added with district office (951) 277-3639 and the same ad63.asmrc.org website. The SB 417 vote chip and CTA button were updated to reference Johnson. Her individual vote on SB 417 was not confirmed in available sources — the chip is marked "vote record to be confirmed."
+
+**Seyarto SB 417 vote — confirmed NO.** The Senate vote on SB 417 was 29-2. Seyarto was one of the two No votes. The vote chip was updated from "position to be confirmed" to "Voted NO" using the appropriate red chip styling.
+
+**LIHEAP — no change.** House Appropriations Committee approved $4.055 billion for FY 2027 on June 11, 2026. Final appropriations have not passed. "Watch — Not yet cut" badge remains accurate. No page change needed.
+
+**PR #2** (Fix Schiff OBBBA vote, LIHEAP and SB 417 updates) remains open since June 14 and has not been merged or closed. Its base is `claude/optimistic-volta-sgxeY` not main, which may be why it has not been reviewed. Steve should merge or close it.
+
+**What is flagged for follow-up:**
+
+- Natasha Johnson's SB 417 Assembly vote: confirm through leginfo.legislature.ca.gov vote records and update the chip. Republican opposition was strong (Assembly passed 54-7) but her individual record was not retrievable from search.
+- LIHEAP FY 2027: Update the card when Congress resolves appropriations (October 1 deadline).
+- Medi-Cal work requirement takes effect December 31, 2026. Watch for legal challenges or implementation guidance.
+- Food resource data: God's Helping Hand phone number still unverified. 60-day volunteer check due approximately July 22. 90-day food data check due approximately August 21.
+- GitHub Pages: still needs Steve to enable it before any page is publicly visible.
+- PR #2: still open, base is a non-main branch — Steve should review it.
+
+---
+
 ## 2026-06-16 — Scheduled check: SB 417 status confirmed, June 14 corrections applied to working branch
 
 **What was done:**

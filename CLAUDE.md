@@ -53,7 +53,7 @@ Four efforts are built and waiting to be hosted:
 - #0001: Menifee food resources. Static HTML page and data file. Ready for deployment.
 - #0002: Menifee volunteer opportunities. Static HTML page. Ready for deployment.
 - #0003: Menifee senior resources. Static HTML page built May 23, 2026. Ready for deployment.
-- #0004: Policy impact. Representatives, current legislation, and plain-language impact for Menifee residents. Built May 23, 2026. Ready for deployment.
+- #0004: Policy impact. Representatives, current legislation, and plain-language impact for Menifee residents. Built May 23, 2026. Last updated June 28, 2026 (SB 417 now confirmed on November ballot; rep for A-63 updated to Natasha Johnson who replaced Essayli in September 2025). Ready for deployment.
 
 A root index.html exists at the repo root as a GitHub Pages landing page. Steve must enable GitHub Pages in repository settings (Settings → Pages → select branch and root folder) for the pages to go live. That human action is the gate.
 
