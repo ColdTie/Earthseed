@@ -4,6 +4,30 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-06-29 — Scheduled check: SB 417 signed, AD-63 rep corrected, policy page updated
+
+**What was done:**
+
+Three corrections applied to the policy impact page.
+
+**SB 417 — now officially on the November ballot.** Governor Newsom signed the bill on June 25, 2026, four days before this run. The badge changed from "Pending — Targeted for Nov 2026 ballot" to "On November 2026 ballot." The amount is $11.25 billion, not $10 billion as previously written. The official title is now "Veterans and Affordable Housing Bond Act of 2026" — it includes $10 billion for affordable rental housing and homeownership programs and $1.25 billion specifically for veterans' housing assistance. The source link on the card now points to the Governor's signing announcement. Vote chips for Johnson and Seyarto remain "individual vote not confirmed" — no roll call records were retrievable.
+
+**Essayli corrected to Johnson.** The page had listed Bill Essayli as the California Assembly District 63 representative. This was wrong. Essayli left the seat in April 2025 when he was appointed as U.S. Attorney for the Central District of California. Natasha Johnson (R) won the August 26, 2025 special election for that seat and was sworn in September 8, 2025. The page listed the wrong person for more than a year. Updated to Natasha Johnson, district office phone (951) 277-3639. The SB 417 CTA button also updated to her number.
+
+**LIHEAP** — no change. The House Appropriations Committee approved $4.055 billion for FY 2027, the same figure already on the page. Final appropriations have not passed. The current text remains accurate.
+
+**What is flagged for follow-up:**
+
+- Johnson and Seyarto vote records on SB 417: roll call records were not retrievable from public sources during this run. Try leginfo.legislature.ca.gov directly once it responds, or flag for a future run.
+- LIHEAP FY 2027: Congress is still working on appropriations. Federal fiscal year begins October 1, 2026. Update the card once FY 2027 is resolved.
+- Medi-Cal work requirement: Takes effect December 31, 2026. Monitor for legal challenges or implementation changes.
+- GitHub Pages: still needs Steve to enable it before any page is publicly visible.
+- Food resource data: God's Helping Hand phone number still needs a direct call to verify. Flagged since the first run.
+- 60-day volunteer listing check due approximately July 22, 2026.
+- 90-day food resource phone reverification due approximately August 21, 2026.
+
+---
+
 ## 2026-06-16 — Scheduled check: SB 417 status confirmed, June 14 corrections applied to working branch
 
 **What was done:**
