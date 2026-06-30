@@ -4,6 +4,33 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-06-30 — Scheduled check: SB 417 confirmed on ballot, Essayli replaced, LIHEAP unchanged
+
+**What was done:**
+
+Research pass on three items flagged in the June 16 run.
+
+**SB 417 — confirmed on November 2026 ballot.** Governor Newsom signed SB 417 on June 25, 2026. The bill is now officially on the November 3, 2026 ballot. The full title is "Veterans and Affordable Housing Bond Act of 2026." The total is $11.25 billion: $10 billion in general obligation bonds for affordable housing programs (Multifamily Housing Program, CalHOME, preservation, acquisition) and $1.25 billion in self-supporting revenue bonds for the CalVet Home Loan Program for veterans. The page was updated to reflect the confirmed ballot status, the correct total, and the CalVet component.
+
+**Assembly District 63 — Essayli replaced by Natasha Johnson.** Bill Essayli left the Assembly in April 2025 to become U.S. Attorney for the Central District of California. Natasha Johnson (R) won the resulting special election on August 26, 2025, and was sworn in September 8, 2025. She is the current Assembly member for AD-63 (Menifee). The rep card on the policy page is updated to Johnson with her district office number (951) 277-3639. Her website (ad63.asmrc.org) remains the same.
+
+**SB 417 vote records added.** The Legislature passed SB 417 along party lines (Democrats yes, Republicans no). Senator Kelly Seyarto was quoted by name as opposing the measure, stating the party believes there are more fiscally responsible ways to address housing. Assembly Member Natasha Johnson voted No. Both vote chips are now updated on the policy page.
+
+**LIHEAP FY 2027 — no change.** The House Appropriations Committee approved a FY 2027 appropriations bill keeping LIHEAP at $4.055 billion (a $10M increase over FY 2026). Congress has not enacted it. The "Watch" badge and card text remain accurate. Update when Congress resolves FY 2027 appropriations (deadline: October 1, 2026).
+
+**PR #2 status.** PR #2 (claude/cool-lovelace-2ir0sv → claude/optimistic-volta-sgxeY) remains open with no review. This PR targets an intermediate branch that was itself later merged via PR #3. The corrections from that PR are already on the main working branch. The open PR is stale in the base-branch sense, but the changes it contains are live. Human action needed to close it.
+
+**What is flagged for follow-up:**
+
+- LIHEAP FY 2027: Congress appropriations deadline is October 1, 2026. Update the LIHEAP card when final FY 2027 appropriations pass or fail.
+- Medi-Cal work requirement takes effect December 31, 2026. Watch for legal challenges or implementation delays this fall.
+- GitHub Pages: still needs Steve to enable it in repository settings before any page is publicly visible.
+- Food resource data: God's Helping Hand phone number still flagged for direct verification. 90-day freshness check due approximately August 21.
+- Volunteer listing staleness check due approximately July 22.
+- PR #2: Consider closing it — the base branch is an old intermediate branch and the changes are already merged.
+
+---
+
 ## 2026-06-16 — Scheduled check: SB 417 status confirmed, June 14 corrections applied to working branch
 
 **What was done:**
