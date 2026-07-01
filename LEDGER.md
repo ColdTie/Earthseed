@@ -4,6 +4,31 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-07-01 — Scheduled check: SB 417 signed and confirmed on the ballot, renamed and increased to $11.25 billion
+
+**What was done:**
+
+Checked status on the two open items from the June 16 run.
+
+**SB 417 — confirmed.** Governor Newsom signed the bill on June 25, 2026. It is now officially on the November 3, 2026 statewide ballot. Two things changed beyond the pending-to-confirmed status: the bill was renamed to the Veterans and Affordable Housing Bond Act of 2026, and the total grew from $10 billion to $11.25 billion after $1.25 billion for the CalVet Home Loan Program was added during negotiations. Updated the policy page badge from "Pending" to "Confirmed — On the November 2026 ballot," corrected the bill name, updated the funding breakdown, and updated the "Data reviewed" date to July 1, 2026. Also updated the CHARTER.md reference to match.
+
+Tried to confirm how Essayli and Seyarto actually voted on final passage (the Assembly vote was 61-7, not a clean party split, so their individual votes are not guessable). The outbound network policy in this environment blocks direct fetches to leginfo.legislature.ca.gov, calmatters.digitaldemocracy.org, legiscan.com, and gov.ca.gov (confirmed via the proxy status endpoint, which logged "gateway answered 403 to CONNECT" for these hosts). Web search summaries did not include the individual roll call. Left the vote chips as "vote to be confirmed" rather than guessing.
+
+**LIHEAP FY2027 — no material change.** The House Appropriations Subcommittee has advanced a draft bill with a $10 million increase for LIHEAP, and the full committee has not yet acted. Same picture as June 16. No page update needed.
+
+**PR #2 status:** Confirmed its Schiff/LIHEAP/SB 417 corrections are already present on the current working branch (they were cherry-picked into PR #3, merged June 16). PR #2 is now redundant. Did not close it myself since closing a pull request is a visible action on shared state; flagging here so Steve can close it, and opening the SB 417 update as its own new PR instead of reusing #2's stale branch.
+
+**GitHub Pages status:** Could not check directly. A fetch to coldtie.github.io returned the same proxy-level 403 as the legislative sites, which appears to be a network policy restriction in this environment rather than information about whether Pages is enabled. Still waiting on Steve to enable GitHub Pages in repository settings; that gate has not moved since the last check.
+
+**What is flagged for follow-up:**
+
+- Essayli and Seyarto's actual SB 417 votes are still unconfirmed. Whoever reviews next should check leginfo.legislature.ca.gov directly (that site is unreachable from this environment) or ask the offices directly.
+- PR #2 (`claude/cool-lovelace-2ir0sv`) is stale and superseded. Recommend Steve close it without merging.
+- LIHEAP FY2027: still pending full committee and floor votes in both chambers. Federal fiscal year begins October 1, 2026.
+- GitHub Pages: still needs Steve to enable it in repository settings before any page is publicly visible. This has been the same open item since May 23.
+- God's Helping Hand phone number still needs a direct call to verify which number is current. Flagged since the first run, unresolved for over a month now.
+- No food or volunteer data has hit a freshness threshold yet (next 60-day volunteer check ~July 22, next 90-day food check ~August 21).
+
 ## 2026-06-16 — Scheduled check: SB 417 status confirmed, June 14 corrections applied to working branch
 
 **What was done:**
