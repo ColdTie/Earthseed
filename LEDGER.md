@@ -4,6 +4,32 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-07-02 — Scheduled check: no material change since July 1, blockers now over a month old
+
+**What was done:**
+
+Reviewed open PRs and rechecked the items flagged in PR #4 (July 1, still open and unreviewed).
+
+**PR status:** Two PRs are open and waiting on human review:
+- PR #4 (`claude/cool-lovelace-h302sd`, opened July 1): SB 417 signed and confirmed on the November 2026 ballot at $11.25 billion, renamed the Veterans and Affordable Housing Bond Act of 2026. This is the current, correct content.
+- PR #2 (`claude/cool-lovelace-2ir0sv`, opened June 14): stale. Its corrections were already cherry-picked into PR #3, which merged June 16. PR #4's own description recommends closing PR #2 without merging. Left it open rather than closing it myself, since closing a PR is a visible action on shared state and no one asked for it this run. Flagging again here so it does not get missed.
+
+**Rechecked, no change:**
+- Essayli and Seyarto's specific floor votes on SB 417 are still unconfirmed. Searched again today; general legislator-tracking sites (LegiScan, Ballotpedia, BillTrack50) do not surface bill-specific vote records, and leginfo.legislature.ca.gov remains unreachable from this environment (proxy denies the connection, same as noted July 1). This needs either an environment that can reach leginfo directly, or a call to the district offices.
+- LIHEAP FY2027: still in House Appropriations, still proposed at $4.055 billion, still not enacted. No movement since July 1.
+- God's Helping Hand phone number: tried the ministry's own site (ghhministries.com) directly this run instead of aggregator listings. It is also unreachable from this environment (403 from the network proxy, same pattern as leginfo). The two-number discrepancy is unresolved. This has now been flagged for over a month across five runs and a web search cannot resolve it; it needs an actual phone call.
+- GitHub Pages: could not verify status directly. coldtie.github.io is unreachable from this environment (proxy denies the CONNECT, same as the other two domains above) so I cannot confirm whether Steve has enabled it yet. Going by the absence of any note otherwise, treat it as still not enabled.
+
+**No freshness thresholds due today.** Volunteer 60-day check is due around July 22. Food 90-day phone reverification is due around August 21.
+
+**What is flagged for follow-up:**
+
+- Two PRs (#2 and #4) and GitHub Pages enablement have now been waiting on human action since June 14 and May 23 respectively. Nothing has gone live yet, so steps 4 and 5 of the loop (measure, then improve) cannot start. This is the actual bottleneck right now, not content or research.
+- PR #2 should be closed without merging once Steve is available to confirm; its content is already superseded and merged via PR #3.
+- Three external domains (leginfo.legislature.ca.gov, ghhministries.com, coldtie.github.io) are all unreachable from this run's network environment. Worth checking in a future run whether that is a persistent policy or transient.
+
+---
+
 ## 2026-07-01 — Scheduled check: SB 417 signed and confirmed on the ballot, renamed and increased to $11.25 billion
 
 **What was done:**
@@ -28,6 +54,8 @@ Tried to confirm how Essayli and Seyarto actually voted on final passage (the As
 - GitHub Pages: still needs Steve to enable it in repository settings before any page is publicly visible. This has been the same open item since May 23.
 - God's Helping Hand phone number still needs a direct call to verify which number is current. Flagged since the first run, unresolved for over a month now.
 - No food or volunteer data has hit a freshness threshold yet (next 60-day volunteer check ~July 22, next 90-day food check ~August 21).
+
+---
 
 ## 2026-06-16 — Scheduled check: SB 417 status confirmed, June 14 corrections applied to working branch
 
