@@ -4,6 +4,36 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-07-03 — Scheduled check: partial vote data found, three PRs now stacked unreviewed
+
+**What was done:**
+
+Rechecked the items flagged in PR #4 (July 1) and PR #5 (July 2), both still open.
+
+**New information found:**
+
+- **Kelly Seyarto's SB 417 committee votes** (not yet the floor vote the page needs): voted No on the Senate Housing Committee's do-pass motion (January 6, 2026, 8 Ayes to his 1 No) and No on the Senate Appropriations Committee's do-pass-as-amended motion (January 22, 2026, alongside Senator Dahle, 5 Ayes). This is new detail but it is committee-level, not the floor vote the policy page cites. Did not update the page's vote chip since committee votes and a floor vote are not the same thing, and guessing from a pattern of two No committee votes would be exactly the kind of unconfirmed claim the charter says not to publish.
+- **Assembly floor vote confirmed**: SB 417 passed the Assembly floor on third reading June 25, 2026, 61 Yes to 7 No, 11 absent. This is not a party-line count, so Essayli's individual vote still cannot be inferred. His specific vote remains unconfirmed.
+- **Senate floor concurrence**: found a related action, Assembly amendments concurred in in the Senate 29 Ayes to 2 Noes, but this is a concurrence vote, not necessarily the vote that would show Seyarto's position either, and I could not confirm he was one of the 2 Noes.
+- **God's Helping Hand phone**: re-searched using food-banks.org and californiafoodpantry.org listings. Both point to (951) 973-3582, which is already the primary number in `resources.json`. This is consistent with, not new confirmation beyond, what is already on file. The two-number discrepancy is still unresolved; still needs a direct call.
+- **LIHEAP FY2027**: no material change. One new detail: House Appropriations Committee Chair Tom Cole (R-OK) is on record opposed to eliminating LIHEAP, which is consistent with the committee-approved draft keeping it at $4.055 billion. Did not change the badge.
+- **GitHub Pages**: still cannot verify status. Both a direct curl and WebFetch to `coldtie.github.io/Earthseed/` returned 403 from this environment's network layer, same as the last two runs. This is not evidence one way or the other.
+
+leginfo.legislature.ca.gov itself is still unreachable from this environment (proxy denies the CONNECT). The specific Essayli and Seyarto floor votes need either an environment that can reach leginfo directly or a call to the district offices. Five runs of web search have not resolved this.
+
+**The actual state now:** three PRs are open and unreviewed: PR #2 (June 14, stale, its content already merged via PR #3, recommended for closing three runs running), PR #4 (July 1, has real content: SB 417 signed and confirmed on the ballot at $11.25 billion, ready to merge), and PR #5 (July 2, ledger-only, no material change). No further research this run changes that picture enough to justify a fourth near-duplicate PR on its own, so this entry is being committed to the ledger for the record and flagged directly to Steve rather than opened as a new pull request tonight.
+
+**What is flagged for follow-up:**
+
+- PR #4 is the one with real, ready content. It should be merged.
+- PR #2 should be closed without merging; superseded since June 16.
+- PR #5 can be closed or merged for the record once #4 is in; its content is now folded into this entry.
+- GitHub Pages enablement is still the single biggest blocker: nothing is live, so steps 4 and 5 of the loop (measure, then improve) cannot start no matter how much more research happens.
+- God's Helping Hand: still needs one phone call to settle the second number, (951) 679-4667.
+- Essayli and Seyarto's specific SB 417 floor votes: still unconfirmed after five runs of search; needs leginfo access or a direct call to district offices.
+
+---
+
 ## 2026-06-16 — Scheduled check: SB 417 status confirmed, June 14 corrections applied to working branch
 
 **What was done:**
