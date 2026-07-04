@@ -32,7 +32,7 @@ Three to five policies maximum. Each one must meet all three criteria:
 The first three policies identified for v1:
 - **Medi-Cal work requirements** from the One Big Beautiful Bill Act (P.L. 119-21, enacted July 2025) — affects Medi-Cal enrollees 19–65, takes effect Dec 31, 2026
 - **SNAP benefit changes** from P.L. 119-21 — changes to how energy assistance is counted affect SNAP household benefit amounts
-- **SB 417** — California Affordable Housing Bond, on the November 2026 statewide ballot — $10 billion for affordable housing programs; Menifee voters will decide
+- **SB 417** — Veterans and Affordable Housing Bond Act of 2026, signed by the Governor June 25, 2026, on the November 2026 statewide ballot — $11.25 billion ($10 billion for affordable housing programs, $1.25 billion for the CalVet Home Loan Program); Menifee voters will decide
 
 LIHEAP is noted as a program under budget pressure (Trump administration has proposed eliminating it and laid off staff) but not yet cut. This is flagged as something to watch, not presented as an enacted change.
 

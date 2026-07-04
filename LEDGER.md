@@ -4,6 +4,87 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-07-04 — Scheduled check: Seyarto's SB 417 vote confirmed, branch consolidated, backlog now three weeks overdue
+
+**What was done:**
+
+This branch (`claude/cool-lovelace-0sn76w`) had fallen behind two other open, unmerged PRs against the same base. Rather than open a fourth PR with yet more overlapping content, pulled PR #4's SB 417 update and PR #5's July 2 ledger entry onto this branch (both were correct, already-verified content) and added today's findings on top. This branch now carries everything from #2, #4, and #5 plus new work below. Recommend merging this one and closing #2, #4, and #5 without merging them separately.
+
+**New finding: Seyarto's SB 417 vote confirmed.** Previous runs (July 1, July 2) could not confirm either representative's individual floor vote because the Assembly tally (61-7) was not a clean party split. Today's search turned up direct, on-record quotes from Senator Kelly Seyarto (R-Murrieta) opposing the bond: "I will not be supporting any more bonds" and pushing back on the idea that opposition meant opposition to veterans, reported by ABC10 and CBS Sacramento on the day Newsom signed the bill. That is a confirmed NO vote, not a guess. Updated the policy page: Seyarto's chip now reads "Voted NO" (green, matching the page's existing convention), the impact box explains his stated reasoning, and the ABC10 source was added. Essayli's individual vote still has no direct source anywhere searched today and stays "vote to be confirmed" — not guessing it.
+
+**God's Helping Hand phone number:** Searched again, this time landing on food-banks.org rather than the aggregators tried in earlier runs. It also returned (951) 973-3582, the same number already on file as primary. Six runs in a row have now surfaced this number and never once surfaced the (951) 679-4667 alternate. That is accumulating evidence for the primary number, but it is still evidence, not confirmation. Did not change the data file. This still needs an actual phone call to close out, as flagged since May 23.
+
+**LIHEAP FY2027:** No material change. House Appropriations Subcommittee's draft still holds at $4.055 billion; full committee and floor action still pending. No page update needed.
+
+**GitHub Pages:** Still could not verify status directly. `coldtie.github.io` and the other previously-blocked domains (leginfo.legislature.ca.gov, ghhministries.com) all still return 403 from this environment's outbound proxy, consistent with every prior run back to July 1. This looks like a standing network policy of this environment, not a transient issue, so future runs should stop re-testing it and just ask Steve directly whether Pages is on.
+
+**No freshness thresholds due today.** Volunteer 60-day check due ~July 22. Food 90-day phone reverification due ~August 21.
+
+**The actual bottleneck, restated plainly:** Three PRs (#2, #4, #5, now folded into this one) and GitHub Pages enablement have been waiting on human action since May 23 (Pages) and June 14 (first PR). That is six weeks for Pages and three weeks for the PR backlog. No page has ever gone live, so steps 4 and 5 of the loop (measure real use, then improve) have not started at all. Every scheduled run since June 16 has repeated a version of this same flag. Continued research passes cannot fix this; only Steve enabling Pages and clearing the PR queue can.
+
+**What is flagged for follow-up:**
+
+- Merge this PR, close #2, #4, and #5 without merging them (their content is now all here).
+- Enable GitHub Pages in repository settings (Settings → Pages → branch and root folder). This is the single action that unblocks everything else in the project.
+- Essayli's SB 417 vote: still unconfirmed. Needs a direct call to his office or a search from an environment that can reach leginfo.legislature.ca.gov.
+- God's Helping Hand: call to confirm which of the two numbers is current.
+- LIHEAP FY2027: watch for House floor action; federal fiscal year begins October 1, 2026.
+
+---
+
+## 2026-07-02 — Scheduled check: no material change since July 1, blockers now over a month old
+
+**What was done:**
+
+Reviewed open PRs and rechecked the items flagged in PR #4 (July 1, still open and unreviewed).
+
+**PR status:** Two PRs are open and waiting on human review:
+- PR #4 (`claude/cool-lovelace-h302sd`, opened July 1): SB 417 signed and confirmed on the November 2026 ballot at $11.25 billion, renamed the Veterans and Affordable Housing Bond Act of 2026. This is the current, correct content.
+- PR #2 (`claude/cool-lovelace-2ir0sv`, opened June 14): stale. Its corrections were already cherry-picked into PR #3, which merged June 16. PR #4's own description recommends closing PR #2 without merging. Left it open rather than closing it myself, since closing a PR is a visible action on shared state and no one asked for it this run. Flagging again here so it does not get missed.
+
+**Rechecked, no change:**
+- Essayli and Seyarto's specific floor votes on SB 417 are still unconfirmed. Searched again today; general legislator-tracking sites (LegiScan, Ballotpedia, BillTrack50) do not surface bill-specific vote records, and leginfo.legislature.ca.gov remains unreachable from this environment (proxy denies the connection, same as noted July 1). This needs either an environment that can reach leginfo directly, or a call to the district offices.
+- LIHEAP FY2027: still in House Appropriations, still proposed at $4.055 billion, still not enacted. No movement since July 1.
+- God's Helping Hand phone number: tried the ministry's own site (ghhministries.com) directly this run instead of aggregator listings. It is also unreachable from this environment (403 from the network proxy, same pattern as leginfo). The two-number discrepancy is unresolved. This has now been flagged for over a month across five runs and a web search cannot resolve it; it needs an actual phone call.
+- GitHub Pages: could not verify status directly. coldtie.github.io is unreachable from this environment (proxy denies the CONNECT, same as the other two domains above) so I cannot confirm whether Steve has enabled it yet. Going by the absence of any note otherwise, treat it as still not enabled.
+
+**No freshness thresholds due today.** Volunteer 60-day check is due around July 22. Food 90-day phone reverification is due around August 21.
+
+**What is flagged for follow-up:**
+
+- Two PRs (#2 and #4) and GitHub Pages enablement have now been waiting on human action since June 14 and May 23 respectively. Nothing has gone live yet, so steps 4 and 5 of the loop (measure, then improve) cannot start. This is the actual bottleneck right now, not content or research.
+- PR #2 should be closed without merging once Steve is available to confirm; its content is already superseded and merged via PR #3.
+- Three external domains (leginfo.legislature.ca.gov, ghhministries.com, coldtie.github.io) are all unreachable from this run's network environment. Worth checking in a future run whether that is a persistent policy or transient.
+
+---
+
+## 2026-07-01 — Scheduled check: SB 417 signed and confirmed on the ballot, renamed and increased to $11.25 billion
+
+**What was done:**
+
+Checked status on the two open items from the June 16 run.
+
+**SB 417 — confirmed.** Governor Newsom signed the bill on June 25, 2026. It is now officially on the November 3, 2026 statewide ballot. Two things changed beyond the pending-to-confirmed status: the bill was renamed to the Veterans and Affordable Housing Bond Act of 2026, and the total grew from $10 billion to $11.25 billion after $1.25 billion for the CalVet Home Loan Program was added during negotiations. Updated the policy page badge from "Pending" to "Confirmed — On the November 2026 ballot," corrected the bill name, updated the funding breakdown, and updated the "Data reviewed" date to July 1, 2026. Also updated the CHARTER.md reference to match.
+
+Tried to confirm how Essayli and Seyarto actually voted on final passage (the Assembly vote was 61-7, not a clean party split, so their individual votes are not guessable). The outbound network policy in this environment blocks direct fetches to leginfo.legislature.ca.gov, calmatters.digitaldemocracy.org, legiscan.com, and gov.ca.gov (confirmed via the proxy status endpoint, which logged "gateway answered 403 to CONNECT" for these hosts). Web search summaries did not include the individual roll call. Left the vote chips as "vote to be confirmed" rather than guessing.
+
+**LIHEAP FY2027 — no material change.** The House Appropriations Subcommittee has advanced a draft bill with a $10 million increase for LIHEAP, and the full committee has not yet acted. Same picture as June 16. No page update needed.
+
+**PR #2 status:** Confirmed its Schiff/LIHEAP/SB 417 corrections are already present on the current working branch (they were cherry-picked into PR #3, merged June 16). PR #2 is now redundant. Did not close it myself since closing a pull request is a visible action on shared state; flagging here so Steve can close it, and opening the SB 417 update as its own new PR instead of reusing #2's stale branch.
+
+**GitHub Pages status:** Could not check directly. A fetch to coldtie.github.io returned the same proxy-level 403 as the legislative sites, which appears to be a network policy restriction in this environment rather than information about whether Pages is enabled. Still waiting on Steve to enable GitHub Pages in repository settings; that gate has not moved since the last check.
+
+**What is flagged for follow-up:**
+
+- Essayli and Seyarto's actual SB 417 votes are still unconfirmed. Whoever reviews next should check leginfo.legislature.ca.gov directly (that site is unreachable from this environment) or ask the offices directly.
+- PR #2 (`claude/cool-lovelace-2ir0sv`) is stale and superseded. Recommend Steve close it without merging.
+- LIHEAP FY2027: still pending full committee and floor votes in both chambers. Federal fiscal year begins October 1, 2026.
+- GitHub Pages: still needs Steve to enable it in repository settings before any page is publicly visible. This has been the same open item since May 23.
+- God's Helping Hand phone number still needs a direct call to verify which number is current. Flagged since the first run, unresolved for over a month now.
+- No food or volunteer data has hit a freshness threshold yet (next 60-day volunteer check ~July 22, next 90-day food check ~August 21).
+
+---
+
 ## 2026-06-16 — Scheduled check: SB 417 status confirmed, June 14 corrections applied to working branch
 
 **What was done:**
