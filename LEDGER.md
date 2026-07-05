@@ -4,6 +4,39 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-07-05 — Scheduled check: Essayli no longer holds the District 63 Assembly seat, policy page corrected
+
+**What was done:**
+
+Every prior run since May 23 tried to confirm Bill Essayli's individual floor vote on SB 417 and came up empty, treating it as an unconfirmed vote. Today's search found the actual reason: Essayli resigned from the Assembly in April 2025 to become interim U.S. Attorney for the Central District of California, months before SB 417 passed and was signed (June 25, 2026). He was not in office for this vote and could not have cast one. The seat has been held by Natasha Johnson (R), who won an August 26, 2025 special election and was sworn in September 8, 2025. This means the policy page has been showing Steve's actual state assembly representative wrong since it was built on May 23, six weeks before this was caught, and would have stayed wrong indefinitely since prior runs kept re-searching for a vote that could never be found instead of questioning whether Essayli was still the right person to look up.
+
+Fixed on the policy page (`efforts/0004-policy-impact/site/index.html`):
+- Representatives list: replaced the Bill Essayli row with Natasha Johnson, District 63, phone (951) 277-3639 (her Corona district office, sourced from a California State Assembly directory listing and corroborated independently via a Corona Chamber of Commerce listing; the official ad63.asmrc.org and assembly.ca.gov pages are unreachable from this environment's network policy so I could not confirm directly from the primary source).
+- SB 417 card: vote chip changed from "Essayli (R-A63) — vote to be confirmed" to "Johnson (R-A63) — vote to be confirmed" (her actual vote is still not found; same unreachable-leginfo problem as before, this time for a different reason than a non-split vote). Added a sentence explaining the resignation and handoff so the page doesn't look like it is silently swapping a name. Added the resignation source (The Center Square) to the source line.
+- Updated "Data reviewed" and "Last reviewed" dates to July 5, 2026.
+
+Did not find her phone number by directly fetching the primary source; the number comes from a search snippet of the official assembly.ca.gov directory page, corroborated by a second independent source (Corona Chamber of Commerce). Flagging this the same way the God's Helping Hand number is flagged: two consistent sources is good evidence, not the same as pulling it from the primary page directly.
+
+**Rechecked, no change:**
+- God's Helping Hand phone number: search again landed on food-banks.org, returned (951) 973-3582, same as every prior run. Seven runs straight, same number, never once the alternate. Still not a phone call, still flagged.
+- LIHEAP FY2027: House Appropriations Committee approved the bill June 11 keeping LIHEAP at $4.055 billion. No material change from what the page already says.
+- GitHub Pages: still 403 from this environment's proxy on `coldtie.github.io`. Same standing network policy noted every run since July 1. Not re-testing this again in future runs per the July 4 note; the open question is entirely with Steve now.
+
+**No freshness thresholds due today.** Volunteer 60-day check due ~July 22. Food 90-day phone reverification due ~August 21.
+
+**The actual bottleneck, still the same one:** No PR has been reviewed or merged toward going live since May 23 (Pages) and the branch backlog was cleared into PR #6, which merged. But GitHub Pages is still not confirmed enabled, so nothing is live yet and steps 4 and 5 of the loop still have not started. Today's fix matters more than most because it is content-correctness on a page that will show real people the wrong elected official's phone number the moment it does go live. That is exactly the kind of error worth catching before launch, not after.
+
+**What is flagged for follow-up:**
+
+- Enable GitHub Pages (Settings → Pages → branch and root folder). Unchanged ask, now over six weeks old.
+- Merge or review this branch's PR.
+- Natasha Johnson's District 63 phone number should be confirmed against the primary assembly.ca.gov or ad63.asmrc.org page once reachable, or by calling it.
+- Natasha Johnson's actual SB 417 vote: still unconfirmed, same leginfo access problem as before.
+- God's Helping Hand: still needs an actual phone call to pick between the two numbers on file.
+- LIHEAP FY2027: watch for full House and Senate floor action; federal fiscal year begins October 1, 2026.
+
+---
+
 ## 2026-07-04 — Scheduled check: Seyarto's SB 417 vote confirmed, branch consolidated, backlog now three weeks overdue
 
 **What was done:**
