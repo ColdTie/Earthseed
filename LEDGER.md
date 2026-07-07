@@ -4,6 +4,36 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-07-07 — Scheduled check: Natasha Johnson's phone number re-corroborated, PR backlog down to one, no material change otherwise
+
+**What was done:**
+
+This branch (`claude/cool-lovelace-6oqwni`) was one commit behind PR #7's branch (`claude/cool-lovelace-rl3wq4`, the July 5 Essayli-to-Johnson fix). Fast-forwarded this branch onto that commit rather than opening a second PR with the same content, following the same consolidation practice as the July 4 entry. Recommend merging this PR and closing #7 without merging it separately.
+
+**Natasha Johnson's phone number: corroborated a third time.** Searched independently today for her District 63 office contact information. The result again returned (951) 277-3639, the same number PR #7 already carries from two sources (an assembly.ca.gov directory listing and a Corona Chamber of Commerce listing). Three independent searches, same number, never a conflicting one. `ad63.asmrc.org` and `assembly.ca.gov` are still unreachable from this environment (403 from the network proxy, same standing pattern as every other blocked domain), so this still is not the same as reading it off the primary source page, but the evidence is now as strong as the God's Helping Hand number ever got. Did not change the page; PR #7's number already matches.
+
+**Natasha Johnson's SB 417 vote: still not found.** The only 2026 floor vote that turned up in today's search was her vote against AB-1921 (Protect Our Games Act) in June, an unrelated bill. Her SB 417 vote stays "vote to be confirmed" on the page. Not guessing it.
+
+**LIHEAP FY2027: no material change.** House Appropriations Committee's draft still holds LIHEAP at $4.055 billion, same figure already on the page. New detail found but not page-worthy: House Appropriations Chair Tom Cole (R-OK) is on record opposed to the administration's proposal to eliminate the program, which is more evidence the committee-level number will hold, not a change to what residents are told.
+
+**God's Helping Hand phone number:** Same search pattern as every prior run, food-banks.org, same (951) 973-3582. Eighth run in a row with this number and zero appearances of the alternate. Still flagged as needing an actual phone call before this counts as confirmed rather than well-evidenced.
+
+**GitHub Pages:** Not re-tested this run, per the July 4 decision that repeatedly hitting the same blocked domain from this environment doesn't produce new information. Whether Pages is enabled is still unconfirmed from here. This is now in its seventh week without a page going live.
+
+**No freshness thresholds due today.** Volunteer 60-day check due ~July 22. Food 90-day phone reverification due ~August 21.
+
+**The actual bottleneck, unchanged:** GitHub Pages enablement (six weeks) and PR review (this is now the only open PR, down from three) are still the only things standing between this project and step 4 of the loop, actually measuring whether any of this helps anyone. Content research keeps turning up real, useful corrections, but none of it can be checked against real use until something is live.
+
+**What is flagged for follow-up:**
+
+- Enable GitHub Pages (Settings → Pages → branch and root folder). Same ask since May 23.
+- Merge this PR, close #7 without merging (its content is here).
+- Natasha Johnson's SB 417 vote: still unconfirmed.
+- God's Helping Hand: still needs a direct call.
+- LIHEAP FY2027: watch for full committee and floor action; federal fiscal year begins October 1, 2026.
+
+---
+
 ## 2026-07-05 — Scheduled check: Essayli no longer holds the District 63 Assembly seat, policy page corrected
 
 **What was done:**
