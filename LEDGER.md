@@ -67,6 +67,34 @@ Did not find her phone number by directly fetching the primary source; the numbe
 
 ---
 
+## 2026-07-08 — Scheduled check: no material change, PR backlog now four open, blockers into their seventh week
+
+**What was done:**
+
+This branch (`claude/cool-lovelace-4ambz2`) had fallen one commit behind PR #8 (`claude/cool-lovelace-6oqwni`, opened July 7), which itself already carried PR #7's content. Fast-forwarded onto PR #8's head rather than opening a fifth branch with duplicate content. This branch now carries everything from #6, #7, and #8. Recommend merging this one and closing #7 and #8 without merging them separately.
+
+Rechecked every open item from the July 7 entry. Nothing changed:
+
+- **Natasha Johnson's SB 417 vote:** Searched again (general web search, fastdemocracy.com, leginfo.legislature.ca.gov). No individual vote record found. `ad63.asmrc.org` and `fastdemocracy.com` both returned 403 from this environment's proxy when fetched directly, same pattern as `leginfo.legislature.ca.gov`. Page still correctly shows "vote to be confirmed."
+- **Natasha Johnson's phone number:** Could not reach the primary source (`ad63.asmrc.org`, 403) to confirm (951) 277-3639 directly. No conflicting number turned up in general search either. Same unresolved state as July 7.
+- **LIHEAP FY2027:** No material change. House Appropriations Committee's approved bill still holds LIHEAP at $4.055 billion; full floor action still pending in both chambers. No page update needed.
+- **God's Helping Hand phone number:** Ninth run in a row returning (951) 973-3582 as the primary number and food-banks.org/californiafoodpantry.org as sources; the (951) 679-4667 alternate still turns up in one listing (benefitsexplorer.com pattern) but has never been the top result. Still not a phone call. Did not change the data file.
+- **GitHub Pages:** Tested directly this run (first direct retest since the July 4 decision to stop). `coldtie.github.io/Earthseed/` returned HTTP 403, consistent with every prior check back to July 1. This remains indistinguishable between "Pages not enabled" and "this environment's network policy blocks the domain" — the proxy status endpoint shows no explicit block rule for github.io, so it may be the former. Cannot resolve this without Steve confirming directly.
+
+**No freshness thresholds due today.** Volunteer 60-day check due ~July 22. Food 90-day phone reverification due ~August 21.
+
+**The actual bottleneck, restated plainly:** Four open PRs (#6 is merged; #7 and #8 are open and now folded into this one) and GitHub Pages enablement have been waiting on human action since May 23 (Pages) and June 14 (first PR). That is seven weeks for Pages. No page has ever gone live, so steps 4 and 5 of the loop (measure real use, then improve) have not started. This is now the sixth consecutive scheduled run to repeat this same flag. Further research passes will keep finding the same "unconfirmed, needs a phone call or a reachable primary source" results until Steve takes the two actions below.
+
+**What is flagged for follow-up:**
+
+- Merge this PR, close #7 and #8 without merging (their content is now all here).
+- Enable GitHub Pages in repository settings (Settings → Pages → branch and root folder). Single action that unblocks everything else in the project.
+- Natasha Johnson's SB 417 vote and phone number: both still need either a reachable primary source or a direct call to (951) 277-3639.
+- God's Helping Hand: call to confirm which of the two numbers is current.
+- LIHEAP FY2027: watch for House floor action; federal fiscal year begins October 1, 2026.
+
+---
+
 ## 2026-07-04 — Scheduled check: Seyarto's SB 417 vote confirmed, branch consolidated, backlog now three weeks overdue
 
 **What was done:**
