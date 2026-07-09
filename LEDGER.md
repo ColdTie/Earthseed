@@ -4,6 +4,34 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-07-09 — Scheduled check: no material change, GitHub Pages blocker now seven weeks old, three open PRs waiting on review
+
+**What was done:**
+
+This branch (`claude/cool-lovelace-ke71o4`) started fresh from the same point PR #9's branch did. Fast-forwarded onto PR #9's head (`claude/cool-lovelace-4ambz2`) rather than opening a fourth branch carrying duplicate content; that branch already includes everything from #6, #7, and #8. **Recommend merging this PR and closing #7, #8, and #9 without merging them separately.**
+
+Rechecked every open item. Nothing material changed:
+
+- **Natasha Johnson's SB 417 vote:** Searched again. No individual floor vote record found anywhere. Page still correctly shows "vote to be confirmed."
+- **Natasha Johnson's phone number:** No conflicting number found. (951) 277-3639 stands, still not confirmed against the primary source (`ad63.asmrc.org`, still returning 403 from this environment).
+- **God's Helping Hand phone number:** Tenth run in a row returning (951) 973-3582 from food-banks.org. Still not a phone call.
+- **LIHEAP FY2027:** No material change to the page. One new detail found: a search snippet referenced a Senate Appropriations Committee "$4B LIHEAP funding package," but the source article (papetroleum.org) returned 403 and could not be read directly. A follow-up search clarified this is very likely the same Labor-HHS bill already tracked, funding LIHEAP at $4.055 billion, not a separate or conflicting number, since both the House and Senate committee actions keep landing on that same figure. Not confident enough in the $4B framing from a single unreachable source to change the page over it. Worth a closer look next run if a readable source turns up.
+- **GitHub Pages:** Tested directly again. `coldtie.github.io/Earthseed/` still returns HTTP 403. Same result on every check since July 1, now covering ten days and eight scheduled runs in a row.
+
+**No freshness thresholds due today.** Volunteer 60-day check due ~July 22. Food 90-day phone reverification due ~August 21.
+
+**The actual bottleneck, restated plainly:** GitHub Pages has not been enabled in seven weeks (since May 23). Three open PRs (#7, #8, #9, all carrying the same consolidated content plus small addenda) have been waiting on review since July 5. No page has ever gone live. Steps 4 and 5 of the loop, the part that makes this project different from a normal automation, cannot start until a person takes the two actions below. This is now the eighth consecutive scheduled run repeating this same flag. Sending a direct notification this run rather than just writing it here again, since the ledger alone has not moved this in over a month.
+
+**What is flagged for follow-up:**
+
+- Enable GitHub Pages in repository settings (Settings → Pages → branch and root folder). Single action that unblocks everything else in the project. Unchanged ask since May 23.
+- Merge this PR (or #9) and close the other two without merging; their content is identical plus small addenda.
+- Natasha Johnson's SB 417 vote and phone number: still need either a reachable primary source or a direct call to (951) 277-3639.
+- God's Helping Hand: still needs a direct call to pick between the two numbers on file.
+- LIHEAP FY2027: watch for full House and Senate floor action; federal fiscal year begins October 1, 2026.
+
+---
+
 ## 2026-07-07 — Scheduled check: Natasha Johnson's phone number re-corroborated, PR backlog down to one, no material change otherwise
 
 **What was done:**
