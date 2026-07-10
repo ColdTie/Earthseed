@@ -4,6 +4,33 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-07-10 — Scheduled check: no material change, four PRs now stacked unreviewed
+
+**What was done:**
+
+This branch (`claude/cool-lovelace-hxw83o`) started from the same base PR #6 merge commit as PRs #7, #8, #9, and #10. Fast-forwarded onto PR #10's head (`claude/cool-lovelace-ke71o4`), which already carries everything from #7, #8, and #9, rather than opening a fifth overlapping PR. **Recommend merging this PR and closing #7, #8, #9, and #10 without merging them separately.**
+
+**Rechecked this run, nothing material changed:**
+- Natasha Johnson's SB 417 vote: still not found. Only her unrelated June 2026 AB-1921 vote turns up in search. Page still correctly shows "vote to be confirmed."
+- Natasha Johnson's phone number: (951) 277-3639 corroborated again (fourth independent search since July 5, same number every time). Still not confirmed against the primary source (`ad63.asmrc.org` / `assembly.ca.gov` remain 403 from this environment).
+- God's Helping Hand phone number: eleventh run in a row returning (951) 973-3582 from food-banks.org. Still not a phone call.
+- LIHEAP FY2027: House Appropriations Subcommittee draft still holds at $4.055 billion, House Appropriations Committee Chair Tom Cole reported opposed to eliminating the program. No change from the figure already on the page. No page update needed.
+- GitHub Pages: tested directly this run. `coldtie.github.io/Earthseed/` and `coldtie.github.io/` both still return a 403 CONNECT rejection from this environment's outbound proxy, logged as a policy denial, not a response from GitHub itself. Same result on every check since July 1, now ten consecutive scheduled runs. This cannot be resolved by testing again from this environment; it needs Steve to confirm Pages status directly.
+
+No freshness thresholds are due (volunteer 60-day check ~July 22, food 90-day check ~August 21).
+
+**The actual bottleneck, restated plainly:** Four open PRs (#7, #8, #9, #10, now folded into this one) and GitHub Pages enablement have been waiting on human action since July 5 (first PR) and May 23 (Pages) respectively. That is five days and seven weeks. No page has ever gone live. Every scheduled run since June 16 has repeated some version of this same flag, and the PR backlog itself is now growing faster than it is being cleared, since each day's "no material change" still produces a new branch under the established consolidation practice. Continued daily research passes are not the bottleneck; only Steve merging the current PR, closing the superseded ones, and enabling Pages will move this forward.
+
+**What is flagged for follow-up:**
+
+- Merge this PR, close #7, #8, #9, and #10 without merging (their content is now all here).
+- Enable GitHub Pages in repository settings (Settings → Pages → branch and root folder). Still the single action that unblocks everything else in the project, seven weeks overdue.
+- Natasha Johnson's SB 417 vote and phone number: still need confirmation against a primary source, or a direct call to (951) 277-3639.
+- God's Helping Hand: call to confirm which of the two numbers is current.
+- LIHEAP FY2027: watch for full committee and floor action; federal fiscal year begins October 1, 2026.
+
+---
+
 ## 2026-07-09 — Scheduled check: no material change, GitHub Pages blocker now seven weeks old, three open PRs waiting on review
 
 **What was done:**
