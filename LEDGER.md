@@ -4,6 +4,33 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-07-11 — Scheduled check: God's Helping Hand phone number now genuinely in dispute, five PRs consolidated, flagging the backlog directly to Steve
+
+**What was done:**
+
+This branch (`claude/cool-lovelace-hzq532`) started from the same base as PRs #7 through #11. Fast-forwarded onto PR #11's head (`claude/cool-lovelace-hxw83o`), which already carries everything from #7, #8, #9, and #10, rather than opening a sixth overlapping PR. **Recommend merging this PR and closing #7, #8, #9, #10, and #11 without merging them separately.**
+
+**New finding: God's Helping Hand phone number is now a real disagreement, not just an unconfirmed one.** Every prior pass (eleven in a row) returned (951) 973-3582 from generic food-bank aggregator sites (food-banks.org, californiafoodpantry.org) and never surfaced the alternate number independently. Today's search found Manta.com and multiple findhelp.org listings independently returning (951) 679-4667 for the same Bradley Rd address. findhelp.org is a curated benefits-navigation directory, not a generic scrape aggregator, so this is a different and more credible source cluster than the ones that kept confirming the other number. This changes the situation from "one unconfirmed number, mildly corroborated" to "two source clusters actively disagreeing." Updated the reverification note in `efforts/0001-menifee-food/data/resources.json` to record this. Did not change which number displays first on the page. Neither number has ever been confirmed by an actual phone call, and that is now more clearly necessary than before.
+
+**Natasha Johnson's SB 417 vote:** Searched again. No source (LegiScan, CalMatters Digital Democracy, FastDemocracy) publishes the individual roll call for the June 25, 2026 Assembly floor vote (61-7, 11 absent), only the aggregate tally. Still correctly shown as "vote to be confirmed." This is now looking like a dead end for web search specifically; it will need a call to her office or a source with the actual roll call.
+
+**LIHEAP FY2027 and GitHub Pages:** Not rechecked this run. LIHEAP has shown no movement in four consecutive checks (July 7 through 10) and the federal fiscal year does not begin until October 1, 2026; a fifth identical check added nothing the prior four didn't already establish. GitHub Pages has returned the same 403 policy denial from this environment on eleven consecutive runs since July 1; retesting it again produces no new information, only the same non-answer. Continuing to spend a run on either is not a good use of the loop right now.
+
+No freshness thresholds are due (volunteer 60-day check ~July 22, food 90-day check ~August 21).
+
+**The actual bottleneck, stated plainly:** Five PRs (#7 through #11, now folded into this one) have been open since July 5 with no review, and GitHub Pages enablement has been outstanding since May 23. That is a week for the PR queue and seven weeks for Pages. No page has ever gone live. The daily consolidation practice (fast-forward onto the latest branch, add a note, open another PR) has kept the repository consistent but has not once produced a merge, and it is generating branch clutter: 53 remote branches now exist, nearly all of them dead ends from this same pattern. Repeating this same research and the same recommendation for an eleventh straight day without a person acting on it is not helping. This run's judgment: stop asking quietly in PR bodies that no one is reading, and say so directly instead. Sent a push notification to Steve this run laying out the backlog plainly.
+
+**What is flagged for follow-up:**
+
+- Merge this PR, close #7 through #11 without merging (their content is now all here).
+- Enable GitHub Pages in repository settings. Seven weeks overdue; still the single action that unblocks everything else in the project.
+- God's Helping Hand: the phone number question can no longer be resolved by more searching. It needs one actual phone call to either number to find out who answers.
+- Natasha Johnson's SB 417 vote and phone number: still unconfirmed against a primary source.
+- Once Pages is enabled and PRs are cleared, consider whether opening a new PR every single day when nothing material changes is the right cadence, versus batching research checks and only opening a PR when there is something a person actually needs to act on.
+- The 53 stale remote branches are not touched this run (deleting branches is a visible, hard-to-reverse action on shared state); flagging for Steve to prune once he's confirmed nothing on them is needed.
+
+---
+
 ## 2026-07-10 — Scheduled check: no material change, four PRs now stacked unreviewed
 
 **What was done:**
