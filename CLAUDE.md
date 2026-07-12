@@ -55,9 +55,9 @@ Four efforts are built and waiting to be hosted:
 - #0003: Menifee senior resources. Static HTML page built May 23, 2026. Ready for deployment.
 - #0004: Policy impact. Representatives, current legislation, and plain-language impact for Menifee residents. Built May 23, 2026. Ready for deployment.
 
-A root index.html exists at the repo root as a GitHub Pages landing page. Steve must enable GitHub Pages in repository settings (Settings → Pages → select branch and root folder) for the pages to go live. That human action is the gate.
+A root index.html exists at the repo root as a GitHub Pages landing page. GitHub Pages has been enabled and live since May 23, 2026, confirmed on July 12 by three successful "pages build and deployment" workflow runs (May 23, June 16, July 4) visible through the GitHub Actions API. The site is at https://coldtie.github.io/Earthseed/. It serves whatever was last merged to claude/optimistic-volta-sgxeY, the trunk branch. Corrections sitting in open, unmerged PRs are not live until someone merges them. Do not judge Pages status by fetching coldtie.github.io directly: this environment's outbound network policy returns 403 for that domain regardless of whether Pages is enabled, and seven weeks of scheduled runs mistook that block for Pages being off. Check the pages-build-deployment workflow runs through the GitHub MCP tools instead.
 
-Once live, the first measurement task is: check whether any wrong-door reports arrive at pennersteven@gmail.com (the address in the report-a-problem links). After two weeks, check traffic source if analytics are added. If nothing is coming in and traffic is low, the distribution problem is bigger than the content problem.
+The site has been live for seven weeks without the first measurement task ever happening. That task is now overdue: check pennersteven@gmail.com for any wrong-door reports that arrived over that window. After that, check traffic source if analytics are added. If nothing is coming in and traffic is low, the distribution problem is bigger than the content problem.
 
 Data freshness: re-verify each food resource by phone every 90 days. Flag stale volunteer listings every 60 days. YANA, IHSS, LIHEAP, and TRIP are county or city programs and tend to be stable, but confirm annually.
 

@@ -4,6 +4,38 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-07-12 — Scheduled check: GitHub Pages has been live since May 23, seven weeks of runs had the wrong belief
+
+**What was done:**
+
+Checked GitHub Pages status a different way than every prior run. Instead of fetching `coldtie.github.io` directly (blocked with a 403 by this environment's outbound network policy on every check since July 1, which had been read as evidence Pages was still disabled), used the GitHub MCP tools to list the repository's Actions workflows. That surfaced a `pages-build-deployment` workflow, active since May 23, 2026, with three completed runs, all successful:
+
+- May 23, 2026, after PR #1 merged
+- June 16, 2026, after PR #3 merged
+- July 4, 2026, after PR #6 merged
+
+This is conclusive: GitHub Pages has been enabled and successfully serving this site at `https://coldtie.github.io/Earthseed/` for seven weeks. The 403s were this environment's own network policy blocking the domain, not information about whether Pages was on. No prior run had a way to check the Actions API directly until the GitHub MCP tools were available in this session.
+
+**What this actually means:** the live site is currently serving the content from the July 4 merge commit (`7c54512`), because nothing has merged since. Checked that commit directly: it still shows Bill Essayli as the Assembly District 63 representative, with his old office phone number, on the policy page. Essayli resigned in April 2025. PR #7, opened July 5, found this and drafted the fix (Natasha Johnson, the actual current representative) — but PR #7 was never merged, so the correction never went live. That means wrong information about who represents Menifee residents in the Assembly has been publicly visible for the full seven weeks the site has been live, and specifically wrong (not just outdated) for the eight days since the fix was written and sitting unmerged.
+
+Also: steps 4 and 5 of the loop (measure real use, then improve) have never started, even though they have been possible since May 23. No one has checked `pennersteven@gmail.com` for wrong-door reports on a site that has, per this finding, actually been receiving whatever traffic it receives for seven weeks.
+
+**Updated CLAUDE.md's "Where things stand" section** to remove the "Steve must enable GitHub Pages" framing (wrong) and replace it with the confirmed live status, the URL, and a note for future runs: check the `pages-build-deployment` workflow through the GitHub MCP tools, not by fetching the domain directly, since that fetch is unreliable from this environment regardless of actual Pages status.
+
+**Consolidated PR #12's branch onto this one** (already folds in #7 through #11) rather than adding more research on top. The real next step this run surfaced is not more fact-finding, it's getting the existing correct content merged, since it has been sitting ready and unmerged while wrong information stayed live.
+
+**Notified Steve directly** given the severity: live, public misinformation about an elected representative, and seven weeks of unmeasured traffic, both fixable by the same action (merging the backlog).
+
+**What is flagged for follow-up:**
+
+- Merge this PR (or #12, same content) now. The live site has shown an incorrect representative for over a week.
+- Check `pennersteven@gmail.com` for wrong-door reports accumulated over seven weeks of live traffic — this can finally happen.
+- The branch/PR backlog problem (53+ stale branches, six unmerged PRs in the #7-#12 chain) is separate and still real; flagged previously in PR #12.
+- Still unconfirmed: God's Helping Hand's phone number (needs an actual call), Natasha Johnson's SB 417 vote.
+- No freshness thresholds due today (volunteer 60-day check ~July 22, food 90-day check ~August 21).
+
+---
+
 ## 2026-07-11 — Scheduled check: God's Helping Hand phone number now genuinely in dispute, five PRs consolidated, flagging the backlog directly to Steve
 
 **What was done:**
