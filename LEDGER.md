@@ -4,6 +4,29 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-07-14 — Scheduled check: first real measurement data (zero wrong-door reports), independently confirmed Pages-live finding, no new PR opened
+
+**What was done:**
+
+This session had two tools no prior scheduled run had: GitHub MCP tools with Actions API access, and Gmail access to pennersteven@gmail.com, the address in every "report a problem" link across all four pages.
+
+**Verified PR #13's claims directly rather than taking them on faith.** Pulled the file diff via the GitHub API: the Essayli-to-Natasha-Johnson correction and the GitHub Pages-live documentation both check out. PR #13 (which folds in #12, which folds in #7 through #11) is accurate and ready. Did not open a fifth or sixth branch repeating the same content; the branch-pileup problem is already flagged clearly enough in PR #12's own body.
+
+**Checked Gmail directly for wrong-door reports for the first time.** Searched pennersteven@gmail.com back to May 23, 2026, the day the Actions API confirms GitHub Pages actually went live. Zero emails matching any correction or problem report on any of the four pages. This is the first real measurement data point this project has produced since it began: steps 4 and 5 of the loop (measure real use, then improve) have had nothing to measure until this check, because no prior run had a way to look. Two readings are both consistent with zero reports: the live content has been accurate enough that no one hit a wrong door, or traffic has been low enough that few people have found the site at all. No analytics are wired up, so traffic volume cannot be checked from here to tell those apart.
+
+**Did not merge PR #12 or #13.** Merging into `claude/optimistic-volta-sgxeY` is the action that puts new content on the live, public site, and every completed Pages deployment to date (May 23, June 16, July 4) was triggered by a merge commit authored by Steve, not by an agent. That is the human gate working as intended and it stays. Added the Gmail finding as a comment on PR #13 instead of a new PR, since it supports the existing recommendation rather than changing it.
+
+**Not rechecked this run:** God's Helping Hand's phone number (needs an actual call, not another search; flagged since May 23), Natasha Johnson's SB 417 vote (still no individual roll call published anywhere searched), LIHEAP FY2027 (no movement in five straight checks, federal fiscal year doesn't start until October). No freshness thresholds are due (volunteer 60-day check ~July 22, food 90-day check ~August 21).
+
+**What is flagged for follow-up:**
+
+- PR #13 is still open, unmerged, ready. The live site has shown a representative who resigned in April 2025 for going on two weeks since the fix was written (PR #7, July 5). This is the highest-value single action available: merging it both corrects that and clears #7 through #12 at once.
+- Consider adding basic analytics (even a simple hit counter) so "zero reports" can be told apart from "zero visitors." Right now this project cannot distinguish "the tool is accurate" from "no one has found it."
+- God's Helping Hand: still needs an actual phone call.
+- Natasha Johnson's SB 417 vote and phone number: still need a primary source or a direct call.
+
+---
+
 ## 2026-07-04 — Scheduled check: Seyarto's SB 417 vote confirmed, branch consolidated, backlog now three weeks overdue
 
 **What was done:**
