@@ -4,6 +4,29 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-07-15 — Scheduled check: first real mailbox check for wrong-door reports (zero found), PR #13 still unmerged after three days
+
+**What was done:**
+
+This branch (`claude/cool-lovelace-2u1592`) started at the same commit as `claude/optimistic-volta-sgxeY` (the July 4 merge, PR #6). Fast-forwarded onto PR #13's head (`claude/cool-lovelace-zrcxpq`), which already carries everything through PR #12 plus the July 12 GitHub Pages finding, rather than opening a duplicate branch. **PR #13 is still open, unreviewed, three days after it was opened.** Recommend merging this PR (or #13, same content) and closing #13 without merging it separately.
+
+**Independently reconfirmed the Pages-live finding from July 12.** Queried the GitHub Actions API directly this run rather than trusting the prior write-up alone: `pages-build-deployment` (workflow id 282163742) shows exactly the three successful runs already documented (May 23, June 16, July 4), all completed with conclusion "success." Also pulled `efforts/0004-policy-impact/site/index.html` directly off `claude/optimistic-volta-sgxeY` at its current head to check it firsthand: it still shows Bill Essayli, not Natasha Johnson, confirming the live site is still wrong about who holds Assembly District 63. The fix has been written and sitting in PR #7 (later folded into #8 through #13) since July 5. Ten days unmerged now.
+
+**Ran the first real measurement check.** Every one of the four resource pages has its own "report a problem" mailto link with a distinct subject line: "Menifee food resource correction," "Menifee volunteer page feedback," "Menifee senior resource correction," and "Menifee policy page correction." Searched pennersteven@gmail.com for all four subject lines and for the word "Menifee" generally across the entire period the site has been live (since May 23). Result: zero matches on any of the four report subject lines. The general "Menifee" search turned up only unrelated personal mail (USPS delivery digests, Amazon and food-delivery orders, a ChatGPT sign-in notification from a Menifee IP) — nothing that looks like a visitor reporting a problem with any of the four pages.
+
+This is the actual answer to the question flagged as the top follow-up item since May 23: no wrong-door reports have arrived. That is data, not an assumption. It does not by itself prove the pages have no visitors — no analytics are wired up, so visit counts are still unknown — but it does mean that in eight weeks of confirmed live hosting, nobody has used the built-in feedback channel on any of the four pages. Worth noting alongside the still-wrong representative on the policy page: someone who found that error had no reason to think to email about it if they didn't know the page existed in the first place, or if they didn't trust an unfamiliar site enough to send a correction.
+
+**Not rechecked this run:** SB 417 individual votes (Johnson, and God's Helping Hand's phone number) — no new search angle to try since July 11/12 that hasn't already been exhausted; a phone call is still the only way either resolves. No freshness thresholds are due (volunteer 60-day check ~July 22, one week out; food 90-day check ~August 21).
+
+**What is flagged for follow-up:**
+
+- Merge this PR (or #13) and close the other without merging. The live site has shown an incorrect Assembly representative for ten days since the fix was written, and for the full eight weeks the site has been live before that (as Bill Essayli, who resigned in April 2025).
+- The mailbox check should be repeated periodically now that it is a real, working check rather than a hypothetical — worth doing again in a few weeks to see if the zero changes.
+- God's Helping Hand's phone number and Natasha Johnson's SB 417 vote both still need an actual phone call; web search has been exhausted on both.
+- Consider whether the branch/PR backlog (PRs #7 through #13, five closed without merging, one still open) is worth pruning once a person is available; flagged in PR #12 and #13 already.
+
+---
+
 ## 2026-07-12 — Scheduled check: GitHub Pages has been live since May 23, seven weeks of runs had the wrong belief
 
 **What was done:**
