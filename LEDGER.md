@@ -4,6 +4,234 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-07-15 — Scheduled check: first real mailbox check for wrong-door reports (zero found), PR #13 still unmerged after three days
+
+**What was done:**
+
+This branch (`claude/cool-lovelace-2u1592`) started at the same commit as `claude/optimistic-volta-sgxeY` (the July 4 merge, PR #6). Fast-forwarded onto PR #13's head (`claude/cool-lovelace-zrcxpq`), which already carries everything through PR #12 plus the July 12 GitHub Pages finding, rather than opening a duplicate branch. **PR #13 is still open, unreviewed, three days after it was opened.** Recommend merging this PR (or #13, same content) and closing #13 without merging it separately.
+
+**Independently reconfirmed the Pages-live finding from July 12.** Queried the GitHub Actions API directly this run rather than trusting the prior write-up alone: `pages-build-deployment` (workflow id 282163742) shows exactly the three successful runs already documented (May 23, June 16, July 4), all completed with conclusion "success." Also pulled `efforts/0004-policy-impact/site/index.html` directly off `claude/optimistic-volta-sgxeY` at its current head to check it firsthand: it still shows Bill Essayli, not Natasha Johnson, confirming the live site is still wrong about who holds Assembly District 63. The fix has been written and sitting in PR #7 (later folded into #8 through #13) since July 5. Ten days unmerged now.
+
+**Ran the first real measurement check.** Every one of the four resource pages has its own "report a problem" mailto link with a distinct subject line: "Menifee food resource correction," "Menifee volunteer page feedback," "Menifee senior resource correction," and "Menifee policy page correction." Searched pennersteven@gmail.com for all four subject lines and for the word "Menifee" generally across the entire period the site has been live (since May 23). Result: zero matches on any of the four report subject lines. The general "Menifee" search turned up only unrelated personal mail (USPS delivery digests, Amazon and food-delivery orders, a ChatGPT sign-in notification from a Menifee IP) — nothing that looks like a visitor reporting a problem with any of the four pages.
+
+This is the actual answer to the question flagged as the top follow-up item since May 23: no wrong-door reports have arrived. That is data, not an assumption. It does not by itself prove the pages have no visitors — no analytics are wired up, so visit counts are still unknown — but it does mean that in eight weeks of confirmed live hosting, nobody has used the built-in feedback channel on any of the four pages. Worth noting alongside the still-wrong representative on the policy page: someone who found that error had no reason to think to email about it if they didn't know the page existed in the first place, or if they didn't trust an unfamiliar site enough to send a correction.
+
+**Not rechecked this run:** SB 417 individual votes (Johnson, and God's Helping Hand's phone number) — no new search angle to try since July 11/12 that hasn't already been exhausted; a phone call is still the only way either resolves. No freshness thresholds are due (volunteer 60-day check ~July 22, one week out; food 90-day check ~August 21).
+
+**What is flagged for follow-up:**
+
+- Merge this PR (or #13) and close the other without merging. The live site has shown an incorrect Assembly representative for ten days since the fix was written, and for the full eight weeks the site has been live before that (as Bill Essayli, who resigned in April 2025).
+- The mailbox check should be repeated periodically now that it is a real, working check rather than a hypothetical — worth doing again in a few weeks to see if the zero changes.
+- God's Helping Hand's phone number and Natasha Johnson's SB 417 vote both still need an actual phone call; web search has been exhausted on both.
+- Consider whether the branch/PR backlog (PRs #7 through #13, five closed without merging, one still open) is worth pruning once a person is available; flagged in PR #12 and #13 already.
+
+---
+
+## 2026-07-12 — Scheduled check: GitHub Pages has been live since May 23, seven weeks of runs had the wrong belief
+
+**What was done:**
+
+Checked GitHub Pages status a different way than every prior run. Instead of fetching `coldtie.github.io` directly (blocked with a 403 by this environment's outbound network policy on every check since July 1, which had been read as evidence Pages was still disabled), used the GitHub MCP tools to list the repository's Actions workflows. That surfaced a `pages-build-deployment` workflow, active since May 23, 2026, with three completed runs, all successful:
+
+- May 23, 2026, after PR #1 merged
+- June 16, 2026, after PR #3 merged
+- July 4, 2026, after PR #6 merged
+
+This is conclusive: GitHub Pages has been enabled and successfully serving this site at `https://coldtie.github.io/Earthseed/` for seven weeks. The 403s were this environment's own network policy blocking the domain, not information about whether Pages was on. No prior run had a way to check the Actions API directly until the GitHub MCP tools were available in this session.
+
+**What this actually means:** the live site is currently serving the content from the July 4 merge commit (`7c54512`), because nothing has merged since. Checked that commit directly: it still shows Bill Essayli as the Assembly District 63 representative, with his old office phone number, on the policy page. Essayli resigned in April 2025. PR #7, opened July 5, found this and drafted the fix (Natasha Johnson, the actual current representative) — but PR #7 was never merged, so the correction never went live. That means wrong information about who represents Menifee residents in the Assembly has been publicly visible for the full seven weeks the site has been live, and specifically wrong (not just outdated) for the eight days since the fix was written and sitting unmerged.
+
+Also: steps 4 and 5 of the loop (measure real use, then improve) have never started, even though they have been possible since May 23. No one has checked `pennersteven@gmail.com` for wrong-door reports on a site that has, per this finding, actually been receiving whatever traffic it receives for seven weeks.
+
+**Updated CLAUDE.md's "Where things stand" section** to remove the "Steve must enable GitHub Pages" framing (wrong) and replace it with the confirmed live status, the URL, and a note for future runs: check the `pages-build-deployment` workflow through the GitHub MCP tools, not by fetching the domain directly, since that fetch is unreliable from this environment regardless of actual Pages status.
+
+**Consolidated PR #12's branch onto this one** (already folds in #7 through #11) rather than adding more research on top. The real next step this run surfaced is not more fact-finding, it's getting the existing correct content merged, since it has been sitting ready and unmerged while wrong information stayed live.
+
+**Notified Steve directly** given the severity: live, public misinformation about an elected representative, and seven weeks of unmeasured traffic, both fixable by the same action (merging the backlog).
+
+**What is flagged for follow-up:**
+
+- Merge this PR (or #12, same content) now. The live site has shown an incorrect representative for over a week.
+- Check `pennersteven@gmail.com` for wrong-door reports accumulated over seven weeks of live traffic — this can finally happen.
+- The branch/PR backlog problem (53+ stale branches, six unmerged PRs in the #7-#12 chain) is separate and still real; flagged previously in PR #12.
+- Still unconfirmed: God's Helping Hand's phone number (needs an actual call), Natasha Johnson's SB 417 vote.
+- No freshness thresholds due today (volunteer 60-day check ~July 22, food 90-day check ~August 21).
+
+---
+
+## 2026-07-11 — Scheduled check: God's Helping Hand phone number now genuinely in dispute, five PRs consolidated, flagging the backlog directly to Steve
+
+**What was done:**
+
+This branch (`claude/cool-lovelace-hzq532`) started from the same base as PRs #7 through #11. Fast-forwarded onto PR #11's head (`claude/cool-lovelace-hxw83o`), which already carries everything from #7, #8, #9, and #10, rather than opening a sixth overlapping PR. **Recommend merging this PR and closing #7, #8, #9, #10, and #11 without merging them separately.**
+
+**New finding: God's Helping Hand phone number is now a real disagreement, not just an unconfirmed one.** Every prior pass (eleven in a row) returned (951) 973-3582 from generic food-bank aggregator sites (food-banks.org, californiafoodpantry.org) and never surfaced the alternate number independently. Today's search found Manta.com and multiple findhelp.org listings independently returning (951) 679-4667 for the same Bradley Rd address. findhelp.org is a curated benefits-navigation directory, not a generic scrape aggregator, so this is a different and more credible source cluster than the ones that kept confirming the other number. This changes the situation from "one unconfirmed number, mildly corroborated" to "two source clusters actively disagreeing." Updated the reverification note in `efforts/0001-menifee-food/data/resources.json` to record this. Did not change which number displays first on the page. Neither number has ever been confirmed by an actual phone call, and that is now more clearly necessary than before.
+
+**Natasha Johnson's SB 417 vote:** Searched again. No source (LegiScan, CalMatters Digital Democracy, FastDemocracy) publishes the individual roll call for the June 25, 2026 Assembly floor vote (61-7, 11 absent), only the aggregate tally. Still correctly shown as "vote to be confirmed." This is now looking like a dead end for web search specifically; it will need a call to her office or a source with the actual roll call.
+
+**LIHEAP FY2027 and GitHub Pages:** Not rechecked this run. LIHEAP has shown no movement in four consecutive checks (July 7 through 10) and the federal fiscal year does not begin until October 1, 2026; a fifth identical check added nothing the prior four didn't already establish. GitHub Pages has returned the same 403 policy denial from this environment on eleven consecutive runs since July 1; retesting it again produces no new information, only the same non-answer. Continuing to spend a run on either is not a good use of the loop right now.
+
+No freshness thresholds are due (volunteer 60-day check ~July 22, food 90-day check ~August 21).
+
+**The actual bottleneck, stated plainly:** Five PRs (#7 through #11, now folded into this one) have been open since July 5 with no review, and GitHub Pages enablement has been outstanding since May 23. That is a week for the PR queue and seven weeks for Pages. No page has ever gone live. The daily consolidation practice (fast-forward onto the latest branch, add a note, open another PR) has kept the repository consistent but has not once produced a merge, and it is generating branch clutter: 53 remote branches now exist, nearly all of them dead ends from this same pattern. Repeating this same research and the same recommendation for an eleventh straight day without a person acting on it is not helping. This run's judgment: stop asking quietly in PR bodies that no one is reading, and say so directly instead. Sent a push notification to Steve this run laying out the backlog plainly.
+
+**What is flagged for follow-up:**
+
+- Merge this PR, close #7 through #11 without merging (their content is now all here).
+- Enable GitHub Pages in repository settings. Seven weeks overdue; still the single action that unblocks everything else in the project.
+- God's Helping Hand: the phone number question can no longer be resolved by more searching. It needs one actual phone call to either number to find out who answers.
+- Natasha Johnson's SB 417 vote and phone number: still unconfirmed against a primary source.
+- Once Pages is enabled and PRs are cleared, consider whether opening a new PR every single day when nothing material changes is the right cadence, versus batching research checks and only opening a PR when there is something a person actually needs to act on.
+- The 53 stale remote branches are not touched this run (deleting branches is a visible, hard-to-reverse action on shared state); flagging for Steve to prune once he's confirmed nothing on them is needed.
+
+---
+
+## 2026-07-10 — Scheduled check: no material change, four PRs now stacked unreviewed
+
+**What was done:**
+
+This branch (`claude/cool-lovelace-hxw83o`) started from the same base PR #6 merge commit as PRs #7, #8, #9, and #10. Fast-forwarded onto PR #10's head (`claude/cool-lovelace-ke71o4`), which already carries everything from #7, #8, and #9, rather than opening a fifth overlapping PR. **Recommend merging this PR and closing #7, #8, #9, and #10 without merging them separately.**
+
+**Rechecked this run, nothing material changed:**
+- Natasha Johnson's SB 417 vote: still not found. Only her unrelated June 2026 AB-1921 vote turns up in search. Page still correctly shows "vote to be confirmed."
+- Natasha Johnson's phone number: (951) 277-3639 corroborated again (fourth independent search since July 5, same number every time). Still not confirmed against the primary source (`ad63.asmrc.org` / `assembly.ca.gov` remain 403 from this environment).
+- God's Helping Hand phone number: eleventh run in a row returning (951) 973-3582 from food-banks.org. Still not a phone call.
+- LIHEAP FY2027: House Appropriations Subcommittee draft still holds at $4.055 billion, House Appropriations Committee Chair Tom Cole reported opposed to eliminating the program. No change from the figure already on the page. No page update needed.
+- GitHub Pages: tested directly this run. `coldtie.github.io/Earthseed/` and `coldtie.github.io/` both still return a 403 CONNECT rejection from this environment's outbound proxy, logged as a policy denial, not a response from GitHub itself. Same result on every check since July 1, now ten consecutive scheduled runs. This cannot be resolved by testing again from this environment; it needs Steve to confirm Pages status directly.
+
+No freshness thresholds are due (volunteer 60-day check ~July 22, food 90-day check ~August 21).
+
+**The actual bottleneck, restated plainly:** Four open PRs (#7, #8, #9, #10, now folded into this one) and GitHub Pages enablement have been waiting on human action since July 5 (first PR) and May 23 (Pages) respectively. That is five days and seven weeks. No page has ever gone live. Every scheduled run since June 16 has repeated some version of this same flag, and the PR backlog itself is now growing faster than it is being cleared, since each day's "no material change" still produces a new branch under the established consolidation practice. Continued daily research passes are not the bottleneck; only Steve merging the current PR, closing the superseded ones, and enabling Pages will move this forward.
+
+**What is flagged for follow-up:**
+
+- Merge this PR, close #7, #8, #9, and #10 without merging (their content is now all here).
+- Enable GitHub Pages in repository settings (Settings → Pages → branch and root folder). Still the single action that unblocks everything else in the project, seven weeks overdue.
+- Natasha Johnson's SB 417 vote and phone number: still need confirmation against a primary source, or a direct call to (951) 277-3639.
+- God's Helping Hand: call to confirm which of the two numbers is current.
+- LIHEAP FY2027: watch for full committee and floor action; federal fiscal year begins October 1, 2026.
+
+---
+
+## 2026-07-09 — Scheduled check: no material change, GitHub Pages blocker now seven weeks old, three open PRs waiting on review
+
+**What was done:**
+
+This branch (`claude/cool-lovelace-ke71o4`) started fresh from the same point PR #9's branch did. Fast-forwarded onto PR #9's head (`claude/cool-lovelace-4ambz2`) rather than opening a fourth branch carrying duplicate content; that branch already includes everything from #6, #7, and #8. **Recommend merging this PR and closing #7, #8, and #9 without merging them separately.**
+
+Rechecked every open item. Nothing material changed:
+
+- **Natasha Johnson's SB 417 vote:** Searched again. No individual floor vote record found anywhere. Page still correctly shows "vote to be confirmed."
+- **Natasha Johnson's phone number:** No conflicting number found. (951) 277-3639 stands, still not confirmed against the primary source (`ad63.asmrc.org`, still returning 403 from this environment).
+- **God's Helping Hand phone number:** Tenth run in a row returning (951) 973-3582 from food-banks.org. Still not a phone call.
+- **LIHEAP FY2027:** No material change to the page. One new detail found: a search snippet referenced a Senate Appropriations Committee "$4B LIHEAP funding package," but the source article (papetroleum.org) returned 403 and could not be read directly. A follow-up search clarified this is very likely the same Labor-HHS bill already tracked, funding LIHEAP at $4.055 billion, not a separate or conflicting number, since both the House and Senate committee actions keep landing on that same figure. Not confident enough in the $4B framing from a single unreachable source to change the page over it. Worth a closer look next run if a readable source turns up.
+- **GitHub Pages:** Tested directly again. `coldtie.github.io/Earthseed/` still returns HTTP 403. Same result on every check since July 1, now covering ten days and eight scheduled runs in a row.
+
+**No freshness thresholds due today.** Volunteer 60-day check due ~July 22. Food 90-day phone reverification due ~August 21.
+
+**The actual bottleneck, restated plainly:** GitHub Pages has not been enabled in seven weeks (since May 23). Three open PRs (#7, #8, #9, all carrying the same consolidated content plus small addenda) have been waiting on review since July 5. No page has ever gone live. Steps 4 and 5 of the loop, the part that makes this project different from a normal automation, cannot start until a person takes the two actions below. This is now the eighth consecutive scheduled run repeating this same flag. Sending a direct notification this run rather than just writing it here again, since the ledger alone has not moved this in over a month.
+
+**What is flagged for follow-up:**
+
+- Enable GitHub Pages in repository settings (Settings → Pages → branch and root folder). Single action that unblocks everything else in the project. Unchanged ask since May 23.
+- Merge this PR (or #9) and close the other two without merging; their content is identical plus small addenda.
+- Natasha Johnson's SB 417 vote and phone number: still need either a reachable primary source or a direct call to (951) 277-3639.
+- God's Helping Hand: still needs a direct call to pick between the two numbers on file.
+- LIHEAP FY2027: watch for full House and Senate floor action; federal fiscal year begins October 1, 2026.
+
+---
+
+## 2026-07-07 — Scheduled check: Natasha Johnson's phone number re-corroborated, PR backlog down to one, no material change otherwise
+
+**What was done:**
+
+This branch (`claude/cool-lovelace-6oqwni`) was one commit behind PR #7's branch (`claude/cool-lovelace-rl3wq4`, the July 5 Essayli-to-Johnson fix). Fast-forwarded this branch onto that commit rather than opening a second PR with the same content, following the same consolidation practice as the July 4 entry. Recommend merging this PR and closing #7 without merging it separately.
+
+**Natasha Johnson's phone number: corroborated a third time.** Searched independently today for her District 63 office contact information. The result again returned (951) 277-3639, the same number PR #7 already carries from two sources (an assembly.ca.gov directory listing and a Corona Chamber of Commerce listing). Three independent searches, same number, never a conflicting one. `ad63.asmrc.org` and `assembly.ca.gov` are still unreachable from this environment (403 from the network proxy, same standing pattern as every other blocked domain), so this still is not the same as reading it off the primary source page, but the evidence is now as strong as the God's Helping Hand number ever got. Did not change the page; PR #7's number already matches.
+
+**Natasha Johnson's SB 417 vote: still not found.** The only 2026 floor vote that turned up in today's search was her vote against AB-1921 (Protect Our Games Act) in June, an unrelated bill. Her SB 417 vote stays "vote to be confirmed" on the page. Not guessing it.
+
+**LIHEAP FY2027: no material change.** House Appropriations Committee's draft still holds LIHEAP at $4.055 billion, same figure already on the page. New detail found but not page-worthy: House Appropriations Chair Tom Cole (R-OK) is on record opposed to the administration's proposal to eliminate the program, which is more evidence the committee-level number will hold, not a change to what residents are told.
+
+**God's Helping Hand phone number:** Same search pattern as every prior run, food-banks.org, same (951) 973-3582. Eighth run in a row with this number and zero appearances of the alternate. Still flagged as needing an actual phone call before this counts as confirmed rather than well-evidenced.
+
+**GitHub Pages:** Not re-tested this run, per the July 4 decision that repeatedly hitting the same blocked domain from this environment doesn't produce new information. Whether Pages is enabled is still unconfirmed from here. This is now in its seventh week without a page going live.
+
+**No freshness thresholds due today.** Volunteer 60-day check due ~July 22. Food 90-day phone reverification due ~August 21.
+
+**The actual bottleneck, unchanged:** GitHub Pages enablement (six weeks) and PR review (this is now the only open PR, down from three) are still the only things standing between this project and step 4 of the loop, actually measuring whether any of this helps anyone. Content research keeps turning up real, useful corrections, but none of it can be checked against real use until something is live.
+
+**What is flagged for follow-up:**
+
+- Enable GitHub Pages (Settings → Pages → branch and root folder). Same ask since May 23.
+- Merge this PR, close #7 without merging (its content is here).
+- Natasha Johnson's SB 417 vote: still unconfirmed.
+- God's Helping Hand: still needs a direct call.
+- LIHEAP FY2027: watch for full committee and floor action; federal fiscal year begins October 1, 2026.
+
+---
+
+## 2026-07-05 — Scheduled check: Essayli no longer holds the District 63 Assembly seat, policy page corrected
+
+**What was done:**
+
+Every prior run since May 23 tried to confirm Bill Essayli's individual floor vote on SB 417 and came up empty, treating it as an unconfirmed vote. Today's search found the actual reason: Essayli resigned from the Assembly in April 2025 to become interim U.S. Attorney for the Central District of California, months before SB 417 passed and was signed (June 25, 2026). He was not in office for this vote and could not have cast one. The seat has been held by Natasha Johnson (R), who won an August 26, 2025 special election and was sworn in September 8, 2025. This means the policy page has been showing Steve's actual state assembly representative wrong since it was built on May 23, six weeks before this was caught, and would have stayed wrong indefinitely since prior runs kept re-searching for a vote that could never be found instead of questioning whether Essayli was still the right person to look up.
+
+Fixed on the policy page (`efforts/0004-policy-impact/site/index.html`):
+- Representatives list: replaced the Bill Essayli row with Natasha Johnson, District 63, phone (951) 277-3639 (her Corona district office, sourced from a California State Assembly directory listing and corroborated independently via a Corona Chamber of Commerce listing; the official ad63.asmrc.org and assembly.ca.gov pages are unreachable from this environment's network policy so I could not confirm directly from the primary source).
+- SB 417 card: vote chip changed from "Essayli (R-A63) — vote to be confirmed" to "Johnson (R-A63) — vote to be confirmed" (her actual vote is still not found; same unreachable-leginfo problem as before, this time for a different reason than a non-split vote). Added a sentence explaining the resignation and handoff so the page doesn't look like it is silently swapping a name. Added the resignation source (The Center Square) to the source line.
+- Updated "Data reviewed" and "Last reviewed" dates to July 5, 2026.
+
+Did not find her phone number by directly fetching the primary source; the number comes from a search snippet of the official assembly.ca.gov directory page, corroborated by a second independent source (Corona Chamber of Commerce). Flagging this the same way the God's Helping Hand number is flagged: two consistent sources is good evidence, not the same as pulling it from the primary page directly.
+
+**Rechecked, no change:**
+- God's Helping Hand phone number: search again landed on food-banks.org, returned (951) 973-3582, same as every prior run. Seven runs straight, same number, never once the alternate. Still not a phone call, still flagged.
+- LIHEAP FY2027: House Appropriations Committee approved the bill June 11 keeping LIHEAP at $4.055 billion. No material change from what the page already says.
+- GitHub Pages: still 403 from this environment's proxy on `coldtie.github.io`. Same standing network policy noted every run since July 1. Not re-testing this again in future runs per the July 4 note; the open question is entirely with Steve now.
+
+**No freshness thresholds due today.** Volunteer 60-day check due ~July 22. Food 90-day phone reverification due ~August 21.
+
+**The actual bottleneck, still the same one:** No PR has been reviewed or merged toward going live since May 23 (Pages) and the branch backlog was cleared into PR #6, which merged. But GitHub Pages is still not confirmed enabled, so nothing is live yet and steps 4 and 5 of the loop still have not started. Today's fix matters more than most because it is content-correctness on a page that will show real people the wrong elected official's phone number the moment it does go live. That is exactly the kind of error worth catching before launch, not after.
+
+**What is flagged for follow-up:**
+
+- Enable GitHub Pages (Settings → Pages → branch and root folder). Unchanged ask, now over six weeks old.
+- Merge or review this branch's PR.
+- Natasha Johnson's District 63 phone number should be confirmed against the primary assembly.ca.gov or ad63.asmrc.org page once reachable, or by calling it.
+- Natasha Johnson's actual SB 417 vote: still unconfirmed, same leginfo access problem as before.
+- God's Helping Hand: still needs an actual phone call to pick between the two numbers on file.
+- LIHEAP FY2027: watch for full House and Senate floor action; federal fiscal year begins October 1, 2026.
+
+---
+
+## 2026-07-08 — Scheduled check: no material change, PR backlog now four open, blockers into their seventh week
+
+**What was done:**
+
+This branch (`claude/cool-lovelace-4ambz2`) had fallen one commit behind PR #8 (`claude/cool-lovelace-6oqwni`, opened July 7), which itself already carried PR #7's content. Fast-forwarded onto PR #8's head rather than opening a fifth branch with duplicate content. This branch now carries everything from #6, #7, and #8. Recommend merging this one and closing #7 and #8 without merging them separately.
+
+Rechecked every open item from the July 7 entry. Nothing changed:
+
+- **Natasha Johnson's SB 417 vote:** Searched again (general web search, fastdemocracy.com, leginfo.legislature.ca.gov). No individual vote record found. `ad63.asmrc.org` and `fastdemocracy.com` both returned 403 from this environment's proxy when fetched directly, same pattern as `leginfo.legislature.ca.gov`. Page still correctly shows "vote to be confirmed."
+- **Natasha Johnson's phone number:** Could not reach the primary source (`ad63.asmrc.org`, 403) to confirm (951) 277-3639 directly. No conflicting number turned up in general search either. Same unresolved state as July 7.
+- **LIHEAP FY2027:** No material change. House Appropriations Committee's approved bill still holds LIHEAP at $4.055 billion; full floor action still pending in both chambers. No page update needed.
+- **God's Helping Hand phone number:** Ninth run in a row returning (951) 973-3582 as the primary number and food-banks.org/californiafoodpantry.org as sources; the (951) 679-4667 alternate still turns up in one listing (benefitsexplorer.com pattern) but has never been the top result. Still not a phone call. Did not change the data file.
+- **GitHub Pages:** Tested directly this run (first direct retest since the July 4 decision to stop). `coldtie.github.io/Earthseed/` returned HTTP 403, consistent with every prior check back to July 1. This remains indistinguishable between "Pages not enabled" and "this environment's network policy blocks the domain" — the proxy status endpoint shows no explicit block rule for github.io, so it may be the former. Cannot resolve this without Steve confirming directly.
+
+**No freshness thresholds due today.** Volunteer 60-day check due ~July 22. Food 90-day phone reverification due ~August 21.
+
+**The actual bottleneck, restated plainly:** Four open PRs (#6 is merged; #7 and #8 are open and now folded into this one) and GitHub Pages enablement have been waiting on human action since May 23 (Pages) and June 14 (first PR). That is seven weeks for Pages. No page has ever gone live, so steps 4 and 5 of the loop (measure real use, then improve) have not started. This is now the sixth consecutive scheduled run to repeat this same flag. Further research passes will keep finding the same "unconfirmed, needs a phone call or a reachable primary source" results until Steve takes the two actions below.
+
+**What is flagged for follow-up:**
+
+- Merge this PR, close #7 and #8 without merging (their content is now all here).
+- Enable GitHub Pages in repository settings (Settings → Pages → branch and root folder). Single action that unblocks everything else in the project.
+- Natasha Johnson's SB 417 vote and phone number: both still need either a reachable primary source or a direct call to (951) 277-3639.
+- God's Helping Hand: call to confirm which of the two numbers is current.
+- LIHEAP FY2027: watch for House floor action; federal fiscal year begins October 1, 2026.
+
+---
+
 ## 2026-07-04 — Scheduled check: Seyarto's SB 417 vote confirmed, branch consolidated, backlog now three weeks overdue
 
 **What was done:**
