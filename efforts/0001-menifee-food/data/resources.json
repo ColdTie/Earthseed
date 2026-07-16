@@ -80,7 +80,7 @@
       "last_verified": "2026-05-23",
       "verification_source": "food-banks.org directory, californiafoodpantry.org",
       "flag_for_reverification": true,
-      "reverification_reason": "Two different phone numbers in different sources. Confirm which is current. As of 2026-07-11: generic food-bank aggregators (food-banks.org, californiafoodpantry.org) consistently return (951) 973-3582, but Manta.com and findhelp.org (a more curated benefits-navigation directory) independently return (951) 679-4667. This is the first run where the two source clusters disagree this clearly rather than one number simply reappearing. Needs an actual phone call, not another search."
+      "reverification_reason": "Two different phone numbers in different sources. Confirm which is current. As of 2026-07-11: generic food-bank aggregators (food-banks.org, californiafoodpantry.org) consistently return (951) 973-3582, but Manta.com and findhelp.org (a more curated benefits-navigation directory) independently return (951) 679-4667. This is the first run where the two source clusters disagree this clearly rather than one number simply reappearing. Needs an actual phone call, not another search. Rechecked 2026-07-16: same aggregator cluster returned (951) 973-3582 again; dispute unresolved, still needs a call."
     },
     {
       "id": "salvation-army-murrieta",

@@ -4,6 +4,33 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-07-16 — Scheduled check: no material change, live inaccuracy now eleven days unmerged, three PRs stacked unreviewed
+
+**What was done:**
+
+This branch (`claude/cool-lovelace-sw6zw6`) started at the same commit as `claude/optimistic-volta-sgxeY` (the July 4 merge, PR #6). Fast-forwarded onto PR #14's head (`claude/cool-lovelace-2u1592`), which already carries everything through PR #13 plus the July 15 mailbox check, rather than opening a fifth overlapping branch. **PR #14 is still open and unreviewed, one day after it was opened, and PR #13 sits behind it, also unreviewed.** Recommend merging this PR (or #14, same content) and closing #12 and #13 without merging them separately.
+
+**Rechecked the three open research items, no change on any:**
+
+- **Natasha Johnson's SB 417 vote:** Searched again with a fresh angle (her AD63 official page, Ballotpedia, Vote Smart). Turned up one unrelated vote (against AB-1921, the Protect Our Games Act, which passed 43-16 in June 2026) but nothing on SB 417. Still no source publishes her individual floor vote on the June 25 housing bond. Still shown as "vote to be confirmed."
+- **God's Helping Hand's phone number:** Searched again. Same result as every run since May 23: the generic aggregator cluster (food-banks.org, californiafoodpantry.org) returns (951) 973-3582. Did not independently resurface the findhelp.org/Manta.com (951) 679-4667 alternate this run, but that does not resolve the dispute documented since July 11 either way. Still needs an actual phone call.
+- **LIHEAP FY2027:** Searched again. Nearly found a false lead — a "Senate Appropriations Committee Proposes $4B LIHEAP Funding Package" headline — but a closer read shows that article is about FY2026 appropriations from July 2025, not FY2027. The real FY2027 picture is unchanged: House Appropriations Committee approved $4.055 billion in early June, Senate Appropriations has not yet acted, and Committee Chair Susan Collins has spoken against the administration's proposal to eliminate the program. No page update needed; worth a caution for future runs not to mistake FY2026 retrospective coverage for FY2027 news, since both years involve similar dollar figures and committee names.
+
+**Rechecked the mailbox for wrong-door reports since July 15:** searched all four report subject lines and "Menifee" generally for anything after 2026/07/15. Zero new matches. Consistent with the July 15 finding of zero reports across the full eight (now nine) weeks live.
+
+**No freshness thresholds due today.** Volunteer 60-day check due ~July 22, six days out. Food 90-day phone reverification due ~August 21.
+
+**The backlog, restated with the actual count:** PR #12 (July 11), #13 (July 12), and now #14/this one (July 15-16) are all open against the same base and all carry the same unmerged content, including the Natasha Johnson correction to the live policy page. That fix has now been written and waiting for eleven days (since PR #7 on July 5) while the live site continues to show Bill Essayli, who resigned in April 2025. Sent a direct notification this run to flag this again, since five prior flags across PR bodies and one prior direct notification (July 11) have not yet produced a merge.
+
+**What is flagged for follow-up:**
+
+- Merge this PR (or #14) and close #12 and #13 without merging them separately — content is identical plus this addendum.
+- The live site has now shown an incorrect Assembly representative for eleven days since the fix was written (PR #7, July 5), and for the full nine weeks the site has been live before that.
+- God's Helping Hand's phone number and Natasha Johnson's SB 417 vote both still need an actual phone call; web search is exhausted on both and further scheduled runs re-searching them will not produce new information.
+- LIHEAP FY2027: watch specifically for Senate Appropriations Committee action (not yet occurred) and full House floor action. Federal fiscal year begins October 1, 2026.
+
+---
+
 ## 2026-07-15 — Scheduled check: first real mailbox check for wrong-door reports (zero found), PR #13 still unmerged after three days
 
 **What was done:**
