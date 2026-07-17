@@ -4,6 +4,34 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-07-17 — Scheduled check: no material change, live inaccuracy now twelve days unmerged, backlog grown to four open PRs
+
+**What was done:**
+
+This branch (`claude/cool-lovelace-w4wd6k`) started at the same commit as `claude/optimistic-volta-sgxeY` (the July 4 merge, PR #6). Fast-forwarded onto PR #15's head (`claude/cool-lovelace-sw6zw6`), which already carries everything through PR #14 plus the July 16 check, rather than opening a sixth overlapping branch. **PR #15 is still open and unreviewed, one day after it was opened, and #12, #13, #14 sit behind it, also unreviewed.** Recommend merging this PR (or #15, same content) and closing #12, #13, and #14 without merging them separately.
+
+**Rechecked the three standing research items, no change on any:**
+
+- **Natasha Johnson's SB 417 vote:** Searched again. Confirmed her official AD63 page (`ad63.asmrc.org`) and the Assembly's own member directory both exist and are indexed, but neither surfaced in a way that gave the individual June 25 floor vote, and both remain unreachable from this environment's network policy to read directly. Still shown as "vote to be confirmed." Not guessing it.
+- **God's Helping Hand's phone number:** Searched again. Same aggregator cluster (food-banks.org, californiafoodpantry.org) returned (951) 973-3582 again, same as nearly every prior run. Did not resurface the findhelp.org/Manta.com (951) 679-4667 alternate this run. The dispute documented July 11 stands either way. Still needs an actual phone call.
+- **LIHEAP FY2027:** Searched again. Picture unchanged: House Appropriations Committee approved $4.055 billion in early June, Senate Appropriations has not yet acted, and Chairs Cole and Collins have both spoken against eliminating the program. No page update needed.
+
+**Rechecked the mailbox for wrong-door reports since July 16:** searched all four report subject lines and "Menifee" generally for anything after 2026/07/16. Zero new matches, consistent with every check since July 15.
+
+**No freshness thresholds due today.** Volunteer 60-day check due ~July 22, five days out. Food 90-day phone reverification due ~August 21.
+
+**The backlog, restated with the actual count:** PR #12 (July 11), #13 (July 12), #14 (July 15), and #15 (July 16) are all open against the same base and all carry the same unmerged content, including the Natasha Johnson correction to the live policy page. That fix has now been written and waiting twelve days (since PR #7 on July 5) while the live site continues to show Bill Essayli, who resigned in April 2025. Two direct notifications about this exact backlog already went out (July 11 and July 12); nothing has changed since, so this run did not send a third identical one. Documenting the recheck here instead, per the standing rule that a scheduled routine should notify on new developments, not repeat an unactioned flag daily.
+
+**What is flagged for follow-up:**
+
+- Merge this PR (or #15) and close #12, #13, and #14 without merging them separately — content is identical plus this addendum.
+- The live site has now shown an incorrect Assembly representative for twelve days since the fix was written (PR #7, July 5), and for the full nine-plus weeks the site has been live before that.
+- God's Helping Hand's phone number and Natasha Johnson's SB 417 vote both still need an actual phone call; web search is exhausted on both.
+- LIHEAP FY2027: watch specifically for Senate Appropriations Committee action. Federal fiscal year begins October 1, 2026.
+- Volunteer 60-day freshness check comes due around July 22; the next scheduled run should do it.
+
+---
+
 ## 2026-07-16 — Scheduled check: no material change, live inaccuracy now eleven days unmerged, three PRs stacked unreviewed
 
 **What was done:**
