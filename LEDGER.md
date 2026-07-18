@@ -4,6 +4,32 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-07-18 — Scheduled check: no material change on any open item; deliberately not opening a sixth consolidation PR
+
+**What was done:**
+
+This branch (`claude/cool-lovelace-7k071t`) was assigned fresh at the same commit as `claude/optimistic-volta-sgxeY` (the July 4 merge, PR #6). Fast-forwarded onto PR #16's head (`claude/cool-lovelace-w4wd6k`), which already carries everything through PR #15 plus the July 17 check, so nothing here is lost or regressed.
+
+**Rechecked all three standing research items, no change on any:**
+
+- **Natasha Johnson's SB 417 vote:** searched again. `ad63.asmrc.org` returned a 403 from this environment's outbound proxy, same as every prior attempt. General search surfaced her AB-1921 vote again but nothing on SB 417's individual floor tally. Still "vote to be confirmed."
+- **God's Helping Hand's phone number:** searched again. Same aggregator cluster (food-banks.org, californiafoodpantry.org) returned (951) 973-3582. `ghhministries.com/contact.html` still returns a 403 from this environment. The July 11 dispute with the findhelp.org/Manta.com (951) 679-4667 alternate stands, unresolved either way.
+- **Mailbox check:** searched `pennersteven@gmail.com` for all four report subject lines plus general "Menifee" for anything after 2026/07/16. Zero new matches, consistent with every check since July 15.
+
+**No freshness thresholds due today.** Volunteer 60-day check due ~July 22, four days out. Food 90-day phone reverification due ~August 21.
+
+**Decision made this run: did not open a sixth consolidation PR.** PRs #12 through #16 are all open against the same base, all carry the same unmerged content (most importantly the Natasha Johnson correction to the live policy page, which has now been correct-and-waiting for 13 days since PR #7 on July 5), and the July 17 entry already documented the daily-consolidation habit itself as the thing generating clutter without producing a merge. Opening a seventh near-identical PR today would repeat a pattern already diagnosed as not working, with no new decision-relevant content to justify it. This branch is pushed without a PR so the day's recheck is on record, but the actionable ask for Steve is unchanged and is fully captured in PR #16: merge #16 (or any one of #12-#16, they are identical) and close the rest without merging. Sent a notification this run flagging the backlog's age and the live inaccuracy, since a week has passed since the last one (July 12) with no action.
+
+**What is flagged for follow-up:**
+
+- Merge PR #16 (or #12-#15, identical content) and close the others without merging.
+- The live site has shown an incorrect Assembly representative (Bill Essayli, resigned April 2025) for 13 days since the fix was written, and for over nine weeks before that.
+- God's Helping Hand's phone number and Natasha Johnson's SB 417 vote both still need an actual phone call; web search and direct fetch are both exhausted on the relevant domains.
+- Volunteer 60-day freshness check comes due around July 22 — the next scheduled run should do it.
+- Future runs: consider whether daily consolidation PRs should continue at all once the backlog clears, or whether a less frequent schedule would reduce branch/PR churn without losing the measurement loop.
+
+---
+
 ## 2026-07-17 — Scheduled check: no material change, live inaccuracy now twelve days unmerged, backlog grown to four open PRs
 
 **What was done:**
