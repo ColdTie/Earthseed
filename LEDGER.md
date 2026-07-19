@@ -4,6 +4,34 @@ This file is the memory of what has been done. Every agent run that changes some
 
 ---
 
+## 2026-07-19 — Scheduled check: live inaccuracy now fourteen days unmerged, backlog at five open PRs, mailbox unreachable this run
+
+**What was done:**
+
+This branch (the designated `claude/cool-lovelace-7qfxrf`, previously stale at the July 4 merge) was reset to match PR #16's head (`claude/cool-lovelace-w4wd6k`), which already carries everything through PR #15 plus the July 17 check. **Five PRs (#12, #13, #14, #15, #16) are now open against `claude/optimistic-volta-sgxeY`, all carrying the same unmerged content.** None has been reviewed since #12 opened July 11. Recommend merging this branch's PR and closing #12 through #16 without merging them separately.
+
+**Rechecked the two standing research items. No material change on either:**
+
+- **Natasha Johnson's SB 417 vote:** Searched again. `ad63.asmrc.org` and `assembly.ca.gov` both surface but neither is reachable from this environment to read the roll call directly, and no secondary source (Vote Smart, Ballotpedia, BallotReady) publishes the individual vote. Still shown as "vote to be confirmed." Not guessing it.
+- **LIHEAP FY2027:** Searched again. Picture unchanged from July 17: House Appropriations approved $4.055 billion in early June, the administration's FY2027 budget request still proposes eliminating the program entirely, Senate Appropriations has held hearings but no committee markup or floor action has been reported. No page update needed.
+
+**Could not check the mailbox this run.** Every prior run since July 15 checked pennersteven@gmail.com directly for wrong-door reports. This session's Gmail MCP connection requires an interactive OAuth authorization that this non-interactive scheduled run cannot complete, so the mailbox is unreachable this time. This is a capability gap worth noting for whoever reviews this: the mailbox check needs either an already-authorized session or a person to look directly. Not assuming zero reports; just flagging the check did not run today.
+
+**No freshness thresholds due today.** Volunteer 60-day check due ~July 22, three days out — the next run should do it. Food 90-day phone reverification due ~August 21.
+
+**The backlog, restated with the actual count:** the Natasha Johnson correction has been written and unmerged since PR #7 on July 5 — fourteen days now — while the live site (confirmed serving `claude/optimistic-volta-sgxeY` at its current head) continues to show Bill Essayli, who resigned from the Assembly in April 2025. Five open PRs (#12 through #16, plus this branch making six counting this one) all carry the identical fix. Two direct notifications already went out (July 11, July 12) and did not produce a merge; this run is sending a third, because the gap has now stretched to two full weeks of live misinformation and the backlog has grown rather than shrunk since the last notification — that is a new development, not a repeat of the same static flag.
+
+**What is flagged for follow-up:**
+
+- Merge this PR (or any of #12-#16, identical content) and close the rest without merging them separately.
+- The live site has shown an incorrect Assembly representative for fourteen days since the fix was written, and for the full eight-plus weeks the site has been live before that.
+- Consider whether opening a new near-identical PR every scheduled run is still the right practice now that the backlog itself (five open PRs, 50+ stale branches per PR #12) has become part of the problem. A future run should propose consolidating to a single standing PR that gets updated in place, rather than a new one daily.
+- Gmail access needs interactive authorization; the mailbox check cannot run in a fully unattended session until that's set up once.
+- Natasha Johnson's SB 417 vote and God's Helping Hand's phone number both still need an actual phone call; web search has been exhausted on both across ten-plus runs.
+- LIHEAP FY2027: watch for Senate Appropriations markup or floor action. Federal fiscal year begins October 1, 2026.
+
+---
+
 ## 2026-07-17 — Scheduled check: no material change, live inaccuracy now twelve days unmerged, backlog grown to four open PRs
 
 **What was done:**
