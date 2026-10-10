@@ -1,0 +1,50 @@
+{
+  "seedhome": {
+    "id": "seedhome",
+    "name": "Seedhome",
+    "type": "Seedling home world",
+    "role": "Gene library and seed ship origin.",
+    "position": [-3.2, 0.6, 0],
+    "climate": { "heat": 40, "cold": 30, "tide": 20, "light": 70 },
+    "pressure": {},
+    "palette": { "node": "#7fe3c2", "sun": "#fff0c8", "sea": "#2d7f8f", "ground": "#6f9d6a" },
+    "locked": false
+  },
+  "hollowReach": {
+    "id": "hollowReach",
+    "name": "Hollow Reach",
+    "type": "Seedling colony",
+    "role": "Secondary supplier of feed and biomass.",
+    "position": [-0.8, -1.4, 0],
+    "climate": { "heat": 35, "cold": 45, "tide": 10, "light": 50 },
+    "pressure": {},
+    "palette": { "node": "#9ad17a", "sun": "#f2e6c4", "sea": "#3f6f7a", "ground": "#7a8f5a" },
+    "stock": { "feed": 600, "energy": 120, "calcium": 60, "ore": 0, "silica": 0, "geneLibrary": 0 },
+    "income": { "feed": 0.08, "energy": 0.02 },
+    "locked": false
+  },
+  "kessra": {
+    "id": "kessra",
+    "name": "Kessra",
+    "type": "Client world, hot and coastal",
+    "role": "First contract: a sea wall.",
+    "position": [2.4, 1.1, 0],
+    "climate": { "heat": 75, "cold": 5, "tide": 70, "light": 90 },
+    "pressure": { "heatTolerance": 0.8, "output": -0.4 },
+    "palette": { "node": "#ffb347", "sun": "#ff9a3c", "sea": "#1fb3a7", "ground": "#ecd3a6", "sky": "#ffd9a8" },
+    "stock": { "feed": 260, "energy": 180, "calcium": 420, "ore": 0, "silica": 0, "geneLibrary": 0 },
+    "income": { "energy": 0.05, "feed": 0.015 },
+    "locked": false
+  },
+  "velTor": {
+    "id": "velTor",
+    "name": "Vel Tor",
+    "type": "Client world, cold and dim",
+    "role": "Second contract, locked at start.",
+    "position": [3.6, -1.6, 0],
+    "climate": { "heat": 5, "cold": 80, "tide": 30, "light": 25 },
+    "pressure": { "coldTolerance": 0.8, "output": -0.3 },
+    "palette": { "node": "#7fa6ff", "sun": "#b9c8ff", "sea": "#243a66", "ground": "#8c9bb3", "sky": "#1a2340" },
+    "locked": true
+  }
+}

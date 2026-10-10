@@ -1,0 +1,32 @@
+{
+  "kessraSeaWall": {
+    "id": "kessraSeaWall",
+    "title": "Sea wall at Kessra",
+    "client": "The Kessran tide council",
+    "planetId": "kessra",
+    "speciesId": "masonBeetle",
+    "request": "Our lower town floods on every spring tide. Build us a wall the sea cannot push over. We can pay in trust and in what grows on our shore.",
+    "conditions": "Hot sun, strong tide, salt spray.",
+    "blueprint": { "length": 24, "height": 6, "depth": 2, "material": "calcite" },
+    "workers": 100,
+    "softDeadlineTicks": 12000,
+    "rewards": { "trust": 10, "calcium": 200, "geneLibrary": 1 },
+    "unlocks": ["velTor"],
+    "status": "open"
+  },
+  "velTorHomes": {
+    "id": "velTorHomes",
+    "title": "Warm homes at Vel Tor",
+    "client": "The Vel Tor burrow kin",
+    "planetId": "velTor",
+    "speciesId": "fiberWeaver",
+    "request": "The dark season is long and the wind cuts. Grow us walls that hold warmth.",
+    "conditions": "Cold, dim light, long nights.",
+    "blueprint": { "length": 10, "height": 4, "depth": 8, "material": "cellulose" },
+    "workers": 60,
+    "softDeadlineTicks": 15000,
+    "rewards": { "trust": 12, "feed": 300 },
+    "unlocks": [],
+    "status": "locked"
+  }
+}

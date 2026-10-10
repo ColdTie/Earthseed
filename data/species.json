@@ -1,0 +1,77 @@
+{
+  "masonBeetle": {
+    "id": "masonBeetle",
+    "name": "Mason beetle",
+    "basis": "Sporosarcina pasteurii, a soil bacterium that precipitates calcite from urea and calcium. It is used today in self healing concrete and grown bricks. Reef corals build the same way with aragonite.",
+    "output": "calcite",
+    "bodyPlan": "crawler",
+    "inputs": ["calcium", "feed"],
+    "weakness": "heat",
+    "summary": "Lays calcite blocks. Needs calcium and urea feed. Suffers in heat.",
+    "look": {
+      "shell": "#f3ecdd",
+      "shellHot": "#8c6b4a",
+      "body": "#d9c7a6",
+      "belly": "#fbf6ea",
+      "limb": "#6b5137",
+      "gland": "#ffb14a",
+      "glandGlow": "#ffd27a",
+      "antenna": "#5a4634",
+      "antennaGlow": "#7ef0ff",
+      "eye": "#2a1f16"
+    },
+    "traits": {
+      "output": { "label": "Calcite output", "default": 50, "sigma": 2.5, "editCost": { "calcium": 0.5 } },
+      "heatTolerance": { "label": "Heat tolerance", "default": 35, "sigma": 2.5, "editCost": { "calcium": 0.8 } },
+      "coldTolerance": { "label": "Cold tolerance", "default": 30, "sigma": 2.5, "editCost": { "feed": 0.6 } },
+      "signaling": { "label": "Swarm signaling", "default": 45, "sigma": 2.0, "editCost": { "energy": 0.6 } },
+      "lifespan": { "label": "Lifespan", "default": 50, "sigma": 2.0, "editCost": { "feed": 0.7 } },
+      "speed": { "label": "Speed", "default": 50, "sigma": 2.0, "editCost": { "feed": 0.5 } }
+    },
+    "editable": ["output", "heatTolerance", "signaling", "lifespan"],
+    "tensionPairs": [["output", "lifespan"], ["heatTolerance", "speed"], ["coldTolerance", "signaling"]],
+    "tensionRatio": 0.5,
+    "generationTicks": 1200,
+    "stabilize": { "cost": { "energy": 40 }, "sigmaFactor": 0.5 },
+    "production": {
+      "calcitePerWorkerPerTick": 0.004,
+      "calciumPerCalcite": 0.6,
+      "feedPerWorkerPerTick": 0.0003
+    },
+    "stress": {
+      "crackThreshold": 0.16
+    },
+    "workers": 100
+  },
+  "lightAlgae": {
+    "id": "lightAlgae",
+    "name": "Light algae",
+    "basis": "Cyanobacteria, which photosynthesize and were the first organisms to fill the air with oxygen. Engineered strains are used today for biofuel and feed.",
+    "output": "energy",
+    "bodyPlan": "mat",
+    "inputs": ["light"],
+    "weakness": "darkness",
+    "summary": "Pond mats that turn light into energy. Teal and cyan, glows softly at night.",
+    "look": {
+      "shell": "#1aa39a",
+      "glandGlow": "#7ef0ff"
+    },
+    "traits": {
+      "output": { "label": "Energy output", "default": 50, "sigma": 2.0, "editCost": { "feed": 0.3 } },
+      "heatTolerance": { "label": "Heat tolerance", "default": 60, "sigma": 2.0, "editCost": { "feed": 0.4 } },
+      "coldTolerance": { "label": "Cold tolerance", "default": 30, "sigma": 2.0, "editCost": { "feed": 0.4 } },
+      "signaling": { "label": "Swarm signaling", "default": 20, "sigma": 1.5, "editCost": { "energy": 0.3 } },
+      "lifespan": { "label": "Lifespan", "default": 40, "sigma": 2.0, "editCost": { "feed": 0.4 } },
+      "speed": { "label": "Spread", "default": 40, "sigma": 2.0, "editCost": { "feed": 0.3 } }
+    },
+    "editable": ["output", "heatTolerance", "lifespan"],
+    "tensionPairs": [["output", "lifespan"], ["heatTolerance", "speed"], ["coldTolerance", "signaling"]],
+    "tensionRatio": 0.5,
+    "generationTicks": 1200,
+    "stabilize": { "cost": { "energy": 20 }, "sigmaFactor": 0.5 },
+    "production": {
+      "energyPerMatPerTick": 0.02
+    },
+    "workers": 20
+  }
+}
