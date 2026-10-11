@@ -1,66 +1,60 @@
-# Earthseed: Agent Instructions
+# Seedlings: rules for Claude Code
 
-You are a Claude Code agent working in this repository. This file is your standing instruction set. Read it first, every run. You may change it when a change is honest and improves the work. When you do, record what you changed and why in the LEDGER.
+Read this first, every session. The full brief lives at `docs/brief.md` and is the source of truth. This file is the short version you must follow.
 
-## What this project is
+## What this is
 
-Earthseed is a collection of small projects that share one purpose: find a specific real way to help people, build something that delivers that help, check whether it actually helped, and then improve it. Repeat. The collection grows over time. No single project is the point. The repeated loop is the point.
+Seedlings is a stylized 3D simulation game that runs in the browser. The player is a Seedling engineer who grows everything from engineered life: design organisms, watch swarms of them build, run a network of colonies and client worlds. No combat. Pressure comes from harsh planets, scarce resources, organisms that mutate on their own, and the monsters humanity left behind.
 
-## What I can actually do as an agent here
+Steve does not install or open any development software. Claude Code does all building, testing, and deploying. Steve plays the game from a link and gives feedback in plain language.
 
-I am being honest about my own reach so I do not pretend to more than I have.
+## Rules
 
-I can read and write files in this repo. I can write code, run it, run tests, and fix what breaks. I can fetch and process public data through APIs. I can analyze data and say what it means. I can draft proposals for what to build or change next. I can open a branch and a pull request with my work on it. When triggered by a scheduled GitHub Action, I can do all of that on a regular cadence without someone sitting at the keyboard, which is the real version of running on a schedule.
+1. Never ask Steve to install, run, open, or edit anything. He only plays the live link and gives feedback.
+2. Write everything addressed to Steve in short, plain language. No jargon.
+3. One focused task per session. Small commits with clear messages.
+4. Keep `main` deployable at all times. Merge only when tests pass and screenshots look right.
+5. Always look at the screenshots before calling a task done. If it looks ugly or unclear, it is not done.
+6. Every random value in `src/sim/` and `src/gen/` comes from the seeded generator. Same seed, same game.
+7. Every new species needs a `basis` field in `data/species.json` naming the real organism or process it comes from.
+8. No combat, ever. Pressure comes from environment, scarcity, time, and containment.
+9. All names and text are original. Earthseed is inspiration, not content.
+10. Pin every dependency to an exact version. Never adopt a release published in the last 14 days.
+11. When something in the brief is unclear, pick the simplest reasonable option, note it in `docs/questions.md`, and keep going.
+12. Stay inside the performance budget. Measure, don't guess. 60 fps with 200 workers on a typical laptop, under 150 draw calls per frame, under 5 MB initial download.
 
-I cannot push to main on my own judgment. I cannot act outside this repo and its connected APIs. I cannot open bank accounts, register a company or nonprofit, sign anything, or move money. Those are human actions. Once they exist, I can help operate them inside fixed rules.
+## Architecture rules
 
-A person reviews and approves anything that goes live or anything that spends money. That gate stays. It is not temporary and it is not a limitation to engineer around.
+- `src/sim/` never imports Three.js, Preact, or the DOM. It takes a seed and inputs and returns state.
+- `src/render/` reads simulation snapshots and never changes game state.
+- All tunable numbers live in `data/`, not in code.
+- `window.__seedlings` is the debug hook. Tests use it to jump to a view, fast forward ticks, set a seed, and read state.
 
-## The loop, every run
+## Every work session
 
-1. Find a specific problem worth solving. Specific and small beats vague and large.
-2. Build a first version. Draft it, have a second model review it if one is available, settle on a version, open a pull request.
-3. Wait for human review and approval before anything goes live. This gate stays.
-4. Once it is live, read what really happens. Real data is the only honest judge of whether it helped.
-5. Feed the gap between intended and actual back in. Fix the weak part. Return to step 4.
+1. Pick the top task from `docs/roadmap.md`, or turn new feedback in `docs/feedback.md` into tasks first.
+2. Work on a branch. Write the code and unit tests.
+3. Build, then run Playwright in headless Chromium with software WebGL. Load a fixed seed scenario and capture screenshots of all three views plus a short sequence of the swarm building.
+4. Look at the screenshots. Check them against the art direction and the success criteria. Fix anything that looks wrong, broken, or ugly before moving on.
+5. Compare against the previous screenshots and note anything that changed unexpectedly.
+6. Merge to main only when tests pass and the screenshots look right. GitHub Actions deploys to GitHub Pages.
+7. Append to `docs/changelog.md`: the link, the new screenshots, and three to five specific things for Steve to try.
 
-A normal automation stops at step 2. Steps 4 and 5 are what make this different. Do not skip them.
+## Commands
 
-## Rules that do not bend
+```
+npm ci            install pinned dependencies
+npm run typecheck strict TypeScript check
+npm test          unit tests (Vitest, Node, no browser)
+npm run build     typecheck plus production build to dist/
+npm run e2e       Playwright scenarios, writes docs/screenshots/
+npm run check     typecheck, unit tests, build
+```
 
-1. Built clean or not built. Do not collect data that captures people without consent. No faces, no plates, no private property, no scraping personal data. Use open public data, data the owner wants found, and content there is a right to use. If it looks like surveillance with a kind label, do not build it.
-2. The human gate stays. Nothing goes live unreviewed. Nothing spends money unreviewed.
-3. Help is measured, not assumed. If you cannot tell whether something helped, the wrong thing was built or it was measured wrong. Fix that before scaling.
-4. Specific over grand. A working thing that helps a few real people beats a large plan that never ships.
-5. Talk plainly. No inflated language. Say what is true and what was actually done. Do not use dashes or hyphens to tack clauses onto sentences.
-
-## On giving money to others
-
-A long term aim is for this work to fund help directly, through a company or nonprofit that makes regular donations to people and causes that need them. Here is the honest division of labor.
-
-A person has to set up the legal and financial side first: the entity, the bank account, the funding source, and the rules for giving. I cannot create any of that.
-
-Once it exists, I can operate the giving inside the rules a person sets. That means: track what funds are available, apply the allocation rules the rules file defines, propose specific recipients with the reasoning and the public evidence behind each, draft the records and receipts, and surface it all as a pull request for human approval before any transfer happens. Every dollar moves only after a person approves it. I propose and document. A person decides and sends.
-
-If and when this is set up, it lives in its own effort folder with its own rules file, the same way every other effort does. Until then, treat it as a planned effort, not an active one.
+Playwright uses the Chromium that ships with the pinned `@playwright/test`. In this cloud environment it is preinstalled at `PLAYWRIGHT_BROWSERS_PATH`. In CI the workflow installs it.
 
 ## Where things stand
 
-Repo: ColdTie/Earthseed, private.
-Seed files: EARTHSEED.md, this file, LEDGER.md, README.md.
+The repository has no branch named `main`. Its default branch is `claude/optimistic-volta-sgxeY`, and that branch plays the role of `main` in every rule above. Pull requests merge into it, and the workflow deploys from whichever branch is the default, so renaming it to `main` later needs no code change.
 
-Four efforts are built and waiting to be hosted:
-- #0001: Menifee food resources. Static HTML page and data file. Ready for deployment.
-- #0002: Menifee volunteer opportunities. Static HTML page. Ready for deployment.
-- #0003: Menifee senior resources. Static HTML page built May 23, 2026. Ready for deployment.
-- #0004: Policy impact. Representatives, current legislation, and plain-language impact for Menifee residents. Built May 23, 2026. Ready for deployment.
-
-A root index.html exists at the repo root as a GitHub Pages landing page. Steve must enable GitHub Pages in repository settings (Settings → Pages → select branch and root folder) for the pages to go live. That human action is the gate.
-
-Once live, the first measurement task is: check whether any wrong-door reports arrive at pennersteven@gmail.com (the address in the report-a-problem links). After two weeks, check traffic source if analytics are added. If nothing is coming in and traffic is low, the distribution problem is bigger than the content problem.
-
-Data freshness: re-verify each food resource by phone every 90 days. Flag stale volunteer listings every 60 days. YANA, IHSS, LIHEAP, and TRIP are county or city programs and tend to be stable, but confirm annually.
-
-## How to pick up the work
-
-Read EARTHSEED.md, then the LEDGER to see history, then the charter of the active effort. Do the next real step. Write what you did in the LEDGER so the next run has the memory. Open a pull request for anything that should go live. Keep the loop turning.
+See `docs/changelog.md` for the latest state and `docs/roadmap.md` for what is next.

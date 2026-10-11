@@ -1,0 +1,9 @@
+{
+  "order": ["energy", "feed", "calcium", "ore", "silica", "geneLibrary"],
+  "energy": { "label": "Energy", "icon": "bolt", "color": "#7ef0ff" },
+  "feed": { "label": "Feed", "icon": "leaf", "color": "#9ad17a" },
+  "calcium": { "label": "Calcium", "icon": "cube", "color": "#f3ecdd" },
+  "ore": { "label": "Ore", "icon": "rock", "color": "#c0604a" },
+  "silica": { "label": "Silica", "icon": "gem", "color": "#b9e8ff" },
+  "geneLibrary": { "label": "Gene library", "icon": "helix", "color": "#d9a6ff" }
+}

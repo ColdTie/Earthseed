@@ -1,32 +1,31 @@
-# Earthseed
+# Seedlings
 
-A collection of small projects. Each one finds a specific problem, builds something that helps with it, checks whether it helped, and improves. The loop repeats.
+A stylized 3D simulation game that runs in the browser. You are a Seedling engineer. Your people left Earth generations ago and grow everything they need from engineered life. Design organisms, watch swarms of them build walls and food and fabric, and run a growing network of colonies and client worlds.
 
-No single project is the point. The loop is the point.
+There is no combat. Pressure comes from harsh planets, scarce resources, organisms that mutate on their own, and the monsters humanity left behind.
 
-## Active efforts
+Play: https://coldtie.github.io/Earthseed/
 
-| # | Name | Status |
-|---|------|--------|
-| 0001 | [Menifee Food Resources](efforts/0001-menifee-food/CHARTER.md) | v1 built, awaiting deployment |
-| 0002 | [Menifee Volunteer Opportunities Board](efforts/0002-menifee-volunteers/CHARTER.md) | v1 built, awaiting deployment |
-| 0003 | [Menifee Senior Resource Guide](efforts/0003-menifee-seniors/CHARTER.md) | Planned — research phase |
+Keys 1, 2, 3 or the mouse wheel switch between the organism, swarm, and galaxy views.
 
-## How it works
+## How this is built
 
-An agent (Claude Code) runs on a schedule and does the next real step on whatever is active. A person reviews and approves before anything goes live. The agent writes what it did in LEDGER.md so the next run has the memory.
+Claude Code builds, tests, and deploys everything. Steve plays the live link and gives feedback in plain language. The brief is in `docs/brief.md`. The rules Claude follows are in `CLAUDE.md`. Progress is in `docs/changelog.md`. Feedback goes in `docs/feedback.md` and becomes tasks in `docs/roadmap.md`.
 
-For the philosophy behind this, read [EARTHSEED.md](EARTHSEED.md).
-For the agent's standing instructions, read [CLAUDE.md](CLAUDE.md).
-For the history of what has been done, read [LEDGER.md](LEDGER.md).
-For the business model and funding roadmap, read [BUSINESS.md](BUSINESS.md).
+## Stack
 
-## Three things needed to go live
+TypeScript, Vite, Three.js, Preact, Vitest, Playwright. The simulation runs in a Web Worker and never touches the screen, so game logic is tested in Node without a browser. Every creature is generated in code from a genome. There are no art or audio asset files.
 
-1. Confirm the report-a-problem email address is correct (currently pennersteven@gmail.com)
-2. Verify the God's Helping Hand phone number (two numbers in different sources)
-3. Choose a hosting method for the static HTML pages (GitHub Pages is the simplest option)
+## Layout
 
-## Rules
-
-Nothing goes live unreviewed. Nothing spends money unreviewed. Help is measured, not assumed.
+```
+src/sim/      pure game logic: genome, drift, economy, tick loop, worker
+src/gen/      procedural organisms: body plans, signed distance meshing, materials, motion
+src/render/   Three.js scenes for organism, swarm, galaxy
+src/app/      main thread glue: worker client, stage with camera dives
+src/ui/       Preact panels: gene editor, contract board, resource bars
+src/debug/    window.__seedlings test hook
+data/         species.json, planets.json, contracts.json, resources.json
+tests/        unit tests and Playwright scenarios
+docs/         brief, roadmap, feedback, changelog, questions, screenshots
+```
