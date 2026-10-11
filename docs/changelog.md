@@ -30,7 +30,7 @@ The game goes live at that link after one setting changes on GitHub. Pages is on
 
 **Checks**
 
-- 31 unit tests pass. 8 browser scenarios pass with zero console errors.
+- 37 unit tests pass, including a sweep of more than 5,000 view switch timings. 8 browser scenarios pass with zero console errors.
 - Build is 165 KB compressed, well under the 5 MB budget.
 - Draw calls per frame, including the bloom passes: organism view 49, swarm 22, galaxy 26. The budget is 150.
 - View dives finish in 0.85 seconds.
@@ -59,6 +59,8 @@ The game goes live at that link after one setting changes on GitHub. Pages is on
 - Keys 1, 2, 3 stopped working after touching a slider. Fixed.
 - Changing view in the middle of a camera dive cut hard to the wrong scene. The dive now carries on to the new view.
 - The haze in the swarm view did not reach the ground or sea, so the horizon showed a hard edge. Fixed.
+
+A second check of those fixes found that a crew pushed to high output could still run calcium to zero and lock every edit. The crew now keeps a small reserve so a correction is always affordable. The same check found quick back-and-forth view switches could still cut. The camera dive was rebuilt and is now tested against thousands of switch timings.
 
 **Not done yet**
 
