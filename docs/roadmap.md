@@ -17,10 +17,10 @@ Done
 - [x] Playwright scenarios with screenshots of all three views
 
 Next, in order
-1. **Swarm simulation.** 100 beetles with local rules: eat, gather, follow the scent gradient to the site, place a block next to existing structure. Voxel blueprint for the wall. Each block stores the builder's traits. Heat stress cracks weak blocks over time, visible as cracks. Instanced simplified beetle mesh in the swarm view. Feed station, tide, and heat stress at the site. This is the heart of the milestone.
+1. **Swarm simulation.** 100 beetles with local rules: eat, gather, follow the scent gradient to the site, place a block next to existing structure. Voxel blueprint for the wall. Each block stores the builder's traits. Heat stress cracks weak blocks over time, visible as cracks. Instanced simplified beetle mesh in the swarm view. Feed station, tide, and heat stress at the site. This is the heart of the milestone. When it changes the shape of the saved game, bump `version` in `SimState` and the save key in `src/app/client.ts`, or add a migration, so existing saves do not break.
 2. **Player markers.** Build here, avoid, feed station. Placed by clicking in the swarm view.
 3. **Lifespan and crews.** Workers die by lifespan and hatch by generation. Hungry crews stall. Worker count shown.
-4. **One seed ship.** Hollow Reach to Kessra with real travel time, carrying feed. Resource bars reflect arrivals. Living cargo drifts in transit.
+4. **One seed ship.** Hollow Reach to Kessra with real travel time, carrying feed. Resource bars reflect arrivals. Living cargo drifts in transit. Lower Kessra's feed income in `data/planets.json` back below what the crew eats, so shipments matter (see `docs/questions.md`).
 5. **Contract completion.** The wall counts as done when the blueprint is full and holding. Reward lands. A warm moment, no lose screen.
 6. **Tilt shift and polish.** Bokeh pass in the swarm view, soft studio shadows in the dish, camera dive tuning, tiny clicks and chitters with the Web Audio API.
 7. **Performance pass.** Measure 100 and 200 workers on a laptop GPU. Stay under 150 draw calls.

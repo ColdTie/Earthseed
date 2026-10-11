@@ -26,10 +26,11 @@ The game goes live at that link after one setting changes on GitHub. Pages is on
 - Swarm site: `docs/screenshots/swarm.png`
 - Galaxy map: `docs/screenshots/galaxy.png`
 - Generation 2 with drift: `docs/screenshots/sequence-1.png` to `sequence-3.png`
+- A refused edit explaining itself: `docs/screenshots/organism-refused.png`
 
 **Checks**
 
-- 22 unit tests pass. 5 browser scenarios pass with zero console errors.
+- 31 unit tests pass. 8 browser scenarios pass with zero console errors.
 - Build is 165 KB compressed, well under the 5 MB budget.
 - Draw calls per frame, including the bloom passes: organism view 49, swarm 22, galaxy 26. The budget is 150.
 - View dives finish in 0.85 seconds.
@@ -45,7 +46,19 @@ The game goes live at that link after one setting changes on GitHub. Pages is on
 **Also in this session**
 
 - A loading screen shows while the game starts.
-- The browser tests now run against the same web address GitHub Pages uses. Before this fix they would have failed on GitHub.
+- The browser tests now run against the same web address GitHub Pages uses, and reach their test server on GitHub's machines. Both had broken the first CI run.
+
+**Fixed before going live, after an independent code review**
+
+- Dragging a slider slowly, or with the arrow keys, skipped the trade-off. Speed now drops with heat tolerance however the slider moves.
+- Calcium ran out in about 10 minutes and feed in about 29, after which no gene edit was possible. Kessra now has a small supply of both until seed ships exist.
+- An edit the game had accepted could be dropped when the generation turned. Reserved resources are now held back from the crew.
+- Dragging a slider stuttered, because the beetle was rebuilt in full on every step. It now updates at lower detail while dragging and sharpens when you let go.
+- A white jagged seam showed where the shell meets the thorax. Gone.
+- A refused edit snapped the slider back with no reason given. It now says which resource is short.
+- Keys 1, 2, 3 stopped working after touching a slider. Fixed.
+- Changing view in the middle of a camera dive cut hard to the wrong scene. The dive now carries on to the new view.
+- The haze in the swarm view did not reach the ground or sea, so the horizon showed a hard edge. Fixed.
 
 **Not done yet**
 
