@@ -1,4 +1,5 @@
 import type { PlanetSpec, Resources, SimState, SpeciesSpec, Traits } from './types';
+import { editCost, remaining } from './genome';
 import { RESOURCE_IDS } from './types';
 
 export function emptyResources(): Resources {
@@ -42,8 +43,11 @@ export function produce(state: SimState, species: SpeciesSpec, planet: PlanetSpe
     const wanted = workers * perWorker * efficiency;
     const calciumNeeded = wanted * (prod.calciumPerCalcite ?? 0);
     const feedNeeded = workers * (prod.feedPerWorkerPerTick ?? 0);
-    const calciumFrac = calciumNeeded > 0 ? Math.min(1, state.resources.calcium / calciumNeeded) : 1;
-    const feedFrac = feedNeeded > 0 ? Math.min(1, state.resources.feed / feedNeeded) : 1;
+    // The crew only draws on what an accepted gene edit has not reserved,
+    // so the edit can always be paid when the generation turns.
+    const avail = remaining(state.resources, editCost(species, state.live, state.draft));
+    const calciumFrac = calciumNeeded > 0 ? Math.min(1, avail.calcium / calciumNeeded) : 1;
+    const feedFrac = feedNeeded > 0 ? Math.min(1, avail.feed / feedNeeded) : 1;
     const frac = Math.min(calciumFrac, feedFrac);
     state.calcite += wanted * frac;
     state.resources.calcium = Math.max(0, state.resources.calcium - calciumNeeded * frac);

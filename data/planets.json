@@ -33,7 +33,7 @@
     "pressure": { "heatTolerance": 0.8, "output": -0.4 },
     "palette": { "node": "#ffb347", "sun": "#ff9a3c", "sea": "#1fb3a7", "ground": "#ecd3a6", "sky": "#ffd9a8" },
     "stock": { "feed": 260, "energy": 180, "calcium": 420, "ore": 0, "silica": 0, "geneLibrary": 0 },
-    "income": { "energy": 0.05, "feed": 0.015 },
+    "income": { "energy": 0.05, "feed": 0.03, "calcium": 0.08 },
     "locked": false
   },
   "velTor": {

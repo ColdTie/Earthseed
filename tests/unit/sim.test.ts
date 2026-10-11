@@ -26,8 +26,8 @@ describe('sim', () => {
 
   it('edits land on the next generation and are paid for then', () => {
     const s = createSim({ seed: 5 });
+    const twin = createSim({ seed: 5 });
     const species = getSpecies(s.speciesId);
-    const calciumBefore = s.resources.calcium;
     expect(applyAction(s, { type: 'setTrait', trait: 'heatTolerance', value: 60 })).toBe(true);
     expect(s.draft.traits.heatTolerance).toBe(60);
     expect(s.live.traits.heatTolerance).toBe(35);
@@ -38,7 +38,9 @@ describe('sim', () => {
     expect(s.generation).toBe(2);
     // Landed, then drifted a little around 60.
     expect(Math.abs(s.live.traits.heatTolerance - 60)).toBeLessThan(12);
-    expect(s.resources.calcium).toBeLessThan(calciumBefore - 19);
+    // Paid: the same game without the edit has 20 more calcium.
+    stepMany(twin, species.generationTicks);
+    expect(twin.resources.calcium - s.resources.calcium).toBeCloseTo(20, 0);
   });
 
   it('refuses edits it cannot pay for', () => {
@@ -78,8 +80,10 @@ describe('sim', () => {
   it('keeps going after a generation with no money', () => {
     const s = createSim({ seed: 9 });
     applyAction(s, { type: 'setTrait', trait: 'heatTolerance', value: 60 });
+    // The calcium vanishes one tick before the generation turns.
+    stepMany(s, 1199);
     s.resources.calcium = 0;
-    stepMany(s, 1200);
+    stepMany(s, 1);
     expect(s.generation).toBe(2);
     expect(s.log.some((e) => e.text.includes('did not land'))).toBe(true);
   });

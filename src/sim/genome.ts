@@ -32,21 +32,38 @@ export function tensionPartner(species: SpeciesSpec, trait: TraitId): TraitId | 
   return null;
 }
 
+/** Round to hundredths. Half steps of whole or tenth values stay exact. */
+function round2(v: number): number {
+  return Math.round(v * 100) / 100;
+}
+
 /**
  * Set one trait on a genome. Its tension partner moves the other way by
  * tensionRatio. Returns the traits that changed.
+ *
+ * The partner is never rounded to a whole number, so many small steps land
+ * exactly where one big jump does. The move is cut short when the partner
+ * would leave 0..100, so moving a slider back always undoes it exactly.
  */
 export function setTrait(genome: Genome, trait: TraitId, value: number): Partial<Traits> {
   const species = getSpecies(genome.speciesId);
-  const next = clampTrait(Math.round(value));
-  const delta = next - genome.traits[trait];
+  const ratio = species.tensionRatio;
+  const old = genome.traits[trait];
+  let delta = clampTrait(Math.round(value)) - old;
+  const partner = tensionPartner(species, trait);
+  if (partner && ratio > 0) {
+    const p = genome.traits[partner];
+    const room = delta > 0 ? (p - TRAIT_MIN) / ratio : (p - TRAIT_MAX) / ratio;
+    if (Math.abs(delta) > Math.abs(room)) delta = room;
+  }
+  const next = clampTrait(round2(old + delta));
+  delta = next - old;
   if (delta === 0) return {};
   const changed: Partial<Traits> = {};
   genome.traits[trait] = next;
   changed[trait] = next;
-  const partner = tensionPartner(species, trait);
   if (partner) {
-    const p = clampTrait(Math.round(genome.traits[partner] - delta * species.tensionRatio));
+    const p = clampTrait(round2(genome.traits[partner] - delta * ratio));
     genome.traits[partner] = p;
     changed[partner] = p;
   }
