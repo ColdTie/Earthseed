@@ -55,4 +55,6 @@ Playwright uses the Chromium that ships with the pinned `@playwright/test`. In t
 
 ## Where things stand
 
+The repository has no branch named `main`. Its default branch is `claude/optimistic-volta-sgxeY`, and that branch plays the role of `main` in every rule above. Pull requests merge into it, and the workflow deploys from whichever branch is the default, so renaming it to `main` later needs no code change.
+
 See `docs/changelog.md` for the latest state and `docs/roadmap.md` for what is next.

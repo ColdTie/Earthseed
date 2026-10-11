@@ -37,10 +37,20 @@ function boot(): void {
   render(h(App, { game: { client, stage } }), uiRoot);
 
   let last = performance.now();
+  let booted = false;
   const loop = (now: number) => {
     const dt = Math.min(0.1, (now - last) / 1000);
     last = now;
     stage.frame(dt, client.state);
+    if (!booted && client.state && stage.renderer.stats.frame > 2) {
+      // The first real frame is on screen. Fade out the loading screen.
+      booted = true;
+      const boot = document.getElementById('boot');
+      if (boot) {
+        boot.classList.add('gone');
+        setTimeout(() => boot.remove(), 600);
+      }
+    }
     if (stage.running) requestAnimationFrame(loop);
   };
   requestAnimationFrame(loop);

@@ -20,4 +20,8 @@ When the brief is unclear, the simplest reasonable option is taken and recorded 
 
 **Audio.** Optional for the first slice. Not built yet.
 
-**Deployment.** The workflow deploys on every push to `main` and asks GitHub to enable Pages on first run. If GitHub refuses to enable it from a workflow, Pages has to be switched on once in the repository settings, with source set to GitHub Actions. That is a one time human step and is noted in the changelog.
+**Which branch is main?** The repository has no `main`. Its default branch is `claude/optimistic-volta-sgxeY`, and earlier pull requests merged there. Chosen: treat the default branch as `main`. The workflow deploys from whichever branch is the default, and also lists `main`, so a later rename in settings needs no code change.
+
+**Deployment.** GitHub Pages was already on, in "deploy from a branch" mode, serving the old landing page from the default branch. The brief asks for GitHub Actions to deploy, and GitHub only accepts deploys from a workflow when the Pages source is set to "GitHub Actions". A workflow cannot change that setting itself. It is a one time change by the repository owner, recorded in the changelog. Until it is made, the deploy job fails and GitHub keeps publishing the raw branch, where the page shows only a loading message.
+
+**GitHub Actions versions.** Workflow steps use major version tags such as `actions/checkout@v4`, the usual practice for GitHub's own actions. Rule 10 is applied to npm packages, which are pinned exactly.

@@ -6,7 +6,7 @@ Newest first. Each entry has the link, the screenshots, and a few things for Ste
 
 **Link:** https://coldtie.github.io/Earthseed/
 
-The link goes live once this branch is merged to `main`. The deploy workflow asks GitHub to switch on Pages the first time it runs. If the first deploy fails with a Pages error, Pages needs to be switched on once in the repository settings with the source set to GitHub Actions. After that every merge deploys on its own.
+The game goes live at that link after one setting changes on GitHub. Pages is on, but in an older mode that copies files straight from the branch. The game has to be built before it can run, so Pages must be told to publish from GitHub Actions instead. Steps: open https://github.com/ColdTie/Earthseed/settings/pages, and under "Build and deployment", set Source to "GitHub Actions". After that, every merge publishes the game on its own.
 
 **What was built**
 
@@ -41,6 +41,11 @@ The link goes live once this branch is merged to `main`. The deploy workflow ask
 3. Wait for the next generation to hatch (about two minutes at 1x, or press 4×). Look at the drift numbers under each slider. Did the beetle change in a way you can see?
 4. Press 3, then 2, then 1. Do the camera dives feel right, or too slow, too fast?
 5. Try the mouse wheel to move between views.
+
+**Also in this session**
+
+- A loading screen shows while the game starts.
+- The browser tests now run against the same web address GitHub Pages uses. Before this fix they would have failed on GitHub.
 
 **Not done yet**
 
