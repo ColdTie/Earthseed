@@ -57,4 +57,6 @@ Playwright uses the Chromium that ships with the pinned `@playwright/test`. In t
 
 The repository has no branch named `main`. Its default branch is `claude/optimistic-volta-sgxeY`, and that branch plays the role of `main` in every rule above. Pull requests merge into it, and the workflow deploys from whichever branch is the default, so renaming it to `main` later needs no code change.
 
+GitHub Pages is still in "deploy from a branch" mode, so after each merge GitHub's raw branch publisher races the workflow's deploy. After every merge, load the live site and confirm it serves the built game (its page script lives under `/Earthseed/assets/`, not `/src/main.ts`). If the raw page won, re-run the workflow's deploy.
+
 See `docs/changelog.md` for the latest state and `docs/roadmap.md` for what is next.

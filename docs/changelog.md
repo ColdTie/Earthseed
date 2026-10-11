@@ -6,7 +6,9 @@ Newest first. Each entry has the link, the screenshots, and a few things for Ste
 
 **Link:** https://coldtie.github.io/Earthseed/
 
-The game goes live at that link after one setting changes on GitHub. Pages is on, but in an older mode that copies files straight from the branch. The game has to be built before it can run, so Pages must be told to publish from GitHub Actions instead. Steps: open https://github.com/ColdTie/Earthseed/settings/pages, and under "Build and deployment", set Source to "GitHub Actions". After that, every merge publishes the game on its own.
+The game is live at that link. Checked in a real browser: it loads, the beetle renders, the simulation runs at 10 ticks per second, and the console shows no errors.
+
+One optional setting would make every future update safer. GitHub Pages is still in its older "deploy from a branch" mode, so on each merge GitHub publishes the raw files and our workflow publishes the built game, and whichever finishes last is what you see. Ours finishes last, so the game wins, but it is a race. To end it for good: open https://github.com/ColdTie/Earthseed/settings/pages, and under "Build and deployment" set Source to "GitHub Actions".
 
 **What was built**
 
