@@ -38,6 +38,7 @@
       "calciumPerCalcite": 0.6,
       "feedPerWorkerPerTick": 0.0003
     },
+    "reserve": { "calcium": 30, "feed": 20 },
     "stress": {
       "crackThreshold": 0.16
     },

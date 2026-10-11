@@ -47,6 +47,8 @@ export interface SpeciesSpec {
   generationTicks: number;
   stabilize: { cost: Partial<Resources>; sigmaFactor: number };
   production: Record<string, number>;
+  /** The crew never draws these below this level, so a gene edit can always be afforded. */
+  reserve?: Partial<Resources>;
   stress?: { crackThreshold: number };
   workers: number;
 }

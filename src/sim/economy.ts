@@ -43,9 +43,10 @@ export function produce(state: SimState, species: SpeciesSpec, planet: PlanetSpe
     const wanted = workers * perWorker * efficiency;
     const calciumNeeded = wanted * (prod.calciumPerCalcite ?? 0);
     const feedNeeded = workers * (prod.feedPerWorkerPerTick ?? 0);
-    // The crew only draws on what an accepted gene edit has not reserved,
-    // so the edit can always be paid when the generation turns.
-    const avail = remaining(state.resources, editCost(species, state.live, state.draft));
+    // The crew only draws on what an accepted gene edit has not reserved, so
+    // the edit can always be paid when the generation turns. It also leaves a
+    // small reserve untouched, so the player can always afford a correction.
+    const avail = remaining(remaining(state.resources, editCost(species, state.live, state.draft)), species.reserve ?? {});
     const calciumFrac = calciumNeeded > 0 ? Math.min(1, avail.calcium / calciumNeeded) : 1;
     const feedFrac = feedNeeded > 0 ? Math.min(1, avail.feed / feedNeeded) : 1;
     const frac = Math.min(calciumFrac, feedFrac);

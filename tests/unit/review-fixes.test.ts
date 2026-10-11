@@ -89,3 +89,32 @@ describe('Kessra economy', () => {
     expect(s.resources.calcium).toBeGreaterThan(0);
   });
 });
+
+describe('the crew leaves a reserve (found in the second review)', () => {
+  it('after maxed output drains calcium, a correction is affordable again within a generation', () => {
+    const s = createSim({ seed: 20261010 });
+    applyAction(s, { type: 'setTrait', trait: 'output', value: 100 });
+    applyAction(s, { type: 'setTrait', trait: 'heatTolerance', value: 60 });
+    stepMany(s, 20000);
+    const species = getSpecies(s.speciesId);
+    const reserve = species.reserve?.calcium ?? 0;
+    expect(s.resources.calcium).toBeGreaterThanOrEqual(reserve);
+    expect(s.resources.calcium).toBeLessThan(reserve + 5);
+    // Lowering output by 20 costs 10 calcium, inside the reserve.
+    expect(applyAction(s, { type: 'setTrait', trait: 'output', value: Math.round(s.live.traits.output) - 20 })).toBe(true);
+    stepMany(s, species.generationTicks);
+    expect(s.log.some((e) => e.text.includes('did not land'))).toBe(false);
+  });
+
+  it('a hungry crew stalls, then eats again as feed comes in', () => {
+    const s = createSim({ seed: 3 });
+    const species = getSpecies(s.speciesId);
+    s.resources.feed = 1; // below the reserve
+    const calcite = s.calcite;
+    produce(s, species, getPlanet(s.planetId));
+    expect(s.calcite).toBe(calcite);
+    stepMany(s, 2000);
+    expect(s.resources.feed).toBeGreaterThanOrEqual(species.reserve?.feed ?? 0);
+    expect(s.calcite).toBeGreaterThan(calcite);
+  });
+});

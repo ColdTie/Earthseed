@@ -140,11 +140,12 @@ test('a refused edit says which resource is short', async ({ page }) => {
   await page.waitForFunction(() => window.__seedlings.getState()!.draft.traits.output === 100);
   // Maxed output burns calcium faster than Kessra supplies it.
   const s = await page.evaluate(() => window.__seedlings.tick(5200));
-  expect(s.resources.calcium).toBeLessThan(1);
+  // The crew keeps a small reserve, so only a large edit is out of reach.
+  expect(s.resources.calcium).toBeLessThan(40);
   await page.evaluate(() => window.__seedlings.freeze(true));
   await page.evaluate(() => {
     const live = window.__seedlings.getState()!.live.traits.output;
-    window.__seedlings.setTrait('output', Math.round(live) - 5);
+    window.__seedlings.setTrait('output', Math.round(live) - 90);
   });
   const note = page.locator('.trait .refused');
   await expect(note).toBeVisible();
