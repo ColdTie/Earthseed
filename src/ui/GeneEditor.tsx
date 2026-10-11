@@ -35,12 +35,19 @@ function TraitSlider({ game, state, trait }: { game: Game; state: SimState; trai
   // on 'change' instead would drop steps when keys repeat faster than replies.
   const [pending, setPending] = useState<{ v: number; at: number } | null>(null);
   // If the sim refused this slider's last move, show where it really is and say why.
+  // A refusal only counts if it answers this slider's latest move; a newer
+  // move clears it.
+  const now = performance.now();
   const refused = game.client.refused;
+  const refusedAt = game.client.refusedAt;
   const short =
-    refused?.type === 'setTrait' && refused.trait === trait && performance.now() - game.client.refusedAt < REFUSED_SHOW_MS
+    refused?.type === 'setTrait' &&
+    refused.trait === trait &&
+    now - refusedAt < REFUSED_SHOW_MS &&
+    (pending === null || refusedAt >= pending.at)
       ? shortOf(state, trait, refused.value)
       : [];
-  const fresh = pending !== null && performance.now() - pending.at < PENDING_MS;
+  const fresh = pending !== null && now - pending.at < PENDING_MS;
   const shown = short.length > 0 || !fresh ? draft : pending.v;
   const delta = Math.round(draft - live);
   const drift = state.lastDrift[trait];

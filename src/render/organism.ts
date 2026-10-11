@@ -86,9 +86,15 @@ export class OrganismView implements View {
       return;
     }
     if (key !== this.wantKey) {
+      // A lone change, like a generation hatching or Undo, goes straight to full detail.
+      const lone = now - this.changedAt >= SETTLE_MS;
       this.wantKey = key;
       this.wantGenome = genome;
       this.changedAt = now;
+      if (lone) {
+        this.build(genome, key, true, now);
+        return;
+      }
     }
     if (this.wantKey === this.genomeKey && this.shownFull) return;
     if (now - this.changedAt >= SETTLE_MS) {
