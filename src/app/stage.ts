@@ -10,21 +10,8 @@ import { GalaxyView } from '../render/galaxy';
 import { SwarmView } from '../render/swarm';
 import { OrganismView } from '../render/organism';
 import { VIEW_DEPTH, type CameraPose, type View, type ViewId } from '../render/view';
+import { Dive } from './dive';
 import type { SimState } from '../sim/types';
-
-const TRANSITION_SECONDS = 0.85;
-
-function easeInOut(t: number): number {
-  return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-}
-
-interface Transition {
-  from: View;
-  to: View;
-  elapsed: number;
-  deeper: boolean;
-  startedAt: number;
-}
 
 export class Stage {
   readonly renderer: Renderer;
@@ -34,8 +21,11 @@ export class Stage {
   readonly swarm: SwarmView;
   private labels: CSS2DRenderer;
   private fade: HTMLElement;
-  private active: View;
-  private transition: Transition | null = null;
+  private dive: Dive;
+  /** The view drawn last frame, so enter and leave run once per change. */
+  private drawn: View;
+  /** When the current run of dives started, for timing. */
+  private diveStartedAt = 0;
   private pos = new Vector3();
   private target = new Vector3();
   private listeners = new Set<(id: ViewId) => void>();
@@ -57,10 +47,11 @@ export class Stage {
     this.labels = new CSS2DRenderer({ element: labelRoot });
     this.labels.setSize(window.innerWidth, window.innerHeight);
     window.addEventListener('resize', () => this.labels.setSize(window.innerWidth, window.innerHeight));
-    this.active = this.organism;
-    this.applyPose(this.active.pose);
-    this.renderer.setBloom(this.active.bloom, this.active.bloomThreshold);
-    this.fade.style.background = this.active.background;
+    this.dive = new Dive('organism');
+    this.drawn = this.organism;
+    this.applyPose(this.drawn.pose);
+    this.renderer.setBloom(this.drawn.bloom, this.drawn.bloomThreshold);
+    this.fade.style.background = this.drawn.background;
     this.fade.style.opacity = '0';
 
     window.addEventListener('keydown', (e) => {
@@ -88,11 +79,11 @@ export class Stage {
   }
 
   get current(): ViewId {
-    return this.transition ? this.transition.to.id : this.active.id;
+    return this.dive.target;
   }
 
   get transitioning(): boolean {
-    return this.transition !== null;
+    return this.dive.moving;
   }
 
   onViewChange(cb: (id: ViewId) => void): () => void {
@@ -101,19 +92,10 @@ export class Stage {
   }
 
   go(id: ViewId): void {
-    if (id === this.current) return;
-    const to = this.views[id];
-    const tr = this.transition;
-    if (tr && this.active === tr.from) {
-      // Still leaving the old view: keep the camera moving and change where it lands.
-      tr.to = to;
-      this.fade.style.background = to.background;
-      for (const l of this.listeners) l(id);
-      return;
-    }
-    const from = tr ? tr.to : this.active;
-    this.transition = { from, to, elapsed: 0, deeper: VIEW_DEPTH[to.id] < VIEW_DEPTH[from.id], startedAt: performance.now() };
-    this.fade.style.background = to.background;
+    const wasMoving = this.dive.moving;
+    if (!this.dive.go(id)) return;
+    if (!wasMoving) this.diveStartedAt = performance.now();
+    this.fade.style.background = this.views[id].background;
     for (const l of this.listeners) l(id);
   }
 
@@ -142,39 +124,27 @@ export class Stage {
     this.lastFrameAt = now;
     for (const v of Object.values(this.views)) v.update(sdt, state);
 
-    let scene = this.active;
-    if (this.transition) {
-      const tr = this.transition;
-      tr.elapsed += wallDt;
-      const u = Math.min(1, tr.elapsed / TRANSITION_SECONDS);
-      const half = 0.5;
-      if (u < half) {
-        // Leave: dive toward the focus when going deeper, pull back when going out.
-        const t = easeInOut(u / half);
-        const leaveTo = tr.deeper ? tr.from.divePose : tr.from.farPose;
-        this.lerpPose(tr.from.pose, leaveTo, t * 0.85);
-        this.fade.style.opacity = String(Math.min(1, t * 1.15));
-        scene = tr.from;
-      } else {
-        // Arrive: come in from far when going deeper, settle back when going out.
-        const t = easeInOut((u - half) / half);
-        const arriveFrom = tr.deeper ? tr.to.farPose : tr.to.divePose;
-        this.lerpPose(arriveFrom, tr.to.pose, t);
-        this.fade.style.opacity = String(Math.max(0, 1 - t * 1.25));
-        scene = tr.to;
-        if (this.active !== tr.to) {
-          this.active.onLeave?.();
-          this.active = tr.to;
-          this.renderer.setBloom(tr.to.bloom, tr.to.bloomThreshold);
-          tr.to.onEnter?.();
-        }
-      }
-      if (u >= 1) {
-        this.lastTransitionMs = performance.now() - tr.startedAt;
-        this.transition = null;
-        this.applyPose(tr.to.pose);
-        this.fade.style.opacity = '0';
-      }
+    const f = this.dive.advance(wallDt);
+    const scene = this.views[f.shown];
+    if (scene !== this.drawn) {
+      this.drawn.onLeave?.();
+      this.drawn = scene;
+      this.renderer.setBloom(scene.bloom, scene.bloomThreshold);
+      scene.onEnter?.();
+    }
+    if (f.leg === 'leave') {
+      // Dive toward the focus when going deeper, pull back when going out.
+      const from = this.views[f.from];
+      this.lerpPose(from.pose, f.deeper ? from.divePose : from.farPose, f.t * 0.85);
+    } else if (f.leg === 'arrive') {
+      // Come in from far when going deeper, settle back when going out.
+      const to = this.views[f.to];
+      this.lerpPose(f.deeper ? to.farPose : to.divePose, to.pose, f.t);
+    }
+    this.fade.style.opacity = String(f.opacity);
+    if (f.done) {
+      this.lastTransitionMs = performance.now() - this.diveStartedAt;
+      this.applyPose(scene.pose);
     }
 
     this.renderer.render(scene.scene, dt);
