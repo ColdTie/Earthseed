@@ -25,7 +25,9 @@ export default defineConfig({
     },
   },
   webServer: {
-    command: 'npx vite preview --port 4173 --strictPort',
+    // Bind the IPv4 loopback explicitly. On GitHub's Ubuntu runners
+    // "localhost" can resolve to ::1, and then the 127.0.0.1 probe never connects.
+    command: 'npx vite preview --host 127.0.0.1 --port 4173 --strictPort',
     url: origin + base,
     reuseExistingServer: true,
     timeout: 60_000,
