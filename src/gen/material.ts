@@ -3,7 +3,7 @@
  * light so creatures pop against any background, and an emissive term for
  * glands and antenna tips. Chemistry picks the look: chalky, chitin, glow.
  */
-import { Color, DoubleSide, ShaderMaterial, Vector3 } from 'three';
+import { Color, DoubleSide, ShaderMaterial, UniformsLib, UniformsUtils, Vector3 } from 'three';
 
 export type Finish = 'chalky' | 'chitin' | 'glow';
 
@@ -12,29 +12,29 @@ export interface ToonOptions {
   finish?: Finish;
   emissive?: string | number | Color;
   emissiveStrength?: number;
-  /** Use the per vertex `part` attribute to pick from `partColors`. */
-  partColors?: Color[];
+  /** Color each vertex from the geometry's `partColor` attribute. */
+  vertexPartColors?: boolean;
 }
 
 const vertex = /* glsl */ `
-  attribute float part;
+  attribute vec3 partColor;
   varying vec3 vNormal;
   varying vec3 vView;
-  varying float vPart;
-  varying vec3 vWorld;
+  varying vec3 vPartColor;
+  #include <fog_pars_vertex>
   void main() {
     vec4 world = modelMatrix * vec4(position, 1.0);
-    vWorld = world.xyz;
     vNormal = normalize(mat3(modelMatrix) * normal);
     vView = normalize(cameraPosition - world.xyz);
-    vPart = part;
-    gl_Position = projectionMatrix * viewMatrix * world;
+    vPartColor = partColor;
+    vec4 mvPosition = viewMatrix * world;
+    gl_Position = projectionMatrix * mvPosition;
+    #include <fog_vertex>
   }
 `;
 
 const fragment = /* glsl */ `
   uniform vec3 uColor;
-  uniform vec3 uPartColors[6];
   uniform float uUseParts;
   uniform vec3 uLightDir;
   uniform vec3 uLightColor;
@@ -47,17 +47,14 @@ const fragment = /* glsl */ `
   uniform float uEmissiveStrength;
   varying vec3 vNormal;
   varying vec3 vView;
-  varying float vPart;
-  varying vec3 vWorld;
+  varying vec3 vPartColor;
+  #include <fog_pars_fragment>
 
   void main() {
     vec3 n = normalize(vNormal);
     vec3 v = normalize(vView);
-    vec3 base = uColor;
-    if (uUseParts > 0.5) {
-      int p = int(clamp(vPart + 0.5, 0.0, 5.0));
-      base = uPartColors[p];
-    }
+    // Part colors blend smoothly across a triangle, so seams never pick up a third color.
+    vec3 base = uUseParts > 0.5 ? vPartColor : uColor;
     float ndl = dot(n, normalize(uLightDir));
     // Three soft bands.
     float band = smoothstep(-0.05, 0.05, ndl) * 0.55 + smoothstep(0.35, 0.45, ndl) * 0.3 + smoothstep(0.75, 0.85, ndl) * 0.15;
@@ -73,6 +70,7 @@ const fragment = /* glsl */ `
     lit += uEmissive * uEmissiveStrength;
     gl_FragColor = vec4(lit, 1.0);
     #include <colorspace_fragment>
+    #include <fog_fragment>
   }
 `;
 
@@ -80,17 +78,15 @@ export const lightDir = new Vector3(0.55, 0.9, 0.5).normalize();
 
 export function toonMaterial(opts: ToonOptions): ShaderMaterial {
   const finish = opts.finish ?? 'chitin';
-  const partColors = opts.partColors ?? [];
-  const padded: Color[] = [];
-  for (let i = 0; i < 6; i++) padded.push(partColors[i] ?? partColors[partColors.length - 1] ?? new Color(opts.color));
   const specular = finish === 'chalky' ? 0.05 : finish === 'glow' ? 0.1 : 0.35;
   const mat = new ShaderMaterial({
     vertexShader: vertex,
     fragmentShader: fragment,
     uniforms: {
+      // Fog uniforms, filled in by three when the scene has fog.
+      ...UniformsUtils.clone(UniformsLib.fog),
       uColor: { value: new Color(opts.color) },
-      uPartColors: { value: padded },
-      uUseParts: { value: partColors.length > 0 ? 1 : 0 },
+      uUseParts: { value: opts.vertexPartColors ? 1 : 0 },
       uLightDir: { value: lightDir.clone() },
       uLightColor: { value: new Color('#fff4e0') },
       uSkyColor: { value: new Color('#dfe9f3') },
@@ -102,6 +98,7 @@ export function toonMaterial(opts: ToonOptions): ShaderMaterial {
       uEmissiveStrength: { value: opts.emissiveStrength ?? 0 },
     },
     side: DoubleSide,
+    fog: true,
   });
   return mat;
 }

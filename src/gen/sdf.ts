@@ -165,6 +165,9 @@ export function marchingCubes(scene: SdfScene, bounds: MeshBounds, cell: number)
   const ny = Math.max(2, Math.ceil((bounds.max.y - bounds.min.y) / cell) + 1);
   const nz = Math.max(2, Math.ceil((bounds.max.z - bounds.min.z) / cell) + 1);
   const field = new Float32Array(nx * ny * nz);
+  // Which part is nearest at each grid corner, taken from the same samples.
+  const partField = new Uint8Array(nx * ny * nz);
+  const sampleOut: SdfSample = { d: 0, part: 0 };
   const idx = (i: number, j: number, k: number) => i + nx * (j + ny * k);
   for (let k = 0; k < nz; k++) {
     const z = bounds.min.z + k * cell;
@@ -172,7 +175,34 @@ export function marchingCubes(scene: SdfScene, bounds: MeshBounds, cell: number)
       const y = bounds.min.y + j * cell;
       for (let i = 0; i < nx; i++) {
         const x = bounds.min.x + i * cell;
-        field[idx(i, j, k)] = scene.dist(x, y, z);
+        const id = idx(i, j, k);
+        scene.sample(x, y, z, sampleOut);
+        field[id] = sampleOut.d;
+        partField[id] = sampleOut.part;
+      }
+    }
+  }
+
+  // Surface normals come from the field's gradient at each grid corner,
+  // by central differences, then blend along each edge. This reuses the
+  // samples above instead of evaluating the shapes again per vertex.
+  const total = nx * ny * nz;
+  const gradX = new Float32Array(total);
+  const gradY = new Float32Array(total);
+  const gradZ = new Float32Array(total);
+  for (let k = 0; k < nz; k++) {
+    const k0 = k > 0 ? k - 1 : k;
+    const k1 = k < nz - 1 ? k + 1 : k;
+    for (let j = 0; j < ny; j++) {
+      const j0 = j > 0 ? j - 1 : j;
+      const j1 = j < ny - 1 ? j + 1 : j;
+      for (let i = 0; i < nx; i++) {
+        const i0 = i > 0 ? i - 1 : i;
+        const i1 = i < nx - 1 ? i + 1 : i;
+        const id = idx(i, j, k);
+        gradX[id] = (field[idx(i1, j, k)]! - field[idx(i0, j, k)]!) / (i1 - i0);
+        gradY[id] = (field[idx(i, j1, k)]! - field[idx(i, j0, k)]!) / (j1 - j0);
+        gradZ[id] = (field[idx(i, j, k1)]! - field[idx(i, j, k0)]!) / (k1 - k0);
       }
     }
   }
@@ -181,7 +211,8 @@ export function marchingCubes(scene: SdfScene, bounds: MeshBounds, cell: number)
   const normals: number[] = [];
   const parts: number[] = [];
   const vert = new Float32Array(12 * 3);
-  const sampleOut: SdfSample = { d: 0, part: 0 };
+  const norm = new Float32Array(12 * 3);
+  const edgePart = new Uint8Array(12);
 
   const corner = [
     [0, 0, 0],
@@ -208,16 +239,18 @@ export function marchingCubes(scene: SdfScene, bounds: MeshBounds, cell: number)
     [3, 7],
   ] as const;
   const cv = new Float32Array(8);
-  const eps = cell * 0.5;
+  const ci = new Int32Array(8);
 
   for (let k = 0; k < nz - 1; k++) {
     for (let j = 0; j < ny - 1; j++) {
       for (let i = 0; i < nx - 1; i++) {
         let cubeIndex = 0;
         for (let c = 0; c < 8; c++) {
-          const [ci, cj, ck] = corner[c]!;
-          const v = field[idx(i + ci, j + cj, k + ck)]!;
+          const [di, dj, dk] = corner[c]!;
+          const id = idx(i + di, j + dj, k + dk);
+          const v = field[id]!;
           cv[c] = v;
+          ci[c] = id;
           // Outside when the distance is positive.
           if (v > 0) cubeIndex |= 1 << c;
         }
@@ -234,6 +267,13 @@ export function marchingCubes(scene: SdfScene, bounds: MeshBounds, cell: number)
           vert[e * 3] = bounds.min.x + (i + ca[0] + (cb[0] - ca[0]) * t) * cell;
           vert[e * 3 + 1] = bounds.min.y + (j + ca[1] + (cb[1] - ca[1]) * t) * cell;
           vert[e * 3 + 2] = bounds.min.z + (k + ca[2] + (cb[2] - ca[2]) * t) * cell;
+          const ia = ci[a]!;
+          const ib = ci[b]!;
+          norm[e * 3] = gradX[ia]! + (gradX[ib]! - gradX[ia]!) * t;
+          norm[e * 3 + 1] = gradY[ia]! + (gradY[ib]! - gradY[ia]!) * t;
+          norm[e * 3 + 2] = gradZ[ia]! + (gradZ[ib]! - gradZ[ia]!) * t;
+          // The part on the inside end of the edge owns the vertex.
+          edgePart[e] = partField[va <= 0 ? ia : ib]!;
         }
         const base = cubeIndex << 4;
         for (let t = 0; triTable[base + t]! !== -1; t += 3) {
@@ -244,13 +284,12 @@ export function marchingCubes(scene: SdfScene, bounds: MeshBounds, cell: number)
             const y = vert[e * 3 + 1]!;
             const z = vert[e * 3 + 2]!;
             positions.push(x, y, z);
-            const gx = scene.dist(x + eps, y, z) - scene.dist(x - eps, y, z);
-            const gy = scene.dist(x, y + eps, z) - scene.dist(x, y - eps, z);
-            const gz = scene.dist(x, y, z + eps) - scene.dist(x, y, z - eps);
+            const gx = norm[e * 3]!;
+            const gy = norm[e * 3 + 1]!;
+            const gz = norm[e * 3 + 2]!;
             const len = Math.hypot(gx, gy, gz) || 1;
             normals.push(gx / len, gy / len, gz / len);
-            scene.sample(x, y, z, sampleOut);
-            parts.push(sampleOut.part);
+            parts.push(edgePart[e]!);
           }
         }
       }

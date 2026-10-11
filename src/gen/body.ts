@@ -32,7 +32,10 @@ export function crawlerBodyScene(plan: CrawlerPlan): SdfScene {
   return scene;
 }
 
-export function crawlerBodyMesh(plan: CrawlerPlan, cell = 0.034): MeshData {
+/** Full detail grid cell, in body units before scaling by size. */
+export const FULL_CELL = 0.034;
+
+export function crawlerBodyMesh(plan: CrawlerPlan, cell = FULL_CELL): MeshData {
   const b = crawlerBounds(plan);
   const scene = crawlerBodyScene(plan);
   return marchingCubes(scene, { min: v(b.min), max: v(b.max) }, cell * plan.size);

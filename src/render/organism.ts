@@ -5,12 +5,18 @@
 import { Color, CylinderGeometry, Group, Mesh, Scene, TorusGeometry, Vector3 } from 'three';
 import type { SimState, Genome } from '../sim/types';
 import { Creature, LAB_MOOD } from '../gen/creature';
+import { FULL_CELL } from '../gen/body';
 import { toonMaterial, setMood } from '../gen/material';
 import { blobShadow } from './scenery';
 import { Rng } from '../sim/rng';
 import type { View } from './view';
 
 const TURN_RATE = 0.22;
+/** Coarser mesh while a slider moves: about a third of the full build time. */
+const PREVIEW_CELL = 0.05;
+const PREVIEW_INTERVAL_MS = 90;
+/** Rebuild at full detail once the genome has been still this long. */
+const SETTLE_MS = 250;
 
 export class OrganismView implements View {
   readonly id = 'organism' as const;
@@ -24,7 +30,14 @@ export class OrganismView implements View {
 
   private turntable = new Group();
   private creature: Creature | null = null;
+  /** The genome on screen, and whether it is at full detail. */
   private genomeKey = '';
+  private shownFull = false;
+  /** The genome the sim wants shown, and when it last changed. */
+  private wantKey = '';
+  private wantGenome: Genome | null = null;
+  private changedAt = 0;
+  private lastBuild = -Infinity;
   private shadow: Mesh;
   private idle = { timer: 2, mode: 'stand' as 'stand' | 'step' | 'look', left: 0, yaw: 0, yawTarget: 0 };
   private producing = 0.5;
@@ -60,11 +73,32 @@ export class OrganismView implements View {
     return this.creature;
   }
 
-  /** Rebuild the creature when the genome it shows has changed. */
+  /**
+   * Show a genome. A full detail mesh takes tens of milliseconds, so while a
+   * slider is moving the creature is rebuilt at lower detail a few times a
+   * second, then once at full detail after the genome has settled.
+   */
   setGenome(genome: Genome): void {
     const key = JSON.stringify(genome);
-    if (key === this.genomeKey) return;
-    this.genomeKey = key;
+    const now = performance.now();
+    if (!this.creature) {
+      this.build(genome, key, true, now);
+      return;
+    }
+    if (key !== this.wantKey) {
+      this.wantKey = key;
+      this.wantGenome = genome;
+      this.changedAt = now;
+    }
+    if (this.wantKey === this.genomeKey && this.shownFull) return;
+    if (now - this.changedAt >= SETTLE_MS) {
+      this.build(this.wantGenome!, this.wantKey, true, now);
+    } else if (this.wantKey !== this.genomeKey && now - this.lastBuild >= PREVIEW_INTERVAL_MS) {
+      this.build(this.wantGenome!, this.wantKey, false, now);
+    }
+  }
+
+  private build(genome: Genome, key: string, full: boolean, now: number): void {
     if (this.creature) {
       this.turntable.remove(this.creature.group);
       this.creature.group.traverse((o) => {
@@ -73,10 +107,15 @@ export class OrganismView implements View {
       });
       for (const mat of this.creature.materials) mat.dispose();
     }
-    this.creature = new Creature(genome, 0);
+    this.creature = new Creature(genome, 0, full ? FULL_CELL : PREVIEW_CELL);
     this.creature.setMood(LAB_MOOD);
     this.turntable.add(this.creature.group);
     this.shadow.scale.setScalar(this.creature.plan.size);
+    this.genomeKey = key;
+    this.wantKey = key;
+    this.wantGenome = genome;
+    this.shownFull = full;
+    this.lastBuild = now;
   }
 
   update(dt: number, state: SimState | null): void {

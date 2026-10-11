@@ -42,6 +42,17 @@ describe('marching cubes', () => {
       if (dot > 0) agree += area;
     }
     expect(agree / total).toBeGreaterThan(0.99);
+    // Normals point outward and are smooth: on a sphere they match the
+    // direction from the center.
+    let align = 0;
+    for (let i = 0; i < m.vertexCount; i++) {
+      const px = m.positions[i * 3]!;
+      const py = m.positions[i * 3 + 1]!;
+      const pz = m.positions[i * 3 + 2]!;
+      const r = Math.hypot(px, py, pz);
+      align += (m.normals[i * 3]! * px + m.normals[i * 3 + 1]! * py + m.normals[i * 3 + 2]! * pz) / r;
+    }
+    expect(align / m.vertexCount).toBeGreaterThan(0.995);
     // Every vertex sits near the surface.
     for (let i = 0; i < m.vertexCount; i++) {
       const r = Math.hypot(m.positions[i * 3]!, m.positions[i * 3 + 1]!, m.positions[i * 3 + 2]!);

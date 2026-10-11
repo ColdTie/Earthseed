@@ -88,7 +88,8 @@ export class Creature {
   /** Vertices in the soft body. */
   readonly bodyVertices: number;
 
-  constructor(genome: Genome, individual = 0) {
+  /** `cell` sets mesh detail: smaller is finer and slower. */
+  constructor(genome: Genome, individual = 0, cell?: number) {
     this.plan = crawlerPlan(genome);
     // Small per individual offsets so a crowd never looks cloned.
     const rng = new Rng(seedFrom(genome.seed, `individual:${individual}`));
@@ -112,14 +113,21 @@ export class Creature {
     // Index by part id: 0 unused, 1 head, 2 thorax, 3 belly, 4 shell.
     const partColors = [body, head, body, belly, shell, shell];
 
-    // Body mesh from the signed distance scene.
-    const data = crawlerBodyMesh(p);
+    // Body mesh from the signed distance scene, colored per vertex by part.
+    const data = crawlerBodyMesh(p, cell);
     this.bodyVertices = data.vertexCount;
+    const colors = new Float32Array(data.vertexCount * 3);
+    for (let i = 0; i < data.vertexCount; i++) {
+      const c = partColors[data.parts[i]!] ?? body;
+      colors[i * 3] = c.r;
+      colors[i * 3 + 1] = c.g;
+      colors[i * 3 + 2] = c.b;
+    }
     const geo = new BufferGeometry();
     geo.setAttribute('position', new BufferAttribute(data.positions, 3));
     geo.setAttribute('normal', new BufferAttribute(data.normals, 3));
-    geo.setAttribute('part', new BufferAttribute(data.parts, 1));
-    const bodyMat = toonMaterial({ color: body, finish: p.shellThick > 0.5 ? 'chitin' : 'chalky', partColors });
+    geo.setAttribute('partColor', new BufferAttribute(colors, 3));
+    const bodyMat = toonMaterial({ color: body, finish: p.shellThick > 0.5 ? 'chitin' : 'chalky', vertexPartColors: true });
     this.materials.push(bodyMat);
     this.body = new Mesh(geo, bodyMat);
     this.group.add(this.body);
