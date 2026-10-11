@@ -22,7 +22,8 @@ env:
 
 jobs:
   check:
-    runs-on: ubuntu-latest
+    # Pinned: Playwright 1.56.1 has no browser builds for newer Ubuntu images.
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -51,7 +52,7 @@ jobs:
   deploy:
     if: github.event_name != 'pull_request' && github.ref_name == github.event.repository.default_branch
     needs: check
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       pages: write
       id-token: write
