@@ -229,6 +229,16 @@ html, body {
   pointer-events: none;
   transform: translateX(-1px);
 }
+.trait .refused {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 4px 0 2px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--red);
+}
+.trait .refused .icon { width: 16px; height: 16px; font-size: 10px; }
 .trait .note { font-size: 11.5px; color: var(--ink-soft); display: flex; justify-content: space-between; }
 .trait .note .drift { font-variant-numeric: tabular-nums; }
 

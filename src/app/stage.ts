@@ -64,7 +64,10 @@ export class Stage {
     this.fade.style.opacity = '0';
 
     window.addEventListener('keydown', (e) => {
-      if ((e.target as HTMLElement | null)?.tagName === 'INPUT') return;
+      // Text fields keep their keys. Sliders do not use digits, so 1 2 3 still switch views.
+      const t = e.target as HTMLElement | null;
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      if (t?.isContentEditable || t?.tagName === 'TEXTAREA' || (t instanceof HTMLInputElement && t.type !== 'range')) return;
       if (e.key === '1') this.go('organism');
       if (e.key === '2') this.go('swarm');
       if (e.key === '3') this.go('galaxy');
@@ -100,7 +103,15 @@ export class Stage {
   go(id: ViewId): void {
     if (id === this.current) return;
     const to = this.views[id];
-    const from = this.transition ? this.transition.to : this.active;
+    const tr = this.transition;
+    if (tr && this.active === tr.from) {
+      // Still leaving the old view: keep the camera moving and change where it lands.
+      tr.to = to;
+      this.fade.style.background = to.background;
+      for (const l of this.listeners) l(id);
+      return;
+    }
+    const from = tr ? tr.to : this.active;
     this.transition = { from, to, elapsed: 0, deeper: VIEW_DEPTH[to.id] < VIEW_DEPTH[from.id], startedAt: performance.now() };
     this.fade.style.background = to.background;
     for (const l of this.listeners) l(id);

@@ -3,9 +3,23 @@ import type { Game } from './store';
 import type { ResourceId, SimState, TraitId } from '../sim/types';
 import { getPlanet, getSpecies } from '../sim/data';
 import { pendingCost } from '../sim/sim';
-import { tensionPartner } from '../sim/genome';
+import { cloneGenome, editCost, setTrait, tensionPartner } from '../sim/genome';
 import resources from '../../data/resources.json';
 import { LogList } from './LogList';
+
+const REFUSED_SHOW_MS = 2500;
+const PENDING_MS = 300;
+
+/** Which resources fall short for moving `trait` to `value` from the current draft. */
+function shortOf(state: SimState, trait: TraitId, value: number): string[] {
+  const species = getSpecies(state.speciesId);
+  const trial = cloneGenome(state.draft);
+  setTrait(trial, trait, value);
+  const cost = editCost(species, state.live, trial);
+  return (Object.entries(cost) as [ResourceId, number][])
+    .filter(([r, v]) => state.resources[r] < v)
+    .map(([r]) => resources[r].label.toLowerCase());
+}
 
 function fmt(n: number): string {
   return Number.isInteger(n) ? String(n) : n.toFixed(1);
@@ -17,8 +31,17 @@ function TraitSlider({ game, state, trait }: { game: Game; state: SimState; trai
   const live = state.live.traits[trait];
   const draft = state.draft.traits[trait];
   const partner = tensionPartner(species, trait);
-  const [dragging, setDragging] = useState<number | null>(null);
-  const shown = dragging ?? draft;
+  // The value the player just set, shown until the sim's reply arrives. Clearing it
+  // on 'change' instead would drop steps when keys repeat faster than replies.
+  const [pending, setPending] = useState<{ v: number; at: number } | null>(null);
+  // If the sim refused this slider's last move, show where it really is and say why.
+  const refused = game.client.refused;
+  const short =
+    refused?.type === 'setTrait' && refused.trait === trait && performance.now() - game.client.refusedAt < REFUSED_SHOW_MS
+      ? shortOf(state, trait, refused.value)
+      : [];
+  const fresh = pending !== null && performance.now() - pending.at < PENDING_MS;
+  const shown = short.length > 0 || !fresh ? draft : pending.v;
   const delta = Math.round(draft - live);
   const drift = state.lastDrift[trait];
   const costText = (Object.entries(spec.editCost) as [ResourceId, number][])
@@ -45,16 +68,19 @@ function TraitSlider({ game, state, trait }: { game: Game; state: SimState; trai
           value={shown}
           onInput={(e) => {
             const v = Number((e.currentTarget as HTMLInputElement).value);
-            setDragging(v);
+            setPending({ v, at: performance.now() });
             game.client.dispatch({ type: 'setTrait', trait, value: v });
           }}
-          onChange={() => setDragging(null)}
-          onPointerUp={() => setDragging(null)}
-          onBlur={() => setDragging(null)}
           aria-valuetext={`${spec.label} ${fmt(shown)}`}
         />
         <span class="live" style={{ left: `calc(${live}% + ${8 - live * 0.16}px)` }} title={`Live generation: ${fmt(live)}`} />
       </div>
+      {short.length > 0 && (
+        <div class="refused" role="status">
+          <span class="icon warn" aria-hidden="true">!</span>
+          Not enough {short.join(' or ')} for that edit.
+        </div>
+      )}
       <div class="note">
         <span>{partner ? `Pulls against ${species.traits[partner].label.toLowerCase()}` : 'No partner'} · {costText}</span>
         <span class="drift" title="How far this trait drifted when the last generation hatched">

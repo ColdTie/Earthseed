@@ -18,8 +18,9 @@ export class GameClient {
   private nextId = 1;
   private saveTimer = 0;
   state: SimState | null = null;
-  /** The last action the sim refused, for the UI to explain. */
+  /** The last action the sim refused, and when, for the UI to explain. */
   refused: Action | null = null;
+  refusedAt = 0;
   readonly ready: Promise<SimState>;
   private resolveReady!: (s: SimState) => void;
 
@@ -42,7 +43,9 @@ export class GameClient {
           break;
         }
         case 'refused':
+          // A snapshot follows right away, which re-renders the panel.
           this.refused = msg.action;
+          this.refusedAt = performance.now();
           break;
       }
     };

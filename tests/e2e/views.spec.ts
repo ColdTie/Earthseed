@@ -116,3 +116,59 @@ test('same seed gives the same state after 3000 ticks in the browser', async ({ 
   const b = await page.evaluate(async () => JSON.stringify(await window.__seedlings.tick(3000)));
   expect(a).toBe(b);
 });
+
+test('slow slider steps still pay the trade-off, and view keys work after using a slider', async ({ page }) => {
+  const errors = await open(page, '&paused');
+  const slider = page.locator('#trait-heatTolerance');
+  await slider.focus();
+  for (let i = 0; i < 10; i++) await slider.press('ArrowRight');
+  await page.waitForFunction(() => window.__seedlings.getState()!.draft.traits.heatTolerance === 45);
+  const speed = await page.evaluate(() => window.__seedlings.getState()!.draft.traits.speed);
+  expect(speed).toBe(45);
+  // Focus is still on the slider. The view keys must still work.
+  await page.keyboard.press('2');
+  await page.waitForFunction(() => window.__seedlings.getView() === 'swarm');
+  expect(errors).toEqual([]);
+});
+
+test('a refused edit says which resource is short', async ({ page }) => {
+  const errors = await open(page, '&paused');
+  await page.evaluate(() => {
+    window.__seedlings.setTrait('heatTolerance', 100);
+    window.__seedlings.setTrait('output', 100);
+  });
+  await page.waitForFunction(() => window.__seedlings.getState()!.draft.traits.output === 100);
+  // Maxed output burns calcium faster than Kessra supplies it.
+  const s = await page.evaluate(() => window.__seedlings.tick(5200));
+  expect(s.resources.calcium).toBeLessThan(1);
+  await page.evaluate(() => window.__seedlings.freeze(true));
+  await page.evaluate(() => {
+    const live = window.__seedlings.getState()!.live.traits.output;
+    window.__seedlings.setTrait('output', Math.round(live) - 5);
+  });
+  const note = page.locator('.trait .refused');
+  await expect(note).toBeVisible();
+  await expect(note).toContainText('calcium');
+  await page.screenshot({ path: `${SHOTS}/organism-refused.png` });
+  expect(errors).toEqual([]);
+});
+
+test('changing view again mid-dive lands on the new view without a cut', async ({ page }) => {
+  const errors = await open(page);
+  await page.evaluate(() => window.__seedlings.freeze(true));
+  const view = await page.evaluate(
+    () =>
+      new Promise<string>((resolve) => {
+        const s = window.__seedlings;
+        void s.setView('swarm');
+        // Change our mind on the next frame, while still leaving the organism view.
+        requestAnimationFrame(() => {
+          void s.setView('galaxy').then(() => resolve(s.getView()));
+        });
+      }),
+  );
+  expect(view).toBe('galaxy');
+  await settle(page);
+  await expect(page.getByRole('heading', { name: 'Contract board' })).toBeVisible();
+  expect(errors).toEqual([]);
+});
